@@ -940,7 +940,7 @@ export default function Home() {
       </section>
 
       {/* 4. Domestic Market Supply Section */}
-      <section className="py-24 bg-cream-bg/30 px-4 md:px-8 max-w-7xl mx-auto rounded-3xl border border-gold-accent/10 my-12">
+      <section className="pt-20 pb-12 bg-cream-bg/30 px-4 md:px-8 max-w-7xl mx-auto rounded-3xl border border-gold-accent/10 mt-12 mb-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           {/* Left: Domestic Network Info & Illustrations */}
           <div className="lg:col-span-5 text-left space-y-6">
@@ -1011,7 +1011,7 @@ export default function Home() {
       </section>
 
       {/* 5. Why Choose Us (Luxury Bento Grid UI) */}
-      <section className="py-24 px-4 md:px-8 max-w-7xl mx-auto text-center space-y-16">
+      <section className="pt-12 pb-24 px-4 md:px-8 max-w-7xl mx-auto text-center space-y-16">
         <div className="max-w-2xl mx-auto space-y-3">
           <div className="text-gold-accent uppercase font-bold text-[10px] tracking-widest bg-gold-accent/5 inline-block px-3 py-1.5 rounded-full border border-gold-accent/10">Why Sri Varahi Agro?</div>
           <h2 className="font-serif text-3xl md:text-5xl font-extrabold text-dark-green tracking-tight leading-tight">Elite Agriculture Partner</h2>
