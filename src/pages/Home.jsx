@@ -186,9 +186,52 @@ export default function Home() {
 
       </section>
 
- 
+      {/* Infinite Product Names Scrolling Ticker */}
+      <div className="bg-gradient-to-r from-dark-green to-primary-green py-3 border-y border-gold-accent/20 relative z-20 overflow-hidden select-none shadow-sm">
+        <style dangerouslySetInnerHTML={{__html: `
+          @keyframes ticker-scroll {
+            0% { transform: translate3d(0, 0, 0); }
+            100% { transform: translate3d(-50%, 0, 0); }
+          }
+          .animate-ticker {
+            display: flex;
+            width: max-content;
+            animation: ticker-scroll 60s linear infinite;
+          }
+          .animate-ticker:hover {
+            animation-play-state: paused;
+          }
+        `}} />
+        <div className="flex overflow-hidden">
+          <div className="animate-ticker flex items-center space-x-12 text-white font-sans text-[10px] sm:text-xs uppercase tracking-wider font-semibold">
+            {/* First Set of Products */}
+            {products.map((p, idx) => (
+              <Link 
+                key={`t1-${idx}`} 
+                to={`/products/${p.slug}`}
+                className="flex items-center space-x-4 hover:text-gold-accent transition-colors duration-300 shrink-0"
+              >
+                <span>{p.name}</span>
+                <span className="text-gold-accent font-bold text-xs">★</span>
+              </Link>
+            ))}
+            {/* Duplicated Set for Seamless Infinite Loop */}
+            {products.map((p, idx) => (
+              <Link 
+                key={`t2-${idx}`} 
+                to={`/products/${p.slug}`}
+                className="flex items-center space-x-4 hover:text-gold-accent transition-colors duration-300 shrink-0"
+              >
+                <span>{p.name}</span>
+                <span className="text-gold-accent font-bold text-xs">★</span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </div>
+
       {/* 2. Quick Product Categories Scroller */}
-      <section className="py-8 px-4 md:px-8 max-w-7xl mx-auto relative z-20">
+      <section className="relative z-20 w-full border-b border-gold-accent/15 overflow-hidden">
         <style dangerouslySetInnerHTML={{__html: `
           .no-scrollbar::-webkit-scrollbar {
             display: none;
@@ -200,32 +243,32 @@ export default function Home() {
         `}} />
         
         <div 
-          className="flex overflow-x-auto gap-4 md:grid md:grid-cols-5 md:gap-6 no-scrollbar"
+          className="flex overflow-x-auto gap-0 md:grid md:grid-cols-5 no-scrollbar w-full"
           style={{ WebkitOverflowScrolling: 'touch' }}
         >
           {categories.filter(cat => ["rice-flours", "whole-spices", "powders", "fresh-vegetables", "fresh-fruits"].includes(cat.slug)).map((cat) => (
             <Link 
               key={cat.id} 
               to={`/products?category=${cat.slug}`}
-              className="min-w-[280px] sm:min-w-[320px] md:min-w-0 w-[85vw] md:w-auto aspect-[4/3] rounded-2xl overflow-hidden relative group shadow-md border border-gold-accent/10 flex-shrink-0 transition-transform duration-300 hover:scale-[1.02]"
+              className="min-w-[280px] sm:min-w-[340px] md:min-w-0 w-[80vw] md:w-auto h-[350px] md:h-[450px] lg:h-[500px] overflow-hidden relative group flex-shrink-0 border-r border-gold-accent/10 last:border-r-0 transition-all duration-500 ease-out"
             >
               {/* Background Image */}
               <img 
                 src={cat.image} 
                 alt={cat.name} 
-                className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+                className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
               />
               
-              {/* Overlay Gradient at the bottom */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-10" />
+              {/* Premium Gradient Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-dark-green/95 via-dark-green/35 to-transparent z-10 transition-opacity duration-300 group-hover:from-primary-green/95 group-hover:via-primary-green/30" />
 
               {/* Text Content */}
-              <div className="absolute inset-x-0 bottom-0 z-20 p-5 text-center flex flex-col items-center justify-end h-1/2">
-                <h3 className="text-white text-base sm:text-lg lg:text-xl font-extrabold uppercase tracking-wider leading-tight drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] font-sans">
+              <div className="absolute inset-x-0 bottom-0 z-20 p-6 text-center flex flex-col items-center justify-end h-1/2 transition-transform duration-500 ease-out group-hover:-translate-y-2">
+                <h3 className="text-white text-lg sm:text-xl lg:text-2xl font-serif font-extrabold uppercase tracking-wider leading-tight drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]">
                   {cat.name}
                 </h3>
-                <div className="w-8 h-[1px] bg-gold-accent my-1.5 opacity-60"></div>
-                <p className="text-[10px] sm:text-xs text-cream-bg/95 font-medium tracking-wide leading-snug drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] font-sans">
+                <div className="w-10 h-[2px] bg-gold-accent my-2.5 transition-all duration-500 ease-out group-hover:w-16"></div>
+                <p className="text-xs text-cream-bg/90 font-light tracking-wide leading-snug drop-shadow-sm font-sans max-w-[90%]">
                   {cat.subtitle}
                 </p>
               </div>
