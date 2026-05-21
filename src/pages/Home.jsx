@@ -672,7 +672,7 @@ export default function Home() {
             <div className="relative z-10 grid grid-cols-2 gap-4">
               <div className="space-y-4">
                 <div className="rounded-2xl overflow-hidden shadow-lg border border-gold-accent/15 aspect-[3/4] hover:scale-[1.02] transition-transform duration-500">
-                  <img src="/Spicies-cat.png" alt="Indian Spices Sourcing" className="w-full h-full object-cover" />
+                  <img src="/about-spices-new.png" alt="Indian Spices Sourcing" className="w-full h-full object-cover" />
                 </div>
                 <div className="bg-gradient-to-br from-dark-green to-primary-green p-6 rounded-2xl border border-gold-accent/20 text-white shadow-xl hover:translate-y-[-4px] transition-all duration-300">
                   <Leaf className="w-8 h-8 text-gold-accent mb-3" />
@@ -688,7 +688,7 @@ export default function Home() {
                   <p className="text-[10px] text-soft-gray font-light leading-relaxed mt-1">Insulated sea cargo stuffing & fast temperature-controlled air cargo solutions.</p>
                 </div>
                 <div className="rounded-2xl overflow-hidden shadow-lg border border-gold-accent/15 aspect-[3/4] hover:scale-[1.02] transition-transform duration-500">
-                  <img src="/Rice-Cat.png" alt="Premium Rice Milling" className="w-full h-full object-cover" />
+                  <img src="/about-rice-new.png" alt="Premium Rice Milling" className="w-full h-full object-cover" />
                 </div>
               </div>
             </div>
