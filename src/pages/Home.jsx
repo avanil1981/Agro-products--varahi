@@ -1333,9 +1333,13 @@ export default function Home() {
       </section>
 
       {/* 13. Final Cinematic CTA Section */}
-      <section className="bg-dark-green py-24 px-4 md:px-8 border-t-2 border-gold-accent text-white relative overflow-hidden">
+      <section 
+        className="bg-dark-green py-24 px-4 md:px-8 border-t-2 border-gold-accent text-white relative overflow-hidden bg-cover bg-center bg-no-repeat bg-fixed"
+        style={{ backgroundImage: "url('/cta-bg.png')" }}
+      >
+        <div className="absolute inset-0 bg-dark-green/85"></div>
         {/* Abstract warehouse container vectors overlay */}
-        <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[radial-gradient(#F8F6F1_2px,transparent_2px)] [background-size:32px_32px]"></div>
+        <div className="absolute inset-0 opacity-[0.05] pointer-events-none bg-[radial-gradient(#F8F6F1_2px,transparent_2px)] [background-size:32px_32px]"></div>
         
         <div className="max-w-4xl mx-auto text-center relative z-10 space-y-8">
           <div className="inline-flex items-center space-x-2 text-gold-accent uppercase font-bold text-[10px] tracking-widest bg-white/5 px-4 py-2 rounded-full border border-white/10">Get Direct Sourcing Quotes</div>

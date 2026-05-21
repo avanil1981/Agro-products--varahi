@@ -265,8 +265,12 @@ export default function About() {
       </section>
 
       {/* 5. Trust Section */}
-      <section className="bg-dark-green py-20 px-4 md:px-8 border-t-2 border-gold-accent text-white relative">
-        <div className="absolute inset-0 opacity-[0.02] pointer-events-none bg-[radial-gradient(#F8F6F1_1px,transparent_1px)] [background-size:16px_16px]"></div>
+      <section 
+        className="bg-dark-green py-20 px-4 md:px-8 border-t-2 border-gold-accent text-white relative bg-cover bg-center bg-no-repeat bg-fixed"
+        style={{ backgroundImage: "url('/cta-bg.png')" }}
+      >
+        <div className="absolute inset-0 bg-dark-green/85"></div>
+        <div className="absolute inset-0 opacity-[0.05] pointer-events-none bg-[radial-gradient(#F8F6F1_1px,transparent_1px)] [background-size:16px_16px]"></div>
         <div className="max-w-4xl mx-auto text-center relative z-10 space-y-6">
           <div className="inline-flex items-center space-x-1.5 text-gold-accent uppercase font-bold text-[10px] tracking-widest">
             <Award className="w-4 h-4" />

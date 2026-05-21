@@ -121,19 +121,25 @@ export default function DomesticMarket() {
 
       {/* 4. Partner CTA Banner */}
       <section className="py-20 px-4 md:px-8 max-w-4xl mx-auto">
-        <div className="bg-gradient-to-br from-primary-green to-dark-green text-white p-8 md:p-12 rounded-3xl border border-gold-accent/25 shadow-xl text-center space-y-6">
-          <span className="text-[10px] uppercase tracking-widest text-gold-accent font-bold block">PARTNER WITH SRI VARAHI</span>
-          <h2 className="font-serif text-2xl md:text-3xl font-extrabold">Become a Registered Distributor</h2>
-          <p className="text-xs text-cream-bg/70 leading-relaxed font-light max-w-lg mx-auto">
-            We are actively expanding our retail partner and distributor network across various states in India. Get in touch with our commercial sales desk to receive sample bags and regional distributorship documents.
-          </p>
-          <div className="pt-2">
-            <Link 
-              to="/contact" 
-              className="bg-gold-accent text-dark-green font-bold text-xs py-3 px-8 rounded-full hover:bg-gold-light transition-all shadow-md inline-block"
-            >
-              Become a Distributor
-            </Link>
+        <div 
+          className="bg-dark-green text-white p-8 md:p-12 rounded-3xl border border-gold-accent/25 shadow-xl text-center relative overflow-hidden bg-cover bg-center bg-no-repeat bg-fixed"
+          style={{ backgroundImage: "url('/cta-bg.png')" }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-br from-primary-green/90 to-dark-green/90"></div>
+          <div className="relative z-10 space-y-6">
+            <span className="text-[10px] uppercase tracking-widest text-gold-accent font-bold block">PARTNER WITH SRI VARAHI</span>
+            <h2 className="font-serif text-2xl md:text-3xl font-extrabold">Become a Registered Distributor</h2>
+            <p className="text-xs text-cream-bg/70 leading-relaxed font-light max-w-lg mx-auto">
+              We are actively expanding our retail partner and distributor network across various states in India. Get in touch with our commercial sales desk to receive sample bags and regional distributorship documents.
+            </p>
+            <div className="pt-2">
+              <Link 
+                to="/contact" 
+                className="bg-gold-accent text-dark-green font-bold text-xs py-3 px-8 rounded-full hover:bg-gold-light transition-all shadow-md inline-block"
+              >
+                Become a Distributor
+              </Link>
+            </div>
           </div>
         </div>
       </section>

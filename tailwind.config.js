@@ -1,4 +1,4 @@
-/** @type {import('tailwindcss').Config} */
+// Force Tailwind rebuild
 module.exports = {
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
