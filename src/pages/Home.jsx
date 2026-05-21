@@ -93,7 +93,7 @@ export default function Home() {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.8, ease: "easeInOut" }}
-              className="absolute inset-0 bg-[size:100%_100%] bg-no-repeat bg-center"
+              className={`absolute inset-0 bg-center bg-no-repeat ${currentSlide === 5 ? 'bg-[size:100%_100%]' : 'bg-cover'}`}
               style={{ backgroundImage: `url('${slides[currentSlide]}')` }}
             />
           </AnimatePresence>
