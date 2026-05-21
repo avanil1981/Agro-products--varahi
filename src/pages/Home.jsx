@@ -855,85 +855,102 @@ export default function Home() {
       </section>
 
       {/* 3. International Export Services Section */}
-      <section className="py-24 bg-gradient-to-br from-dark-green via-[#063B1D] to-dark-green text-white relative overflow-hidden border-y-2 border-gold-accent/20">
+      <section 
+        className="py-32 text-white relative overflow-hidden border-y-4 border-gold-accent/60 bg-cover bg-fixed bg-center"
+        style={{ backgroundImage: "url('https://images.unsplash.com/photo-1586528116311-ad8ed7e66a6a?auto=format&fit=crop&w=2000&q=80')" }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-b from-dark-green/95 via-dark-green/85 to-dark-green/95"></div>
+        
         {/* World Map Backdrop Vector */}
-        <div className="absolute inset-0 opacity-[0.05] pointer-events-none flex items-center justify-center">
-          <svg className="w-full h-full max-w-4xl" viewBox="0 0 1000 500" fill="currentColor">
-            <path d="M150,150 Q200,100 250,150 T350,150 T450,150 T550,150 T650,150 T750,150 T850,150" stroke="white" strokeWidth="1" fill="none" strokeDasharray="5,5" />
-            <circle cx="200" cy="120" r="4" className="animate-ping" fill="#D4A017" />
-            <circle cx="400" cy="180" r="4" fill="#D4A017" />
-            <circle cx="650" cy="140" r="4" className="animate-ping" fill="#D4A017" />
-            <circle cx="800" cy="220" r="4" fill="#D4A017" />
+        <div className="absolute inset-0 opacity-20 pointer-events-none flex items-center justify-center mix-blend-overlay">
+          <svg className="w-full h-full max-w-5xl" viewBox="0 0 1000 500" fill="currentColor">
+            <path d="M150,150 Q200,100 250,150 T350,150 T450,150 T550,150 T650,150 T750,150 T850,150" stroke="white" strokeWidth="1.5" fill="none" strokeDasharray="5,5" />
+            <circle cx="200" cy="120" r="5" className="animate-ping" fill="#D4A017" />
+            <circle cx="400" cy="180" r="6" fill="#D4A017" />
+            <circle cx="650" cy="140" r="5" className="animate-ping" fill="#D4A017" />
+            <circle cx="800" cy="220" r="6" fill="#D4A017" />
           </svg>
         </div>
 
         <div className="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
-          <div className="text-center max-w-2xl mx-auto mb-16 space-y-3">
-            <div className="text-gold-accent uppercase font-bold text-[10px] tracking-widest bg-white/5 inline-block px-3 py-1 rounded-full border border-white/10">Global Logistics Solutions</div>
-            <h2 className="font-serif text-3xl md:text-4xl font-extrabold tracking-tight">International Export Solutions</h2>
-            <div className="w-20 h-1 bg-gold-accent mx-auto my-3"></div>
-            <p className="text-xs text-cream-bg/70 font-light">Reliable sea cargo and temperature-controlled air cargo logistics support for global agricultural exports.</p>
+          <div className="text-center max-w-3xl mx-auto mb-20 space-y-4">
+            <div className="text-gold-accent uppercase font-black text-[10px] tracking-[0.3em] bg-black/30 backdrop-blur-md inline-block px-5 py-2 rounded-full border border-gold-accent/30 shadow-[0_0_15px_rgba(236,192,67,0.2)]">Global Logistics Solutions</div>
+            <h2 className="font-serif text-4xl md:text-5xl font-extrabold tracking-tight drop-shadow-lg">International Export Solutions</h2>
+            <div className="w-24 h-1.5 bg-gradient-to-r from-transparent via-gold-accent to-transparent mx-auto my-6"></div>
+            <p className="text-sm text-cream-bg/90 font-light leading-relaxed">Reliable sea cargo and temperature-controlled air cargo logistics support for global agricultural exports. We ensure your commodities arrive safely, efficiently, and fully compliant.</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Service 1 */}
-            <div className="bg-white/5 backdrop-blur-md p-8 rounded-2xl border border-white/10 hover:border-gold-accent/40 shadow-xl hover:-translate-y-2 transition-all duration-300 group relative overflow-hidden">
-              <div className="absolute right-0 top-0 w-24 h-24 bg-gradient-to-br from-gold-accent/10 to-transparent rounded-bl-full pointer-events-none"></div>
-              <div className="bg-gold-accent/10 p-4 rounded-xl text-gold-accent shrink-0 inline-block mb-6 group-hover:bg-gold-accent group-hover:text-dark-green transition-all duration-300">
-                <Ship className="w-6 h-6 animate-pulse" />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-auto">
+            {/* Service 1: Ship Cargo (Wide) */}
+            <div className="md:col-span-2 bg-white/5 backdrop-blur-xl p-8 rounded-3xl border border-white/10 hover:bg-white/10 hover:border-gold-accent/50 shadow-lg hover:shadow-[0_0_40px_rgba(236,192,67,0.15)] transition-all duration-500 group relative overflow-hidden flex flex-col sm:flex-row items-center sm:items-start gap-6 text-center sm:text-left">
+              <div className="absolute right-0 top-0 w-32 h-32 bg-gradient-to-br from-gold-accent/20 to-transparent rounded-bl-full pointer-events-none opacity-50 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="bg-gradient-to-br from-gold-accent/20 to-transparent p-5 rounded-2xl text-gold-accent shrink-0 group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(236,192,67,0.4)] transition-all duration-500 border border-gold-accent/20 group-hover:border-transparent">
+                <Ship className="w-8 h-8" />
               </div>
-              <h3 className="font-serif text-lg font-bold text-white mb-3">Ship Cargo Export</h3>
-              <p className="text-[11px] text-cream-bg/75 leading-relaxed font-light">FCL and LCL shipping in multi-wall custom packaging. Strong seaport ties ensure reliable container booking and route optimization.</p>
+              <div className="space-y-2 relative z-10">
+                <h3 className="font-serif text-2xl font-bold text-white group-hover:text-gold-accent transition-colors duration-300">Ship Cargo Export</h3>
+                <p className="text-sm text-cream-bg/80 leading-relaxed font-light">FCL and LCL shipping in multi-wall custom packaging. Strong seaport ties ensure reliable container booking and route optimization for mass volume deliveries.</p>
+              </div>
             </div>
 
-            {/* Service 2 */}
-            <div className="bg-white/5 backdrop-blur-md p-8 rounded-2xl border border-white/10 hover:border-gold-accent/40 shadow-xl hover:-translate-y-2 transition-all duration-300 group relative overflow-hidden">
-              <div className="absolute right-0 top-0 w-24 h-24 bg-gradient-to-br from-gold-accent/10 to-transparent rounded-bl-full pointer-events-none"></div>
-              <div className="bg-gold-accent/10 p-4 rounded-xl text-gold-accent shrink-0 inline-block mb-6 group-hover:bg-gold-accent group-hover:text-dark-green transition-all duration-300">
+            {/* Service 2: Air Cargo (Standard) */}
+            <div className="md:col-span-1 bg-white/5 backdrop-blur-xl p-8 rounded-3xl border border-white/10 hover:bg-white/10 hover:border-gold-accent/50 shadow-lg hover:shadow-[0_0_40px_rgba(236,192,67,0.15)] transition-all duration-500 group relative overflow-hidden flex flex-col items-start gap-5">
+              <div className="absolute right-0 top-0 w-24 h-24 bg-gradient-to-br from-gold-accent/20 to-transparent rounded-bl-full pointer-events-none opacity-50 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="bg-gradient-to-br from-gold-accent/20 to-transparent p-4 rounded-2xl text-gold-accent shrink-0 group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(236,192,67,0.4)] transition-all duration-500 border border-gold-accent/20 group-hover:border-transparent">
                 <Plane className="w-6 h-6" />
               </div>
-              <h3 className="font-serif text-lg font-bold text-white mb-3">Air Cargo Export</h3>
-              <p className="text-[11px] text-cream-bg/75 leading-relaxed font-light">Express custom cold-chain air courier routing for highly seasonal fruits, tender fresh vegetables, and premium single-origin coffee shipments.</p>
+              <div className="relative z-10">
+                <h3 className="font-serif text-xl font-bold text-white mb-2 group-hover:text-gold-accent transition-colors">Air Cargo Export</h3>
+                <p className="text-xs text-cream-bg/80 leading-relaxed font-light">Express custom cold-chain air courier routing for highly seasonal fruits and tender vegetables.</p>
+              </div>
             </div>
 
-            {/* Service 3 */}
-            <div className="bg-white/5 backdrop-blur-md p-8 rounded-2xl border border-white/10 hover:border-gold-accent/40 shadow-xl hover:-translate-y-2 transition-all duration-300 group relative overflow-hidden">
-              <div className="absolute right-0 top-0 w-24 h-24 bg-gradient-to-br from-gold-accent/10 to-transparent rounded-bl-full pointer-events-none"></div>
-              <div className="bg-gold-accent/10 p-4 rounded-xl text-gold-accent shrink-0 inline-block mb-6 group-hover:bg-gold-accent group-hover:text-dark-green transition-all duration-300">
+            {/* Service 3: Documentation (Standard) */}
+            <div className="md:col-span-1 bg-white/5 backdrop-blur-xl p-8 rounded-3xl border border-white/10 hover:bg-white/10 hover:border-gold-accent/50 shadow-lg hover:shadow-[0_0_40px_rgba(236,192,67,0.15)] transition-all duration-500 group relative overflow-hidden flex flex-col items-start gap-5">
+              <div className="absolute right-0 top-0 w-24 h-24 bg-gradient-to-br from-gold-accent/20 to-transparent rounded-bl-full pointer-events-none opacity-50 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="bg-gradient-to-br from-gold-accent/20 to-transparent p-4 rounded-2xl text-gold-accent shrink-0 group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(236,192,67,0.4)] transition-all duration-500 border border-gold-accent/20 group-hover:border-transparent">
                 <FileText className="w-6 h-6" />
               </div>
-              <h3 className="font-serif text-lg font-bold text-white mb-3">Export Documentation</h3>
-              <p className="text-[11px] text-cream-bg/75 leading-relaxed font-light">Complete handling of APEDA, SGS/Geochem checks, Phyto-sanitary certifications, customs clearing, certificate of origin, and bank drafts.</p>
+              <div className="relative z-10">
+                <h3 className="font-serif text-xl font-bold text-white mb-2 group-hover:text-gold-accent transition-colors">Export Documentation</h3>
+                <p className="text-xs text-cream-bg/80 leading-relaxed font-light">Complete handling of APEDA, SGS/Geochem checks, Phyto-sanitary certifications, and bank drafts.</p>
+              </div>
             </div>
 
-            {/* Service 4 */}
-            <div className="bg-white/5 backdrop-blur-md p-8 rounded-2xl border border-white/10 hover:border-gold-accent/40 shadow-xl hover:-translate-y-2 transition-all duration-300 group relative overflow-hidden">
-              <div className="absolute right-0 top-0 w-24 h-24 bg-gradient-to-br from-gold-accent/10 to-transparent rounded-bl-full pointer-events-none"></div>
-              <div className="bg-gold-accent/10 p-4 rounded-xl text-gold-accent shrink-0 inline-block mb-6 group-hover:bg-gold-accent group-hover:text-dark-green transition-all duration-300">
-                <Package2 className="w-6 h-6" />
+            {/* Service 4: Bulk Container (Wide) */}
+            <div className="md:col-span-2 bg-white/5 backdrop-blur-xl p-8 rounded-3xl border border-white/10 hover:bg-white/10 hover:border-gold-accent/50 shadow-lg hover:shadow-[0_0_40px_rgba(236,192,67,0.15)] transition-all duration-500 group relative overflow-hidden flex flex-col sm:flex-row items-center sm:items-start gap-6 text-center sm:text-left">
+              <div className="absolute right-0 top-0 w-32 h-32 bg-gradient-to-br from-gold-accent/20 to-transparent rounded-bl-full pointer-events-none opacity-50 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="bg-gradient-to-br from-gold-accent/20 to-transparent p-5 rounded-2xl text-gold-accent shrink-0 group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(236,192,67,0.4)] transition-all duration-500 border border-gold-accent/20 group-hover:border-transparent">
+                <Package2 className="w-8 h-8" />
               </div>
-              <h3 className="font-serif text-lg font-bold text-white mb-3">Bulk Container Supply</h3>
-              <p className="text-[11px] text-cream-bg/75 leading-relaxed font-light">High-capacity bulk shipments of grains, pulses, and onions with optimized weight structures in dry and ventilated containers.</p>
+              <div className="space-y-2 relative z-10">
+                <h3 className="font-serif text-2xl font-bold text-white group-hover:text-gold-accent transition-colors duration-300">Bulk Container Supply</h3>
+                <p className="text-sm text-cream-bg/80 leading-relaxed font-light">High-capacity bulk shipments of grains, pulses, and onions with optimized weight structures in dry and ventilated containers engineered for international transit.</p>
+              </div>
             </div>
 
-            {/* Service 5 */}
-            <div className="bg-white/5 backdrop-blur-md p-8 rounded-2xl border border-white/10 hover:border-gold-accent/40 shadow-xl hover:-translate-y-2 transition-all duration-300 group relative overflow-hidden">
-              <div className="absolute right-0 top-0 w-24 h-24 bg-gradient-to-br from-gold-accent/10 to-transparent rounded-bl-full pointer-events-none"></div>
-              <div className="bg-gold-accent/10 p-4 rounded-xl text-gold-accent shrink-0 inline-block mb-6 group-hover:bg-gold-accent group-hover:text-dark-green transition-all duration-300">
-                <Award className="w-6 h-6" />
+            {/* Service 5: Custom Packaging (Wide) */}
+            <div className="md:col-span-2 bg-white/5 backdrop-blur-xl p-8 rounded-3xl border border-white/10 hover:bg-white/10 hover:border-gold-accent/50 shadow-lg hover:shadow-[0_0_40px_rgba(236,192,67,0.15)] transition-all duration-500 group relative overflow-hidden flex flex-col sm:flex-row items-center sm:items-start gap-6 text-center sm:text-left">
+              <div className="absolute right-0 top-0 w-32 h-32 bg-gradient-to-br from-gold-accent/20 to-transparent rounded-bl-full pointer-events-none opacity-50 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="bg-gradient-to-br from-gold-accent/20 to-transparent p-5 rounded-2xl text-gold-accent shrink-0 group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(236,192,67,0.4)] transition-all duration-500 border border-gold-accent/20 group-hover:border-transparent">
+                <Award className="w-8 h-8" />
               </div>
-              <h3 className="font-serif text-lg font-bold text-white mb-3">Custom Packaging</h3>
-              <p className="text-[11px] text-cream-bg/75 leading-relaxed font-light">Flexible private label design options, high-vacuum retail boxes, moisture-barrier packs, and BOPP/jute bulk bags with gold accents.</p>
+              <div className="space-y-2 relative z-10">
+                <h3 className="font-serif text-2xl font-bold text-white group-hover:text-gold-accent transition-colors duration-300">Premium Custom Packaging</h3>
+                <p className="text-sm text-cream-bg/80 leading-relaxed font-light">Flexible private label design options, high-vacuum retail boxes, moisture-barrier packs, and BOPP/jute bulk bags featuring gold accents and bespoke branding.</p>
+              </div>
             </div>
 
-            {/* Service 6 */}
-            <div className="bg-white/5 backdrop-blur-md p-8 rounded-2xl border border-white/10 hover:border-gold-accent/40 shadow-xl hover:-translate-y-2 transition-all duration-300 group relative overflow-hidden">
-              <div className="absolute right-0 top-0 w-24 h-24 bg-gradient-to-br from-gold-accent/10 to-transparent rounded-bl-full pointer-events-none"></div>
-              <div className="bg-gold-accent/10 p-4 rounded-xl text-gold-accent shrink-0 inline-block mb-6 group-hover:bg-gold-accent group-hover:text-dark-green transition-all duration-300">
-                <Globe2 className="w-6 h-6 animate-spin" style={{ animationDuration: '8s' }} />
+            {/* Service 6: Global Trade (Standard) */}
+            <div className="md:col-span-1 bg-white/5 backdrop-blur-xl p-8 rounded-3xl border border-white/10 hover:bg-white/10 hover:border-gold-accent/50 shadow-lg hover:shadow-[0_0_40px_rgba(236,192,67,0.15)] transition-all duration-500 group relative overflow-hidden flex flex-col items-start gap-5">
+              <div className="absolute right-0 top-0 w-24 h-24 bg-gradient-to-br from-gold-accent/20 to-transparent rounded-bl-full pointer-events-none opacity-50 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="bg-gradient-to-br from-gold-accent/20 to-transparent p-4 rounded-2xl text-gold-accent shrink-0 group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(236,192,67,0.4)] transition-all duration-500 border border-gold-accent/20 group-hover:border-transparent">
+                <Globe2 className="w-6 h-6 animate-spin-slow" style={{ animationDuration: '10s' }} />
               </div>
-              <h3 className="font-serif text-lg font-bold text-white mb-3">Global Trade Support</h3>
-              <p className="text-[11px] text-cream-bg/75 leading-relaxed font-light">Dedicated multilingual communication desk supporting overseas importers with pricing index charts, custom shipping schedules, and L/C support.</p>
+              <div className="relative z-10">
+                <h3 className="font-serif text-xl font-bold text-white mb-2 group-hover:text-gold-accent transition-colors">Global Trade Support</h3>
+                <p className="text-xs text-cream-bg/80 leading-relaxed font-light">Dedicated multilingual communication desk supporting overseas importers with pricing index charts and L/C.</p>
+              </div>
             </div>
           </div>
         </div>
