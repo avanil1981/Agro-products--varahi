@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, Star, Globe2, Truck, Award, Package2, HeartHandshake, Leaf, FileText, ShieldCheck } from 'lucide-react';
+import { ArrowRight, Star, Globe2, Truck, Award, Package2, HeartHandshake, Leaf, FileText, ShieldCheck, ChevronLeft, ChevronRight } from 'lucide-react';
 import { categories, products } from '../data/agroData';
-import Counter from '../components/Counter';
 
 // Fade-up animation options
 const fadeUp = {
@@ -37,6 +36,70 @@ export default function Home() {
   ];
 
   const [currentSlide, setCurrentSlide] = useState(0);
+  const categoryScrollRef = React.useRef(null);
+  const isDown = React.useRef(false);
+  const startX = React.useRef(0);
+  const scrollLeftStart = React.useRef(0);
+  const [isDragging, setIsDragging] = useState(false);
+  const dragStart = React.useRef({ x: 0, y: 0 });
+
+  const handleMouseDown = (e) => {
+    if (!categoryScrollRef.current) return;
+    isDown.current = true;
+    setIsDragging(false);
+    categoryScrollRef.current.style.cursor = 'grabbing';
+    categoryScrollRef.current.style.scrollBehavior = 'auto';
+    startX.current = e.pageX - categoryScrollRef.current.offsetLeft;
+    scrollLeftStart.current = categoryScrollRef.current.scrollLeft;
+    dragStart.current = { x: e.clientX, y: e.clientY };
+  };
+
+  const handleMouseMove = (e) => {
+    if (!isDown.current || !categoryScrollRef.current) return;
+    e.preventDefault();
+    const x = e.pageX - categoryScrollRef.current.offsetLeft;
+    const walk = (x - startX.current) * 1.5; // Snappy scroll speed multiplier
+    categoryScrollRef.current.scrollLeft = scrollLeftStart.current - walk;
+
+    const distanceX = Math.abs(e.clientX - dragStart.current.x);
+    const distanceY = Math.abs(e.clientY - dragStart.current.y);
+    if (distanceX > 5 || distanceY > 5) {
+      setIsDragging(true);
+    }
+  };
+
+  const handleMouseUp = () => {
+    isDown.current = false;
+    if (categoryScrollRef.current) {
+      categoryScrollRef.current.style.cursor = 'grab';
+      categoryScrollRef.current.style.scrollBehavior = 'smooth';
+    }
+    setTimeout(() => {
+      setIsDragging(false);
+    }, 50);
+  };
+
+  const handleMouseLeave = () => {
+    isDown.current = false;
+    if (categoryScrollRef.current) {
+      categoryScrollRef.current.style.cursor = 'grab';
+      categoryScrollRef.current.style.scrollBehavior = 'smooth';
+    }
+    setTimeout(() => {
+      setIsDragging(false);
+    }, 50);
+  };
+
+  const scrollCategories = (direction) => {
+    if (categoryScrollRef.current) {
+      const { scrollLeft } = categoryScrollRef.current;
+      const scrollAmount = direction === 'left' ? -420 : 420; // card width + gap
+      categoryScrollRef.current.scrollTo({
+        left: scrollLeft + scrollAmount,
+        behavior: 'smooth'
+      });
+    }
+  };
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -231,7 +294,7 @@ export default function Home() {
       </div>
 
       {/* 2. Quick Product Categories Scroller */}
-      <section className="py-8 px-4 md:px-8 max-w-7xl mx-auto relative z-20">
+      <section className="py-8 px-4 md:px-8 max-w-[95%] mx-auto relative z-20 group/slider">
         <style dangerouslySetInnerHTML={{__html: `
           .no-scrollbar::-webkit-scrollbar {
             display: none;
@@ -242,21 +305,49 @@ export default function Home() {
           }
         `}} />
         
+        {/* Navigation Buttons for Manual Sliding */}
+        <button 
+          onClick={() => scrollCategories('left')}
+          className="absolute left-2 lg:left-6 top-1/2 -translate-y-1/2 z-30 bg-primary-green/95 hover:bg-dark-green text-gold-accent p-3.5 rounded-full shadow-lg border border-gold-accent/20 hover:scale-110 active:scale-95 transition-all hidden md:flex items-center justify-center opacity-0 group-hover/slider:opacity-100 duration-300"
+          aria-label="Scroll Left"
+        >
+          <ChevronLeft className="w-6 h-6" />
+        </button>
+
+        <button 
+          onClick={() => scrollCategories('right')}
+          className="absolute right-2 lg:right-6 top-1/2 -translate-y-1/2 z-30 bg-primary-green/95 hover:bg-dark-green text-gold-accent p-3.5 rounded-full shadow-lg border border-gold-accent/20 hover:scale-110 active:scale-95 transition-all hidden md:flex items-center justify-center opacity-0 group-hover/slider:opacity-100 duration-300"
+          aria-label="Scroll Right"
+        >
+          <ChevronRight className="w-6 h-6" />
+        </button>
+
         <div 
-          className="flex overflow-x-auto gap-4 md:grid md:grid-cols-5 md:gap-5 no-scrollbar w-full"
+          ref={categoryScrollRef}
+          onMouseDown={handleMouseDown}
+          onMouseMove={handleMouseMove}
+          onMouseUp={handleMouseUp}
+          onMouseLeave={handleMouseLeave}
+          className="flex overflow-x-auto gap-5 md:gap-7 no-scrollbar w-full py-4 select-none cursor-grab"
           style={{ WebkitOverflowScrolling: 'touch' }}
         >
-          {categories.filter(cat => ["rice-flours", "whole-spices", "powders", "fresh-vegetables", "fresh-fruits"].includes(cat.slug)).map((cat) => (
+          {categories.filter(cat => ["rice-flours", "whole-spices", "powders", "fresh-vegetables", "fresh-fruits", "coffee-beans", "chilli"].includes(cat.slug)).map((cat) => (
             <Link 
               key={cat.id} 
               to={`/products?category=${cat.slug}`}
-              className="min-w-[240px] sm:min-w-[280px] md:min-w-0 w-[70vw] md:w-auto aspect-[4/3] rounded-2xl overflow-hidden relative group shadow-md border border-gold-accent/15 flex-shrink-0 transition-all duration-300 hover:scale-[1.03] hover:shadow-lg hover:border-gold-accent/30"
+              onClick={(e) => {
+                if (isDragging) {
+                  e.preventDefault();
+                }
+              }}
+              className="min-w-[280px] sm:min-w-[320px] md:min-w-[360px] lg:min-w-[400px] aspect-[4/3] rounded-2xl overflow-hidden relative group shadow-md border border-gold-accent/15 flex-shrink-0 transition-all duration-300 hover:scale-[1.03] hover:shadow-lg hover:border-gold-accent/30 select-none pointer-events-auto"
             >
               {/* Background Image */}
               <img 
                 src={cat.image} 
                 alt={cat.name} 
-                className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+                className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out pointer-events-none"
+                draggable="false"
               />
               
               {/* Premium Gradient Overlay */}
@@ -297,37 +388,6 @@ export default function Home() {
                 </div>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 4. Stats Counter Bar */}
-      <section className="bg-gradient-to-br from-primary-green to-dark-green py-16 px-4 border-y border-gold-accent/30 text-white relative">
-        <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[radial-gradient(#F8F6F1_1px,transparent_1px)] [background-size:20px_20px]"></div>
-        <div className="max-w-7xl mx-auto relative z-10 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-          <div>
-            <div className="font-serif text-3xl md:text-5xl font-bold text-gold-accent">
-              <Counter end={48} suffix="+" />
-            </div>
-            <p className="text-xs uppercase tracking-widest text-cream-bg/70 mt-2 font-medium">Premium Products</p>
-          </div>
-          <div>
-            <div className="font-serif text-3xl md:text-5xl font-bold text-gold-accent">
-              <Counter end={10} suffix="+" />
-            </div>
-            <p className="text-xs uppercase tracking-widest text-cream-bg/70 mt-2 font-medium">Export Destinations</p>
-          </div>
-          <div>
-            <div className="font-serif text-3xl md:text-5xl font-bold text-gold-accent">
-              <Counter end={100} suffix="%" />
-            </div>
-            <p className="text-xs uppercase tracking-widest text-cream-bg/70 mt-2 font-medium">Quality Compliance</p>
-          </div>
-          <div>
-            <div className="font-serif text-3xl md:text-5xl font-bold text-gold-accent">
-              <Counter end={250} suffix="+" />
-            </div>
-            <p className="text-xs uppercase tracking-widest text-cream-bg/70 mt-2 font-medium">Happy Importers</p>
           </div>
         </div>
       </section>

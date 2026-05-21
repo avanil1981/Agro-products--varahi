@@ -7,7 +7,7 @@ export const categories = [
     name: "Rice & Flours",
     slug: "rice-flours",
     subtitle: "Premium Grains | Quality Flours",
-    image: "https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=800&q=80",
+    image: "/Rice-Cat.png",
     description: "Export-grade Basmati and non-Basmati rice varieties, along with premium whole wheat flour and fine maida, processed under strict quality controls."
   },
   {
@@ -15,7 +15,7 @@ export const categories = [
     name: "Whole Spices",
     slug: "whole-spices",
     subtitle: "Aromatic | Pure Indian Origin",
-    image: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=800&q=80",
+    image: "/Spicies-cat.png",
     description: "Whole cumin, coriander, fennel, black pepper, cloves, cardamom, and cinnamon sourced directly from India's premium spice fields."
   },
   {
@@ -23,7 +23,7 @@ export const categories = [
     name: "Powders",
     slug: "powders",
     subtitle: "Hygienically Ground | High Purity",
-    image: "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=800&q=80",
+    image: "/powders-cat.png",
     description: "Pure and aromatic ground spice powders and herbal formulations including turmeric, chilli, ginger, moringa, and tulsi."
   },
   {
@@ -31,7 +31,7 @@ export const categories = [
     name: "Fresh Vegetables",
     slug: "fresh-vegetables",
     subtitle: "Farm Fresh | Naturally Cultivated",
-    image: "https://images.unsplash.com/photo-1588166524941-3bf61a9c41db?auto=format&fit=crop&w=800&q=80",
+    image: "/fresh Veg-cat.png",
     description: "Crisp and fresh red onions, potatoes, tomatoes, green chillies, garlic, curry leaves, and fresh mint harvested daily."
   },
   {
@@ -39,8 +39,24 @@ export const categories = [
     name: "Fresh Fruits",
     slug: "fresh-fruits",
     subtitle: "Sweet & Juicy | Harvest Fresh",
-    image: "https://images.unsplash.com/photo-1537640538966-79f369143f8f?auto=format&fit=crop&w=800&q=80",
+    image: "/fruit-cat.png",
     description: "Premium tropical fruits like Alphonso mangoes, fresh bananas, guavas, sweet limes, and juicy watermelons picked at peak maturity."
+  },
+  {
+    id: 6,
+    name: "Coffee Beans",
+    slug: "coffee-beans",
+    subtitle: "Aromatic | Premium Grades",
+    image: "/coffee-cat.png",
+    description: "Premium shade-grown Arabica and Robusta coffee beans sourced from the misty hills of Southern India, carefully graded for international roasters."
+  },
+  {
+    id: 7,
+    name: "Chilli",
+    slug: "chilli",
+    subtitle: "Fiery Heat | Vibrant Color",
+    image: "/chilli-cat.png",
+    description: "Pure, spicy, and rich Indian red and green chillies, available in whole dried, fresh, and crushed powder formats to suit global palates."
   }
 ];
 
@@ -685,8 +701,8 @@ export const products = [
     id: "p27",
     name: "Red Chilli Powder",
     slug: "red-chilli-powder",
-    category: "Powders",
-    categorySlug: "powders",
+    category: "Chilli",
+    categorySlug: "chilli",
     shortDescription: "Intensely hot, pure red chilli powder milled from premium Guntur Teja dried red chillies.",
     image: "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=800&q=80",
     keyPoints: ["Up to 50,000 SHU", "Natural ASTA Redness", "De-Stemmed Grinding", "Zero Added Synthetic Dye"],
@@ -924,8 +940,8 @@ export const products = [
     id: "p37",
     name: "Green Chilli",
     slug: "fresh-green-chilli",
-    category: "Fresh Vegetables",
-    categorySlug: "fresh-vegetables",
+    category: "Chilli",
+    categorySlug: "chilli",
     shortDescription: "Fresh, hot green chillies (G4 and Teja), sorted for length and deep green color.",
     image: "https://images.unsplash.com/photo-1588166524941-3bf61a9c41db?auto=format&fit=crop&w=800&q=80",
     keyPoints: ["G4 & Teja Selections", "Intense Fiery Heat", "Stalk Cleaned & Dry Packed", "Rapid Air Freight Delivery"],
@@ -1194,6 +1210,78 @@ export const products = [
     moq: "20 Metric Tons (MT) / 1 FCL",
     shelfLife: "20 Days in well-ventilated dry logistics",
     applications: "Fresh slice wholesale markets, tropical catering, retail supermarket displays.",
+    exportAvailability: true,
+    domesticAvailability: true
+  },
+  {
+    id: "p49",
+    name: "Dry Red Chilli (Guntur Teja / Sanam)",
+    slug: "dry-red-chilli",
+    category: "Chilli",
+    categorySlug: "chilli",
+    shortDescription: "Premium whole sun-dried red chillies with rich red color and highly pungent flavor, sourced directly from Guntur farms.",
+    image: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=800&q=80",
+    keyPoints: ["Sourced from Guntur AP", "Vibrant ASTA Color", "Available in Stem / Stemless", "Sun-Dried Hygienically"],
+    specTable: {
+      "Origin": "Guntur, Andhra Pradesh, India",
+      "Varieties": "Guntur Teja (S17) / Sanam (S330 / 341)",
+      "Pungency (Heat)": "40,000 - 65,000 SHU",
+      "Moisture": "10% - 12% max",
+      "Broken Ratio": "2% max",
+      "Color": "Deep Dark Red (90 - 120 ASTA)"
+    },
+    packingOptions: ["10kg, 20kg Jute bags", "25kg PP bags with outer markings"],
+    moq: "14 Metric Tons (MT) / 1x40' FCL",
+    shelfLife: "12 Months",
+    applications: "Spice extraction, hot sauce manufacturing, direct culinary dry seasoning.",
+    exportAvailability: true,
+    domesticAvailability: true
+  },
+  {
+    id: "p50",
+    name: "Premium Arabica Coffee Beans (Grade AAA)",
+    slug: "arabica-coffee-beans",
+    category: "Coffee Beans",
+    categorySlug: "coffee-beans",
+    shortDescription: "High-altitude, shade-grown Arabica coffee beans featuring a complex spiced flavor profile and elegant acidity, processed under strict quality controls.",
+    image: "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=800&q=80",
+    keyPoints: ["Shade-Grown in Western Ghats", "Sieving Grade AAA/AA", "Intense Floral Aroma", "Zero Black/Sour Bean Defects"],
+    specTable: {
+      "Origin": "Chikmagalur / Coorg, Karnataka, India",
+      "Bean Variety": "Arabica S.795 / Selection 9",
+      "Sieve Calibration": "7.25 mm+ (AAA) / 6.70 mm+ (AA)",
+      "Moisture Content": "11.5% - 12.5% max",
+      "Black Beans Ratio": "Zero / Negligible",
+      "Roasting Yield": "Highly uniform and consistent"
+    },
+    packingOptions: ["60kg GrainPro Jute Sacks", "Bulk Container Bulkheads"],
+    moq: "18 Metric Tons (MT) / 1x20' FCL",
+    shelfLife: "24 Months",
+    applications: "Gourmet coffee roasting, premium espresso blends, cold brew extractors.",
+    exportAvailability: true,
+    domesticAvailability: true
+  },
+  {
+    id: "p51",
+    name: "Premium Robusta Coffee Beans (Grade AAA)",
+    slug: "robusta-coffee-beans",
+    category: "Coffee Beans",
+    categorySlug: "coffee-beans",
+    shortDescription: "Robust, high-caffeine Robusta coffee beans sourced from pristine Indian highlands, offering a rich crema and bold chocolatey finish.",
+    image: "https://images.unsplash.com/photo-1497515114629-f71d768fd07c?auto=format&fit=crop&w=800&q=80",
+    keyPoints: ["Shade-Grown Highlands", "Bold Crema Yield", "Chocolaty & Nutty Undertones", "Clean Parchment Processed"],
+    specTable: {
+      "Origin": "Wayanad, Kerala / Coorg, Karnataka, India",
+      "Bean Variety": "Robusta Parchment / Cherry",
+      "Sieve Calibration": "7.00 mm+ (AAA)",
+      "Moisture Content": "11.0% - 12.0% max",
+      "Caffeine Level": "2.2% - 2.7% min",
+      "Admixture": "0.5% max"
+    },
+    packingOptions: ["60kg GrainPro Jute Sacks", "Custom Private Labeled bags"],
+    moq: "19 Metric Tons (MT) / 1 FCL",
+    shelfLife: "24 Months",
+    applications: "Commercial instant coffee blending, espresso crema enhancer, dark roast coffee formulations.",
     exportAvailability: true,
     domesticAvailability: true
   }

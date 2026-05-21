@@ -112,7 +112,7 @@ export default function Footer() {
               Agro Categories
             </h3>
             <ul className="space-y-3 text-xs text-cream-bg/70 font-light">
-              {categories.slice(0, 5).map((cat) => (
+              {categories.slice(0, 7).map((cat) => (
                 <li key={cat.id}>
                   <Link 
                     to={`/products?category=${cat.slug}`} 
