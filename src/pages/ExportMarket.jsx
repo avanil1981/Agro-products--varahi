@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Globe2, FileCheck, PackageCheck, Ship, ShieldCheck, CheckCircle2, ArrowRight } from 'lucide-react';
-import { exportMarkets } from '../data/agroData';
+import { exportMarkets, products } from '../data/agroData';
 
 export default function ExportMarket() {
   const exportServices = [
@@ -37,6 +37,9 @@ export default function ExportMarket() {
     "Certificate of Origin (CoO) issued by Chamber of Commerce",
     "Marine Cargo Transit Insurance Reports"
   ];
+  const featuredExportCrops = products.filter(p => 
+    ["basmati-rice", "cumin-seeds", "turmeric-powder", "fresh-onion", "garlic", "fresh-mango"].includes(p.slug)
+  );
 
   return (
     <div className="bg-cream-bg/40 min-h-screen pb-20">
@@ -121,7 +124,59 @@ export default function ExportMarket() {
         </div>
       </section>
 
-      {/* 4. Export Documentation & Compliance */}
+      {/* 4. Top Demanded Export Crops */}
+      <section className="py-20 px-4 md:px-8 max-w-7xl mx-auto">
+        <div className="text-center space-y-4 mb-16">
+          <span className="text-[10px] uppercase tracking-[0.25em] text-gold-accent font-bold block">HIGH-DEMAND CROP LINEUP</span>
+          <h2 className="font-serif text-2xl md:text-4xl font-extrabold text-dark-green">
+            Top Demanded Export Crops
+          </h2>
+          <div className="w-16 h-0.5 bg-gold-accent mx-auto"></div>
+          <p className="text-xs text-soft-gray max-w-xl mx-auto font-light leading-relaxed">
+            Click on any high-demand crop below to view comprehensive technical spec tables, standard export grading parameters, and packaging alternatives.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          {featuredExportCrops.map((crop) => (
+            <Link 
+              key={crop.id}
+              to={`/products/${crop.slug}`}
+              className="bg-white rounded-3xl overflow-hidden border border-gold-accent/10 shadow-sm hover:shadow-xl hover:border-gold-accent/30 hover:-translate-y-1 transition-all duration-300 group flex flex-col h-full"
+            >
+              <div className="relative h-48 overflow-hidden">
+                <img 
+                  src={crop.image} 
+                  alt={crop.name} 
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-dark-green/40 to-transparent"></div>
+                <span className="absolute top-4 left-4 bg-primary-green/90 text-gold-accent font-bold text-[9px] uppercase tracking-wider px-2.5 py-1 rounded-full shadow-sm">
+                  {crop.category}
+                </span>
+              </div>
+
+              <div className="p-6 flex flex-col justify-between flex-grow space-y-4">
+                <div className="space-y-2">
+                  <h3 className="font-serif text-base font-bold text-dark-green group-hover:text-primary-green transition-colors">
+                    {crop.name}
+                  </h3>
+                  <p className="text-xs text-soft-gray font-light line-clamp-2 leading-relaxed">
+                    {crop.shortDescription}
+                  </p>
+                </div>
+                
+                <div className="pt-3 border-t border-gold-accent/5 flex items-center justify-between text-xs font-bold text-primary-green">
+                  <span>View Specifications</span>
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform" />
+                </div>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      {/* 5. Export Documentation & Compliance */}
       <section className="py-20 px-4 md:px-8 max-w-5xl mx-auto">
         <div className="bg-white rounded-3xl p-8 md:p-12 border border-gold-accent/10 shadow-sm grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
           

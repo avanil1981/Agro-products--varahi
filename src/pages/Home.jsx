@@ -47,7 +47,7 @@ export default function Home() {
 
   // Get 8 featured products
   const featuredProducts = products.filter(p => 
-    ["arabica-coffee-beans", "turmeric-finger", "turmeric-powder", "fresh-grapes", "fresh-green-chilli", "basmati-rice", "ir-64-rice", "fresh-onion", "garlic"].includes(p.slug)
+    ["basmati-rice", "ir-64-rice", "cumin-seeds", "green-cardamom", "turmeric-powder", "fresh-onion", "fresh-green-chilli", "fresh-mango"].includes(p.slug)
   ).slice(0, 8);
 
   const trustItems = [
@@ -141,7 +141,7 @@ export default function Home() {
                     
                     {/* Premium description in light cream typography with drop shadow */}
                     <p className="hidden sm:block text-xs lg:text-sm text-cream-bg/95 leading-relaxed font-normal font-sans max-w-xl drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)]">
-                      Exporter and supplier of Coffee Beans, Spices, Fruits, Vegetables and a wide range of agro products with trusted quality.
+                      Exporter and supplier of premium Rice, Spices, Powders, Fresh Fruits, Vegetables and a wide range of agro products with trusted quality.
                     </p>
                     
                     {/* Actions */}
@@ -200,10 +200,10 @@ export default function Home() {
         `}} />
         
         <div 
-          className="flex overflow-x-auto gap-4 md:grid md:grid-cols-4 md:gap-6 no-scrollbar"
+          className="flex overflow-x-auto gap-4 md:grid md:grid-cols-5 md:gap-6 no-scrollbar"
           style={{ WebkitOverflowScrolling: 'touch' }}
         >
-          {categories.filter(cat => ["coffee-beans", "turmeric", "fruits", "vegetables"].includes(cat.slug)).map((cat) => (
+          {categories.filter(cat => ["rice-flours", "whole-spices", "powders", "fresh-vegetables", "fresh-fruits"].includes(cat.slug)).map((cat) => (
             <Link 
               key={cat.id} 
               to={`/products?category=${cat.slug}`}
@@ -264,7 +264,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto relative z-10 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
           <div>
             <div className="font-serif text-3xl md:text-5xl font-bold text-gold-accent">
-              <Counter end={14} suffix="+" />
+              <Counter end={48} suffix="+" />
             </div>
             <p className="text-xs uppercase tracking-widest text-cream-bg/70 mt-2 font-medium">Premium Products</p>
           </div>
