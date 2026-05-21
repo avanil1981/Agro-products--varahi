@@ -10,7 +10,7 @@ export default function Products() {
   const [selectedMarket, setSelectedMarket] = useState("export");
   const [searchQuery, setSearchQuery] = useState("");
   
-  // Sync selectedCategory and selectedMarket with searchParams
+  // Sync selectedCategory, selectedMarket, and searchQuery with searchParams
   useEffect(() => {
     const categoryParam = searchParams.get('category');
     if (categoryParam) {
@@ -24,6 +24,11 @@ export default function Products() {
       setSelectedMarket(marketParam);
     } else {
       setSelectedMarket("export");
+    }
+
+    const qParam = searchParams.get('q');
+    if (qParam !== null) {
+      setSearchQuery(qParam);
     }
   }, [searchParams]);
 

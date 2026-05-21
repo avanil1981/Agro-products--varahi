@@ -77,7 +77,7 @@ export default function Certifications() {
         <div className="bg-yellow-50/50 p-6 rounded-2xl border border-yellow-200/60 flex items-start space-x-3.5 shadow-sm">
           <AlertCircle className="w-5 h-5 text-gold-accent shrink-0 mt-0.5" />
           <p className="text-xs text-yellow-900 leading-relaxed font-light">
-            <b>Note on Documentation:</b> Certification and registration details can be updated as per company registration documents or trade policies. For copies of our active APEDA, FSSAI, or IEC sheets, please email <a href="mailto:info@srivarahiagro.com" className="font-bold underline text-primary-green">info@srivarahiagro.com</a>.
+            <b>Note on Documentation:</b> Certification and registration details can be updated as per company registration documents or trade policies. For copies of our active APEDA, FSSAI, or IEC sheets, please email <a href="mailto:info@srivarahiagrofoods.in" className="font-bold underline text-primary-green">info@srivarahiagrofoods.in</a>.
           </p>
         </div>
       </section>

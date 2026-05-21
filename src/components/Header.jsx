@@ -1,20 +1,31 @@
 import React, { useState, useEffect } from 'react';
-import { Link, NavLink, useLocation } from 'react-router-dom';
+import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Mail, Phone, ChevronDown, Leaf, ArrowRight } from 'lucide-react';
+import { Menu, X, Mail, Phone, ChevronDown, Leaf, ArrowRight, Search } from 'lucide-react';
 import { categories } from '../data/agroData';
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [searchTerm, setSearchTerm] = useState('');
   const location = useLocation();
+  const navigate = useNavigate();
 
   // Close mobile menu on route change
   useEffect(() => {
     setIsOpen(false);
     setDropdownOpen(false);
   }, [location]);
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    if (searchTerm.trim()) {
+      navigate(`/products?q=${encodeURIComponent(searchTerm)}`);
+      setSearchTerm('');
+      setIsOpen(false);
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -40,7 +51,7 @@ export default function Header() {
     <>
       {/* Main Premium Sticky Header exactly matching the reference image layout */}
       <header className="sticky top-0 z-50 bg-white shadow-sm border-b border-cream-bg py-3 md:py-4">
-        <div className="max-w-7xl mx-auto px-4 md:px-8 flex justify-between items-center">
+        <div className="max-w-7xl mx-auto px-4 md:px-8 flex justify-between items-center gap-4">
           
           {/* Logo / Brand Name on the Left */}
           <Link to="/" className="flex items-center group shrink-0">
@@ -51,96 +62,111 @@ export default function Header() {
             />
           </Link>
 
-          {/* Right Area (Desktop only - Split into Top Contacts/Button and Bottom Navigation Links) */}
-          <div className="hidden xl:flex flex-col space-y-3.5 items-end">
+          {/* Center: Navigation Links */}
+          <nav className="hidden xl:flex items-center space-x-7 mx-auto">
+            {navLinks.map((link) => {
+              if (link.dropdown) {
+                return (
+                  <div 
+                    key={link.name} 
+                    className="relative group py-1"
+                    onMouseEnter={() => setDropdownOpen(true)}
+                    onMouseLeave={() => setDropdownOpen(false)}
+                  >
+                    <button className="flex items-center text-xs font-bold tracking-wider text-dark-text hover:text-primary-green transition-colors focus:outline-none">
+                      <span>{link.name}</span>
+                      <ChevronDown className="w-3.5 h-3.5 ml-1 transition-transform group-hover:rotate-180 text-gold-accent" />
+                    </button>
+                    
+                    {/* Products Dropdown List */}
+                    <AnimatePresence>
+                      {dropdownOpen && (
+                        <motion.div 
+                          initial={{ opacity: 0, y: 10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: 10 }}
+                          transition={{ duration: 0.2 }}
+                          className="absolute left-1/2 -translate-x-1/2 mt-2 w-64 bg-white border border-gold-accent/10 shadow-xl rounded-xl py-3 z-50 text-left"
+                        >
+                          <div className="px-4 py-1 text-[10px] font-bold tracking-widest text-gold-accent uppercase border-b border-cream-bg pb-2 mb-2">
+                            Product Categories
+                          </div>
+                          {categories.map((cat) => (
+                            <Link
+                              key={cat.id}
+                              to={`/products?category=${cat.slug}`}
+                              className="block px-5 py-2 text-xs font-medium text-dark-text hover:bg-cream-bg hover:text-primary-green transition-all"
+                            >
+                              {cat.name}
+                            </Link>
+                          ))}
+                          <div className="border-t border-cream-bg mt-2 pt-2 px-4">
+                            <Link to="/products" className="text-xs font-bold text-primary-green hover:text-gold-accent flex items-center">
+                              View All Products <ArrowRight className="w-3.5 h-3.5 ml-1" />
+                            </Link>
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                );
+              }
+
+              return (
+                <NavLink
+                  key={link.name}
+                  to={link.path}
+                  className={({ isActive }) => 
+                    `text-xs font-bold tracking-wider transition-all relative py-1 ${
+                      isActive 
+                        ? 'text-primary-green font-bold border-b-2 border-gold-accent' 
+                        : 'text-dark-text hover:text-primary-green hover:border-b-2 hover:border-gold-accent/50'
+                    }`
+                  }
+                >
+                  {link.name}
+                </NavLink>
+              );
+            })}
+          </nav>
+
+          {/* Right Area */}
+          <div className="hidden xl:flex flex-col space-y-3.5 items-end shrink-0">
             
-            {/* Top Row: Email, Phone, and Enquire Now Button */}
+            {/* Top Row: Email and Phone */}
             <div className="flex items-center space-x-6 text-[13px] font-semibold text-dark-text">
-              <a href="mailto:info@srivarahiagro.com" className="flex items-center hover:text-primary-green transition-colors group/item">
+              <a href="mailto:info@srivarahiagrofoods.in" className="flex items-center hover:text-primary-green transition-colors group/item">
                 <Mail className="w-4 h-4 mr-2 text-primary-green group-hover/item:scale-110 transition-transform" />
-                <span>info@srivarahiagro.com</span>
+                <span>info@srivarahiagrofoods.in</span>
               </a>
               <a href="https://wa.me/918688669407" target="_blank" rel="noopener noreferrer" className="flex items-center hover:text-primary-green transition-colors group/item">
                 <Phone className="w-4 h-4 mr-2 text-primary-green group-hover/item:scale-110 transition-transform" />
                 <span>+91 8688669407</span>
               </a>
+            </div>
+
+            {/* Bottom Row: Search Bar + Enquire Now */}
+            <div className="flex items-center space-x-4">
+              <form onSubmit={handleSearch} className="relative hidden md:block">
+                <input 
+                  type="text" 
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  placeholder="Search products..."
+                  className="bg-cream-bg/60 text-dark-text text-xs px-4 py-2 pr-8 rounded-full border border-gold-accent/20 focus:outline-none focus:border-primary-green focus:bg-white transition-all w-48 xl:w-56"
+                />
+                <button type="submit" className="absolute right-3 top-2 text-soft-gray hover:text-primary-green">
+                  <Search className="w-4 h-4" />
+                </button>
+              </form>
               <Link 
                 to="/contact" 
-                className="bg-primary-green text-white font-semibold text-xs py-2 px-5 rounded-lg flex items-center hover:bg-dark-green transition-all shadow-sm group border border-gold-accent/20"
+                className="bg-primary-green text-white font-semibold text-xs py-2 px-5 rounded-lg flex items-center hover:bg-dark-green transition-all shadow-sm group border border-gold-accent/20 whitespace-nowrap"
               >
                 <span>Enquire Now</span>
                 <ArrowRight className="w-3.5 h-3.5 ml-2 group-hover:translate-x-0.5 transition-transform" />
               </Link>
             </div>
-
-            {/* Bottom Row: Navigation Links */}
-            <nav className="flex items-center space-x-7">
-              {navLinks.map((link) => {
-                if (link.dropdown) {
-                  return (
-                    <div 
-                      key={link.name} 
-                      className="relative group py-1"
-                      onMouseEnter={() => setDropdownOpen(true)}
-                      onMouseLeave={() => setDropdownOpen(false)}
-                    >
-                      <button className="flex items-center text-xs font-bold tracking-wider text-dark-text hover:text-primary-green transition-colors focus:outline-none">
-                        <span>{link.name}</span>
-                        <ChevronDown className="w-3.5 h-3.5 ml-1 transition-transform group-hover:rotate-180 text-gold-accent" />
-                      </button>
-                      
-                      {/* Products Dropdown List */}
-                      <AnimatePresence>
-                        {dropdownOpen && (
-                          <motion.div 
-                            initial={{ opacity: 0, y: 10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: 10 }}
-                            transition={{ duration: 0.2 }}
-                            className="absolute right-0 mt-2 w-64 bg-white border border-gold-accent/10 shadow-xl rounded-xl py-3 z-50 text-left"
-                          >
-                            <div className="px-4 py-1 text-[10px] font-bold tracking-widest text-gold-accent uppercase border-b border-cream-bg pb-2 mb-2">
-                              Product Categories
-                            </div>
-                            {categories.map((cat) => (
-                              <Link
-                                key={cat.id}
-                                to={`/products?category=${cat.slug}`}
-                                className="block px-5 py-2 text-xs font-medium text-dark-text hover:bg-cream-bg hover:text-primary-green transition-all"
-                              >
-                                {cat.name}
-                              </Link>
-                            ))}
-                            <div className="border-t border-cream-bg mt-2 pt-2 px-4">
-                              <Link to="/products" className="text-xs font-bold text-primary-green hover:text-gold-accent flex items-center">
-                                View All Products <ArrowRight className="w-3.5 h-3.5 ml-1" />
-                              </Link>
-                            </div>
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
-                    </div>
-                  );
-                }
-
-                return (
-                  <NavLink
-                    key={link.name}
-                    to={link.path}
-                    className={({ isActive }) => 
-                      `text-xs font-bold tracking-wider transition-all relative py-1 ${
-                        isActive 
-                          ? 'text-primary-green font-bold border-b-2 border-gold-accent' 
-                          : 'text-dark-text hover:text-primary-green hover:border-b-2 hover:border-gold-accent/50'
-                      }`
-                    }
-                  >
-                    {link.name}
-                  </NavLink>
-                );
-              })}
-            </nav>
-
           </div>
 
           {/* Mobile Hamburger Button */}
@@ -233,9 +259,9 @@ export default function Header() {
 
             {/* Drawer Footer / Contact Info */}
             <div className="border-t border-cream-bg pt-6 mt-6 space-y-4">
-              <a href="mailto:info@srivarahiagro.com" className="flex items-center text-xs text-soft-gray hover:text-primary-green">
+              <a href="mailto:info@srivarahiagrofoods.in" className="flex items-center text-xs text-soft-gray hover:text-primary-green">
                 <Mail className="w-4 h-4 mr-3 text-gold-accent" />
-                <span>info@srivarahiagro.com</span>
+                <span>info@srivarahiagrofoods.in</span>
               </a>
               <a href="tel:+918688669407" className="flex items-center text-xs text-soft-gray hover:text-primary-green">
                 <Phone className="w-4 h-4 mr-3 text-gold-accent" />

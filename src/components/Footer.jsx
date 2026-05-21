@@ -36,9 +36,9 @@ export default function Footer() {
                 <MapPin className="w-4 h-4 mr-3 text-gold-accent shrink-0 mt-0.5" />
                 <span>Hyderabad, Telangana, India</span>
               </div>
-              <a href="mailto:info@srivarahiagro.com" className="flex items-center text-xs text-cream-bg/85 hover:text-gold-light transition-colors font-light">
+              <a href="mailto:info@srivarahiagrofoods.in" className="flex items-center text-xs text-cream-bg/85 hover:text-gold-light transition-colors font-light">
                 <Mail className="w-4 h-4 mr-3 text-gold-accent shrink-0" />
-                <span>info@srivarahiagro.com</span>
+                <span>info@srivarahiagrofoods.in</span>
               </a>
               <a href="https://wa.me/918688669407" target="_blank" rel="noopener noreferrer" className="flex items-center text-xs text-cream-bg/85 hover:text-gold-light transition-colors font-light">
                 <Phone className="w-4 h-4 mr-3 text-gold-accent shrink-0" />

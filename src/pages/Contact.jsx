@@ -120,8 +120,8 @@ export default function Contact() {
                 </div>
                 <div>
                   <h4 className="text-xs font-bold text-dark-green">Email Address</h4>
-                  <a href="mailto:info@srivarahiagro.com" className="text-xs text-primary-green font-semibold hover:underline block mt-0.5">
-                    info@srivarahiagro.com
+                  <a href="mailto:info@srivarahiagrofoods.in" className="text-xs text-primary-green font-semibold hover:underline block mt-0.5">
+                    info@srivarahiagrofoods.in
                   </a>
                 </div>
               </div>

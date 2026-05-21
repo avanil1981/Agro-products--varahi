@@ -85,7 +85,11 @@ export default function ProductDetail() {
           <div>
             <span className="text-[10px] font-bold tracking-widest uppercase text-gold-accent">PREMIUM COMMODITY</span>
             <h1 className="font-serif text-3xl md:text-4xl font-extrabold text-dark-green mt-1">{product.name}</h1>
-            <p className="text-xs md:text-sm text-soft-gray font-light leading-relaxed mt-3">{product.shortDescription}</p>
+            <div className="text-xs md:text-sm text-soft-gray font-light leading-relaxed mt-4 space-y-3">
+              <p>{product.shortDescription} {product.name} stands as a testament to our commitment to excellence, meticulously sourced and processed to meet global standards.</p>
+              <p>Recognized for being {product.keyPoints.slice(0, 2).map(p => p.toLowerCase()).join(" and ")}, this premium {product.category.toLowerCase().replace(/s$/, '')} delivers unmatched quality. It is natively cultivated and sourced from {product.specTable.Origin || 'India'}, ensuring authentic flavor, texture, and aroma profiles.</p>
+              <p>We provide extensive packing solutions ranging from {product.packingOptions.slice(0, 2).join(' to ').toLowerCase()}, making it highly suitable for {product.applications.toLowerCase()}. With an extended shelf life of {product.shelfLife}, this commodity guarantees long-lasting freshness for both domestic and international markets.</p>
+            </div>
           </div>
 
           {/* Dynamic Specifications Table */}
@@ -103,10 +107,6 @@ export default function ProductDetail() {
                   <span className="col-span-2.5 font-light text-soft-gray">{value}</span>
                 </div>
               ))}
-              <div className="grid grid-cols-4 py-3 px-5 text-xs">
-                <span className="col-span-1.5 font-bold text-dark-green">Min Order (MOQ):</span>
-                <span className="col-span-2.5 font-bold text-gold-accent">{product.moq}</span>
-              </div>
               <div className="grid grid-cols-4 py-3 px-5 text-xs">
                 <span className="col-span-1.5 font-bold text-dark-green">Shelf Life:</span>
                 <span className="col-span-2.5 font-light text-soft-gray">{product.shelfLife}</span>
