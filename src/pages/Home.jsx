@@ -93,7 +93,7 @@ export default function Home() {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.8, ease: "easeInOut" }}
-              className="absolute inset-0 bg-[length:100%_100%] lg:bg-cover bg-no-repeat bg-center"
+              className="absolute inset-0 bg-[size:100%_100%] bg-no-repeat bg-center"
               style={{ backgroundImage: `url('${slides[currentSlide]}')` }}
             />
           </AnimatePresence>
@@ -231,7 +231,7 @@ export default function Home() {
       </div>
 
       {/* 2. Quick Product Categories Scroller */}
-      <section className="relative z-20 w-full border-b border-gold-accent/15 overflow-hidden">
+      <section className="py-8 px-4 md:px-8 max-w-7xl mx-auto relative z-20">
         <style dangerouslySetInnerHTML={{__html: `
           .no-scrollbar::-webkit-scrollbar {
             display: none;
@@ -243,32 +243,32 @@ export default function Home() {
         `}} />
         
         <div 
-          className="flex overflow-x-auto gap-0 md:grid md:grid-cols-5 no-scrollbar w-full"
+          className="flex overflow-x-auto gap-4 md:grid md:grid-cols-5 md:gap-5 no-scrollbar w-full"
           style={{ WebkitOverflowScrolling: 'touch' }}
         >
           {categories.filter(cat => ["rice-flours", "whole-spices", "powders", "fresh-vegetables", "fresh-fruits"].includes(cat.slug)).map((cat) => (
             <Link 
               key={cat.id} 
               to={`/products?category=${cat.slug}`}
-              className="min-w-[280px] sm:min-w-[340px] md:min-w-0 w-[80vw] md:w-auto h-[350px] md:h-[450px] lg:h-[500px] overflow-hidden relative group flex-shrink-0 border-r border-gold-accent/10 last:border-r-0 transition-all duration-500 ease-out"
+              className="min-w-[240px] sm:min-w-[280px] md:min-w-0 w-[70vw] md:w-auto aspect-[4/3] rounded-2xl overflow-hidden relative group shadow-md border border-gold-accent/15 flex-shrink-0 transition-all duration-300 hover:scale-[1.03] hover:shadow-lg hover:border-gold-accent/30"
             >
               {/* Background Image */}
               <img 
                 src={cat.image} 
                 alt={cat.name} 
-                className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
               />
               
               {/* Premium Gradient Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-dark-green/95 via-dark-green/35 to-transparent z-10 transition-opacity duration-300 group-hover:from-primary-green/95 group-hover:via-primary-green/30" />
+              <div className="absolute inset-0 bg-gradient-to-t from-dark-green/95 via-dark-green/30 to-transparent z-10 transition-opacity duration-300 group-hover:from-primary-green/95 group-hover:via-primary-green/25" />
 
               {/* Text Content */}
-              <div className="absolute inset-x-0 bottom-0 z-20 p-6 text-center flex flex-col items-center justify-end h-1/2 transition-transform duration-500 ease-out group-hover:-translate-y-2">
-                <h3 className="text-white text-lg sm:text-xl lg:text-2xl font-serif font-extrabold uppercase tracking-wider leading-tight drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]">
+              <div className="absolute inset-x-0 bottom-0 z-20 p-4 text-center flex flex-col items-center justify-end h-1/2 transition-transform duration-300 group-hover:-translate-y-1.5">
+                <h3 className="text-white text-base sm:text-lg lg:text-xl font-serif font-extrabold uppercase tracking-wider leading-tight drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]">
                   {cat.name}
                 </h3>
-                <div className="w-10 h-[2px] bg-gold-accent my-2.5 transition-all duration-500 ease-out group-hover:w-16"></div>
-                <p className="text-xs text-cream-bg/90 font-light tracking-wide leading-snug drop-shadow-sm font-sans max-w-[90%]">
+                <div className="w-8 h-[1.5px] bg-gold-accent my-2 transition-all duration-300 group-hover:w-12"></div>
+                <p className="text-[10px] sm:text-xs text-cream-bg/90 font-light tracking-wide leading-snug drop-shadow-sm font-sans">
                   {cat.subtitle}
                 </p>
               </div>
