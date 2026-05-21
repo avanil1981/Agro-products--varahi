@@ -33,8 +33,6 @@ export default function Header() {
     { name: 'ABOUT US', path: '/about' },
     { name: 'PRODUCTS', path: '/products', dropdown: true },
     { name: 'EXPORT', path: '/export' },
-    { name: 'QUALITY', path: '/quality' },
-    { name: 'CERTIFICATIONS', path: '/certifications' },
     { name: 'CONTACT US', path: '/contact' }
   ];
 

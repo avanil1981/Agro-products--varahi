@@ -162,6 +162,75 @@ export const products = [
     domesticAvailability: true
   },
   {
+    id: "p4_1",
+    name: "HMT Rice",
+    slug: "hmt-rice",
+    category: "Rice & Flours",
+    categorySlug: "rice-flours",
+    shortDescription: "A premium medium-slender domestic rice variety known for its fine texture, distinct taste, and aromatic cooking qualities.",
+    image: "https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=800&q=80",
+    keyPoints: ["Premium Domestic Choice", "Fine Texture", "Easily Digestible", "Everyday Meals"],
+    specTable: {
+      "Origin": "Telangana / AP, India",
+      "Types Available": "Raw / Boiled",
+      "Grain Size": "Medium Slender",
+      "Moisture": "12% max",
+      "Broken Ratio": "3% max"
+    },
+    packingOptions: ["10kg, 25kg BOPP Bags"],
+    moq: "10 Metric Tons (MT)",
+    shelfLife: "24 Months",
+    applications: "Domestic retail, traditional Indian meals, premium daily consumption.",
+    exportAvailability: false,
+    domesticAvailability: true
+  },
+  {
+    id: "p4_2",
+    name: "BPT Rice (Samba Masuri)",
+    slug: "bpt-rice",
+    category: "Rice & Flours",
+    categorySlug: "rice-flours",
+    shortDescription: "Highly popular fine-grain rice in South India with excellent elongation and lightweight fluffy texture after cooking.",
+    image: "https://images.unsplash.com/photo-1626132647523-66f5bf380027?auto=format&fit=crop&w=800&q=80",
+    keyPoints: ["Fine Grain", "Non-Sticky", "Aged for Better Taste", "High Yield on Cooking"],
+    specTable: {
+      "Origin": "Telangana / AP, India",
+      "Types Available": "Raw (Old / New)",
+      "Grain Size": "Short Fine Slender",
+      "Moisture": "12% max",
+      "Broken Ratio": "2% max"
+    },
+    packingOptions: ["10kg, 25kg BOPP Bags"],
+    moq: "10 Metric Tons (MT)",
+    shelfLife: "24 Months",
+    applications: "Domestic supermarkets, South Indian thalis, premium daily meals.",
+    exportAvailability: false,
+    domesticAvailability: true
+  },
+  {
+    id: "p4_3",
+    name: "Jai Sriram Rice",
+    slug: "jai-sriram-rice",
+    category: "Rice & Flours",
+    categorySlug: "rice-flours",
+    shortDescription: "An elite ultra-fine domestic rice variety favored for its superior taste, slender shape, and premium cooking quality.",
+    image: "https://images.unsplash.com/photo-1536304929831-ee1ca9d44906?auto=format&fit=crop&w=800&q=80",
+    keyPoints: ["Ultra-Fine Quality", "Soft & Fluffy", "High Grade Polish", "Exceptional Taste"],
+    specTable: {
+      "Origin": "Telangana / AP, India",
+      "Types Available": "Raw",
+      "Grain Size": "Ultra Fine Slender",
+      "Moisture": "12% max",
+      "Broken Ratio": "1% max"
+    },
+    packingOptions: ["25kg Premium Bags"],
+    moq: "10 Metric Tons (MT)",
+    shelfLife: "24 Months",
+    applications: "Premium domestic retail, luxury dining, festive occasions.",
+    exportAvailability: false,
+    domesticAvailability: true
+  },
+  {
     id: "p5",
     name: "Iddly Rice",
     slug: "iddly-rice",
@@ -237,7 +306,7 @@ export const products = [
   },
   {
     id: "p8",
-    name: "Broken Rice 100%",
+    name: "Broken Rice (100% & 50%)",
     slug: "broken-rice-100",
     category: "Rice & Flours",
     categorySlug: "rice-flours",

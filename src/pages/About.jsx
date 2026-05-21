@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ShieldCheck, HeartHandshake, Award, Compass, Eye, Sparkles, Building, CheckCircle } from 'lucide-react';
+import { ShieldCheck, HeartHandshake, Award, Compass, Eye, Sparkles, Building, CheckCircle, Shield, Search, Database, Package, Truck, FileText, CheckCircle2, AlertCircle } from 'lucide-react';
+import { certifications } from '../data/agroData';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -19,6 +20,15 @@ export default function About() {
     { title: "Commitment", desc: "Executing contracts fully, meeting technical specifications, and shipping on-time." },
     { title: "Customer Satisfaction", desc: "Delivering bespoke packing solutions and active assistance post container arrival." },
     { title: "Ethical Conduct", desc: "Fair trade directly supporting partner cultivators and sustainable agricultural practices." }
+  ];
+
+  const qualitySteps = [
+    { num: "01", title: "Careful Sourcing", desc: "Our field experts visit crop centers directly to inspect soil composition, moisture level parameters, and pesticide history.", icon: Shield },
+    { num: "02", title: "Quality Inspection & Grading", desc: "On arrival, crop samples are sent to our laboratory. We check grain lengths, moisture limits, and verify zero foreign materials.", icon: Search },
+    { num: "03", title: "Hygienic Cleaning & De-stoning", desc: "Grains and spices are processed through advanced magnet separators, gravity tables, and clean washing lines.", icon: Eye },
+    { num: "04", title: "Proper Packaging", desc: "Crops are packed inside multi-layered food-grade bags, jute packaging, or vacuum retail containers under automated control.", icon: Package },
+    { num: "05", title: "Safe Storage", desc: "Products are stored in ventilated, moisture-controlled warehouses on pallets to ensure zero pest infestation or degradation.", icon: Database },
+    { num: "06", title: "On-Time Dispatch", desc: "Containers are thoroughly swept and checked before loading. We install silica gel moisture absorbers for flawless transit.", icon: Truck }
   ];
 
   return (
@@ -165,6 +175,92 @@ export default function About() {
               </p>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* 4.5. Quality Framework Section */}
+      <section className="bg-cream-bg/20 py-20 px-4 md:px-8 border-y border-gold-accent/10">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <div className="inline-flex items-center space-x-1.5 text-gold-accent uppercase font-bold text-[10px] tracking-widest">
+              <ShieldCheck className="w-4 h-4" />
+              <span>Assurance Plan</span>
+            </div>
+            <h2 className="font-serif text-3xl md:text-4xl font-extrabold text-dark-green mt-2">
+              Our Quality Pipeline
+            </h2>
+            <div className="w-24 h-1 bg-gold-accent mx-auto my-4"></div>
+            <p className="text-sm text-soft-gray font-light">
+              From fertile Indian soils to sealed shipping containers, our 6-step quality control ensures zero compromises on international standards.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {qualitySteps.map((st, idx) => {
+              const IconComp = st.icon;
+              return (
+                <div key={idx} className="bg-white p-8 rounded-3xl border border-cream-bg shadow-sm hover:shadow-md hover:border-gold-accent/25 transition-all duration-300 flex flex-col justify-between group">
+                  <div>
+                    <div className="flex justify-between items-center mb-6">
+                      <span className="font-serif text-2xl font-black text-gold-accent/40 group-hover:text-gold-accent transition-colors">{st.num}</span>
+                      <div className="bg-primary-green/10 p-2.5 rounded-xl text-primary-green group-hover:bg-primary-green group-hover:text-gold-accent transition-colors duration-300">
+                        <IconComp className="w-5 h-5" />
+                      </div>
+                    </div>
+                    <h3 className="font-serif text-base font-bold text-dark-green mb-3">{st.title}</h3>
+                    <p className="text-xs text-soft-gray leading-relaxed font-light">{st.desc}</p>
+                  </div>
+                  <div className="pt-4 border-t border-cream-bg mt-5 flex items-center text-[10px] text-primary-green font-bold group-hover:text-gold-accent">
+                    <CheckCircle className="w-3.5 h-3.5 mr-1.5 shrink-0" />
+                    <span>QC Passed Standard</span>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* 4.6. Certifications Section */}
+      <section className="bg-white py-20 px-4 md:px-8 border-b border-gold-accent/10">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <div className="inline-flex items-center space-x-1.5 text-gold-accent uppercase font-bold text-[10px] tracking-widest">
+              <Award className="w-4 h-4" />
+              <span>Compliance Hub</span>
+            </div>
+            <h2 className="font-serif text-3xl md:text-4xl font-extrabold text-dark-green mt-2">
+              Official Certifications
+            </h2>
+            <div className="w-24 h-1 bg-gold-accent mx-auto my-4"></div>
+            <p className="text-sm text-soft-gray font-light">
+              Registered and compliant with major Indian food regulatory organizations and global customs clearances for seamless exports.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {certifications.map((cert) => {
+              const isActive = !cert.status.toLowerCase().includes('future') && !cert.status.toLowerCase().includes('progress');
+              return (
+                <div key={cert.id} className="bg-white p-6 rounded-3xl border border-cream-bg shadow-sm hover:shadow-md hover:border-gold-accent/25 transition-all flex flex-col justify-between">
+                  <div>
+                    <div className="flex justify-between items-center mb-4">
+                      <span className="bg-primary-green/5 text-primary-green font-mono text-[9px] uppercase tracking-wider py-1.5 px-3 rounded-lg border border-primary-green/10">{cert.logoText}</span>
+                      <ShieldCheck className={`w-6 h-6 shrink-0 ${isActive ? 'text-gold-accent' : 'text-soft-gray/40'}`} />
+                    </div>
+                    <h3 className="font-serif text-base font-bold text-dark-green leading-snug">{cert.name}</h3>
+                    <p className="text-xs text-soft-gray font-light mt-2.5 leading-relaxed">{cert.description}</p>
+                  </div>
+                  <div className="pt-4 border-t border-cream-bg mt-5 flex items-center justify-between">
+                    <span className={`text-[9px] font-bold uppercase tracking-wider py-1 px-2.5 rounded-full ${isActive ? 'bg-green-100 text-green-800' : 'bg-yellow-100 text-yellow-800'}`}>
+                      {cert.status}
+                    </span>
+                    {isActive && <CheckCircle2 className="w-4 h-4 text-green-600" />}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </section>
 

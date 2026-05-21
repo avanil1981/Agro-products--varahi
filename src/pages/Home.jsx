@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, Star, Globe2, Truck, Award, Package2, HeartHandshake, Leaf, FileText, ShieldCheck, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ArrowRight, Star, Globe2, Truck, Award, Package2, HeartHandshake, Leaf, FileText, ShieldCheck, ChevronLeft, ChevronRight, Anchor, Plane, Ship, CheckCircle2, MapPin, Sparkles, BookOpen, Quote, ArrowUpRight, Shield, Cog, FlaskConical, Store } from 'lucide-react';
 import { categories, products } from '../data/agroData';
+import Counter from '../components/Counter';
 
 // Fade-up animation options
 const fadeUp = {
@@ -24,9 +25,228 @@ const staggerContainer = {
   }
 };
 
+// ─── Zig-Zag Process Timeline Component ─────────────────────────────────────
+const ZZ_STEPS = [
+  { step:'01', title:'Farmer Sourcing',  desc:'Procured directly from NGO-supported agricultural farm clusters across India.',  icon:'🌾', nodeIcon: Leaf,        color:'#059669', img:'/Rice-Cat.png' },
+  { step:'02', title:'Quality Check',   desc:'Rigorous lab testing — moisture, chemical residue & purity on every batch.',     icon:'🔬', nodeIcon: FlaskConical, color:'#0d9488', img:'/Spicies-cat.png' },
+  { step:'03', title:'Processing',      desc:'Milled, polished, de-stoned & dry-cleaned under strict hygiene protocols.',       icon:'⚙️',  nodeIcon: Cog,         color:'#15803d', img:'/powders-cat.png' },
+  { step:'04', title:'Packaging',       desc:'Custom moisture-barrier BOPP bags, HDPE liners & vacuum retail packs.',          icon:'📦', nodeIcon: Package2,     color:'#b45309', img:'/coffee-cat.png' },
+  { step:'05', title:'Cargo Handling',  desc:'Insulated container stuffing at certified seaports and air cargo hubs.',          icon:'🚢', nodeIcon: Ship,        color:'#1d4ed8', img:'/chilli-cat.png' },
+  { step:'06', title:'Export Delivery', desc:'Real-time tracked logistics to UAE, Singapore, Saudi Arabia, Europe & beyond.',   icon:'✈️',  nodeIcon: Plane,        color:'#4f46e5', img:'/fruit-cat.png' },
+  { step:'07', title:'Domestic Supply', desc:'Efficient cold-chain dispatch to retailers, hotels & supermarkets across India.', icon:'🏪', nodeIcon: Truck,        color:'#16a34a', img:'/fresh Veg-cat.png' },
+];
+
+function ZigZagTimeline() {
+  const [vis, setVis] = React.useState({});
+  const [lineH, setLineH] = React.useState(0);
+  const nodeRefs = React.useRef([]);
+
+  React.useEffect(() => {
+    const obs = [];
+    nodeRefs.current.forEach((el, i) => {
+      if (!el) return;
+      const o = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          setVis(p => ({ ...p, [i]: e.isIntersecting }));
+        });
+      }, { threshold: 0.15 });
+      o.observe(el);
+      obs.push(o);
+    });
+    return () => obs.forEach(o => o.disconnect());
+  }, []);
+
+  return (
+    <section style={{
+      background: 'linear-gradient(135deg, #0b3d1e 0%, #14532d 40%, #0f4a27 70%, #052e12 100%)',
+      position: 'relative',
+      padding: '6rem 0',
+      overflow: 'hidden',
+    }}>
+      {/* Animated CSS */}
+      <style>{`
+        @keyframes zzNodePulse {
+          0%,100% { box-shadow: 0 0 0 0 rgba(212,160,23,0.7), 0 0 20px rgba(212,160,23,0.3); }
+          50%      { box-shadow: 0 0 0 16px rgba(212,160,23,0), 0 0 40px rgba(212,160,23,0.15); }
+        }
+        @keyframes zzLineFill {
+          from { height: 0%; }
+          to   { height: 100%; }
+        }
+        @keyframes zzFloat {
+          0%,100% { transform: translateY(0px); }
+          50%      { transform: translateY(-6px); }
+        }
+        .zz-card-left  { animation: zzFloat 4s ease-in-out infinite; }
+        .zz-card-right { animation: zzFloat 4s ease-in-out infinite 0.5s; }
+        .zz-card-inner {
+          background: rgba(255,255,255,0.05);
+          backdrop-filter: blur(12px);
+          border: 1px solid rgba(212,160,23,0.25);
+          border-radius: 20px;
+          padding: 1.6rem 1.8rem;
+          transition: background 0.3s, border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+          cursor: default;
+          position: relative;
+          overflow: hidden;
+        }
+        .zz-card-inner:hover {
+          background: rgba(255,255,255,0.09);
+          border-color: rgba(212,160,23,0.65);
+          transform: scale(1.02);
+          box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+        }
+        .zz-card-inner:hover img.zz-img {
+          transform: scale(1.1);
+        }
+        .zz-step-row {
+          display: grid;
+          grid-template-columns: 1fr 72px 1fr;
+          align-items: stretch;
+          gap: 0;
+          min-height: 180px;
+          opacity: 0;
+          transform: translateY(24px);
+          transition: opacity 0.65s ease, transform 0.65s ease;
+        }
+        .zz-step-row.visible {
+          opacity: 1;
+          transform: translateY(0);
+        }
+        .zz-side-cell {
+          display: flex;
+          align-items: center;
+        }
+        .zz-empty { /* empty grid cell */ }
+      `}</style>
+
+      {/* Radial glow background */}
+      <div style={{ position:'absolute', inset:0, background:'radial-gradient(ellipse 60% 40% at 50% 50%, rgba(212,160,23,0.06) 0%, transparent 70%)', pointerEvents:'none' }} />
+      {/* Dot grid */}
+      <div style={{ position:'absolute', inset:0, backgroundImage:'radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px)', backgroundSize:'24px 24px', pointerEvents:'none' }} />
+
+      <div style={{ maxWidth:'960px', margin:'0 auto', padding:'0 1.5rem' }}>
+        {/* Section heading */}
+        <div style={{ textAlign:'center', marginBottom:'4rem' }}>
+          <span style={{ display:'inline-block', background:'rgba(212,160,23,0.12)', border:'1px solid rgba(212,160,23,0.3)', color:'#D4A017', fontWeight:700, fontSize:'10px', letterSpacing:'0.18em', textTransform:'uppercase', padding:'6px 20px', borderRadius:'99px', marginBottom:'14px' }}>
+            How We Operate
+          </span>
+          <h2 style={{ fontFamily:'Georgia,serif', fontSize:'clamp(1.7rem,4vw,2.5rem)', fontWeight:900, color:'#fff', marginBottom:'14px', lineHeight:1.15 }}>
+            Our Quality Sourcing &amp; Delivery Flow
+          </h2>
+          <div style={{ width:'60px', height:'3px', background:'linear-gradient(to right,#D4A017,#f0c040)', margin:'0 auto 14px', borderRadius:'2px' }} />
+          <p style={{ fontSize:'12.5px', color:'rgba(255,255,255,0.6)', fontWeight:300, lineHeight:1.75, maxWidth:'500px', margin:'0 auto' }}>
+            Seven precision steps from farm sourcing to global delivery — with zero compromises on quality.
+          </p>
+        </div>
+
+
+        {/* Timeline grid */}
+        <div>
+          {ZZ_STEPS.map((item, idx) => {
+            const isLeft = idx % 2 === 0;
+            const show = !!vis[idx];
+            const delay = idx * 0.13;
+            return (
+              <div
+                key={idx}
+                ref={el => nodeRefs.current[idx] = el}
+                className={`zz-step-row${show ? ' visible' : ''}`}
+                style={{ transitionDelay:`${delay}s`, marginBottom: idx < ZZ_STEPS.length - 1 ? '0' : '0' }}
+              >
+                {/* Left cell */}
+                <div className="zz-side-cell" style={{ justifyContent:'flex-end', paddingRight:'32px' }}>
+                  {isLeft ? (
+                    <div className="zz-card-left" style={{ width:'100%', maxWidth:'340px' }}>
+                      <div className="zz-card-inner" style={{ padding:0 }}>
+                        <div style={{ position:'relative', height:'130px', width:'100%', overflow:'hidden' }}>
+                          <img src={item.img} alt={item.title} className="zz-img" style={{ width:'100%', height:'100%', objectFit:'cover', transition:'transform 0.6s ease' }} />
+                        </div>
+                        <div style={{ padding:'1.4rem 1.5rem' }}>
+                          <div style={{ display:'flex', alignItems:'center', gap:'10px', marginBottom:'10px' }}>
+                            <div style={{ width:'30px', height:'30px', borderRadius:'8px', background: item.color, display:'flex', alignItems:'center', justifyContent:'center', flexShrink:0 }}>
+                              <item.nodeIcon size={16} color="#fff" strokeWidth={2.5} />
+                            </div>
+                            <h4 style={{ fontFamily:'Georgia,serif', fontSize:'16px', fontWeight:900, color:'#fff', margin:0 }}>{item.title}</h4>
+                          </div>
+                          <p style={{ fontSize:'11.5px', color:'rgba(255,255,255,0.75)', lineHeight:1.7, fontWeight:300, margin:0 }}>{item.desc}</p>
+                        </div>
+                      </div>
+                    </div>
+                  ) : <div className="zz-empty" />}
+                </div>
+
+                {/* Center column — line segments stop at node boundary */}
+                <div style={{ display:'flex', flexDirection:'column', alignItems:'center', zIndex:10 }}>
+                  {/* Top connector line */}
+                  <div style={{ width:'2px', flex:1, background: show ? 'linear-gradient(to bottom,rgba(212,160,23,0.3),#D4A017)' : 'rgba(212,160,23,0.12)', transition:'background 0.6s ease' }} />
+
+                  {/* Node circle */}
+                  <div style={{ position:'relative', flexShrink:0 }}>
+                    {/* Glow halo */}
+                    <div style={{
+                      position:'absolute', inset:'-8px', borderRadius:'50%',
+                      background: `radial-gradient(circle, ${item.color}55 0%, transparent 65%)`,
+                      animation:'zzNodePulse 2.4s ease infinite',
+                      zIndex:0,
+                    }} />
+                    {/* Circle */}
+                    <div style={{
+                      width:'64px', height:'64px', borderRadius:'50%',
+                      background: `linear-gradient(135deg, ${item.color}dd, ${item.color})`,
+                      border:'2.5px solid #D4A017',
+                      display:'flex', alignItems:'center', justifyContent:'center',
+                      color:'#fff',
+                      boxShadow:`0 0 0 5px rgba(212,160,23,0.12), 0 8px 28px rgba(0,0,0,0.5)`,
+                      position:'relative', zIndex:1,
+                    }}>
+                      <item.nodeIcon size={26} strokeWidth={1.8} color="#fff" />
+                    </div>
+                  </div>
+
+                  {/* Step label */}
+                  <span style={{ fontSize:'9px', fontWeight:800, color:'#D4A017', letterSpacing:'0.12em', textTransform:'uppercase', opacity:0.85, margin:'5px 0 2px' }}>{item.step}</span>
+
+                  {/* Bottom connector line */}
+                  <div style={{ width:'2px', flex:1, background: show ? 'linear-gradient(to bottom,#22c55e,rgba(34,197,94,0.3))' : 'rgba(212,160,23,0.12)', transition:'background 0.6s ease' }} />
+                </div>
+
+                {/* Right cell */}
+                <div className="zz-side-cell" style={{ justifyContent:'flex-start', paddingLeft:'32px' }}>
+                  {!isLeft ? (
+                    <div className="zz-card-right" style={{ width:'100%', maxWidth:'340px' }}>
+                      <div className="zz-card-inner" style={{ padding:0 }}>
+                        <div style={{ position:'relative', height:'130px', width:'100%', overflow:'hidden' }}>
+                          <img src={item.img} alt={item.title} className="zz-img" style={{ width:'100%', height:'100%', objectFit:'cover', transition:'transform 0.6s ease' }} />
+                        </div>
+                        <div style={{ padding:'1.4rem 1.5rem' }}>
+                          <div style={{ display:'flex', alignItems:'center', gap:'10px', marginBottom:'10px' }}>
+                            <div style={{ width:'30px', height:'30px', borderRadius:'8px', background: item.color, display:'flex', alignItems:'center', justifyContent:'center', flexShrink:0 }}>
+                              <item.nodeIcon size={16} color="#fff" strokeWidth={2.5} />
+                            </div>
+                            <h4 style={{ fontFamily:'Georgia,serif', fontSize:'16px', fontWeight:900, color:'#fff', margin:0 }}>{item.title}</h4>
+                          </div>
+                          <p style={{ fontSize:'11.5px', color:'rgba(255,255,255,0.75)', lineHeight:1.7, fontWeight:300, margin:0 }}>{item.desc}</p>
+                        </div>
+                      </div>
+                    </div>
+                  ) : <div className="zz-empty" />}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
+// ─────────────────────────────────────────────────────────────────────────────
+
+
 export default function Home() {
   // Background Image Carousel Slides using custom high-fidelity crop assets
   const slides = [
+
     '/hero_banner.jpg',
     '/basumathirice-hero.png',
     '/chilli-hero.png',
@@ -108,10 +328,42 @@ export default function Home() {
     return () => clearInterval(interval);
   }, [slides.length]);
 
-  // Get 8 featured products
-  const featuredProducts = products.filter(p => 
-    ["basmati-rice", "ir-64-rice", "cumin-seeds", "green-cardamom", "turmeric-powder", "fresh-onion", "fresh-green-chilli", "fresh-mango"].includes(p.slug)
-  ).slice(0, 8);
+  // Get featured products based on home toggle, ensuring a diverse mix of categories
+  const [homeMarket, setHomeMarket] = useState("export");
+  
+  const filteredHomeProducts = (() => {
+    // 1. Filter by market availability
+    const marketProducts = products.filter(p => 
+      homeMarket === "export" ? p.exportAvailability : p.domesticAvailability
+    );
+    
+    // 2. Group by category
+    const grouped = {};
+    marketProducts.forEach(p => {
+      if (!grouped[p.category]) grouped[p.category] = [];
+      grouped[p.category].push(p);
+    });
+
+    // 3. Pick products round-robin from each category to ensure diversity
+    const diverseProducts = [];
+    const activeCategories = Object.keys(grouped);
+    let i = 0;
+    
+    while (diverseProducts.length < 8 && activeCategories.length > 0) {
+      const catIndex = i % activeCategories.length;
+      const cat = activeCategories[catIndex];
+      
+      if (grouped[cat].length > 0) {
+        diverseProducts.push(grouped[cat].shift());
+      } else {
+        activeCategories.splice(catIndex, 1);
+        i--; // Adjust index since we removed an element
+      }
+      i++;
+    }
+    
+    return diverseProducts;
+  })();
 
   const trustItems = [
     { 
@@ -249,45 +501,63 @@ export default function Home() {
 
       </section>
 
-      {/* Infinite Product Names Scrolling Ticker */}
-      <div className="bg-gradient-to-r from-dark-green to-primary-green py-3 border-y border-gold-accent/20 relative z-20 overflow-hidden select-none shadow-sm">
+      {/* 1. Running News Ticker Section */}
+      <div className="bg-gradient-to-r from-dark-green via-primary-green to-dark-green py-4 border-y border-gold-accent/30 relative z-20 overflow-hidden select-none shadow-lg">
         <style dangerouslySetInnerHTML={{__html: `
-          @keyframes ticker-scroll {
+          @keyframes news-ticker-scroll {
             0% { transform: translate3d(0, 0, 0); }
             100% { transform: translate3d(-50%, 0, 0); }
           }
-          .animate-ticker {
+          .animate-news-ticker {
             display: flex;
             width: max-content;
-            animation: ticker-scroll 60s linear infinite;
+            animation: news-ticker-scroll 50s linear infinite;
           }
-          .animate-ticker:hover {
+          .animate-news-ticker:hover {
             animation-play-state: paused;
           }
         `}} />
         <div className="flex overflow-hidden">
-          <div className="animate-ticker flex items-center space-x-12 text-white font-sans text-[10px] sm:text-xs uppercase tracking-wider font-semibold">
-            {/* First Set of Products */}
-            {products.map((p, idx) => (
-              <Link 
-                key={`t1-${idx}`} 
-                to={`/products/${p.slug}`}
-                className="flex items-center space-x-4 hover:text-gold-accent transition-colors duration-300 shrink-0"
-              >
-                <span>{p.name}</span>
-                <span className="text-gold-accent font-bold text-xs">★</span>
-              </Link>
-            ))}
-            {/* Duplicated Set for Seamless Infinite Loop */}
-            {products.map((p, idx) => (
-              <Link 
-                key={`t2-${idx}`} 
-                to={`/products/${p.slug}`}
-                className="flex items-center space-x-4 hover:text-gold-accent transition-colors duration-300 shrink-0"
-              >
-                <span>{p.name}</span>
-                <span className="text-gold-accent font-bold text-xs">★</span>
-              </Link>
+          <div className="animate-news-ticker flex items-center space-x-16 text-white font-sans text-[11px] sm:text-xs uppercase tracking-widest font-semibold">
+            {[...Array(2)].map((_, loopIdx) => (
+              <React.Fragment key={loopIdx}>
+                <div className="flex items-center space-x-4 shrink-0">
+                  <Globe2 className="w-4 h-4 text-gold-accent animate-pulse" />
+                  <span>Exporting Premium Agro Products Worldwide</span>
+                </div>
+                <div className="flex items-center space-x-4 shrink-0">
+                  <Leaf className="w-4 h-4 text-gold-accent" />
+                  <span>Directly Sourced From Indian Farmers</span>
+                </div>
+                <div className="flex items-center space-x-4 shrink-0">
+                  <Award className="w-4 h-4 text-gold-accent" />
+                  <span>NGO Supported Sourcing Network</span>
+                </div>
+                <div className="flex items-center space-x-4 shrink-0">
+                  <Truck className="w-4 h-4 text-gold-accent" />
+                  <span>Ship Cargo & Air Cargo Available</span>
+                </div>
+                <div className="flex items-center space-x-4 shrink-0">
+                  <Globe2 className="w-4 h-4 text-gold-accent" />
+                  <span>Domestic & International Supply</span>
+                </div>
+                <div className="flex items-center space-x-4 shrink-0">
+                  <Package2 className="w-4 h-4 text-gold-accent" />
+                  <span>Bulk Orders & Custom Brands</span>
+                </div>
+                <div className="flex items-center space-x-4 shrink-0">
+                  <ShieldCheck className="w-4 h-4 text-gold-accent" />
+                  <span>Hygienic Export-Grade Packaging</span>
+                </div>
+                <div className="flex items-center space-x-4 shrink-0">
+                  <Truck className="w-4 h-4 text-gold-accent" />
+                  <span>Timely Global Delivery Assurance</span>
+                </div>
+                <div className="flex items-center space-x-4 shrink-0">
+                  <FileText className="w-4 h-4 text-gold-accent" />
+                  <span>Complete Export Documentation Support</span>
+                </div>
+              </React.Fragment>
             ))}
           </div>
         </div>
@@ -392,68 +662,668 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 5. Featured Products */}
-      <section className="py-20 px-4 md:px-8 max-w-7xl mx-auto bg-white/50 rounded-3xl my-10 border border-gold-accent/10 shadow-sm">
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <h2 className="font-serif text-3xl md:text-4xl font-extrabold text-dark-green tracking-tight">
-            FEATURED CROP EXPORTS
-          </h2>
-          <div className="w-24 h-1 bg-gold-accent mx-auto my-4"></div>
-          <p className="text-sm text-soft-gray font-light">
-            Our highest demanded products worldwide. Selected carefully for strict packaging standards and high chemical/aromatic integrity.
-          </p>
+      {/* 2. About Export Business Section */}
+      <section className="py-24 px-4 md:px-8 max-w-7xl mx-auto overflow-hidden">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          {/* Left Side: Premium Layered Visual Cards */}
+          <div className="lg:col-span-6 relative">
+            <div className="absolute inset-0 bg-gradient-to-tr from-primary-green/20 to-gold-accent/20 rounded-3xl blur-2xl opacity-40 pointer-events-none"></div>
+            
+            <div className="relative z-10 grid grid-cols-2 gap-4">
+              <div className="space-y-4">
+                <div className="rounded-2xl overflow-hidden shadow-lg border border-gold-accent/15 aspect-[3/4] hover:scale-[1.02] transition-transform duration-500">
+                  <img src="/Spicies-cat.png" alt="Indian Spices Sourcing" className="w-full h-full object-cover" />
+                </div>
+                <div className="bg-gradient-to-br from-dark-green to-primary-green p-6 rounded-2xl border border-gold-accent/20 text-white shadow-xl hover:translate-y-[-4px] transition-all duration-300">
+                  <Leaf className="w-8 h-8 text-gold-accent mb-3" />
+                  <h4 className="font-serif text-lg font-bold text-gold-accent">100% Ethical Sourcing</h4>
+                  <p className="text-[10px] text-cream-bg/85 font-light leading-relaxed mt-1">Direct tie-ups with select farm clusters across India, supported by local NGOs.</p>
+                </div>
+              </div>
+              
+              <div className="space-y-4 pt-8">
+                <div className="bg-[#FAF8F5] p-6 rounded-2xl border border-gold-accent/25 shadow-md hover:translate-y-[-4px] transition-all duration-300">
+                  <Ship className="w-8 h-8 text-primary-green mb-3" />
+                  <h4 className="font-serif text-lg font-bold text-dark-green">Global Freight Lines</h4>
+                  <p className="text-[10px] text-soft-gray font-light leading-relaxed mt-1">Insulated sea cargo stuffing & fast temperature-controlled air cargo solutions.</p>
+                </div>
+                <div className="rounded-2xl overflow-hidden shadow-lg border border-gold-accent/15 aspect-[3/4] hover:scale-[1.02] transition-transform duration-500">
+                  <img src="/Rice-Cat.png" alt="Premium Rice Milling" className="w-full h-full object-cover" />
+                </div>
+              </div>
+            </div>
+
+            {/* Floating Glassmorphism Stat Cards */}
+            <div className="absolute -left-4 top-1/3 z-20 bg-white/90 backdrop-blur-md px-5 py-3 rounded-xl border border-gold-accent/20 shadow-xl flex items-center space-x-3 hidden sm:flex animate-bounce" style={{ animationDuration: '3s' }}>
+              <div className="w-2.5 h-2.5 rounded-full bg-green-500 animate-ping"></div>
+              <span className="text-[10px] font-sans font-extrabold uppercase tracking-wider text-dark-green">NGO Sourcing Active</span>
+            </div>
+          </div>
+
+          {/* Right Side: Informative & Corporate Exporter Pitch */}
+          <div className="lg:col-span-6 space-y-6 text-left">
+            <div className="inline-flex items-center space-x-2 text-gold-accent uppercase font-bold text-[10px] tracking-widest bg-gold-accent/5 px-3 py-1.5 rounded-full border border-gold-accent/10">
+              <Sparkles className="w-3.5 h-3.5 text-gold-accent" />
+              <span>Connecting Indian Farmers to Global Markets</span>
+            </div>
+            
+            <h2 className="font-serif text-3xl md:text-5xl font-extrabold text-dark-green tracking-tight leading-tight">
+              Premium Agro Products Sourced with Trust, Delivered Worldwide
+            </h2>
+            
+            <div className="w-20 h-[3px] bg-gold-accent"></div>
+            
+            <p className="text-xs text-soft-gray leading-relaxed font-light font-sans">
+              Sri Varahi Agro Foods LLP collaborates directly with crop growers and NGO-supported agricultural sourcing networks across India. We eliminate standard trading intermediaries, guaranteeing exceptional purity, fair trade practices for farmers, and optimal price benefits for bulk importers.
+            </p>
+            <p className="text-xs text-soft-gray leading-relaxed font-light font-sans">
+              Whether routing bulk container cargos via seaports or delivering express seasonal fruits via temperature-tracked air cargo, our trade compliance managers handle all certifications, dry-cleaning, and logistics seamlessly.
+            </p>
+
+            {/* Core Pillars */}
+            <div className="grid grid-cols-2 gap-4 pt-4 border-t border-cream-bg">
+              <div className="flex items-start space-x-2">
+                <CheckCircle2 className="w-4 h-4 text-gold-accent shrink-0 mt-0.5" />
+                <span className="text-[11px] text-dark-green font-medium">SGS & Phyto Certified Sourcing</span>
+              </div>
+              <div className="flex items-start space-x-2">
+                <CheckCircle2 className="w-4 h-4 text-gold-accent shrink-0 mt-0.5" />
+                <span className="text-[11px] text-dark-green font-medium">Direct Sourcing Price Arbitrage</span>
+              </div>
+              <div className="flex items-start space-x-2">
+                <CheckCircle2 className="w-4 h-4 text-gold-accent shrink-0 mt-0.5" />
+                <span className="text-[11px] text-dark-green font-medium">Temperature-Tracked Cargoes</span>
+              </div>
+              <div className="flex items-start space-x-2">
+                <CheckCircle2 className="w-4 h-4 text-gold-accent shrink-0 mt-0.5" />
+                <span className="text-[11px] text-dark-green font-medium">Heavy-Duty Customized Packing</span>
+              </div>
+            </div>
+
+            {/* Counters Section */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-6 text-center bg-cream-bg/30 p-6 rounded-2xl border border-gold-accent/10">
+              <div>
+                <div className="font-serif text-3xl font-extrabold text-primary-green">
+                  <Counter end={15} suffix="+" />
+                </div>
+                <div className="text-[9px] uppercase tracking-wider text-soft-gray mt-1 font-bold">Countries Served</div>
+              </div>
+              <div>
+                <div className="font-serif text-3xl font-extrabold text-primary-green">
+                  <Counter end={48} suffix="+" />
+                </div>
+                <div className="text-[9px] uppercase tracking-wider text-soft-gray mt-1 font-bold">Export Products</div>
+              </div>
+              <div>
+                <div className="font-serif text-3xl font-extrabold text-primary-green">
+                  <Counter end={1200} suffix="+" />
+                </div>
+                <div className="text-[9px] uppercase tracking-wider text-soft-gray mt-1 font-bold">Farmer Network</div>
+              </div>
+              <div>
+                <div className="font-serif text-3xl font-extrabold text-primary-green">
+                  <Counter end={150} suffix="+" />
+                </div>
+                <div className="text-[9px] uppercase tracking-wider text-soft-gray mt-1 font-bold">Supply Partners</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 7. Unified Product Showcase Section */}
+      <section className="py-24 px-4 md:px-8 max-w-[95%] mx-auto relative group/prodslider overflow-hidden">
+        <div className="max-w-3xl mx-auto text-center space-y-4 mb-16">
+          <div className="text-gold-accent uppercase font-bold text-[10px] tracking-widest bg-gold-accent/5 inline-block px-3 py-1.5 rounded-full border border-gold-accent/10">Premium Crop Selection</div>
+          <h2 className="font-serif text-3xl md:text-5xl font-extrabold text-dark-green tracking-tight leading-tight">OUR PRODUCT CATALOG</h2>
+          <div className="w-20 h-1 bg-gold-accent mx-auto my-2"></div>
+          <p className="text-xs text-soft-gray font-light max-w-xl mx-auto mb-6">Sourced ethically from Indian cultivators, graded, and prepared with compliant configurations for global and domestic markets.</p>
+          
+          {/* Market Filter Toggle */}
+          <div className="flex bg-cream-bg p-1 rounded-xl border border-gold-accent/15 shrink-0 max-w-fit mx-auto mt-8">
+            {[
+              { id: 'export', label: 'EXPORT' },
+              { id: 'domestic', label: 'DOMESTIC' }
+            ].map(market => (
+              <button
+                key={market.id}
+                onClick={() => setHomeMarket(market.id)}
+                className={`text-[12px] font-bold uppercase tracking-wider px-6 py-2 rounded-lg transition-all ${
+                  homeMarket === market.id
+                    ? "bg-primary-green text-white shadow-sm"
+                    : "text-soft-gray hover:text-dark-text hover:bg-white/50"
+                }`}
+              >
+                {market.label}
+              </button>
+            ))}
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {featuredProducts.map((prod) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {filteredHomeProducts.map((prod) => (
             <div 
               key={prod.id} 
-              className="bg-white rounded-2xl overflow-hidden border border-cream-bg shadow-sm flex flex-col group hover:shadow-lg transition-all duration-300"
+              className="bg-white rounded-2xl overflow-hidden border border-gold-accent/15 shadow-sm flex flex-col group hover:shadow-2xl hover:-translate-y-2 hover:border-gold-accent/40 transition-all duration-300"
             >
-              <div className="relative h-44 overflow-hidden bg-cream-bg">
+              <div className="relative aspect-[4/3] sm:aspect-[4/5] overflow-hidden bg-cream-bg">
                 <img 
                   src={prod.image} 
                   alt={prod.name} 
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
                 />
-                <span className="absolute top-3 left-3 bg-primary-green text-gold-accent font-bold text-[8px] uppercase tracking-wider px-2 py-1 rounded">
-                  {prod.category}
-                </span>
+                
+                <div className="absolute top-3 left-3 flex flex-col gap-1.5">
+                  <span className="bg-white/90 backdrop-blur-md text-primary-green font-sans font-extrabold text-[9px] uppercase tracking-wider px-2.5 py-1 rounded-lg shadow-sm">
+                    {prod.category}
+                  </span>
+                </div>
               </div>
+
               <div className="p-5 flex-1 flex flex-col justify-between">
                 <div>
-                  <h3 className="font-serif text-base font-bold text-dark-green leading-snug group-hover:text-primary-green transition-colors">
+                  <h3 className="font-serif text-[15px] font-extrabold text-dark-green group-hover:text-primary-green transition-colors leading-tight mb-2">
                     {prod.name}
                   </h3>
-                  <p className="text-[11px] text-soft-gray mt-2 font-light line-clamp-2">
+                  <p className="text-[11px] text-soft-gray font-light line-clamp-2 leading-relaxed">
                     {prod.shortDescription}
                   </p>
-                  
-                  {/* Small specs summary */}
-                  <div className="mt-3.5 space-y-1">
-                    <div className="flex justify-between text-[10px] border-b border-cream-bg pb-1 text-soft-gray">
-                      <span>Origin:</span>
-                      <span className="font-semibold text-dark-green">{prod.specTable.Origin || "India"}</span>
-                    </div>
-                    <div className="flex justify-between text-[10px] border-b border-cream-bg pb-1 text-soft-gray">
-                      <span>MOQ:</span>
-                      <span className="font-semibold text-dark-green">{prod.moq}</span>
-                    </div>
-                  </div>
                 </div>
-                
-                <div className="pt-4 mt-4 grid grid-cols-2 gap-3 border-t border-cream-bg">
+
+                <div className="pt-4 mt-4 border-t border-cream-bg flex items-center justify-between">
+                  <span className="text-[10px] font-bold text-dark-green uppercase tracking-wider bg-cream-bg px-2 py-1 rounded">
+                    {homeMarket === 'export' ? 'EXPORT' : 'DOMESTIC'}
+                  </span>
                   <Link 
                     to={`/products/${prod.slug}`} 
-                    className="text-center bg-cream-bg hover:bg-gold-accent hover:text-white text-dark-green font-semibold text-[10px] py-2 px-3 rounded-lg transition-colors"
+                    className="w-8 h-8 rounded-full bg-primary-green/10 text-primary-green flex items-center justify-center group-hover/link:bg-primary-green group-hover/link:text-white transition-all duration-300"
                   >
-                    View Details
+                    <ArrowRight className="w-4 h-4" />
                   </Link>
-                  <Link 
-                    to="/contact" 
-                    className="text-center bg-primary-green hover:bg-dark-green text-white font-semibold text-[10px] py-2 px-3 rounded-lg transition-colors border border-gold-accent/20"
-                  >
-                    Get Quote
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-12 text-center">
+          <Link to="/products" className="inline-flex items-center space-x-2 bg-dark-green text-white px-8 py-4 rounded-full text-xs font-bold uppercase tracking-wider hover:bg-primary-green hover:shadow-lg transition-all duration-300 group">
+            <span>View Full Catalog</span>
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+          </Link>
+        </div>
+      </section>
+
+      {/* 3. International Export Services Section */}
+      <section className="py-24 bg-gradient-to-br from-dark-green via-[#063B1D] to-dark-green text-white relative overflow-hidden border-y-2 border-gold-accent/20">
+        {/* World Map Backdrop Vector */}
+        <div className="absolute inset-0 opacity-[0.05] pointer-events-none flex items-center justify-center">
+          <svg className="w-full h-full max-w-4xl" viewBox="0 0 1000 500" fill="currentColor">
+            <path d="M150,150 Q200,100 250,150 T350,150 T450,150 T550,150 T650,150 T750,150 T850,150" stroke="white" strokeWidth="1" fill="none" strokeDasharray="5,5" />
+            <circle cx="200" cy="120" r="4" className="animate-ping" fill="#D4A017" />
+            <circle cx="400" cy="180" r="4" fill="#D4A017" />
+            <circle cx="650" cy="140" r="4" className="animate-ping" fill="#D4A017" />
+            <circle cx="800" cy="220" r="4" fill="#D4A017" />
+          </svg>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
+          <div className="text-center max-w-2xl mx-auto mb-16 space-y-3">
+            <div className="text-gold-accent uppercase font-bold text-[10px] tracking-widest bg-white/5 inline-block px-3 py-1 rounded-full border border-white/10">Global Logistics Solutions</div>
+            <h2 className="font-serif text-3xl md:text-4xl font-extrabold tracking-tight">International Export Solutions</h2>
+            <div className="w-20 h-1 bg-gold-accent mx-auto my-3"></div>
+            <p className="text-xs text-cream-bg/70 font-light">Reliable sea cargo and temperature-controlled air cargo logistics support for global agricultural exports.</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Service 1 */}
+            <div className="bg-white/5 backdrop-blur-md p-8 rounded-2xl border border-white/10 hover:border-gold-accent/40 shadow-xl hover:-translate-y-2 transition-all duration-300 group relative overflow-hidden">
+              <div className="absolute right-0 top-0 w-24 h-24 bg-gradient-to-br from-gold-accent/10 to-transparent rounded-bl-full pointer-events-none"></div>
+              <div className="bg-gold-accent/10 p-4 rounded-xl text-gold-accent shrink-0 inline-block mb-6 group-hover:bg-gold-accent group-hover:text-dark-green transition-all duration-300">
+                <Ship className="w-6 h-6 animate-pulse" />
+              </div>
+              <h3 className="font-serif text-lg font-bold text-white mb-3">Ship Cargo Export</h3>
+              <p className="text-[11px] text-cream-bg/75 leading-relaxed font-light">FCL and LCL shipping in multi-wall custom packaging. Strong seaport ties ensure reliable container booking and route optimization.</p>
+            </div>
+
+            {/* Service 2 */}
+            <div className="bg-white/5 backdrop-blur-md p-8 rounded-2xl border border-white/10 hover:border-gold-accent/40 shadow-xl hover:-translate-y-2 transition-all duration-300 group relative overflow-hidden">
+              <div className="absolute right-0 top-0 w-24 h-24 bg-gradient-to-br from-gold-accent/10 to-transparent rounded-bl-full pointer-events-none"></div>
+              <div className="bg-gold-accent/10 p-4 rounded-xl text-gold-accent shrink-0 inline-block mb-6 group-hover:bg-gold-accent group-hover:text-dark-green transition-all duration-300">
+                <Plane className="w-6 h-6" />
+              </div>
+              <h3 className="font-serif text-lg font-bold text-white mb-3">Air Cargo Export</h3>
+              <p className="text-[11px] text-cream-bg/75 leading-relaxed font-light">Express custom cold-chain air courier routing for highly seasonal fruits, tender fresh vegetables, and premium single-origin coffee shipments.</p>
+            </div>
+
+            {/* Service 3 */}
+            <div className="bg-white/5 backdrop-blur-md p-8 rounded-2xl border border-white/10 hover:border-gold-accent/40 shadow-xl hover:-translate-y-2 transition-all duration-300 group relative overflow-hidden">
+              <div className="absolute right-0 top-0 w-24 h-24 bg-gradient-to-br from-gold-accent/10 to-transparent rounded-bl-full pointer-events-none"></div>
+              <div className="bg-gold-accent/10 p-4 rounded-xl text-gold-accent shrink-0 inline-block mb-6 group-hover:bg-gold-accent group-hover:text-dark-green transition-all duration-300">
+                <FileText className="w-6 h-6" />
+              </div>
+              <h3 className="font-serif text-lg font-bold text-white mb-3">Export Documentation</h3>
+              <p className="text-[11px] text-cream-bg/75 leading-relaxed font-light">Complete handling of APEDA, SGS/Geochem checks, Phyto-sanitary certifications, customs clearing, certificate of origin, and bank drafts.</p>
+            </div>
+
+            {/* Service 4 */}
+            <div className="bg-white/5 backdrop-blur-md p-8 rounded-2xl border border-white/10 hover:border-gold-accent/40 shadow-xl hover:-translate-y-2 transition-all duration-300 group relative overflow-hidden">
+              <div className="absolute right-0 top-0 w-24 h-24 bg-gradient-to-br from-gold-accent/10 to-transparent rounded-bl-full pointer-events-none"></div>
+              <div className="bg-gold-accent/10 p-4 rounded-xl text-gold-accent shrink-0 inline-block mb-6 group-hover:bg-gold-accent group-hover:text-dark-green transition-all duration-300">
+                <Package2 className="w-6 h-6" />
+              </div>
+              <h3 className="font-serif text-lg font-bold text-white mb-3">Bulk Container Supply</h3>
+              <p className="text-[11px] text-cream-bg/75 leading-relaxed font-light">High-capacity bulk shipments of grains, pulses, and onions with optimized weight structures in dry and ventilated containers.</p>
+            </div>
+
+            {/* Service 5 */}
+            <div className="bg-white/5 backdrop-blur-md p-8 rounded-2xl border border-white/10 hover:border-gold-accent/40 shadow-xl hover:-translate-y-2 transition-all duration-300 group relative overflow-hidden">
+              <div className="absolute right-0 top-0 w-24 h-24 bg-gradient-to-br from-gold-accent/10 to-transparent rounded-bl-full pointer-events-none"></div>
+              <div className="bg-gold-accent/10 p-4 rounded-xl text-gold-accent shrink-0 inline-block mb-6 group-hover:bg-gold-accent group-hover:text-dark-green transition-all duration-300">
+                <Award className="w-6 h-6" />
+              </div>
+              <h3 className="font-serif text-lg font-bold text-white mb-3">Custom Packaging</h3>
+              <p className="text-[11px] text-cream-bg/75 leading-relaxed font-light">Flexible private label design options, high-vacuum retail boxes, moisture-barrier packs, and BOPP/jute bulk bags with gold accents.</p>
+            </div>
+
+            {/* Service 6 */}
+            <div className="bg-white/5 backdrop-blur-md p-8 rounded-2xl border border-white/10 hover:border-gold-accent/40 shadow-xl hover:-translate-y-2 transition-all duration-300 group relative overflow-hidden">
+              <div className="absolute right-0 top-0 w-24 h-24 bg-gradient-to-br from-gold-accent/10 to-transparent rounded-bl-full pointer-events-none"></div>
+              <div className="bg-gold-accent/10 p-4 rounded-xl text-gold-accent shrink-0 inline-block mb-6 group-hover:bg-gold-accent group-hover:text-dark-green transition-all duration-300">
+                <Globe2 className="w-6 h-6 animate-spin" style={{ animationDuration: '8s' }} />
+              </div>
+              <h3 className="font-serif text-lg font-bold text-white mb-3">Global Trade Support</h3>
+              <p className="text-[11px] text-cream-bg/75 leading-relaxed font-light">Dedicated multilingual communication desk supporting overseas importers with pricing index charts, custom shipping schedules, and L/C support.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 4. Domestic Market Supply Section */}
+      <section className="py-24 bg-cream-bg/30 px-4 md:px-8 max-w-7xl mx-auto rounded-3xl border border-gold-accent/10 my-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          {/* Left: Domestic Network Info & Illustrations */}
+          <div className="lg:col-span-5 text-left space-y-6">
+            <div className="inline-flex items-center space-x-2 text-primary-green uppercase font-bold text-[10px] tracking-widest bg-primary-green/5 px-3 py-1.5 rounded-full border border-primary-green/10">
+              <Truck className="w-3.5 h-3.5" />
+              <span>Domestic Supply Across India</span>
+            </div>
+            
+            <h2 className="font-serif text-3xl md:text-4xl font-extrabold text-dark-green leading-tight">
+              Powering India's Retail & Wholesale Agro Supply Lines
+            </h2>
+            <div className="w-16 h-1 bg-gold-accent"></div>
+            
+            <p className="text-xs text-soft-gray leading-relaxed font-light">
+              Beyond global exports, Sri Varahi Agro Foods LLP is a high-volume supply partner for leading domestic retail brands, wholesale markets, FMCG industries, and hotel chains across India.
+            </p>
+
+            <ul className="space-y-3.5 text-xs text-dark-green font-medium">
+              <li className="flex items-center space-x-2.5">
+                <div className="bg-primary-green text-gold-accent p-1 rounded-full"><CheckCircle2 className="w-3.5 h-3.5" /></div>
+                <span>Supermarket & Hypermarket Supply Chain</span>
+              </li>
+              <li className="flex items-center space-x-2.5">
+                <div className="bg-primary-green text-gold-accent p-1 rounded-full"><CheckCircle2 className="w-3.5 h-3.5" /></div>
+                <span>HoReCa (Hotels, Restaurants, Caterers) Logistics</span>
+              </li>
+              <li className="flex items-center space-x-2.5">
+                <div className="bg-primary-green text-gold-accent p-1 rounded-full"><CheckCircle2 className="w-3.5 h-3.5" /></div>
+                <span>Bulk Food Processing Industry Distribution</span>
+              </li>
+              <li className="flex items-center space-x-2.5">
+                <div className="bg-primary-green text-gold-accent p-1 rounded-full"><CheckCircle2 className="w-3.5 h-3.5" /></div>
+                <span>Fast Inter-State Cold Chain Sourcing Operations</span>
+              </li>
+            </ul>
+          </div>
+
+          {/* Right: Domestic Packaging Board Showcase */}
+          <div className="lg:col-span-7 bg-white p-8 md:p-10 rounded-3xl border border-gold-accent/15 shadow-sm space-y-8">
+            <div className="text-center md:text-left">
+              <h3 className="font-serif text-xl font-extrabold text-dark-green">Heavy-Duty Packaging Offerings</h3>
+              <p className="text-[11px] text-soft-gray mt-1 font-light">Direct custom packing capacities sorted for commercial retail shelves and heavy transport.</p>
+            </div>
+
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+              {[
+                { size: "1kg", label: "Vacuum Retail Pack", desc: "For modern retail shelves" },
+                { size: "5kg", label: "Handle-Grip Bags", desc: "Perfect for family packs" },
+                { size: "10kg", label: "Premium Woven Bags", desc: "Ideal for grocery stores" },
+                { size: "25kg", label: "Multi-Wall HDPE bags", desc: "Wholesale distributions" },
+                { size: "50kg", label: "Traditional Jute bags", desc: "Standard commodity supply" },
+                { size: "Bulk", label: "Container Liner bags", desc: "Heavy commercial sizing" }
+              ].map((item, idx) => (
+                <div 
+                  key={idx} 
+                  className="bg-cream-bg/40 p-5 rounded-2xl border border-gold-accent/10 text-center hover:rotate-2 hover:scale-[1.03] hover:border-gold-accent/30 transition-all duration-300 group"
+                >
+                  <div className="w-12 h-12 rounded-full bg-primary-green text-gold-accent font-sans font-extrabold text-sm flex items-center justify-center mx-auto shadow-md group-hover:scale-110 transition-transform">
+                    {item.size}
+                  </div>
+                  <h4 className="font-serif text-xs font-bold text-dark-green mt-3">{item.label}</h4>
+                  <p className="text-[9px] text-soft-gray mt-1 leading-tight font-light">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 5. Why Choose Us (Luxury Bento Grid UI) */}
+      <section className="py-24 px-4 md:px-8 max-w-7xl mx-auto text-center space-y-16">
+        <div className="max-w-2xl mx-auto space-y-3">
+          <div className="text-gold-accent uppercase font-bold text-[10px] tracking-widest bg-gold-accent/5 inline-block px-3 py-1.5 rounded-full border border-gold-accent/10">Why Sri Varahi Agro?</div>
+          <h2 className="font-serif text-3xl md:text-5xl font-extrabold text-dark-green tracking-tight leading-tight">Elite Agriculture Partner</h2>
+          <div className="w-20 h-1 bg-gold-accent mx-auto my-3"></div>
+          <p className="text-xs text-soft-gray font-light">We leverage technology, community sourcing, and strict grading to secure world-class standards.</p>
+        </div>
+
+        {/* Bento Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[220px]">
+          {/* Card 1: Direct Farmer Sourcing (Double Width) */}
+          <div className="md:col-span-2 rounded-3xl border border-gold-accent/20 text-white text-left relative overflow-hidden flex flex-col justify-end hover:shadow-xl hover:border-gold-accent/40 transition-all duration-500 group min-h-[220px]">
+            <div className="absolute inset-0 z-0">
+              <img src="https://images.unsplash.com/photo-1599940824399-b87987ceb72a?auto=format&fit=crop&w=800&q=80" alt="Indian Spices" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out" />
+              <div className="absolute inset-0 bg-dark-green/85 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out"></div>
+            </div>
+            
+            <div className="relative z-10 flex flex-col h-full justify-between p-8 opacity-0 translate-y-8 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 ease-out delay-75 pointer-events-none group-hover:pointer-events-auto">
+              <div className="bg-gold-accent/20 backdrop-blur-md p-3.5 rounded-2xl text-gold-accent inline-block self-start border border-gold-accent/30">
+                <Leaf className="w-6 h-6 animate-pulse" />
+              </div>
+              <div className="mt-6">
+                <h3 className="font-serif text-xl font-bold text-gold-accent shadow-sm">Direct Farmer Sourcing Model</h3>
+                <p className="text-[11px] text-cream-bg/90 mt-2 max-w-lg leading-relaxed font-light drop-shadow-md">We buy agricultural outputs directly from farm networks in India. Removing middlemen enables strict chemical index checks, preserves natural purity, and maximizes farmer profits.</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Card 2: NGO Agricultural Support */}
+          <div className="rounded-3xl border border-gold-accent/15 text-left flex flex-col justify-end hover:shadow-lg hover:border-gold-accent/35 transition-all duration-500 group relative overflow-hidden min-h-[220px]">
+            <div className="absolute inset-0 z-0">
+              <img src="https://images.unsplash.com/photo-1605000797499-95a51c5269ae?auto=format&fit=crop&w=800&q=80" alt="Indian Farming" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out" />
+              <div className="absolute inset-0 bg-dark-green/85 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out"></div>
+            </div>
+            
+            <div className="relative z-10 flex flex-col h-full justify-between p-8 opacity-0 translate-y-8 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 ease-out delay-75 pointer-events-none group-hover:pointer-events-auto">
+              <div className="bg-primary-green/20 backdrop-blur-md p-3.5 rounded-2xl text-white inline-block self-start border border-white/20">
+                <HeartHandshake className="w-6 h-6" />
+              </div>
+              <div className="mt-6">
+                <h3 className="font-serif text-lg font-bold text-white shadow-sm">NGO Supported Sourcing</h3>
+                <p className="text-[11px] text-cream-bg/90 mt-2 leading-relaxed font-light drop-shadow-md">Working alongside rural development NGOs to back farmer co-ops and implement advanced agricultural techniques.</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Card 3: Premium Quality */}
+          <div className="rounded-3xl border border-gold-accent/15 text-left flex flex-col justify-end hover:shadow-lg hover:border-gold-accent/35 transition-all duration-500 group relative overflow-hidden min-h-[220px]">
+            <div className="absolute inset-0 z-0">
+              <img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=800&q=80" alt="Premium Rice" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out" />
+              <div className="absolute inset-0 bg-dark-green/85 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out"></div>
+            </div>
+
+            <div className="relative z-10 flex flex-col h-full justify-between p-8 opacity-0 translate-y-8 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 ease-out delay-75 pointer-events-none group-hover:pointer-events-auto">
+              <div className="bg-primary-green/20 backdrop-blur-md p-3.5 rounded-2xl text-white inline-block self-start border border-white/20">
+                <Award className="w-6 h-6" />
+              </div>
+              <div className="mt-6">
+                <h3 className="font-serif text-lg font-bold text-white shadow-sm">Premium Export Quality</h3>
+                <p className="text-[11px] text-cream-bg/90 mt-2 leading-relaxed font-light drop-shadow-md">Each batch is strictly tested against APEDA and SGS global standards to assure pesticide residue compliance.</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Card 4: Global Export (Double Width) */}
+          <div className="md:col-span-2 rounded-3xl border border-gold-accent/15 text-left flex flex-col justify-end hover:shadow-lg hover:border-gold-accent/35 transition-all duration-500 group relative overflow-hidden min-h-[220px]">
+            <div className="absolute inset-0 z-0">
+              <img src="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?auto=format&fit=crop&w=800&q=80" alt="Global Logistics" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out" />
+              <div className="absolute inset-0 bg-dark-green/85 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out"></div>
+            </div>
+
+            <div className="relative z-10 flex flex-col h-full justify-between p-8 opacity-0 translate-y-8 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 ease-out delay-75 pointer-events-none group-hover:pointer-events-auto">
+              <div className="bg-primary-green/20 backdrop-blur-md p-3.5 rounded-2xl text-white inline-block self-start group-hover:bg-primary-green transition-all border border-white/20">
+                <Globe2 className="w-6 h-6" />
+              </div>
+              <div className="mt-6">
+                <h3 className="font-serif text-lg font-bold text-gold-accent shadow-sm">Domestic & Global Supply Grid</h3>
+                <p className="text-[11px] text-cream-bg/90 mt-2 max-w-lg leading-relaxed font-light drop-shadow-md">From UAE, Saudi Arabia, Singapore and European destinations to domestic wholesale distributors and retail supermarkets within India, we maintain consistent supply contracts year-round.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 6. Product Process Flow Section - Vertical Zig-Zag Timeline */}
+      <ZigZagTimeline />
+
+
+
+      {/* 9. Global Market Destinations */}
+      <section className="py-24 bg-dark-green text-white border-y-2 border-gold-accent/20 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(11,74,37,0.8),transparent_70%)] pointer-events-none"></div>
+        
+        <div className="max-w-7xl mx-auto px-4 md:px-8 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div className="lg:col-span-5 text-left space-y-6">
+            <div className="inline-flex items-center space-x-2 text-gold-accent uppercase font-bold text-[10px] tracking-widest bg-white/5 px-3 py-1.5 rounded-full border border-white/10">Export Routing</div>
+            <h2 className="font-serif text-3xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">Serving Global Markets</h2>
+            <div className="w-16 h-1 bg-gold-accent"></div>
+            
+            <p className="text-xs text-cream-bg/75 leading-relaxed font-light">
+              Sri Varahi Agro Foods LLP maintains structured bulk export channels shipping out of premium Indian seaports and air hubs directly to major worldwide global trade centers.
+            </p>
+
+            <div className="grid grid-cols-2 gap-4">
+              {[
+                { title: "UAE (Dubai)", type: "Sea & Air Cargo" },
+                { title: "Singapore", type: "Container Sea Freight" },
+                { title: "Malaysia", type: "Port Klang Delivery" },
+                { title: "Saudi Arabia", type: "Jeddah & Dammam Ports" },
+                { title: "Qatar", type: "Doha Air Cargo" },
+                { title: "Africa & Europe", type: "Wholesale Channels" }
+              ].map((item, idx) => (
+                <div key={idx} className="bg-white/5 p-4 rounded-xl border border-white/10">
+                  <h4 className="font-serif text-xs font-bold text-gold-accent">{item.title}</h4>
+                  <p className="text-[9px] text-cream-bg/60 mt-1 font-light">{item.type}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* SVG Animated Trade Map */}
+          <div className="lg:col-span-7 bg-[#063B1D] p-6 rounded-3xl border border-gold-accent/20 shadow-xl relative overflow-hidden aspect-[4/3] flex items-center justify-center">
+            {/* Beautiful Custom World Map Visual SVG */}
+            <svg viewBox="0 0 800 500" className="w-full h-full text-cream-bg/25">
+              {/* Realistic Map Background */}
+              <image href="/global-trade-map.png" width="800" height="500" preserveAspectRatio="xMidYMid slice" opacity="0.5" />
+              
+              
+              {/* India Sourcing Center beacon */}
+              <circle cx="480" cy="220" r="10" className="animate-ping" fill="#D4A017" />
+              <circle cx="480" cy="220" r="4" fill="#D4A017" />
+              <text x="480" y="240" fill="#D4A017" fontSize="10" fontWeight="bold" textAnchor="middle">HYDERABAD, INDIA</text>
+
+              {/* Trade Routes and pulsating beacons */}
+              {/* Route 1: Dubai */}
+              <path d="M 480 220 Q 400 210 360 230" fill="none" stroke="#D4A017" strokeWidth="2" strokeDasharray="5,5" className="animate-[dash_5s_linear_infinite]" />
+              <circle cx="360" cy="230" r="3" fill="#D4A017" />
+              <text x="345" y="225" fill="white" fontSize="9" fontWeight="bold">UAE</text>
+
+              {/* Route 2: Singapore / Malaysia */}
+              <path d="M 480 220 Q 540 260 580 290" fill="none" stroke="#D4A017" strokeWidth="2" strokeDasharray="5,5" />
+              <circle cx="580" cy="290" r="3" fill="#D4A017" />
+              <text x="590" y="295" fill="white" fontSize="9" fontWeight="bold">SINGAPORE / MY</text>
+
+              {/* Route 3: Saudi Arabia */}
+              <path d="M 480 220 Q 380 240 330 270" fill="none" stroke="#D4A017" strokeWidth="1.5" strokeDasharray="4,4" />
+              <circle cx="330" cy="270" r="3" fill="#D4A017" />
+              <text x="315" y="285" fill="white" fontSize="9" fontWeight="bold">SAUDI ARABIA</text>
+
+              {/* Route 4: Europe */}
+              <path d="M 480 220 Q 380 140 300 120" fill="none" stroke="#D4A017" strokeWidth="1.5" strokeDasharray="4,4" />
+              <circle cx="300" cy="120" r="3" fill="#D4A017" />
+              <text x="290" y="110" fill="white" fontSize="9" fontWeight="bold">EUROPE</text>
+
+              {/* Route 5: Qatar */}
+              <path d="M 480 220 Q 420 180 390 190" fill="none" stroke="#D4A017" strokeWidth="1" strokeDasharray="4,4" />
+              <circle cx="390" cy="190" r="3" fill="#D4A017" />
+              <text x="380" y="180" fill="white" fontSize="9" fontWeight="bold">QATAR</text>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      {/* 10. Quality Assurance Section */}
+      <section className="py-24 bg-gradient-to-b from-[#063B1D] to-black text-white relative">
+        <div className="max-w-7xl mx-auto px-4 md:px-8 space-y-16">
+          <div className="text-center max-w-2xl mx-auto space-y-3">
+            <div className="text-gold-accent uppercase font-bold text-[10px] tracking-widest bg-white/5 inline-block px-3 py-1.5 rounded-full border border-white/10">Zero Tolerance on Contamination</div>
+            <h2 className="font-serif text-3xl md:text-5xl font-extrabold tracking-tight">EXPORT GRADE QUALITY AUDITING</h2>
+            <div className="w-16 h-1 bg-gold-accent mx-auto my-3"></div>
+            <p className="text-xs text-cream-bg/70 font-light">Every single bag of rice, powder, and spice is inspected strictly before loading to conform to international food quality benchmarks.</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="bg-white/[0.03] backdrop-blur-md p-8 rounded-2xl border border-white/10 hover:border-gold-accent/30 transition-all duration-300">
+              <div className="text-gold-accent font-sans font-extrabold text-2xl mb-4">01</div>
+              <h3 className="font-serif text-base font-bold text-white mb-2">Hygienic Packaging</h3>
+              <p className="text-[10px] text-cream-bg/70 leading-relaxed font-light">Vacuum retail boxes, laminated bags, and robust HDPE container liners that resist moisture, preserve raw aroma, and increase shelf life.</p>
+            </div>
+            
+            <div className="bg-white/[0.03] backdrop-blur-md p-8 rounded-2xl border border-white/10 hover:border-gold-accent/30 transition-all duration-300">
+              <div className="text-gold-accent font-sans font-extrabold text-2xl mb-4">02</div>
+              <h3 className="font-serif text-base font-bold text-white mb-2">Rigorous QC Audits</h3>
+              <p className="text-[10px] text-cream-bg/70 leading-relaxed font-light">Laboratory index tests for moisture, chemical residue, and physical size parameters. All batches fully cleared by SGS/Phyto.</p>
+            </div>
+
+            <div className="bg-white/[0.03] backdrop-blur-md p-8 rounded-2xl border border-white/10 hover:border-gold-accent/30 transition-all duration-300">
+              <div className="text-gold-accent font-sans font-extrabold text-2xl mb-4">03</div>
+              <h3 className="font-serif text-base font-bold text-white mb-2">Pesticide Compliance</h3>
+              <p className="text-[10px] text-cream-bg/70 leading-relaxed font-light">Ethical farmer agreements supported by NGOs. Crops are grown using standard guidelines to avoid toxic pesticide traces.</p>
+            </div>
+
+            <div className="bg-white/[0.03] backdrop-blur-md p-8 rounded-2xl border border-white/10 hover:border-gold-accent/30 transition-all duration-300">
+              <div className="text-gold-accent font-sans font-extrabold text-2xl mb-4">04</div>
+              <h3 className="font-serif text-base font-bold text-white mb-2">Cold Storage Track</h3>
+              <p className="text-[10px] text-cream-bg/70 leading-relaxed font-light">Temperature-controlled loading docks and modern insulated warehouse facilities to keep tropical fruits and vegetables pristine.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 11. Testimonial Section */}
+      <section className="py-24 bg-cream-bg/30 border-y border-gold-accent/15">
+        <div className="max-w-7xl mx-auto px-4 md:px-8 space-y-16">
+          <div className="text-center max-w-2xl mx-auto space-y-3">
+            <div className="text-primary-green uppercase font-bold text-[10px] tracking-widest bg-primary-green/5 inline-block px-3 py-1.5 rounded-full border border-primary-green/10">Reviews & Verification</div>
+            <h2 className="font-serif text-3xl md:text-5xl font-extrabold text-dark-green tracking-tight">Importers & Distributors Feedback</h2>
+            <div className="w-16 h-1 bg-gold-accent mx-auto my-3"></div>
+            <p className="text-xs text-soft-gray font-light">Hear what our long-term wholesale trade partners in UAE, Singapore, and India say about our supply consistency.</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              {
+                quote: "Sourcing Basmati rice and red onions from Sri Varahi Agro has transformed our retail distribution in Dubai. Their quality checks are meticulous, and containers arrive strictly on schedule.",
+                name: "Mustafa Al-Sayed",
+                role: "Managing Director",
+                company: "Al-Baraka General Trading, Dubai"
+              },
+              {
+                quote: "We import Guntur chilli powder and whole cumin in bulk from Sri Varahi. Their phyto-sanitary compliance and packaging standards conform precisely to Singapore food guidelines.",
+                name: "Tan Boon Wah",
+                role: "Procurement Head",
+                company: "Apex Food Industries, Singapore"
+              },
+              {
+                quote: "As a domestic retail partner within India, we procure pre-packaged spices and flours from them. The branding looks highly premium, and our consumers have given outstanding feedback on the purity.",
+                name: "Rajesh Kumar",
+                role: "Founder & CEO",
+                company: "Varahi Retail & Supermarkets, India"
+              }
+            ].map((item, idx) => (
+              <div 
+                key={idx} 
+                className="bg-white p-8 rounded-3xl border border-gold-accent/15 shadow-sm hover:shadow-md transition-all duration-300 relative text-left flex flex-col justify-between"
+              >
+                <div className="absolute top-8 right-8 text-gold-accent/20 pointer-events-none">
+                  <Quote className="w-10 h-10 shrink-0" />
+                </div>
+                <div className="space-y-4">
+                  {/* Stars */}
+                  <div className="flex space-x-1">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-3.5 h-3.5 fill-gold-accent text-gold-accent" />
+                    ))}
+                  </div>
+                  <p className="text-[11px] text-soft-gray font-light leading-relaxed font-sans">
+                    "{item.quote}"
+                  </p>
+                </div>
+                <div className="pt-6 mt-6 border-t border-cream-bg flex items-center space-x-3.5">
+                  <div className="w-10 h-10 rounded-full bg-primary-green text-gold-accent flex items-center justify-center font-sans font-extrabold text-sm shadow-inner shrink-0">
+                    {item.name.charAt(0)}
+                  </div>
+                  <div>
+                    <h4 className="font-serif text-xs font-bold text-dark-green leading-none">{item.name}</h4>
+                    <p className="text-[9px] text-soft-gray mt-1 leading-none font-medium">{item.role}</p>
+                    <p className="text-[9px] text-primary-green font-bold mt-1 leading-none">{item.company}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 12. Blog / Export Insights Section */}
+      <section className="py-24 px-4 md:px-8 max-w-7xl mx-auto">
+        <div className="text-center max-w-2xl mx-auto mb-16 space-y-3">
+          <div className="text-gold-accent uppercase font-bold text-[10px] tracking-widest bg-gold-accent/5 inline-block px-3 py-1.5 rounded-full border border-gold-accent/10">Industry Knowledge</div>
+          <h2 className="font-serif text-3xl md:text-5xl font-extrabold text-dark-green tracking-tight">Agricultural Export Insights</h2>
+          <div className="w-20 h-1 bg-gold-accent mx-auto my-3"></div>
+          <p className="text-xs text-soft-gray font-light">Stay updated with standard trade regulations, rice grain metrics, and export compliance reports from India.</p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {[
+            {
+              title: "Indian Rice Exports: Quality Benchmarks & Global Demands",
+              date: "May 18, 2026",
+              desc: "An in-depth analysis of the international grading standards for Basmati and IR64 Non-Basmati rice, highlighting key moisture controls and packaging protocols.",
+              image: "/Rice-Cat.png"
+            },
+            {
+              title: "Sourcing High-Curcumin Turmeric: The Sourcing Advantage",
+              date: "May 10, 2026",
+              desc: "How direct farmer sourcing networks in Southern India are elevating international turmeric trading by standardizing pure curcumin concentration.",
+              image: "/powders-cat.png"
+            },
+            {
+              title: "Logistics Optimization: Seaport and Air Cargo Guidelines",
+              date: "Apr 28, 2026",
+              desc: "A comprehensive guide on container stuffing reports, Phyto-sanitary compliance, and transit insulation methods for shipping fresh vegetables.",
+              image: "/fresh Veg-cat.png"
+            }
+          ].map((item, idx) => (
+            <div 
+              key={idx} 
+              className="bg-white rounded-3xl overflow-hidden border border-gold-accent/10 hover:border-gold-accent/35 hover:shadow-lg transition-all duration-300 text-left group flex flex-col justify-between"
+            >
+              <div className="relative h-48 overflow-hidden bg-cream-bg pointer-events-none">
+                <img src={item.image} alt={item.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              </div>
+              <div className="p-6 space-y-3 flex-1 flex flex-col justify-between">
+                <div className="space-y-2">
+                  <div className="text-[9px] text-gold-accent font-bold uppercase tracking-wider">{item.date}</div>
+                  <h3 className="font-serif text-sm font-extrabold text-dark-green group-hover:text-primary-green transition-colors leading-snug">{item.title}</h3>
+                  <p className="text-[11px] text-soft-gray font-light line-clamp-2 leading-relaxed">{item.desc}</p>
+                </div>
+                <div className="pt-4 border-t border-cream-bg flex items-center justify-between">
+                  <Link to="/blog" className="text-[10px] font-extrabold uppercase tracking-widest text-primary-green hover:text-gold-accent transition-colors flex items-center">
+                    <span>Read Article</span>
+                    <ArrowRight className="w-3 h-3 ml-1" />
                   </Link>
                 </div>
               </div>
@@ -462,186 +1332,38 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 6. Why Choose Us */}
-      <section className="py-20 px-4 md:px-8 max-w-7xl mx-auto">
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <h2 className="font-serif text-3xl md:text-4xl font-extrabold text-dark-green tracking-tight">
-            WHY OVERSEAS BUYERS TRUST US
-          </h2>
-          <div className="w-24 h-1 bg-gold-accent mx-auto my-4"></div>
-          <p className="text-sm text-soft-gray font-light">
-            We are dedicated to establishing seamless supply relationships with international importers through ethical conduct and state-of-the-art grading.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {/* 13. Final Cinematic CTA Section */}
+      <section className="bg-dark-green py-24 px-4 md:px-8 border-t-2 border-gold-accent text-white relative overflow-hidden">
+        {/* Abstract warehouse container vectors overlay */}
+        <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[radial-gradient(#F8F6F1_2px,transparent_2px)] [background-size:32px_32px]"></div>
+        
+        <div className="max-w-4xl mx-auto text-center relative z-10 space-y-8">
+          <div className="inline-flex items-center space-x-2 text-gold-accent uppercase font-bold text-[10px] tracking-widest bg-white/5 px-4 py-2 rounded-full border border-white/10">Get Direct Sourcing Quotes</div>
           
-          <div className="bg-white p-8 rounded-2xl shadow-sm border border-gold-accent/5 flex items-start space-x-4 hover:shadow-md transition-all">
-            <div className="bg-primary-green/10 p-3 rounded-xl text-primary-green shrink-0">
-              <Award className="w-6 h-6" />
-            </div>
-            <div>
-              <h3 className="font-serif text-lg font-bold text-dark-green">Premium Quality Sourcing</h3>
-              <p className="text-xs text-soft-gray mt-2 leading-relaxed font-light">
-                Direct connections with farm clusters ensure we access superior grades of rice, high-curcumin turmeric, and single-origin coffee.
-              </p>
-            </div>
-          </div>
-
-          <div className="bg-white p-8 rounded-2xl shadow-sm border border-gold-accent/5 flex items-start space-x-4 hover:shadow-md transition-all">
-            <div className="bg-primary-green/10 p-3 rounded-xl text-primary-green shrink-0">
-              <ShieldCheck className="w-6 h-6" />
-            </div>
-            <div>
-              <h3 className="font-serif text-lg font-bold text-dark-green">Export Documentation Support</h3>
-              <p className="text-xs text-soft-gray mt-2 leading-relaxed font-light">
-                We handle SGS/phyto-sanitary certifications, container stuffing reports, export customs clearance, and global bill of lading routing.
-              </p>
-            </div>
-          </div>
-
-          <div className="bg-white p-8 rounded-2xl shadow-sm border border-gold-accent/5 flex items-start space-x-4 hover:shadow-md transition-all">
-            <div className="bg-primary-green/10 p-3 rounded-xl text-primary-green shrink-0">
-              <Package2 className="w-6 h-6" />
-            </div>
-            <div>
-              <h3 className="font-serif text-lg font-bold text-dark-green">Customized Packaging</h3>
-              <p className="text-xs text-soft-gray mt-2 leading-relaxed font-light">
-                We deliver robust private label branding options, vacuum retail boxes, and high-strength multi-wall shipping bags to match local parameters.
-              </p>
-            </div>
-          </div>
-
-          <div className="bg-white p-8 rounded-2xl shadow-sm border border-gold-accent/5 flex items-start space-x-4 hover:shadow-md transition-all">
-            <div className="bg-primary-green/10 p-3 rounded-xl text-primary-green shrink-0">
-              <Star className="w-6 h-6 text-gold-accent" />
-            </div>
-            <div>
-              <h3 className="font-serif text-lg font-bold text-dark-green">Competitive Pricing</h3>
-              <p className="text-xs text-soft-gray mt-2 leading-relaxed font-light">
-                Our automated cleaning plants and close relationship with cultivators eliminate intermediaries, leading to highly optimized pricing structures.
-              </p>
-            </div>
-          </div>
-
-          <div className="bg-white p-8 rounded-2xl shadow-sm border border-gold-accent/5 flex items-start space-x-4 hover:shadow-md transition-all">
-            <div className="bg-primary-green/10 p-3 rounded-xl text-primary-green shrink-0">
-              <Truck className="w-6 h-6" />
-            </div>
-            <div>
-              <h3 className="font-serif text-lg font-bold text-dark-green">Timely Delivery</h3>
-              <p className="text-xs text-soft-gray mt-2 leading-relaxed font-light">
-                Strong collaboration with seaport CFS networks and global shipping lines ensures that standard lead times are strictly maintained.
-              </p>
-            </div>
-          </div>
-
-          <div className="bg-white p-8 rounded-2xl shadow-sm border border-gold-accent/5 flex items-start space-x-4 hover:shadow-md transition-all">
-            <div className="bg-primary-green/10 p-3 rounded-xl text-primary-green shrink-0">
-              <HeartHandshake className="w-6 h-6" />
-            </div>
-            <div>
-              <h3 className="font-serif text-lg font-bold text-dark-green">Long-Term Partnership</h3>
-              <p className="text-xs text-soft-gray mt-2 leading-relaxed font-light">
-                We values transparency and clear compliance reporting, establishing a high-trust platform for repeat wholesale orders.
-              </p>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      {/* 7. Export & Domestic Markets Overview Panel */}
-      <section className="py-20 px-4 md:px-8 bg-gradient-to-br from-cream-bg to-white border-y border-gold-accent/10">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
-          
-          {/* Left Panel: Export Market */}
-          <div className="bg-white p-8 md:p-10 rounded-3xl shadow-sm border border-gold-accent/15 space-y-6 flex flex-col justify-between">
-            <div>
-              <div className="inline-flex items-center space-x-1.5 text-gold-accent uppercase font-bold text-[10px] tracking-widest">
-                <Globe2 className="w-4 h-4" />
-                <span>Export Operations</span>
-              </div>
-              <h3 className="font-serif text-2xl md:text-3xl font-extrabold text-dark-green mt-2">
-                Supplying Premium Agro to Global Buyers
-              </h3>
-              <p className="text-xs text-soft-gray font-light mt-3 leading-relaxed">
-                Sri Varahi Agro Foods LLP exports superior-grade Indian crops directly to overseas port hubs with comprehensive container stuffing, documentation validation, and transit insurance.
-              </p>
-              
-              <div className="mt-6">
-                <h4 className="text-xs font-bold text-primary-green uppercase tracking-wide">Key Export Markets:</h4>
-                <div className="flex flex-wrap gap-2 mt-3">
-                  {["UAE", "Singapore", "Malaysia", "Saudi Arabia", "Qatar", "Oman", "Africa", "Europe", "Southeast Asia"].map((m, i) => (
-                    <span key={i} className="bg-cream-bg text-dark-green text-[10px] py-1.5 px-3 rounded-full border border-gold-accent/20 font-medium">
-                      {m}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-            
-            <div className="pt-8 border-t border-cream-bg">
-              <Link to="/export" className="text-xs font-bold text-primary-green hover:text-gold-accent flex items-center">
-                Explore Export Infrastructure <ArrowRight className="w-4 h-4 ml-1.5" />
-              </Link>
-            </div>
-          </div>
-
-          {/* Right Panel: Domestic Market */}
-          <div className="bg-white p-8 md:p-10 rounded-3xl shadow-sm border border-gold-accent/15 space-y-6 flex flex-col justify-between">
-            <div>
-              <div className="inline-flex items-center space-x-1.5 text-primary-green uppercase font-bold text-[10px] tracking-widest">
-                <Truck className="w-4 h-4" />
-                <span>Domestic Supply Chain</span>
-              </div>
-              <h3 className="font-serif text-2xl md:text-3xl font-extrabold text-dark-green mt-2">
-                Wholesale Agro Supplies Across India
-              </h3>
-              <p className="text-xs text-soft-gray font-light mt-3 leading-relaxed">
-                We supply top-grade basmati grains, pulses, fresh red onions, garlic bulk packs, and millets to leading national supermarkets, food processors, Horeca networks, and agricultural distributors.
-              </p>
-              
-              <div className="mt-6">
-                <h4 className="text-xs font-bold text-primary-green uppercase tracking-wide">Heavy-Duty Packaging Options:</h4>
-                <div className="grid grid-cols-3 gap-2 mt-3 text-center">
-                  {["1kg Pack", "5kg bag", "10kg bag", "25kg bag", "26kg bag", "50kg bag"].map((p, i) => (
-                    <div key={i} className="bg-primary-green/5 text-primary-green text-[10px] py-2 rounded-lg border border-primary-green/10 font-semibold">
-                      {p}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            <div className="pt-8 border-t border-cream-bg">
-              <Link to="/domestic" className="text-xs font-bold text-primary-green hover:text-gold-accent flex items-center">
-                Explore Domestic Solutions <ArrowRight className="w-4 h-4 ml-1.5" />
-              </Link>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      {/* 8. Call to Action Banner (CTA) */}
-      <section className="bg-dark-green py-20 px-4 md:px-8 border-t-2 border-gold-accent text-white relative">
-        <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[radial-gradient(#F8F6F1_1px,transparent_1px)] [background-size:24px_24px]"></div>
-        <div className="max-w-4xl mx-auto text-center relative z-10 space-y-6">
-          <h2 className="font-serif text-3xl md:text-4xl font-extrabold tracking-tight">
-            Looking for Bulk Orders or Export Inquiries?
+          <h2 className="font-serif text-3xl md:text-5xl font-extrabold tracking-tight leading-tight">
+            Looking For A Reliable Agro Product Supply Partner?
           </h2>
-          <p className="text-xs md:text-sm text-cream-bg/70 leading-relaxed font-light max-w-xl mx-auto">
-            Get in touch with our expert trade team today. We provide detailed pricing quotes, loading configurations, and custom private label packaging quotes on request.
+          
+          <p className="text-xs md:text-sm text-cream-bg/75 leading-relaxed font-light max-w-xl mx-auto font-sans">
+            Connect with our trade managers to receive CIF/FOB pricing grids, custom packaging mockups, and phytosanitary audit documents. We reply within 24 business hours.
           </p>
-          <div className="pt-4">
+          
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4 font-sans">
             <Link 
               to="/contact" 
-              className="inline-flex items-center space-x-2 bg-gold-accent text-dark-green font-bold text-sm py-4 px-10 rounded-full hover:bg-gold-light hover:text-dark-green transition-all shadow-lg hover:shadow-xl group"
+              className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 bg-gold-accent text-dark-green font-bold text-xs py-4 px-10 rounded-xl hover:bg-gold-accent/90 hover:scale-105 transition-all shadow-lg hover:shadow-xl group uppercase tracking-wider"
             >
-              <span>Request a Quotation</span>
+              <span>Request FOB/CIF Quote</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform" />
             </Link>
+            <a
+              href="https://wa.me/918688669407?text=Hello%20Sri%20Varahi%20Agro%20Foods%20LLP,%20I%20would%20like%20to%20get%20a%20trade%20quotation."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 bg-green-600 hover:bg-green-700 text-white font-bold text-xs py-4 px-10 rounded-xl transition-all shadow-lg hover:shadow-xl uppercase tracking-wider"
+            >
+              <span>WhatsApp Trade Inquiry</span>
+            </a>
           </div>
         </div>
       </section>
@@ -649,3 +1371,4 @@ export default function Home() {
     </div>
   );
 }
+

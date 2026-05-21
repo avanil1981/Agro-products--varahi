@@ -78,16 +78,7 @@ export default function Footer() {
                   <ArrowRight className="w-3 h-3 mr-1.5 text-gold-accent" /> Domestic
                 </Link>
               </li>
-              <li>
-                <Link to="/quality" className="hover:text-gold-light flex items-center transition-colors">
-                  <ArrowRight className="w-3 h-3 mr-1.5 text-gold-accent" /> Quality
-                </Link>
-              </li>
-              <li>
-                <Link to="/certifications" className="hover:text-gold-light flex items-center transition-colors">
-                  <ArrowRight className="w-3 h-3 mr-1.5 text-gold-accent" /> Certificates
-                </Link>
-              </li>
+
               <li>
                 <Link to="/gallery" className="hover:text-gold-light flex items-center transition-colors">
                   <ArrowRight className="w-3 h-3 mr-1.5 text-gold-accent" /> Gallery
@@ -177,8 +168,7 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} <b>Sri Varahi Agro Foods LLP</b>. All Rights Reserved.
           </div>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <Link to="/quality" className="hover:text-gold-light transition-colors">Quality Standard</Link>
-            <Link to="/certifications" className="hover:text-gold-light transition-colors">Certifications</Link>
+            <Link to="/about" className="hover:text-gold-light transition-colors">About Us</Link>
             <Link to="/contact" className="hover:text-gold-light transition-colors">Inquire Now</Link>
           </div>
         </div>

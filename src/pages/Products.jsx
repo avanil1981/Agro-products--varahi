@@ -7,9 +7,10 @@ import { products, categories } from '../data/agroData';
 export default function Products() {
   const [searchParams, setSearchParams] = useSearchParams();
   const [selectedCategory, setSelectedCategory] = useState("all");
+  const [selectedMarket, setSelectedMarket] = useState("export");
   const [searchQuery, setSearchQuery] = useState("");
   
-  // Sync selectedCategory with searchParams '?category=slug'
+  // Sync selectedCategory and selectedMarket with searchParams
   useEffect(() => {
     const categoryParam = searchParams.get('category');
     if (categoryParam) {
@@ -17,23 +18,47 @@ export default function Products() {
     } else {
       setSelectedCategory("all");
     }
+
+    const marketParam = searchParams.get('market');
+    if (marketParam) {
+      setSelectedMarket(marketParam);
+    } else {
+      setSelectedMarket("export");
+    }
   }, [searchParams]);
 
   const handleCategoryChange = (slug) => {
+    const params = Object.fromEntries([...searchParams]);
     if (slug === "all") {
-      setSearchParams({});
+      delete params.category;
     } else {
-      setSearchParams({ category: slug });
+      params.category = slug;
     }
+    setSearchParams(params);
     setSelectedCategory(slug);
   };
 
-  // Filtered list by Category AND Search Query
+  const handleMarketChange = (market) => {
+    const params = Object.fromEntries([...searchParams]);
+    if (market === "export") {
+      delete params.market;
+    } else {
+      params.market = market;
+    }
+    setSearchParams(params);
+    setSelectedMarket(market);
+  };
+
+  // Filtered list by Category AND Market AND Search Query
   const filteredProducts = products.filter(p => {
     const matchesCategory = selectedCategory === "all" || p.categorySlug === selectedCategory;
     
+    let matchesMarket = true;
+    if (selectedMarket === "export") matchesMarket = p.exportAvailability === true;
+    if (selectedMarket === "domestic") matchesMarket = p.domesticAvailability === true;
+    
     const query = searchQuery.toLowerCase().trim();
-    if (!query) return matchesCategory;
+    if (!query) return matchesCategory && matchesMarket;
 
     // Search matches against: name, category, shortDescription, keyPoints, and specTable values
     const matchesName = p.name.toLowerCase().includes(query);
@@ -46,7 +71,7 @@ export default function Products() {
       key.toLowerCase().includes(query) || String(val).toLowerCase().includes(query)
     );
 
-    return matchesCategory && (matchesName || matchesCategoryName || matchesDesc || matchesKeyPoints || matchesSpecs);
+    return matchesCategory && matchesMarket && (matchesName || matchesCategoryName || matchesDesc || matchesKeyPoints || matchesSpecs);
   });
 
   return (
@@ -74,11 +99,31 @@ export default function Products() {
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full lg:w-auto">
             <div className="flex items-center space-x-2 text-primary-green shrink-0">
               <Filter className="w-4 h-4 text-gold-accent" />
-              <span className="text-xs font-bold uppercase tracking-wider">Filter Crops</span>
+              <span className="text-xs font-bold uppercase tracking-wider">Filter</span>
             </div>
             
+            {/* Market Filter Toggle (Segmented Control) */}
+            <div className="flex bg-cream-bg p-1 rounded-xl border border-gold-accent/15 shrink-0">
+              {[
+                { id: 'export', label: 'Export' },
+                { id: 'domestic', label: 'Domestic' }
+              ].map(market => (
+                <button
+                  key={market.id}
+                  onClick={() => handleMarketChange(market.id)}
+                  className={`text-[10px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-lg transition-all ${
+                    selectedMarket === market.id
+                      ? "bg-primary-green text-white shadow-sm"
+                      : "text-soft-gray hover:text-dark-text hover:bg-white/50"
+                  }`}
+                >
+                  {market.label}
+                </button>
+              ))}
+            </div>
+
             {/* Instant Search Bar Input */}
-            <div className="relative flex-1 sm:w-64 min-w-[200px]">
+            <div className="relative flex-1 sm:w-56 min-w-[180px]">
               <input
                 type="text"
                 value={searchQuery}
@@ -100,7 +145,7 @@ export default function Products() {
             </div>
           </div>
 
-          <div className="flex items-center space-x-2 overflow-x-auto w-full lg:w-auto pb-2 lg:pb-0 scrollbar-none justify-start lg:justify-end">
+          <div className="flex items-center space-x-2 overflow-x-auto w-full lg:w-auto pb-2 lg:pb-0 scrollbar-none justify-start lg:ml-auto">
             <button
               onClick={() => handleCategoryChange("all")}
               className={`text-xs py-2 px-4 rounded-full border transition-all shrink-0 font-medium ${
