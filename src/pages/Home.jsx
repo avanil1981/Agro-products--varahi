@@ -240,6 +240,68 @@ function ZigZagTimeline() {
 }
 // ─────────────────────────────────────────────────────────────────────────────
 
+const testimonials = [
+  {
+    quote: "Sourcing Basmati rice and red onions from Sri Varahi Agro has transformed our retail distribution in Dubai. Their quality checks are meticulous, and containers arrive strictly on schedule.",
+    name: "Mustafa Al-Sayed",
+    role: "Managing Director",
+    company: "Al-Baraka General Trading, Dubai"
+  },
+  {
+    quote: "We import Guntur chilli powder and whole cumin in bulk from Sri Varahi. Their phyto-sanitary compliance and packaging standards conform precisely to Singapore food guidelines.",
+    name: "Tan Boon Wah",
+    role: "Procurement Head",
+    company: "Apex Food Industries, Singapore"
+  },
+  {
+    quote: "As a domestic retail partner within India, we procure pre-packaged spices and flours from them. The branding looks highly premium, and our consumers have given outstanding feedback on the purity.",
+    name: "Rajesh Kumar",
+    role: "Founder & CEO",
+    company: "Varahi Retail & Supermarkets, India"
+  },
+  {
+    quote: "Their dehydrated garlic, onion powders, and sorting facilities are top-tier. Having a dedicated 24/7 B2B desk helps us resolve customs clearance questions instantly.",
+    name: "Ahmed Al-Mansoor",
+    role: "Director of Imports",
+    company: "Gulf Food Supplies, Riyadh, Saudi Arabia"
+  },
+  {
+    quote: "Delta Agro imports non-basmati rice and organic pulses regularly from Sri Varahi. The moisture control in their containers is excellent, preventing condensation during long sea transits to Rotterdam.",
+    name: "David H. de Jong",
+    role: "Sourcing Manager",
+    company: "Delta Agro Imports, Rotterdam, Netherlands"
+  },
+  {
+    quote: "The consistency of their premium turmeric powder is unmatched. Sri Varahi's compliance with pesticide residue limits makes them our most reliable sourcing partner for the Australian market.",
+    name: "Liam O'Connor",
+    role: "Quality Lead",
+    company: "Southern Cross Foods, Melbourne, Australia"
+  },
+  {
+    quote: "Excellent sourcing capability for fresh red onions. The mesh bag packaging and pallet loading are done in compliance with food-safety standards. Highly recommended for bulk catering supplies.",
+    name: "Farhan Al-Thani",
+    role: "Head of Procurement",
+    company: "Qatar International Catering, Doha, Qatar"
+  },
+  {
+    quote: "We source premium chilli powder and raw spice seeds from Sri Varahi. Their farm-level direct connections mean we get the freshest crops at competitive wholesale rates.",
+    name: "S. Jayawardene",
+    role: "Managing Partner",
+    company: "Lanka Spice Merchants, Colombo, Sri Lanka"
+  },
+  {
+    quote: "Procuring raw materials for our food processing factories in Malaysia requires high consistency. Sri Varahi's broken rice and grains meet our rigid manufacturing tolerances perfectly.",
+    name: "Lim Wei Seng",
+    role: "Supply Chain Director",
+    company: "Nusantara Distributors, Kuala Lumpur, Malaysia"
+  },
+  {
+    quote: "Securing chemical-free, residue-free spices is vital for European retail approval. Sri Varahi provides SGS and Phyto-sanitary certifications with every single shipment.",
+    name: "Elena Rostova",
+    role: "Category Manager",
+    company: "EuroFood Alliance, Hamburg, Germany"
+  }
+];
 
 export default function Home() {
   // Background Image Carousel Slides using custom high-fidelity crop assets
@@ -1282,57 +1344,45 @@ export default function Home() {
             <p className="text-xs text-soft-gray font-light">Hear what our long-term wholesale trade partners in UAE, Singapore, and India say about our supply consistency.</p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                quote: "Sourcing Basmati rice and red onions from Sri Varahi Agro has transformed our retail distribution in Dubai. Their quality checks are meticulous, and containers arrive strictly on schedule.",
-                name: "Mustafa Al-Sayed",
-                role: "Managing Director",
-                company: "Al-Baraka General Trading, Dubai"
-              },
-              {
-                quote: "We import Guntur chilli powder and whole cumin in bulk from Sri Varahi. Their phyto-sanitary compliance and packaging standards conform precisely to Singapore food guidelines.",
-                name: "Tan Boon Wah",
-                role: "Procurement Head",
-                company: "Apex Food Industries, Singapore"
-              },
-              {
-                quote: "As a domestic retail partner within India, we procure pre-packaged spices and flours from them. The branding looks highly premium, and our consumers have given outstanding feedback on the purity.",
-                name: "Rajesh Kumar",
-                role: "Founder & CEO",
-                company: "Varahi Retail & Supermarkets, India"
-              }
-            ].map((item, idx) => (
-              <div 
-                key={idx} 
-                className="bg-white p-8 rounded-3xl border border-gold-accent/15 shadow-sm hover:shadow-md transition-all duration-300 relative text-left flex flex-col justify-between"
-              >
-                <div className="absolute top-8 right-8 text-gold-accent/20 pointer-events-none">
-                  <Quote className="w-10 h-10 shrink-0" />
-                </div>
-                <div className="space-y-4">
-                  {/* Stars */}
-                  <div className="flex space-x-1">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-3.5 h-3.5 fill-gold-accent text-gold-accent" />
-                    ))}
+          <div className="relative w-full overflow-hidden py-4">
+            {/* Left and Right Fade Overlays */}
+            <div className="absolute left-0 top-0 bottom-0 w-12 md:w-32 bg-gradient-to-r from-[#F8F6F1] to-transparent z-10 pointer-events-none"></div>
+            <div className="absolute right-0 top-0 bottom-0 w-12 md:w-32 bg-gradient-to-l from-[#F8F6F1] to-transparent z-10 pointer-events-none"></div>
+
+            {/* Scrolling Marquee wrapper */}
+            <div className="animate-marquee flex gap-6 hover:[animation-play-state:paused] py-2">
+              {[...testimonials, ...testimonials].map((item, idx) => (
+                <div 
+                  key={idx} 
+                  className="bg-white p-8 rounded-3xl border border-gold-accent/15 shadow-sm hover:shadow-md hover:border-gold-accent/40 transition-all duration-300 relative text-left flex flex-col justify-between shrink-0 w-[85vw] sm:w-[380px] md:w-[420px]"
+                >
+                  <div className="absolute top-8 right-8 text-gold-accent/20 pointer-events-none">
+                    <Quote className="w-10 h-10 shrink-0" />
                   </div>
-                  <p className="text-[11px] text-soft-gray font-light leading-relaxed font-sans">
-                    "{item.quote}"
-                  </p>
-                </div>
-                <div className="pt-6 mt-6 border-t border-cream-bg flex items-center space-x-3.5">
-                  <div className="w-10 h-10 rounded-full bg-primary-green text-gold-accent flex items-center justify-center font-sans font-extrabold text-sm shadow-inner shrink-0">
-                    {item.name.charAt(0)}
+                  <div className="space-y-4">
+                    {/* Stars */}
+                    <div className="flex space-x-1">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="w-3.5 h-3.5 fill-gold-accent text-gold-accent" />
+                      ))}
+                    </div>
+                    <p className="text-[11px] text-soft-gray font-light leading-relaxed font-sans">
+                      "{item.quote}"
+                    </p>
                   </div>
-                  <div>
-                    <h4 className="font-serif text-xs font-bold text-dark-green leading-none">{item.name}</h4>
-                    <p className="text-[9px] text-soft-gray mt-1 leading-none font-medium">{item.role}</p>
-                    <p className="text-[9px] text-primary-green font-bold mt-1 leading-none">{item.company}</p>
+                  <div className="pt-6 mt-6 border-t border-cream-bg flex items-center space-x-3.5">
+                    <div className="w-10 h-10 rounded-full bg-primary-green text-gold-accent flex items-center justify-center font-sans font-extrabold text-sm shadow-inner shrink-0">
+                      {item.name.charAt(0)}
+                    </div>
+                    <div>
+                      <h4 className="font-serif text-xs font-bold text-dark-green leading-none">{item.name}</h4>
+                      <p className="text-[9px] text-soft-gray mt-1 leading-none font-medium">{item.role}</p>
+                      <p className="text-[9px] text-primary-green font-bold mt-1 leading-none">{item.company}</p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </motion.section>
