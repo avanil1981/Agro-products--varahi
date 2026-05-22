@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
+import ScrollToTopButton from './components/ScrollToTopButton';
 
 // Page Imports
 import Home from './pages/Home';
@@ -48,6 +49,9 @@ function App() {
 
         {/* Global dark green footer */}
         <Footer />
+
+        {/* Floating Scroll-To-Top Button with progress ring */}
+        <ScrollToTopButton />
       </div>
     </Router>
   );
