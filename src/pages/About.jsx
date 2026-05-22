@@ -275,7 +275,7 @@ export default function About() {
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6 pt-4">
               <div className="flex items-start space-x-3.5">
-                <div className="bg-primary-green/10 p-2.5 rounded-xl text-primary-green shrink-0 mt-0.5">
+                <div className="bg-gradient-to-br from-primary-green/15 to-primary-green/5 border border-primary-green/25 p-3 rounded-2xl text-primary-green shrink-0 mt-0.5 shadow-sm shadow-primary-green/5">
                   <CheckCircle className="w-5 h-5" />
                 </div>
                 <div>
@@ -284,7 +284,7 @@ export default function About() {
                 </div>
               </div>
               <div className="flex items-start space-x-3.5">
-                <div className="bg-gold-accent/10 p-2.5 rounded-xl text-gold-accent shrink-0 mt-0.5">
+                <div className="bg-gradient-to-br from-gold-accent/20 to-gold-accent/5 border border-gold-accent/35 p-3 rounded-2xl text-gold-accent shrink-0 mt-0.5 shadow-sm shadow-gold-accent/10">
                   <ShieldCheck className="w-5 h-5" />
                 </div>
                 <div>
@@ -339,8 +339,8 @@ export default function About() {
             className="bg-white p-8 md:p-12 rounded-3xl border border-gold-accent/15 relative overflow-hidden group hover:shadow-xl hover:border-gold-accent/30 transition-all duration-300"
           >
             <div className="absolute top-0 right-0 w-32 h-32 bg-primary-green/5 rounded-full blur-3xl pointer-events-none"></div>
-            <div className="bg-primary-green text-gold-accent p-3.5 rounded-2xl w-fit mb-6 shadow-md shadow-primary-green/10">
-              <Compass className="w-7 h-7" />
+            <div className="bg-gradient-to-br from-primary-green to-dark-green text-gold-accent p-4 rounded-2xl w-fit mb-6 shadow-lg shadow-primary-green/20 border border-gold-accent/20 group-hover:scale-105 transition-transform duration-300">
+              <Compass className="w-6 h-6" />
             </div>
             <h3 className="font-serif text-2xl font-bold text-dark-green">Our Mission</h3>
             <p className="text-xs md:text-sm text-soft-gray font-light leading-relaxed mt-4">
@@ -357,8 +357,8 @@ export default function About() {
             className="bg-white p-8 md:p-12 rounded-3xl border border-gold-accent/15 relative overflow-hidden group hover:shadow-xl hover:border-gold-accent/30 transition-all duration-300"
           >
             <div className="absolute top-0 right-0 w-32 h-32 bg-gold-accent/5 rounded-full blur-3xl pointer-events-none"></div>
-            <div className="bg-gold-accent text-dark-green p-3.5 rounded-2xl w-fit mb-6 shadow-md shadow-gold-accent/10">
-              <Eye className="w-7 h-7" />
+            <div className="bg-gradient-to-br from-gold-accent to-gold-light text-dark-green p-4 rounded-2xl w-fit mb-6 shadow-lg shadow-gold-accent/20 border border-white/20 group-hover:scale-105 transition-transform duration-300">
+              <Eye className="w-6 h-6" />
             </div>
             <h3 className="font-serif text-2xl font-bold text-dark-green">Our Vision</h3>
             <p className="text-xs md:text-sm text-soft-gray font-light leading-relaxed mt-4">

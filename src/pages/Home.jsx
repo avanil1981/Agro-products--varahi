@@ -58,11 +58,8 @@ function ZigZagTimeline() {
   }, []);
 
   return (
-    <section style={{
+    <section className="relative py-12 md:py-24 overflow-hidden" style={{
       background: 'linear-gradient(135deg, #0b3d1e 0%, #14532d 40%, #0f4a27 70%, #052e12 100%)',
-      position: 'relative',
-      padding: '6rem 0',
-      overflow: 'hidden',
     }}>
       {/* Animated CSS */}
       <style>{`
@@ -669,7 +666,7 @@ export default function Home() {
       </motion.section>
 
       {/* 2. About Export Business Section */}
-      <section className="py-24 px-4 md:px-8 max-w-7xl mx-auto overflow-hidden">
+      <section className="py-12 md:py-24 px-4 md:px-8 max-w-7xl mx-auto overflow-hidden">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           {/* Left Side: Premium Layered Visual Cards */}
           <motion.div initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: 0.1 }} transition={{ duration: 0.6 }} className="lg:col-span-6 relative">
@@ -778,7 +775,7 @@ export default function Home() {
       </section>
 
       {/* 7. Unified Product Showcase Section */}
-      <section className="py-24 px-4 md:px-8 max-w-[95%] mx-auto relative group/prodslider overflow-hidden">
+      <section className="py-12 md:py-24 px-4 md:px-8 max-w-[95%] mx-auto relative group/prodslider overflow-hidden">
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.1 }} transition={{ duration: 0.6 }} className="max-w-3xl mx-auto text-center space-y-4 mb-16">
           <div className="text-gold-accent uppercase font-bold text-[10px] tracking-widest bg-gold-accent/5 inline-block px-3 py-1.5 rounded-full border border-gold-accent/10">Premium Crop Selection</div>
           <h2 className="font-serif text-3xl md:text-5xl font-extrabold text-dark-green tracking-tight leading-tight">OUR PRODUCT CATALOG</h2>
@@ -866,7 +863,7 @@ export default function Home() {
 
       {/* 3. International Export Services Section */}
       <section 
-        className="py-32 text-white relative overflow-hidden border-y-4 border-gold-accent/60 bg-cover md:bg-fixed bg-scroll bg-center"
+        className="py-16 md:py-32 text-white relative overflow-hidden border-y-4 border-gold-accent/60 bg-cover md:bg-fixed bg-scroll bg-center"
         style={{ backgroundImage: "url('https://images.unsplash.com/photo-1586528116311-ad8ed7e66a6a?auto=format&fit=crop&w=2000&q=80')" }}
       >
         <div className="absolute inset-0 bg-gradient-to-b from-dark-green/95 via-dark-green/85 to-dark-green/95"></div>
@@ -1003,7 +1000,7 @@ export default function Home() {
       </section>
 
       {/* 4. Domestic Market Supply Section */}
-      <section className="pt-20 pb-12 bg-cream-bg/30 px-4 md:px-8 max-w-7xl mx-auto rounded-3xl border border-gold-accent/10 mt-12 mb-8">
+      <section className="pt-10 pb-8 md:pt-20 md:pb-12 bg-cream-bg/30 px-4 md:px-8 max-w-7xl mx-auto rounded-3xl border border-gold-accent/10 mt-6 mb-4 md:mt-12 md:mb-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           {/* Left: Domestic Network Info & Illustrations */}
           <motion.div initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: 0.1 }} transition={{ duration: 0.6 }} className="lg:col-span-5 text-left space-y-6">
@@ -1074,7 +1071,7 @@ export default function Home() {
       </section>
 
       {/* 5. Why Choose Us (Luxury Bento Grid UI) */}
-      <section className="pt-12 pb-24 px-4 md:px-8 max-w-7xl mx-auto text-center space-y-16">
+      <section className="pt-6 pb-12 md:pt-12 md:pb-24 px-4 md:px-8 max-w-7xl mx-auto text-center space-y-8 md:space-y-16">
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.1 }} transition={{ duration: 0.6 }} className="max-w-2xl mx-auto space-y-3">
           <div className="text-gold-accent uppercase font-bold text-[10px] tracking-widest bg-gold-accent/5 inline-block px-3 py-1.5 rounded-full border border-gold-accent/10">Why Sri Varahi Agro?</div>
           <h2 className="font-serif text-3xl md:text-5xl font-extrabold text-dark-green tracking-tight leading-tight">Elite Agriculture Partner</h2>
@@ -1164,7 +1161,7 @@ export default function Home() {
 
 
       {/* 9. Global Market Destinations */}
-      <section className="py-24 bg-dark-green text-white border-y-2 border-gold-accent/20 relative overflow-hidden">
+      <section className="py-12 md:py-24 bg-dark-green text-white border-y-2 border-gold-accent/20 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(11,74,37,0.8),transparent_70%)] pointer-events-none"></div>
         
         <div className="max-w-7xl mx-auto px-4 md:px-8 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -1238,7 +1235,7 @@ export default function Home() {
       </section>
 
       {/* 10. Quality Assurance Section */}
-      <section className="py-24 bg-gradient-to-b from-[#063B1D] to-black text-white relative">
+      <section className="py-12 md:py-24 bg-gradient-to-b from-[#063B1D] to-black text-white relative">
         <div className="max-w-7xl mx-auto px-4 md:px-8 space-y-16">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.1 }} transition={{ duration: 0.6 }} className="text-center max-w-2xl mx-auto space-y-3">
             <div className="text-gold-accent uppercase font-bold text-[10px] tracking-widest bg-white/5 inline-block px-3 py-1.5 rounded-full border border-white/10">Zero Tolerance on Contamination</div>
@@ -1276,7 +1273,7 @@ export default function Home() {
       </section>
 
       {/* 11. Testimonial Section */}
-      <motion.section initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true, amount: 0.1 }} transition={{ duration: 0.6 }} className="py-24 bg-cream-bg/30 border-y border-gold-accent/15">
+      <motion.section initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true, amount: 0.1 }} transition={{ duration: 0.6 }} className="py-12 md:py-24 bg-cream-bg/30 border-y border-gold-accent/15">
         <div className="max-w-7xl mx-auto px-4 md:px-8 space-y-16">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.1 }} transition={{ duration: 0.6 }} className="text-center max-w-2xl mx-auto space-y-3">
             <div className="text-primary-green uppercase font-bold text-[10px] tracking-widest bg-primary-green/5 inline-block px-3 py-1.5 rounded-full border border-primary-green/10">Reviews & Verification</div>
@@ -1341,7 +1338,7 @@ export default function Home() {
       </motion.section>
 
       {/* 12. Photo Gallery Section – Farm to Export */}
-      <section className="py-24 px-4 md:px-8 max-w-7xl mx-auto">
+      <section className="py-12 md:py-24 px-4 md:px-8 max-w-7xl mx-auto">
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.1 }} transition={{ duration: 0.6 }} className="text-center max-w-2xl mx-auto mb-16 space-y-3">
           <div className="text-gold-accent uppercase font-bold text-[10px] tracking-widest bg-gold-accent/5 inline-block px-3 py-1.5 rounded-full border border-gold-accent/10">Our Story in Pictures</div>
           <h2 className="font-serif text-3xl md:text-5xl font-extrabold text-dark-green tracking-tight">From Indian Farms to Global Ports</h2>
@@ -1453,7 +1450,7 @@ export default function Home() {
       </section>
 
       {/* 13. Final Cinematic CTA Section */}
-      <motion.section initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true, amount: 0.1 }} transition={{ duration: 0.8 }} className="bg-dark-green py-24 px-4 md:px-8 border-t-2 border-gold-accent text-white relative overflow-hidden bg-cover bg-center bg-no-repeat md:bg-fixed bg-scroll" style={{ backgroundImage: "url('/cta-bg.png')" }}>
+      <motion.section initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true, amount: 0.1 }} transition={{ duration: 0.8 }} className="bg-dark-green py-12 md:py-24 px-4 md:px-8 border-t-2 border-gold-accent text-white relative overflow-hidden bg-cover bg-center bg-no-repeat md:bg-fixed bg-scroll" style={{ backgroundImage: "url('/cta-bg.png')" }}>
         <div className="absolute inset-0 bg-dark-green/85"></div>
         {/* Abstract warehouse container vectors overlay */}
         <div className="absolute inset-0 opacity-[0.05] pointer-events-none bg-[radial-gradient(#F8F6F1_2px,transparent_2px)] [background-size:32px_32px]"></div>
