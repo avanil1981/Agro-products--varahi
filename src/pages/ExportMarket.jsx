@@ -204,7 +204,7 @@ export default function ExportMarket() {
       </section>
 
       {/* 2. Premium Services Showcase with Dedicated Backdrops */}
-      <section className="py-24 px-4 md:px-8 max-w-7xl mx-auto">
+      <section className="py-12 md:py-24 px-4 md:px-8 max-w-7xl mx-auto">
         <div className="text-center space-y-4 mb-16">
           <span className="text-[10px] uppercase tracking-[0.25em] text-gold-accent font-bold block">INTEGRATED LOGISTICS</span>
           <h2 className="font-serif text-3xl md:text-4xl font-extrabold text-dark-green">
@@ -258,7 +258,7 @@ export default function ExportMarket() {
       </section>
 
       {/* 3. Global Route Board & Interactive Shipping Dashboard */}
-      <section className="bg-white py-24 px-4 md:px-8 border-y border-gold-accent/15">
+      <section className="bg-white py-12 md:py-24 px-4 md:px-8 border-y border-gold-accent/15">
         <div className="max-w-7xl mx-auto space-y-12">
           
           <div className="text-center space-y-4 mb-6">
@@ -393,7 +393,7 @@ export default function ExportMarket() {
       </section>
 
       {/* 4. Top Demanded Export Crops */}
-      <section className="py-24 px-4 md:px-8 max-w-7xl mx-auto">
+      <section className="py-12 md:py-24 px-4 md:px-8 max-w-7xl mx-auto">
         <div className="text-center space-y-4 mb-16">
           <span className="text-[10px] uppercase tracking-[0.25em] text-gold-accent font-bold block">HIGH-DEMAND CROP LINEUP</span>
           <h2 className="font-serif text-3xl md:text-4xl font-extrabold text-dark-green">
@@ -452,7 +452,7 @@ export default function ExportMarket() {
       </section>
 
       {/* 5. Export Documentation & Compliance Trust Hub */}
-      <section className="py-24 px-4 md:px-8 max-w-5xl mx-auto">
+      <section className="py-12 md:py-24 px-4 md:px-8 max-w-5xl mx-auto">
         <motion.div 
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
