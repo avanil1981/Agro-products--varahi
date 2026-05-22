@@ -155,7 +155,7 @@ export default function DomesticMarket() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.6 }}
-          className="bg-dark-green text-white p-8 md:p-12 rounded-3xl border border-gold-accent/25 shadow-xl text-center relative overflow-hidden bg-cover bg-center bg-no-repeat bg-fixed"
+          className="bg-dark-green text-white p-8 md:p-12 rounded-3xl border border-gold-accent/25 shadow-xl text-center relative overflow-hidden bg-cover bg-center bg-no-repeat md:bg-fixed bg-scroll"
           style={{ backgroundImage: "url('/cta-bg.png')" }}
         >
           <div className="absolute inset-0 bg-gradient-to-br from-primary-green/90 to-dark-green/90"></div>

@@ -576,7 +576,7 @@ export default function About() {
 
       {/* 8. Trust Section */}
       <section 
-        className="bg-dark-green py-24 px-4 md:px-8 border-t-2 border-gold-accent text-white relative bg-cover bg-center bg-no-repeat bg-fixed"
+        className="bg-dark-green py-24 px-4 md:px-8 border-t-2 border-gold-accent text-white relative bg-cover bg-center bg-no-repeat md:bg-fixed bg-scroll"
         style={{ backgroundImage: "url('/cta-bg.png')" }}
       >
         <div className="absolute inset-0 bg-dark-green/90"></div>

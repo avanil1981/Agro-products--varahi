@@ -866,7 +866,7 @@ export default function Home() {
 
       {/* 3. International Export Services Section */}
       <section 
-        className="py-32 text-white relative overflow-hidden border-y-4 border-gold-accent/60 bg-cover bg-fixed bg-center"
+        className="py-32 text-white relative overflow-hidden border-y-4 border-gold-accent/60 bg-cover md:bg-fixed bg-scroll bg-center"
         style={{ backgroundImage: "url('https://images.unsplash.com/photo-1586528116311-ad8ed7e66a6a?auto=format&fit=crop&w=2000&q=80')" }}
       >
         <div className="absolute inset-0 bg-gradient-to-b from-dark-green/95 via-dark-green/85 to-dark-green/95"></div>
@@ -1453,7 +1453,7 @@ export default function Home() {
       </section>
 
       {/* 13. Final Cinematic CTA Section */}
-      <motion.section initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true, amount: 0.1 }} transition={{ duration: 0.8 }} className="bg-dark-green py-24 px-4 md:px-8 border-t-2 border-gold-accent text-white relative overflow-hidden bg-cover bg-center bg-no-repeat bg-fixed" style={{ backgroundImage: "url('/cta-bg.png')" }}>
+      <motion.section initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true, amount: 0.1 }} transition={{ duration: 0.8 }} className="bg-dark-green py-24 px-4 md:px-8 border-t-2 border-gold-accent text-white relative overflow-hidden bg-cover bg-center bg-no-repeat md:bg-fixed bg-scroll" style={{ backgroundImage: "url('/cta-bg.png')" }}>
         <div className="absolute inset-0 bg-dark-green/85"></div>
         {/* Abstract warehouse container vectors overlay */}
         <div className="absolute inset-0 opacity-[0.05] pointer-events-none bg-[radial-gradient(#F8F6F1_2px,transparent_2px)] [background-size:32px_32px]"></div>
