@@ -19,7 +19,6 @@ import {
   Globe,
   Award
 } from 'lucide-react';
-import emailjs from '@emailjs/browser';
 import SEO from '../components/SEO';
 
 export default function Contact() {
@@ -76,24 +75,26 @@ export default function Contact() {
       finalMessage = `Interested Commodities: ${selectedCommodities.join(", ")}\n\nUser Message: ${formData.message}`;
     }
 
-    // Retrieve EmailJS configuration from environment variables
-    const serviceId = process.env.REACT_APP_EMAILJS_SERVICE_ID;
-    const templateId = process.env.REACT_APP_EMAILJS_TEMPLATE_ID_CONTACT;
-    const publicKey = process.env.REACT_APP_EMAILJS_PUBLIC_KEY;
+    const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:5001';
 
-    if (serviceId && templateId && publicKey) {
-      // Live EmailJS send
-      try {
-        const templateParams = {
-          from_name: formData.name,
-          reply_to: formData.email,
-          to_email: "info@srivarahiagrofoods.in",
+    try {
+      const response = await fetch(`${apiUrl}/api/contact`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
           phone: formData.phone,
           subject: formData.subject,
           message: finalMessage
-        };
+        })
+      });
 
-        await emailjs.send(serviceId, templateId, templateParams, publicKey);
+      const resData = await response.json();
+
+      if (response.ok && resData.success) {
         setIsSubmitted(true);
         setFormData({
           name: "",
@@ -103,36 +104,14 @@ export default function Contact() {
           message: ""
         });
         setSelectedCommodities([]);
-      } catch (error) {
-        console.error("EmailJS Error:", error);
-        setErrorMsg("Failed to send contact inquiry. Please check your internet connection or email configuration.");
-      } finally {
-        setIsSubmitting(false);
+      } else {
+        setErrorMsg(resData.error || "Failed to send contact inquiry. Please check backend SMTP settings.");
       }
-    } else {
-      // Graceful local simulation fallback
-      console.log(
-        `%c🌾 Sri Varahi Agro Foods LLP — Contact Us Submission Received! %c\n` +
-        `To enable live email delivery to info@srivarahiagrofoods.in, please configure your .env file with real EmailJS keys.\n\n` +
-        `Data submitted:\n`,
-        'color: #0B4A25; font-weight: bold; font-size: 14px;',
-        'color: inherit;',
-        { ...formData, commodities: selectedCommodities, fullMessage: finalMessage }
-      );
-
-      // Simulate network delay
-      setTimeout(() => {
-        setIsSubmitting(false);
-        setIsSubmitted(true);
-        setFormData({
-          name: "",
-          email: "",
-          phone: "",
-          subject: "",
-          message: ""
-        });
-        setSelectedCommodities([]);
-      }, 1000);
+    } catch (error) {
+      console.error("API Contact Error:", error);
+      setErrorMsg("Failed to send contact inquiry. Please check your connection or server configuration.");
+    } finally {
+      setIsSubmitting(false);
     }
   };
 

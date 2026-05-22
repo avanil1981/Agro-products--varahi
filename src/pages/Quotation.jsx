@@ -16,7 +16,6 @@ import {
   Sparkles
 } from 'lucide-react';
 import { products } from '../data/agroData';
-import emailjs from '@emailjs/browser';
 import SEO from '../components/SEO';
 
 export default function Quotation() {
@@ -66,32 +65,20 @@ export default function Quotation() {
       return;
     }
 
-    // Retrieve EmailJS configuration from environment variables
-    const serviceId = process.env.REACT_APP_EMAILJS_SERVICE_ID;
-    const templateId = process.env.REACT_APP_EMAILJS_TEMPLATE_ID_QUOTE;
-    const publicKey = process.env.REACT_APP_EMAILJS_PUBLIC_KEY;
+    const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:5001';
 
-    if (serviceId && templateId && publicKey) {
-      // Live EmailJS send
-      try {
-        const templateParams = {
-          from_name: formData.name,
-          reply_to: formData.email,
-          to_email: "info@srivarahiagrofoods.in",
-          phone: formData.phone,
-          company_name: formData.companyName,
-          designation: formData.designation || "Not Specified",
-          country: formData.country,
-          port_of_destination: formData.portOfDestination,
-          product_interested: formData.productInterested,
-          quantity: formData.quantity,
-          packaging_preference: formData.packagingPreference,
-          payment_terms: formData.paymentTerms,
-          special_specs: formData.specialSpecs || "None",
-          message: formData.message || "No additional message"
-        };
+    try {
+      const response = await fetch(`${apiUrl}/api/quote`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
 
-        await emailjs.send(serviceId, templateId, templateParams, publicKey);
+      const resData = await response.json();
+
+      if (response.ok && resData.success) {
         setIsSubmitted(true);
         setFormData({
           name: "",
@@ -108,43 +95,14 @@ export default function Quotation() {
           specialSpecs: "",
           message: ""
         });
-      } catch (error) {
-        console.error("EmailJS Error:", error);
-        setErrorMessage("Failed to send the request via email. Please check your internet connection or email configuration.");
-      } finally {
-        setIsSubmitting(false);
+      } else {
+        setErrorMessage(resData.error || "Failed to send quotation inquiry. Please check backend SMTP settings.");
       }
-    } else {
-      // Graceful local simulation fallback
-      console.log(
-        `%c🌾 Sri Varahi Agro Foods LLP — Bulk Quotation Inquiry Received! %c\n` +
-        `To enable live email delivery to info@srivarahiagrofoods.in, please configure your .env file with real EmailJS keys.\n\n` +
-        `Data submitted:\n`,
-        'color: #0B4A25; font-weight: bold; font-size: 14px;',
-        'color: inherit;',
-        formData
-      );
-
-      // Simulate network delay
-      setTimeout(() => {
-        setIsSubmitting(false);
-        setIsSubmitted(true);
-        setFormData({
-          name: "",
-          email: "",
-          phone: "",
-          companyName: "",
-          designation: "",
-          country: "",
-          portOfDestination: "",
-          productInterested: "",
-          quantity: "",
-          packagingPreference: "",
-          paymentTerms: "",
-          specialSpecs: "",
-          message: ""
-        });
-      }, 1200);
+    } catch (error) {
+      console.error("API Quotation Error:", error);
+      setErrorMessage("Failed to send quotation request. Please check your connection or server configuration.");
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
