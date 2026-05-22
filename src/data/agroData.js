@@ -1401,35 +1401,48 @@ export const certifications = [
     name: "APEDA Registered",
     description: "Registered with Agricultural and Processed Food Products Export Development Authority of India.",
     status: "Active Registration",
-    logoText: "APEDA"
+    logoText: "APEDA",
+    image: "/cert_apeda.png"
   },
   {
     id: "c2",
     name: "FSSAI Certified",
     description: "Food Safety and Standards Authority of India certified for hygienic food storage and shipping standards.",
     status: "Active Registration",
-    logoText: "FSSAI"
+    logoText: "FSSAI",
+    image: "/cert_fssai.png"
   },
   {
     id: "c3",
     name: "IEC (Import Export Code)",
     description: "Officially registered Import Export Code issued by the Directorate General of Foreign Trade, Govt. of India.",
     status: "Active Registration",
-    logoText: "DGFT - IEC"
+    logoText: "DGFT - IEC",
+    image: "/cert_iec.png"
   },
   {
     id: "c4",
     name: "GST Registered",
     description: "Fully compliant Indian Goods & Services Tax registration holding complete state & central trade validation.",
     status: "Active Compliance",
-    logoText: "GST"
+    logoText: "GST",
+    image: "/cert_gst.png"
   },
   {
     id: "c5",
     name: "MSME Registered",
     description: "Registered Micro, Small & Medium Enterprise recognizing Sri Varahi Agro as a priority industrial supplier.",
     status: "Active Enterprise",
-    logoText: "MSME"
+    logoText: "MSME",
+    image: "/cert_udyam.png"
+  },
+  {
+    id: "c5_1",
+    name: "Spices Board Registered",
+    description: "Official registration with the Spices Board of India, enabling global export clearance for premium Indian spices.",
+    status: "Active Registration",
+    logoText: "Spices Board",
+    image: "/cert_spices_board.png"
   },
   {
     id: "c6",
