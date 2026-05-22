@@ -82,7 +82,7 @@ export default function About() {
       />
 
       {/* 1. Page Hero Header */}
-      <section className="relative min-h-[60vh] flex items-center bg-gradient-to-br from-[#042813] via-[#063B1D] to-[#0A4A25] text-white py-20 px-4 md:px-8 overflow-hidden">
+      <section className="relative min-h-[60vh] flex items-center bg-gradient-to-br from-[#042813] via-[#063B1D] to-[#0A4A25] text-white py-16 md:py-20 px-4 md:px-8 overflow-hidden">
         {/* Parallax background image */}
         <div 
           className="absolute inset-0 opacity-15 bg-cover bg-center bg-no-repeat"
@@ -154,7 +154,7 @@ export default function About() {
       </section>
 
       {/* 2. Brand Identity Showcase (User Shared Infographic) */}
-      <section className="py-24 px-4 md:px-8 max-w-7xl mx-auto">
+      <section className="py-12 md:py-24 px-4 md:px-8 max-w-7xl mx-auto">
         <motion.div 
           variants={containerVariants}
           initial="hidden"
@@ -247,7 +247,7 @@ export default function About() {
       </section>
 
       {/* 3. The Story & Sourcing Operations */}
-      <section className="bg-white py-24 px-4 md:px-8 border-y border-gold-accent/10">
+      <section className="bg-white py-12 md:py-24 px-4 md:px-8 border-y border-gold-accent/10">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           
           <motion.div 
@@ -327,7 +327,7 @@ export default function About() {
       </section>
 
       {/* 4. Mission & Vision */}
-      <section className="bg-cream-bg/25 py-24 px-4 md:px-8 border-b border-gold-accent/10">
+      <section className="bg-cream-bg/25 py-12 md:py-24 px-4 md:px-8 border-b border-gold-accent/10">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
           
           {/* Mission Card */}
@@ -370,7 +370,7 @@ export default function About() {
       </section>
 
       {/* 5. Corporate Values */}
-      <section className="py-24 px-4 md:px-8 max-w-7xl mx-auto">
+      <section className="py-12 md:py-24 px-4 md:px-8 max-w-7xl mx-auto">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <div className="inline-flex items-center space-x-1.5 text-gold-accent uppercase font-bold text-[10px] tracking-widest">
             <Sparkles className="w-4 h-4 text-gold-accent" />
@@ -409,7 +409,7 @@ export default function About() {
       </section>
 
       {/* 6. Quality Framework Section */}
-      <section className="bg-cream-bg/20 py-24 px-4 md:px-8 border-y border-gold-accent/10">
+      <section className="bg-cream-bg/20 py-12 md:py-24 px-4 md:px-8 border-y border-gold-accent/10">
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-2xl mx-auto mb-16">
             <div className="inline-flex items-center space-x-1.5 text-gold-accent uppercase font-bold text-[10px] tracking-widest">
@@ -459,7 +459,7 @@ export default function About() {
       </section>
 
       {/* 7. Certifications Section */}
-      <section className="bg-white py-24 px-4 md:px-8 border-b border-gold-accent/10">
+      <section className="bg-white py-12 md:py-24 px-4 md:px-8 border-b border-gold-accent/10">
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-2xl mx-auto mb-16">
             <div className="inline-flex items-center space-x-1.5 text-gold-accent uppercase font-bold text-[10px] tracking-widest">
@@ -576,7 +576,7 @@ export default function About() {
 
       {/* 8. Trust Section */}
       <section 
-        className="bg-dark-green py-24 px-4 md:px-8 border-t-2 border-gold-accent text-white relative bg-cover bg-center bg-no-repeat md:bg-fixed bg-scroll"
+        className="bg-dark-green py-16 md:py-24 px-4 md:px-8 border-t-2 border-gold-accent text-white relative bg-cover bg-center bg-no-repeat md:bg-fixed bg-scroll"
         style={{ backgroundImage: "url('/cta-bg.png')" }}
       >
         <div className="absolute inset-0 bg-dark-green/90"></div>
