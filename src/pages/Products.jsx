@@ -86,14 +86,29 @@ export default function Products() {
       <section className="relative bg-gradient-to-br from-primary-green to-dark-green text-white py-20 px-4 md:px-8 border-b-4 border-gold-accent text-center overflow-hidden">
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[radial-gradient(#F8F6F1_1px,transparent_1px)] [background-size:20px_20px]"></div>
         <div className="max-w-4xl mx-auto space-y-4 relative z-10">
-          <span className="text-[10px] uppercase tracking-[0.25em] text-gold-accent font-bold block">OUR RANGE</span>
-          <h1 className="font-serif text-3xl md:text-5xl font-extrabold tracking-tight">
+          <motion.span 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="text-[10px] uppercase tracking-[0.25em] text-gold-accent font-bold block"
+          >
+            OUR RANGE
+          </motion.span>
+          <motion.h1 
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="font-serif text-3xl md:text-5xl font-extrabold tracking-tight"
+          >
             Premium Indian Agro Commodities
-          </h1>
+          </motion.h1>
           <div className="w-20 h-1 bg-gold-accent mx-auto mt-4"></div>
-          <p className="text-xs md:text-sm text-cream-bg/70 max-w-xl mx-auto font-light leading-relaxed">
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="text-xs md:text-sm text-cream-bg/70 max-w-xl mx-auto font-light leading-relaxed"
+          >
             Directly sourced, double-cleaned, and packed under absolute safety criteria for domestic wholesale and worldwide export operations.
-          </p>
+          </motion.p>
         </div>
       </section>
 
@@ -197,13 +212,14 @@ export default function Products() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
           <AnimatePresence mode="popLayout">
-            {filteredProducts.map((prod) => (
+            {filteredProducts.map((prod, idx) => (
               <motion.div
                 layout
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.3 }}
+                viewport={{ once: true, margin: "-20px" }}
+                transition={{ duration: 0.5, delay: idx * 0.05 }}
                 key={prod.id}
                 className="bg-white rounded-2xl overflow-hidden shadow-sm border border-cream-bg flex flex-col justify-between group hover:shadow-lg transition-all duration-300"
               >

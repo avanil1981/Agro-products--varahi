@@ -43,14 +43,29 @@ export default function DomesticMarket() {
       <section className="relative bg-gradient-to-br from-primary-green to-dark-green text-white py-20 px-4 md:px-8 border-b-4 border-gold-accent text-center overflow-hidden">
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[radial-gradient(#F8F6F1_1px,transparent_1px)] [background-size:20px_20px]"></div>
         <div className="max-w-4xl mx-auto space-y-4 relative z-10">
-          <span className="text-[10px] uppercase tracking-[0.25em] text-gold-accent font-bold block">DOMESTIC NETWORK</span>
-          <h1 className="font-serif text-3xl md:text-5xl font-extrabold tracking-tight">
+          <motion.span 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="text-[10px] uppercase tracking-[0.25em] text-gold-accent font-bold block"
+          >
+            DOMESTIC NETWORK
+          </motion.span>
+          <motion.h1 
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="font-serif text-3xl md:text-5xl font-extrabold tracking-tight"
+          >
             Domestic Supply Across India
-          </h1>
+          </motion.h1>
           <div className="w-20 h-1 bg-gold-accent mx-auto mt-4"></div>
-          <p className="text-xs md:text-sm text-cream-bg/70 max-w-xl mx-auto font-light leading-relaxed">
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="text-xs md:text-sm text-cream-bg/70 max-w-xl mx-auto font-light leading-relaxed"
+          >
             Supplying superior quality grains, spices, vegetables, and agro commodities to national supermarkets, distributors, food processors, and wholesale buyers.
-          </p>
+          </motion.p>
         </div>
       </section>
 
@@ -70,8 +85,12 @@ export default function DomesticMarket() {
           {domesticChannels.map((chan, idx) => {
             const IconComp = chan.icon;
             return (
-              <div 
+              <motion.div 
                 key={idx} 
+                initial={{ opacity: 0, x: idx % 2 === 0 ? -50 : 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
                 className="bg-white p-8 rounded-3xl border border-cream-bg shadow-sm hover:shadow-md hover:border-gold-accent/20 transition-all flex items-start space-x-5"
               >
                 <div className="bg-primary-green/10 p-3 rounded-2xl text-primary-green shrink-0">
@@ -81,7 +100,7 @@ export default function DomesticMarket() {
                   <h3 className="font-serif text-base font-bold text-dark-green">{chan.title}</h3>
                   <p className="text-xs text-soft-gray font-light leading-relaxed">{chan.desc}</p>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
         </div>
@@ -103,8 +122,12 @@ export default function DomesticMarket() {
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
             {packSizes.map((item, idx) => (
-              <div 
+              <motion.div 
                 key={idx} 
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.4, delay: idx * 0.1 }}
                 className="bg-cream-bg/40 p-5 rounded-2xl border border-cream-bg hover:border-gold-accent/30 hover:bg-white text-center transition-all duration-300"
               >
                 <div className="font-serif text-lg font-bold text-primary-green bg-primary-green/5 py-1.5 rounded-xl border border-primary-green/10">
@@ -112,7 +135,7 @@ export default function DomesticMarket() {
                 </div>
                 <h4 className="text-[10px] uppercase font-bold text-dark-green mt-3.5 tracking-wider">{item.format}</h4>
                 <p className="text-[9px] text-soft-gray font-light mt-1.5 leading-tight">{item.use}</p>
-              </div>
+              </motion.div>
             ))}
           </div>
 
@@ -121,7 +144,11 @@ export default function DomesticMarket() {
 
       {/* 4. Partner CTA Banner */}
       <section className="py-20 px-4 md:px-8 max-w-4xl mx-auto">
-        <div 
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.6 }}
           className="bg-dark-green text-white p-8 md:p-12 rounded-3xl border border-gold-accent/25 shadow-xl text-center relative overflow-hidden bg-cover bg-center bg-no-repeat bg-fixed"
           style={{ backgroundImage: "url('/cta-bg.png')" }}
         >
@@ -141,7 +168,7 @@ export default function DomesticMarket() {
               </Link>
             </div>
           </div>
-        </div>
+        </motion.div>
       </section>
 
     </div>

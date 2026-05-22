@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { BookOpen, Calendar, Clock, X, ArrowRight, Sparkles } from 'lucide-react';
 import { blogs } from '../data/agroData';
 
@@ -12,23 +13,42 @@ export default function Blog() {
       <section className="relative bg-gradient-to-br from-primary-green to-dark-green text-white py-20 px-4 md:px-8 border-b-4 border-gold-accent text-center overflow-hidden">
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[radial-gradient(#F8F6F1_1px,transparent_1px)] [background-size:20px_20px]"></div>
         <div className="max-w-4xl mx-auto space-y-4 relative z-10">
-          <span className="text-[10px] uppercase tracking-[0.25em] text-gold-accent font-bold block">TRADE PAPERS</span>
-          <h1 className="font-serif text-3xl md:text-5xl font-extrabold tracking-tight">
+          <motion.span 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="text-[10px] uppercase tracking-[0.25em] text-gold-accent font-bold block"
+          >
+            TRADE PAPERS
+          </motion.span>
+          <motion.h1 
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="font-serif text-3xl md:text-5xl font-extrabold tracking-tight"
+          >
             Agro Export Insights
-          </h1>
+          </motion.h1>
           <div className="w-20 h-1 bg-gold-accent mx-auto mt-4"></div>
-          <p className="text-xs md:text-sm text-cream-bg/70 max-w-xl mx-auto font-light leading-relaxed">
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="text-xs md:text-sm text-cream-bg/70 max-w-xl mx-auto font-light leading-relaxed"
+          >
             Stay updated with global trade standards, Indian crop harvesting reports, container shipping rules, and curcumin/caffeine grading guidelines.
-          </p>
+          </motion.p>
         </div>
       </section>
 
       {/* 2. Blog Cards Grid */}
       <section className="py-20 px-4 md:px-8 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {blogs.map((post) => (
-            <div 
+          {blogs.map((post, idx) => (
+            <motion.div 
               key={post.id} 
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: idx * 0.1 }}
               className="bg-white rounded-3xl overflow-hidden border border-cream-bg shadow-sm hover:shadow-lg hover:border-gold-accent/20 transition-all duration-300 flex flex-col justify-between group"
             >
               <div>
@@ -72,7 +92,7 @@ export default function Blog() {
                   <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform" />
                 </button>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </section>

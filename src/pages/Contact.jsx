@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, MessageSquare, Send, CheckCircle2, User, Building, Compass, AlertCircle } from 'lucide-react';
 import { products } from '../data/agroData';
 
@@ -58,14 +59,29 @@ export default function Contact() {
       <section className="relative bg-gradient-to-br from-primary-green to-dark-green text-white py-20 px-4 md:px-8 border-b-4 border-gold-accent text-center overflow-hidden">
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[radial-gradient(#F8F6F1_1px,transparent_1px)] [background-size:20px_20px]"></div>
         <div className="max-w-4xl mx-auto space-y-4 relative z-10">
-          <span className="text-[10px] uppercase tracking-[0.25em] text-gold-accent font-bold block">TRADE DESK</span>
-          <h1 className="font-serif text-3xl md:text-5xl font-extrabold tracking-tight">
+          <motion.span 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="text-[10px] uppercase tracking-[0.25em] text-gold-accent font-bold block"
+          >
+            TRADE DESK
+          </motion.span>
+          <motion.h1 
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="font-serif text-3xl md:text-5xl font-extrabold tracking-tight"
+          >
             Contact Sri Varahi Agro
-          </h1>
+          </motion.h1>
           <div className="w-20 h-1 bg-gold-accent mx-auto mt-4"></div>
-          <p className="text-xs md:text-sm text-cream-bg/70 max-w-xl mx-auto font-light leading-relaxed">
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="text-xs md:text-sm text-cream-bg/70 max-w-xl mx-auto font-light leading-relaxed"
+          >
             Get in touch with our export trade coordinators to obtain bulk rates, samples, shipping configurations, or distributor application packs.
-          </p>
+          </motion.p>
         </div>
       </section>
 
@@ -73,7 +89,13 @@ export default function Contact() {
       <section className="py-20 px-4 md:px-8 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
         
         {/* Left Column: Direct info widgets */}
-        <div className="lg:col-span-5 space-y-8">
+        <motion.div 
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.6 }}
+          className="lg:col-span-5 space-y-8"
+        >
           
           <div className="bg-white p-8 rounded-3xl border border-gold-accent/10 shadow-sm space-y-6">
             <h3 className="font-serif text-xl font-bold text-dark-green border-b border-cream-bg pb-3">
@@ -148,10 +170,16 @@ export default function Contact() {
             </div>
           </div>
 
-        </div>
+        </motion.div>
 
         {/* Right Column: Premium Inquiry Form */}
-        <div className="lg:col-span-7 bg-white p-8 md:p-10 rounded-3xl border border-gold-accent/10 shadow-sm space-y-6">
+        <motion.div 
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="lg:col-span-7 bg-white p-8 md:p-10 rounded-3xl border border-gold-accent/10 shadow-sm space-y-6"
+        >
           <div className="space-y-1">
             <span className="text-[10px] uppercase tracking-wider text-gold-accent font-bold">WHOLESALE REQUEST</span>
             <h3 className="font-serif text-2xl font-extrabold text-dark-green">
@@ -297,13 +325,19 @@ export default function Contact() {
 
           </form>
 
-        </div>
+        </motion.div>
 
       </section>
 
       {/* 3. Google Map Placeholder (Highly Styled Vector Grid Frame) */}
       <section className="max-w-7xl mx-auto px-4 md:px-8 mt-12">
-        <div className="bg-white rounded-3xl p-8 border border-gold-accent/10 shadow-sm">
+        <motion.div 
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.6 }}
+          className="bg-white rounded-3xl p-8 border border-gold-accent/10 shadow-sm"
+        >
           <div className="text-center md:text-left mb-6">
             <h3 className="font-serif text-lg font-bold text-dark-green flex items-center">
               <Compass className="w-5 h-5 mr-2 text-gold-accent" />
@@ -337,7 +371,7 @@ export default function Contact() {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
       </section>
 
     </div>

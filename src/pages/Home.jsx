@@ -564,7 +564,7 @@ export default function Home() {
       </div>
 
       {/* 2. Quick Product Categories Scroller */}
-      <section className="py-8 px-4 md:px-8 max-w-[95%] mx-auto relative z-20 group/slider">
+      <motion.section initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.1 }} transition={{ duration: 0.6 }} className="py-8 px-4 md:px-8 max-w-[95%] mx-auto relative z-20 group/slider">
         <style dangerouslySetInnerHTML={{__html: `
           .no-scrollbar::-webkit-scrollbar {
             display: none;
@@ -636,10 +636,10 @@ export default function Home() {
             </Link>
           ))}
         </div>
-      </section>
+      </motion.section>
 
       {/* 3. Trust Bar with Light Cream Background and Gold Circle Outlines */}
-      <section className="bg-[#FAF8F5] py-6 px-4 md:px-8 border-y border-gold-accent/15 relative z-20">
+      <motion.section initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true, amount: 0.1 }} transition={{ duration: 0.8 }} className="bg-[#FAF8F5] py-6 px-4 md:px-8 border-y border-gold-accent/15 relative z-20">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 lg:gap-4 items-center">
             {trustItems.map((item, idx) => (
@@ -660,13 +660,13 @@ export default function Home() {
             ))}
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* 2. About Export Business Section */}
       <section className="py-24 px-4 md:px-8 max-w-7xl mx-auto overflow-hidden">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           {/* Left Side: Premium Layered Visual Cards */}
-          <div className="lg:col-span-6 relative">
+          <motion.div initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: 0.1 }} transition={{ duration: 0.6 }} className="lg:col-span-6 relative">
             <div className="absolute inset-0 bg-gradient-to-tr from-primary-green/20 to-gold-accent/20 rounded-3xl blur-2xl opacity-40 pointer-events-none"></div>
             
             <div className="relative z-10 grid grid-cols-2 gap-4">
@@ -698,10 +698,10 @@ export default function Home() {
               <div className="w-2.5 h-2.5 rounded-full bg-green-500 animate-ping"></div>
               <span className="text-[10px] font-sans font-extrabold uppercase tracking-wider text-dark-green">NGO Sourcing Active</span>
             </div>
-          </div>
+          </motion.div>
 
           {/* Right Side: Informative & Corporate Exporter Pitch */}
-          <div className="lg:col-span-6 space-y-6 text-left">
+          <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: 0.1 }} transition={{ duration: 0.6 }} className="lg:col-span-6 space-y-6 text-left">
             <div className="inline-flex items-center space-x-2 text-gold-accent uppercase font-bold text-[10px] tracking-widest bg-gold-accent/5 px-3 py-1.5 rounded-full border border-gold-accent/10">
               <Sparkles className="w-3.5 h-3.5 text-gold-accent" />
               <span>Connecting Indian Farmers to Global Markets</span>
@@ -767,13 +767,13 @@ export default function Home() {
                 <div className="text-[9px] uppercase tracking-wider text-soft-gray mt-1 font-bold">Supply Partners</div>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* 7. Unified Product Showcase Section */}
       <section className="py-24 px-4 md:px-8 max-w-[95%] mx-auto relative group/prodslider overflow-hidden">
-        <div className="max-w-3xl mx-auto text-center space-y-4 mb-16">
+        <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.1 }} transition={{ duration: 0.6 }} className="max-w-3xl mx-auto text-center space-y-4 mb-16">
           <div className="text-gold-accent uppercase font-bold text-[10px] tracking-widest bg-gold-accent/5 inline-block px-3 py-1.5 rounded-full border border-gold-accent/10">Premium Crop Selection</div>
           <h2 className="font-serif text-3xl md:text-5xl font-extrabold text-dark-green tracking-tight leading-tight">OUR PRODUCT CATALOG</h2>
           <div className="w-20 h-1 bg-gold-accent mx-auto my-2"></div>
@@ -798,11 +798,15 @@ export default function Home() {
               </button>
             ))}
           </div>
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {filteredHomeProducts.map((prod) => (
-            <div 
+          {filteredHomeProducts.map((prod, idx) => (
+            <motion.div 
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.1 }}
+              transition={{ duration: 0.5, delay: idx * 0.1 }}
               key={prod.id} 
               className="bg-white rounded-2xl overflow-hidden border border-gold-accent/15 shadow-sm flex flex-col group hover:shadow-2xl hover:-translate-y-2 hover:border-gold-accent/40 transition-all duration-300"
             >
@@ -842,7 +846,7 @@ export default function Home() {
                   </Link>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 
@@ -882,7 +886,13 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-auto">
             {/* Service 1: Ship Cargo (Wide) */}
-            <div className="md:col-span-2 bg-white/5 backdrop-blur-xl p-8 rounded-3xl border border-white/10 hover:bg-white/10 hover:border-gold-accent/50 shadow-lg hover:shadow-[0_0_40px_rgba(236,192,67,0.15)] transition-all duration-500 group relative overflow-hidden flex flex-col sm:flex-row items-center sm:items-start gap-6 text-center sm:text-left">
+            <motion.div 
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.1 }}
+              transition={{ duration: 0.6 }}
+              className="md:col-span-2 bg-white/5 backdrop-blur-xl p-8 rounded-3xl border border-white/10 hover:bg-white/10 hover:border-gold-accent/50 shadow-lg hover:shadow-[0_0_40px_rgba(236,192,67,0.15)] transition-all duration-500 group relative overflow-hidden flex flex-col sm:flex-row items-center sm:items-start gap-6 text-center sm:text-left"
+            >
               <div className="absolute right-0 top-0 w-32 h-32 bg-gradient-to-br from-gold-accent/20 to-transparent rounded-bl-full pointer-events-none opacity-50 group-hover:opacity-100 transition-opacity duration-500"></div>
               <div className="bg-gradient-to-br from-gold-accent/20 to-transparent p-5 rounded-2xl text-gold-accent shrink-0 group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(236,192,67,0.4)] transition-all duration-500 border border-gold-accent/20 group-hover:border-transparent">
                 <Ship className="w-8 h-8" />
@@ -891,10 +901,16 @@ export default function Home() {
                 <h3 className="font-serif text-2xl font-bold text-white group-hover:text-gold-accent transition-colors duration-300">Ship Cargo Export</h3>
                 <p className="text-sm text-cream-bg/80 leading-relaxed font-light">FCL and LCL shipping in multi-wall custom packaging. Strong seaport ties ensure reliable container booking and route optimization for mass volume deliveries.</p>
               </div>
-            </div>
+            </motion.div>
 
             {/* Service 2: Air Cargo (Standard) */}
-            <div className="md:col-span-1 bg-white/5 backdrop-blur-xl p-8 rounded-3xl border border-white/10 hover:bg-white/10 hover:border-gold-accent/50 shadow-lg hover:shadow-[0_0_40px_rgba(236,192,67,0.15)] transition-all duration-500 group relative overflow-hidden flex flex-col items-start gap-5">
+            <motion.div 
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.1 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="md:col-span-1 bg-white/5 backdrop-blur-xl p-8 rounded-3xl border border-white/10 hover:bg-white/10 hover:border-gold-accent/50 shadow-lg hover:shadow-[0_0_40px_rgba(236,192,67,0.15)] transition-all duration-500 group relative overflow-hidden flex flex-col items-start gap-5"
+            >
               <div className="absolute right-0 top-0 w-24 h-24 bg-gradient-to-br from-gold-accent/20 to-transparent rounded-bl-full pointer-events-none opacity-50 group-hover:opacity-100 transition-opacity duration-500"></div>
               <div className="bg-gradient-to-br from-gold-accent/20 to-transparent p-4 rounded-2xl text-gold-accent shrink-0 group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(236,192,67,0.4)] transition-all duration-500 border border-gold-accent/20 group-hover:border-transparent">
                 <Plane className="w-6 h-6" />
@@ -903,10 +919,16 @@ export default function Home() {
                 <h3 className="font-serif text-xl font-bold text-white mb-2 group-hover:text-gold-accent transition-colors">Air Cargo Export</h3>
                 <p className="text-xs text-cream-bg/80 leading-relaxed font-light">Express custom cold-chain air courier routing for highly seasonal fruits and tender vegetables.</p>
               </div>
-            </div>
+            </motion.div>
 
             {/* Service 3: Documentation (Standard) */}
-            <div className="md:col-span-1 bg-white/5 backdrop-blur-xl p-8 rounded-3xl border border-white/10 hover:bg-white/10 hover:border-gold-accent/50 shadow-lg hover:shadow-[0_0_40px_rgba(236,192,67,0.15)] transition-all duration-500 group relative overflow-hidden flex flex-col items-start gap-5">
+            <motion.div 
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.1 }}
+              transition={{ duration: 0.6 }}
+              className="md:col-span-1 bg-white/5 backdrop-blur-xl p-8 rounded-3xl border border-white/10 hover:bg-white/10 hover:border-gold-accent/50 shadow-lg hover:shadow-[0_0_40px_rgba(236,192,67,0.15)] transition-all duration-500 group relative overflow-hidden flex flex-col items-start gap-5"
+            >
               <div className="absolute right-0 top-0 w-24 h-24 bg-gradient-to-br from-gold-accent/20 to-transparent rounded-bl-full pointer-events-none opacity-50 group-hover:opacity-100 transition-opacity duration-500"></div>
               <div className="bg-gradient-to-br from-gold-accent/20 to-transparent p-4 rounded-2xl text-gold-accent shrink-0 group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(236,192,67,0.4)] transition-all duration-500 border border-gold-accent/20 group-hover:border-transparent">
                 <FileText className="w-6 h-6" />
@@ -915,10 +937,16 @@ export default function Home() {
                 <h3 className="font-serif text-xl font-bold text-white mb-2 group-hover:text-gold-accent transition-colors">Export Documentation</h3>
                 <p className="text-xs text-cream-bg/80 leading-relaxed font-light">Complete handling of APEDA, SGS/Geochem checks, Phyto-sanitary certifications, and bank drafts.</p>
               </div>
-            </div>
+            </motion.div>
 
             {/* Service 4: Bulk Container (Wide) */}
-            <div className="md:col-span-2 bg-white/5 backdrop-blur-xl p-8 rounded-3xl border border-white/10 hover:bg-white/10 hover:border-gold-accent/50 shadow-lg hover:shadow-[0_0_40px_rgba(236,192,67,0.15)] transition-all duration-500 group relative overflow-hidden flex flex-col sm:flex-row items-center sm:items-start gap-6 text-center sm:text-left">
+            <motion.div 
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.1 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="md:col-span-2 bg-white/5 backdrop-blur-xl p-8 rounded-3xl border border-white/10 hover:bg-white/10 hover:border-gold-accent/50 shadow-lg hover:shadow-[0_0_40px_rgba(236,192,67,0.15)] transition-all duration-500 group relative overflow-hidden flex flex-col sm:flex-row items-center sm:items-start gap-6 text-center sm:text-left"
+            >
               <div className="absolute right-0 top-0 w-32 h-32 bg-gradient-to-br from-gold-accent/20 to-transparent rounded-bl-full pointer-events-none opacity-50 group-hover:opacity-100 transition-opacity duration-500"></div>
               <div className="bg-gradient-to-br from-gold-accent/20 to-transparent p-5 rounded-2xl text-gold-accent shrink-0 group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(236,192,67,0.4)] transition-all duration-500 border border-gold-accent/20 group-hover:border-transparent">
                 <Package2 className="w-8 h-8" />
@@ -927,10 +955,16 @@ export default function Home() {
                 <h3 className="font-serif text-2xl font-bold text-white group-hover:text-gold-accent transition-colors duration-300">Bulk Container Supply</h3>
                 <p className="text-sm text-cream-bg/80 leading-relaxed font-light">High-capacity bulk shipments of grains, pulses, and onions with optimized weight structures in dry and ventilated containers engineered for international transit.</p>
               </div>
-            </div>
+            </motion.div>
 
             {/* Service 5: Custom Packaging (Wide) */}
-            <div className="md:col-span-2 bg-white/5 backdrop-blur-xl p-8 rounded-3xl border border-white/10 hover:bg-white/10 hover:border-gold-accent/50 shadow-lg hover:shadow-[0_0_40px_rgba(236,192,67,0.15)] transition-all duration-500 group relative overflow-hidden flex flex-col sm:flex-row items-center sm:items-start gap-6 text-center sm:text-left">
+            <motion.div 
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.1 }}
+              transition={{ duration: 0.6 }}
+              className="md:col-span-2 bg-white/5 backdrop-blur-xl p-8 rounded-3xl border border-white/10 hover:bg-white/10 hover:border-gold-accent/50 shadow-lg hover:shadow-[0_0_40px_rgba(236,192,67,0.15)] transition-all duration-500 group relative overflow-hidden flex flex-col sm:flex-row items-center sm:items-start gap-6 text-center sm:text-left"
+            >
               <div className="absolute right-0 top-0 w-32 h-32 bg-gradient-to-br from-gold-accent/20 to-transparent rounded-bl-full pointer-events-none opacity-50 group-hover:opacity-100 transition-opacity duration-500"></div>
               <div className="bg-gradient-to-br from-gold-accent/20 to-transparent p-5 rounded-2xl text-gold-accent shrink-0 group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(236,192,67,0.4)] transition-all duration-500 border border-gold-accent/20 group-hover:border-transparent">
                 <Award className="w-8 h-8" />
@@ -939,10 +973,16 @@ export default function Home() {
                 <h3 className="font-serif text-2xl font-bold text-white group-hover:text-gold-accent transition-colors duration-300">Premium Custom Packaging</h3>
                 <p className="text-sm text-cream-bg/80 leading-relaxed font-light">Flexible private label design options, high-vacuum retail boxes, moisture-barrier packs, and BOPP/jute bulk bags featuring gold accents and bespoke branding.</p>
               </div>
-            </div>
+            </motion.div>
 
             {/* Service 6: Global Trade (Standard) */}
-            <div className="md:col-span-1 bg-white/5 backdrop-blur-xl p-8 rounded-3xl border border-white/10 hover:bg-white/10 hover:border-gold-accent/50 shadow-lg hover:shadow-[0_0_40px_rgba(236,192,67,0.15)] transition-all duration-500 group relative overflow-hidden flex flex-col items-start gap-5">
+            <motion.div 
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.1 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="md:col-span-1 bg-white/5 backdrop-blur-xl p-8 rounded-3xl border border-white/10 hover:bg-white/10 hover:border-gold-accent/50 shadow-lg hover:shadow-[0_0_40px_rgba(236,192,67,0.15)] transition-all duration-500 group relative overflow-hidden flex flex-col items-start gap-5"
+            >
               <div className="absolute right-0 top-0 w-24 h-24 bg-gradient-to-br from-gold-accent/20 to-transparent rounded-bl-full pointer-events-none opacity-50 group-hover:opacity-100 transition-opacity duration-500"></div>
               <div className="bg-gradient-to-br from-gold-accent/20 to-transparent p-4 rounded-2xl text-gold-accent shrink-0 group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(236,192,67,0.4)] transition-all duration-500 border border-gold-accent/20 group-hover:border-transparent">
                 <Globe2 className="w-6 h-6 animate-spin-slow" style={{ animationDuration: '10s' }} />
@@ -951,7 +991,7 @@ export default function Home() {
                 <h3 className="font-serif text-xl font-bold text-white mb-2 group-hover:text-gold-accent transition-colors">Global Trade Support</h3>
                 <p className="text-xs text-cream-bg/80 leading-relaxed font-light">Dedicated multilingual communication desk supporting overseas importers with pricing index charts and L/C.</p>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -960,7 +1000,7 @@ export default function Home() {
       <section className="pt-20 pb-12 bg-cream-bg/30 px-4 md:px-8 max-w-7xl mx-auto rounded-3xl border border-gold-accent/10 mt-12 mb-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           {/* Left: Domestic Network Info & Illustrations */}
-          <div className="lg:col-span-5 text-left space-y-6">
+          <motion.div initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: 0.1 }} transition={{ duration: 0.6 }} className="lg:col-span-5 text-left space-y-6">
             <div className="inline-flex items-center space-x-2 text-primary-green uppercase font-bold text-[10px] tracking-widest bg-primary-green/5 px-3 py-1.5 rounded-full border border-primary-green/10">
               <Truck className="w-3.5 h-3.5" />
               <span>Domestic Supply Across India</span>
@@ -993,10 +1033,10 @@ export default function Home() {
                 <span>Fast Inter-State Cold Chain Sourcing Operations</span>
               </li>
             </ul>
-          </div>
+          </motion.div>
 
           {/* Right: Domestic Packaging Board Showcase */}
-          <div className="lg:col-span-7 bg-white p-8 md:p-10 rounded-3xl border border-gold-accent/15 shadow-sm space-y-8">
+          <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: 0.1 }} transition={{ duration: 0.6 }} className="lg:col-span-7 bg-white p-8 md:p-10 rounded-3xl border border-gold-accent/15 shadow-sm space-y-8">
             <div className="text-center md:text-left">
               <h3 className="font-serif text-xl font-extrabold text-dark-green">Heavy-Duty Packaging Offerings</h3>
               <p className="text-[11px] text-soft-gray mt-1 font-light">Direct custom packing capacities sorted for commercial retail shelves and heavy transport.</p>
@@ -1023,23 +1063,23 @@ export default function Home() {
                 </div>
               ))}
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* 5. Why Choose Us (Luxury Bento Grid UI) */}
       <section className="pt-12 pb-24 px-4 md:px-8 max-w-7xl mx-auto text-center space-y-16">
-        <div className="max-w-2xl mx-auto space-y-3">
+        <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.1 }} transition={{ duration: 0.6 }} className="max-w-2xl mx-auto space-y-3">
           <div className="text-gold-accent uppercase font-bold text-[10px] tracking-widest bg-gold-accent/5 inline-block px-3 py-1.5 rounded-full border border-gold-accent/10">Why Sri Varahi Agro?</div>
           <h2 className="font-serif text-3xl md:text-5xl font-extrabold text-dark-green tracking-tight leading-tight">Elite Agriculture Partner</h2>
           <div className="w-20 h-1 bg-gold-accent mx-auto my-3"></div>
           <p className="text-xs text-soft-gray font-light">We leverage technology, community sourcing, and strict grading to secure world-class standards.</p>
-        </div>
+        </motion.div>
 
         {/* Bento Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[220px]">
           {/* Card 1: Direct Farmer Sourcing (Double Width) */}
-          <div className="md:col-span-2 rounded-3xl border border-gold-accent/20 text-white text-left relative overflow-hidden flex flex-col justify-end hover:shadow-xl hover:border-gold-accent/40 transition-all duration-500 group min-h-[220px]">
+          <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.1 }} transition={{ duration: 0.6 }} className="md:col-span-2 rounded-3xl border border-gold-accent/20 text-white text-left relative overflow-hidden flex flex-col justify-end hover:shadow-xl hover:border-gold-accent/40 transition-all duration-500 group min-h-[220px]">
             <div className="absolute inset-0 z-0">
               <img src="https://images.unsplash.com/photo-1599940824399-b87987ceb72a?auto=format&fit=crop&w=800&q=80" alt="Indian Spices" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out" />
               <div className="absolute inset-0 bg-dark-green/85 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out"></div>
@@ -1054,10 +1094,10 @@ export default function Home() {
                 <p className="text-[11px] text-cream-bg/90 mt-2 max-w-lg leading-relaxed font-light drop-shadow-md">We buy agricultural outputs directly from farm networks in India. Removing middlemen enables strict chemical index checks, preserves natural purity, and maximizes farmer profits.</p>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Card 2: NGO Agricultural Support */}
-          <div className="rounded-3xl border border-gold-accent/15 text-left flex flex-col justify-end hover:shadow-lg hover:border-gold-accent/35 transition-all duration-500 group relative overflow-hidden min-h-[220px]">
+          <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.1 }} transition={{ duration: 0.6 }} className="rounded-3xl border border-gold-accent/15 text-left flex flex-col justify-end hover:shadow-lg hover:border-gold-accent/35 transition-all duration-500 group relative overflow-hidden min-h-[220px]">
             <div className="absolute inset-0 z-0">
               <img src="https://images.unsplash.com/photo-1605000797499-95a51c5269ae?auto=format&fit=crop&w=800&q=80" alt="Indian Farming" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out" />
               <div className="absolute inset-0 bg-dark-green/85 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out"></div>
@@ -1072,10 +1112,10 @@ export default function Home() {
                 <p className="text-[11px] text-cream-bg/90 mt-2 leading-relaxed font-light drop-shadow-md">Working alongside rural development NGOs to back farmer co-ops and implement advanced agricultural techniques.</p>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Card 3: Premium Quality */}
-          <div className="rounded-3xl border border-gold-accent/15 text-left flex flex-col justify-end hover:shadow-lg hover:border-gold-accent/35 transition-all duration-500 group relative overflow-hidden min-h-[220px]">
+          <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.1 }} transition={{ duration: 0.6 }} className="rounded-3xl border border-gold-accent/15 text-left flex flex-col justify-end hover:shadow-lg hover:border-gold-accent/35 transition-all duration-500 group relative overflow-hidden min-h-[220px]">
             <div className="absolute inset-0 z-0">
               <img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=800&q=80" alt="Premium Rice" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out" />
               <div className="absolute inset-0 bg-dark-green/85 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out"></div>
@@ -1090,10 +1130,10 @@ export default function Home() {
                 <p className="text-[11px] text-cream-bg/90 mt-2 leading-relaxed font-light drop-shadow-md">Each batch is strictly tested against APEDA and SGS global standards to assure pesticide residue compliance.</p>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Card 4: Global Export (Double Width) */}
-          <div className="md:col-span-2 rounded-3xl border border-gold-accent/15 text-left flex flex-col justify-end hover:shadow-lg hover:border-gold-accent/35 transition-all duration-500 group relative overflow-hidden min-h-[220px]">
+          <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.1 }} transition={{ duration: 0.6 }} className="md:col-span-2 rounded-3xl border border-gold-accent/15 text-left flex flex-col justify-end hover:shadow-lg hover:border-gold-accent/35 transition-all duration-500 group relative overflow-hidden min-h-[220px]">
             <div className="absolute inset-0 z-0">
               <img src="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?auto=format&fit=crop&w=800&q=80" alt="Global Logistics" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out" />
               <div className="absolute inset-0 bg-dark-green/85 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out"></div>
@@ -1108,7 +1148,7 @@ export default function Home() {
                 <p className="text-[11px] text-cream-bg/90 mt-2 max-w-lg leading-relaxed font-light drop-shadow-md">From UAE, Saudi Arabia, Singapore and European destinations to domestic wholesale distributors and retail supermarkets within India, we maintain consistent supply contracts year-round.</p>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -1122,7 +1162,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(11,74,37,0.8),transparent_70%)] pointer-events-none"></div>
         
         <div className="max-w-7xl mx-auto px-4 md:px-8 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          <div className="lg:col-span-5 text-left space-y-6">
+          <motion.div initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: 0.1 }} transition={{ duration: 0.6 }} className="lg:col-span-5 text-left space-y-6">
             <div className="inline-flex items-center space-x-2 text-gold-accent uppercase font-bold text-[10px] tracking-widest bg-white/5 px-3 py-1.5 rounded-full border border-white/10">Export Routing</div>
             <h2 className="font-serif text-3xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">Serving Global Markets</h2>
             <div className="w-16 h-1 bg-gold-accent"></div>
@@ -1146,10 +1186,10 @@ export default function Home() {
                 </div>
               ))}
             </div>
-          </div>
+          </motion.div>
 
           {/* SVG Animated Trade Map */}
-          <div className="lg:col-span-7 bg-[#063B1D] p-6 rounded-3xl border border-gold-accent/20 shadow-xl relative overflow-hidden aspect-[4/3] flex items-center justify-center">
+          <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: 0.1 }} transition={{ duration: 0.6 }} className="lg:col-span-7 bg-[#063B1D] p-6 rounded-3xl border border-gold-accent/20 shadow-xl relative overflow-hidden aspect-[4/3] flex items-center justify-center">
             {/* Beautiful Custom World Map Visual SVG */}
             <svg viewBox="0 0 800 500" className="w-full h-full text-cream-bg/25">
               {/* Realistic Map Background */}
@@ -1187,57 +1227,57 @@ export default function Home() {
               <circle cx="390" cy="190" r="3" fill="#D4A017" />
               <text x="380" y="180" fill="white" fontSize="9" fontWeight="bold">QATAR</text>
             </svg>
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* 10. Quality Assurance Section */}
       <section className="py-24 bg-gradient-to-b from-[#063B1D] to-black text-white relative">
         <div className="max-w-7xl mx-auto px-4 md:px-8 space-y-16">
-          <div className="text-center max-w-2xl mx-auto space-y-3">
+          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.1 }} transition={{ duration: 0.6 }} className="text-center max-w-2xl mx-auto space-y-3">
             <div className="text-gold-accent uppercase font-bold text-[10px] tracking-widest bg-white/5 inline-block px-3 py-1.5 rounded-full border border-white/10">Zero Tolerance on Contamination</div>
             <h2 className="font-serif text-3xl md:text-5xl font-extrabold tracking-tight">EXPORT GRADE QUALITY AUDITING</h2>
             <div className="w-16 h-1 bg-gold-accent mx-auto my-3"></div>
             <p className="text-xs text-cream-bg/70 font-light">Every single bag of rice, powder, and spice is inspected strictly before loading to conform to international food quality benchmarks.</p>
-          </div>
+          </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="bg-white/[0.03] backdrop-blur-md p-8 rounded-2xl border border-white/10 hover:border-gold-accent/30 transition-all duration-300">
+            <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.1 }} transition={{ duration: 0.5 }} className="bg-white/[0.03] backdrop-blur-md p-8 rounded-2xl border border-white/10 hover:border-gold-accent/30 transition-all duration-300">
               <div className="text-gold-accent font-sans font-extrabold text-2xl mb-4">01</div>
               <h3 className="font-serif text-base font-bold text-white mb-2">Hygienic Packaging</h3>
               <p className="text-[10px] text-cream-bg/70 leading-relaxed font-light">Vacuum retail boxes, laminated bags, and robust HDPE container liners that resist moisture, preserve raw aroma, and increase shelf life.</p>
-            </div>
+            </motion.div>
             
-            <div className="bg-white/[0.03] backdrop-blur-md p-8 rounded-2xl border border-white/10 hover:border-gold-accent/30 transition-all duration-300">
+            <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.1 }} transition={{ duration: 0.5 }} className="bg-white/[0.03] backdrop-blur-md p-8 rounded-2xl border border-white/10 hover:border-gold-accent/30 transition-all duration-300">
               <div className="text-gold-accent font-sans font-extrabold text-2xl mb-4">02</div>
               <h3 className="font-serif text-base font-bold text-white mb-2">Rigorous QC Audits</h3>
               <p className="text-[10px] text-cream-bg/70 leading-relaxed font-light">Laboratory index tests for moisture, chemical residue, and physical size parameters. All batches fully cleared by SGS/Phyto.</p>
-            </div>
+            </motion.div>
 
-            <div className="bg-white/[0.03] backdrop-blur-md p-8 rounded-2xl border border-white/10 hover:border-gold-accent/30 transition-all duration-300">
+            <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.1 }} transition={{ duration: 0.5 }} className="bg-white/[0.03] backdrop-blur-md p-8 rounded-2xl border border-white/10 hover:border-gold-accent/30 transition-all duration-300">
               <div className="text-gold-accent font-sans font-extrabold text-2xl mb-4">03</div>
               <h3 className="font-serif text-base font-bold text-white mb-2">Pesticide Compliance</h3>
               <p className="text-[10px] text-cream-bg/70 leading-relaxed font-light">Ethical farmer agreements supported by NGOs. Crops are grown using standard guidelines to avoid toxic pesticide traces.</p>
-            </div>
+            </motion.div>
 
-            <div className="bg-white/[0.03] backdrop-blur-md p-8 rounded-2xl border border-white/10 hover:border-gold-accent/30 transition-all duration-300">
+            <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.1 }} transition={{ duration: 0.5 }} className="bg-white/[0.03] backdrop-blur-md p-8 rounded-2xl border border-white/10 hover:border-gold-accent/30 transition-all duration-300">
               <div className="text-gold-accent font-sans font-extrabold text-2xl mb-4">04</div>
               <h3 className="font-serif text-base font-bold text-white mb-2">Cold Storage Track</h3>
               <p className="text-[10px] text-cream-bg/70 leading-relaxed font-light">Temperature-controlled loading docks and modern insulated warehouse facilities to keep tropical fruits and vegetables pristine.</p>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
 
       {/* 11. Testimonial Section */}
-      <section className="py-24 bg-cream-bg/30 border-y border-gold-accent/15">
+      <motion.section initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true, amount: 0.1 }} transition={{ duration: 0.6 }} className="py-24 bg-cream-bg/30 border-y border-gold-accent/15">
         <div className="max-w-7xl mx-auto px-4 md:px-8 space-y-16">
-          <div className="text-center max-w-2xl mx-auto space-y-3">
+          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.1 }} transition={{ duration: 0.6 }} className="text-center max-w-2xl mx-auto space-y-3">
             <div className="text-primary-green uppercase font-bold text-[10px] tracking-widest bg-primary-green/5 inline-block px-3 py-1.5 rounded-full border border-primary-green/10">Reviews & Verification</div>
             <h2 className="font-serif text-3xl md:text-5xl font-extrabold text-dark-green tracking-tight">Importers & Distributors Feedback</h2>
             <div className="w-16 h-1 bg-gold-accent mx-auto my-3"></div>
             <p className="text-xs text-soft-gray font-light">Hear what our long-term wholesale trade partners in UAE, Singapore, and India say about our supply consistency.</p>
-          </div>
+          </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
@@ -1292,73 +1332,127 @@ export default function Home() {
             ))}
           </div>
         </div>
-      </section>
+      </motion.section>
 
-      {/* 12. Blog / Export Insights Section */}
+      {/* 12. Photo Gallery Section – Farm to Export */}
       <section className="py-24 px-4 md:px-8 max-w-7xl mx-auto">
-        <div className="text-center max-w-2xl mx-auto mb-16 space-y-3">
-          <div className="text-gold-accent uppercase font-bold text-[10px] tracking-widest bg-gold-accent/5 inline-block px-3 py-1.5 rounded-full border border-gold-accent/10">Industry Knowledge</div>
-          <h2 className="font-serif text-3xl md:text-5xl font-extrabold text-dark-green tracking-tight">Agricultural Export Insights</h2>
+        <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.1 }} transition={{ duration: 0.6 }} className="text-center max-w-2xl mx-auto mb-16 space-y-3">
+          <div className="text-gold-accent uppercase font-bold text-[10px] tracking-widest bg-gold-accent/5 inline-block px-3 py-1.5 rounded-full border border-gold-accent/10">Our Story in Pictures</div>
+          <h2 className="font-serif text-3xl md:text-5xl font-extrabold text-dark-green tracking-tight">From Indian Farms to Global Ports</h2>
           <div className="w-20 h-1 bg-gold-accent mx-auto my-3"></div>
-          <p className="text-xs text-soft-gray font-light">Stay updated with standard trade regulations, rice grain metrics, and export compliance reports from India.</p>
-        </div>
+          <p className="text-xs text-soft-gray font-light">A visual journey through our sourcing fields, procurement yards, packaging units, and export cargo operations across India.</p>
+        </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {/* Masonry Gallery Grid */}
+        <div className="columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
           {[
             {
-              title: "Indian Rice Exports: Quality Benchmarks & Global Demands",
-              date: "May 18, 2026",
-              desc: "An in-depth analysis of the international grading standards for Basmati and IR64 Non-Basmati rice, highlighting key moisture controls and packaging protocols.",
-              image: "/Rice-Cat.png"
+              src: "/gallery_rice_harvest_1779431160210.png",
+              alt: "Indian farmers harvesting rice paddy fields",
+              label: "Rice Paddy Harvest",
+              tall: true
             },
             {
-              title: "Sourcing High-Curcumin Turmeric: The Sourcing Advantage",
-              date: "May 10, 2026",
-              desc: "How direct farmer sourcing networks in Southern India are elevating international turmeric trading by standardizing pure curcumin concentration.",
-              image: "/powders-cat.png"
+              src: "/gallery_spice_procurement_1779431177560.png",
+              alt: "Colorful spice procurement at Indian wholesale market",
+              label: "Spice Procurement",
+              tall: false
             },
             {
-              title: "Logistics Optimization: Seaport and Air Cargo Guidelines",
-              date: "Apr 28, 2026",
-              desc: "A comprehensive guide on container stuffing reports, Phyto-sanitary compliance, and transit insulation methods for shipping fresh vegetables.",
-              image: "/fresh Veg-cat.png"
+              src: "/gallery_cargo_port_1779431196944.png",
+              alt: "Cargo shipping containers at Indian seaport",
+              label: "Export Sea Cargo",
+              tall: false
+            },
+            {
+              src: "/gallery_farm_collection_1779431213148.png",
+              alt: "Farmers collecting fresh vegetables from fields",
+              label: "Farm Collection",
+              tall: true
+            },
+            {
+              src: "/gallery_agri_fields_1779431239630.png",
+              alt: "Vast Indian agricultural farmlands aerial view",
+              label: "Agricultural Fields",
+              tall: false
+            },
+            {
+              src: "/gallery_quality_grading_1779431255770.png",
+              alt: "Workers grading and sorting spices in warehouse",
+              label: "Quality Grading",
+              tall: true
+            },
+            {
+              src: "/gallery_export_packaging_1779431273451.png",
+              alt: "Agro export packaging unit with branded bags",
+              label: "Export Packaging",
+              tall: false
+            },
+            {
+              src: "/gallery_air_cargo_1779431285693.png",
+              alt: "Air cargo freight plane loaded with agro exports",
+              label: "Air Cargo Export",
+              tall: false
+            },
+            {
+              src: "/gallery_onion_procurement_1779431310610.png",
+              alt: "Red onion procurement yard with Indian farmers",
+              label: "Onion Procurement",
+              tall: true
+            },
+            {
+              src: "/gallery_rice_bagging_1779431329454.png",
+              alt: "Workers bagging Basmati rice at rice mill",
+              label: "Rice Mill & Bagging",
+              tall: false
+            },
+            {
+              src: "/gallery_container_loading_1779431350617.png",
+              alt: "Loading agro bags into shipping container",
+              label: "Container Loading",
+              tall: false
+            },
+            {
+              src: "/gallery_turmeric_farm_1779431369020.png",
+              alt: "Turmeric harvest from Telangana farm fields",
+              label: "Turmeric Harvest",
+              tall: true
             }
           ].map((item, idx) => (
-            <div 
-              key={idx} 
-              className="bg-white rounded-3xl overflow-hidden border border-gold-accent/10 hover:border-gold-accent/35 hover:shadow-lg transition-all duration-300 text-left group flex flex-col justify-between"
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.1 }}
+              transition={{ duration: 0.5, delay: idx * 0.05 }}
+              className="break-inside-avoid mb-4 relative group overflow-hidden rounded-2xl border border-gold-accent/10 shadow-sm hover:shadow-xl hover:border-gold-accent/40 transition-all duration-500 cursor-pointer"
             >
-              <div className="relative h-48 overflow-hidden bg-cream-bg pointer-events-none">
-                <img src={item.image} alt={item.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              <img
+                src={item.src}
+                alt={item.alt}
+                className={`w-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out ${item.tall ? 'h-72' : 'h-48'}`}
+              />
+              {/* Overlay on hover */}
+              <div className="absolute inset-0 bg-gradient-to-t from-dark-green/90 via-dark-green/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400 flex flex-col justify-end p-4">
+                <span className="text-white font-serif font-bold text-xs leading-tight drop-shadow">{item.label}</span>
+                <div className="w-8 h-[2px] bg-gold-accent mt-1.5"></div>
               </div>
-              <div className="p-6 space-y-3 flex-1 flex flex-col justify-between">
-                <div className="space-y-2">
-                  <div className="text-[9px] text-gold-accent font-bold uppercase tracking-wider">{item.date}</div>
-                  <h3 className="font-serif text-sm font-extrabold text-dark-green group-hover:text-primary-green transition-colors leading-snug">{item.title}</h3>
-                  <p className="text-[11px] text-soft-gray font-light line-clamp-2 leading-relaxed">{item.desc}</p>
-                </div>
-                <div className="pt-4 border-t border-cream-bg flex items-center justify-between">
-                  <Link to="/blog" className="text-[10px] font-extrabold uppercase tracking-widest text-primary-green hover:text-gold-accent transition-colors flex items-center">
-                    <span>Read Article</span>
-                    <ArrowRight className="w-3 h-3 ml-1" />
-                  </Link>
-                </div>
+              {/* Always visible label pill */}
+              <div className="absolute top-3 left-3 bg-white/80 backdrop-blur-sm text-dark-green font-sans font-bold text-[9px] uppercase tracking-wider px-2.5 py-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                {item.label}
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </section>
 
       {/* 13. Final Cinematic CTA Section */}
-      <section 
-        className="bg-dark-green py-24 px-4 md:px-8 border-t-2 border-gold-accent text-white relative overflow-hidden bg-cover bg-center bg-no-repeat bg-fixed"
-        style={{ backgroundImage: "url('/cta-bg.png')" }}
-      >
+      <motion.section initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true, amount: 0.1 }} transition={{ duration: 0.8 }} className="bg-dark-green py-24 px-4 md:px-8 border-t-2 border-gold-accent text-white relative overflow-hidden bg-cover bg-center bg-no-repeat bg-fixed" style={{ backgroundImage: "url('/cta-bg.png')" }}>
         <div className="absolute inset-0 bg-dark-green/85"></div>
         {/* Abstract warehouse container vectors overlay */}
         <div className="absolute inset-0 opacity-[0.05] pointer-events-none bg-[radial-gradient(#F8F6F1_2px,transparent_2px)] [background-size:32px_32px]"></div>
         
-        <div className="max-w-4xl mx-auto text-center relative z-10 space-y-8">
+        <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true, amount: 0.1 }} transition={{ duration: 0.6 }} className="max-w-4xl mx-auto text-center relative z-10 space-y-8">
           <div className="inline-flex items-center space-x-2 text-gold-accent uppercase font-bold text-[10px] tracking-widest bg-white/5 px-4 py-2 rounded-full border border-white/10">Get Direct Sourcing Quotes</div>
           
           <h2 className="font-serif text-3xl md:text-5xl font-extrabold tracking-tight leading-tight">
@@ -1386,8 +1480,8 @@ export default function Home() {
               <span>WhatsApp Trade Inquiry</span>
             </a>
           </div>
-        </div>
-      </section>
+        </motion.div>
+      </motion.section>
 
     </div>
   );

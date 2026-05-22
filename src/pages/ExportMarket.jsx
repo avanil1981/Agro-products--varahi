@@ -48,14 +48,29 @@ export default function ExportMarket() {
       <section className="relative bg-gradient-to-br from-primary-green to-dark-green text-white py-20 px-4 md:px-8 border-b-4 border-gold-accent text-center overflow-hidden">
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[radial-gradient(#F8F6F1_1px,transparent_1px)] [background-size:20px_20px]"></div>
         <div className="max-w-4xl mx-auto space-y-4 relative z-10">
-          <span className="text-[10px] uppercase tracking-[0.25em] text-gold-accent font-bold block">GLOBAL EXPORT</span>
-          <h1 className="font-serif text-3xl md:text-5xl font-extrabold tracking-tight">
+          <motion.span 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="text-[10px] uppercase tracking-[0.25em] text-gold-accent font-bold block"
+          >
+            GLOBAL EXPORT
+          </motion.span>
+          <motion.h1 
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="font-serif text-3xl md:text-5xl font-extrabold tracking-tight"
+          >
             Exporting Indian Agro Worldwide
-          </h1>
+          </motion.h1>
           <div className="w-20 h-1 bg-gold-accent mx-auto mt-4"></div>
-          <p className="text-xs md:text-sm text-cream-bg/70 max-w-xl mx-auto font-light leading-relaxed">
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="text-xs md:text-sm text-cream-bg/70 max-w-xl mx-auto font-light leading-relaxed"
+          >
             Delivering rich, safe, and certified agricultural crops directly from the heart of India to importers across major international sea & air hubs.
-          </p>
+          </motion.p>
         </div>
       </section>
 
@@ -64,8 +79,12 @@ export default function ExportMarket() {
         {exportServices.map((srv, idx) => {
           const IconComp = srv.icon;
           return (
-            <div 
+            <motion.div 
               key={idx} 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: idx * 0.1 }}
               className="bg-white p-8 rounded-3xl border border-gold-accent/5 shadow-sm hover:shadow-md hover:border-gold-accent/25 transition-all group flex items-start space-x-5"
             >
               <div className="bg-primary-green/10 p-3.5 rounded-2xl text-primary-green shrink-0 group-hover:bg-primary-green group-hover:text-gold-accent transition-colors duration-300">
@@ -75,7 +94,7 @@ export default function ExportMarket() {
                 <h3 className="font-serif text-lg font-bold text-dark-green">{srv.title}</h3>
                 <p className="text-xs text-soft-gray leading-relaxed font-light">{srv.desc}</p>
               </div>
-            </div>
+            </motion.div>
           );
         })}
       </section>
@@ -85,7 +104,13 @@ export default function ExportMarket() {
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
           {/* Left Description */}
-          <div className="lg:col-span-5 space-y-6">
+          <motion.div 
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.6 }}
+            className="lg:col-span-5 space-y-6"
+          >
             <span className="text-[10px] font-bold tracking-widest uppercase text-gold-accent">GLOBAL DESTINATIONS</span>
             <h2 className="font-serif text-2xl md:text-3xl font-extrabold text-dark-green">
               Active Trade & Loading Operations
@@ -101,13 +126,17 @@ export default function ExportMarket() {
                 Send Export Inquiry
               </Link>
             </div>
-          </div>
+          </motion.div>
 
           {/* Right Targets Grid */}
           <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
             {exportMarkets.map((market, idx) => (
-              <div 
+              <motion.div 
                 key={idx} 
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.4, delay: idx * 0.05 }}
                 className="bg-cream-bg/40 p-5 rounded-2xl border border-gold-accent/10 hover:border-gold-accent/40 hover:bg-white transition-all group flex items-start space-x-3.5"
               >
                 <div className="bg-primary-green text-gold-accent text-xs font-bold w-7 h-7 rounded-full flex items-center justify-center shrink-0">
@@ -117,7 +146,7 @@ export default function ExportMarket() {
                   <h4 className="text-xs font-bold text-dark-green">{market.name}</h4>
                   <p className="text-[10px] text-soft-gray font-light mt-1 leading-relaxed">{market.description}</p>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
 
@@ -138,47 +167,60 @@ export default function ExportMarket() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {featuredExportCrops.map((crop) => (
-            <Link 
+          {featuredExportCrops.map((crop, idx) => (
+            <motion.div
               key={crop.id}
-              to={`/products/${crop.slug}`}
-              className="bg-white rounded-3xl overflow-hidden border border-gold-accent/10 shadow-sm hover:shadow-xl hover:border-gold-accent/30 hover:-translate-y-1 transition-all duration-300 group flex flex-col h-full"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: idx * 0.1 }}
             >
-              <div className="relative h-48 overflow-hidden">
-                <img 
-                  src={crop.image} 
-                  alt={crop.name} 
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-dark-green/40 to-transparent"></div>
-                <span className="absolute top-4 left-4 bg-primary-green/90 text-gold-accent font-bold text-[9px] uppercase tracking-wider px-2.5 py-1 rounded-full shadow-sm">
-                  {crop.category}
-                </span>
-              </div>
+              <Link 
+                to={`/products/${crop.slug}`}
+                className="bg-white rounded-3xl overflow-hidden border border-gold-accent/10 shadow-sm hover:shadow-xl hover:border-gold-accent/30 hover:-translate-y-1 transition-all duration-300 group flex flex-col h-full"
+              >
+                <div className="relative h-48 overflow-hidden">
+                  <img 
+                    src={crop.image} 
+                    alt={crop.name} 
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-dark-green/40 to-transparent"></div>
+                  <span className="absolute top-4 left-4 bg-primary-green/90 text-gold-accent font-bold text-[9px] uppercase tracking-wider px-2.5 py-1 rounded-full shadow-sm">
+                    {crop.category}
+                  </span>
+                </div>
 
-              <div className="p-6 flex flex-col justify-between flex-grow space-y-4">
-                <div className="space-y-2">
-                  <h3 className="font-serif text-base font-bold text-dark-green group-hover:text-primary-green transition-colors">
-                    {crop.name}
-                  </h3>
-                  <p className="text-xs text-soft-gray font-light line-clamp-2 leading-relaxed">
-                    {crop.shortDescription}
-                  </p>
+                <div className="p-6 flex flex-col justify-between flex-grow space-y-4">
+                  <div className="space-y-2">
+                    <h3 className="font-serif text-base font-bold text-dark-green group-hover:text-primary-green transition-colors">
+                      {crop.name}
+                    </h3>
+                    <p className="text-xs text-soft-gray font-light line-clamp-2 leading-relaxed">
+                      {crop.shortDescription}
+                    </p>
+                  </div>
+                  
+                  <div className="pt-3 border-t border-gold-accent/5 flex items-center justify-between text-xs font-bold text-primary-green">
+                    <span>View Specifications</span>
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform" />
+                  </div>
                 </div>
-                
-                <div className="pt-3 border-t border-gold-accent/5 flex items-center justify-between text-xs font-bold text-primary-green">
-                  <span>View Specifications</span>
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform" />
-                </div>
-              </div>
-            </Link>
+              </Link>
+            </motion.div>
           ))}
         </div>
       </section>
 
       {/* 5. Export Documentation & Compliance */}
       <section className="py-20 px-4 md:px-8 max-w-5xl mx-auto">
-        <div className="bg-white rounded-3xl p-8 md:p-12 border border-gold-accent/10 shadow-sm grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+        <motion.div 
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.6 }}
+          className="bg-white rounded-3xl p-8 md:p-12 border border-gold-accent/10 shadow-sm grid grid-cols-1 md:grid-cols-12 gap-8 items-center"
+        >
           
           <div className="md:col-span-5 space-y-4">
             <div className="bg-gold-accent/10 p-3 rounded-2xl w-fit text-gold-accent">
@@ -201,7 +243,7 @@ export default function ExportMarket() {
             ))}
           </div>
 
-        </div>
+        </motion.div>
       </section>
 
     </div>

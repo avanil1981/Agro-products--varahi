@@ -49,21 +49,42 @@ export default function Quality() {
       <section className="relative bg-gradient-to-br from-primary-green to-dark-green text-white py-20 px-4 md:px-8 border-b-4 border-gold-accent text-center overflow-hidden">
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[radial-gradient(#F8F6F1_1px,transparent_1px)] [background-size:20px_20px]"></div>
         <div className="max-w-4xl mx-auto space-y-4 relative z-10">
-          <span className="text-[10px] uppercase tracking-[0.25em] text-gold-accent font-bold block">ASSURANCE PLAN</span>
-          <h1 className="font-serif text-3xl md:text-5xl font-extrabold tracking-tight">
+          <motion.span 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="text-[10px] uppercase tracking-[0.25em] text-gold-accent font-bold block"
+          >
+            ASSURANCE PLAN
+          </motion.span>
+          <motion.h1 
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="font-serif text-3xl md:text-5xl font-extrabold tracking-tight"
+          >
             Quality You Can Trust
-          </h1>
+          </motion.h1>
           <div className="w-20 h-1 bg-gold-accent mx-auto mt-4"></div>
-          <p className="text-xs md:text-sm text-cream-bg/70 max-w-xl mx-auto font-light leading-relaxed">
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="text-xs md:text-sm text-cream-bg/70 max-w-xl mx-auto font-light leading-relaxed"
+          >
             From the fertile Indian soils to the sealed shipping containers, we maintain a zero-compromise quality framework to satisfy strict global norms.
-          </p>
+          </motion.p>
         </div>
       </section>
 
       {/* 2. Process Quality Steps Timeline */}
       <section className="py-20 px-4 md:px-8 max-w-6xl mx-auto">
         
-        <div className="text-center max-w-2xl mx-auto mb-20">
+        <motion.div 
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.5 }}
+          className="text-center max-w-2xl mx-auto mb-20"
+        >
           <div className="inline-flex items-center space-x-1.5 text-gold-accent uppercase font-bold text-[10px] tracking-widest">
             <Award className="w-4 h-4 text-gold-accent" />
             <span>Workflow Parameters</span>
@@ -74,15 +95,19 @@ export default function Quality() {
           <p className="text-xs text-soft-gray font-light mt-2 leading-relaxed">
             Our structured 6-step quality control system ensures that every container shipment complies with the technical specifications agreed upon in our corporate sales sheets.
           </p>
-        </div>
+        </motion.div>
 
         {/* Vertical/Horizontal Timeline Layout */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {steps.map((st, idx) => {
             const IconComp = st.icon;
             return (
-              <div 
+              <motion.div 
                 key={idx} 
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
                 className="bg-white p-8 rounded-3xl border border-cream-bg shadow-sm hover:shadow-md hover:border-gold-accent/25 transition-all duration-300 relative group flex flex-col justify-between"
               >
                 <div>
@@ -106,7 +131,7 @@ export default function Quality() {
                   <CheckCircle className="w-3.5 h-3.5 mr-1.5 shrink-0" />
                   <span>QC Passed Standard</span>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
         </div>
@@ -115,12 +140,18 @@ export default function Quality() {
 
       {/* 3. Safety Standard Note Banner */}
       <section className="bg-white py-16 px-4 md:px-8 border-y border-gold-accent/10">
-        <div className="max-w-4xl mx-auto text-center space-y-4">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.5 }}
+          className="max-w-4xl mx-auto text-center space-y-4"
+        >
           <h3 className="font-serif text-xl font-bold text-dark-green">Zero-Contamination Storage Standard</h3>
           <p className="text-xs text-soft-gray font-light leading-relaxed max-w-xl mx-auto">
             Our facilities follow strict sanitation rules, regular temperature and moisture checks, and use modern cargo packing materials to protect shipments from moisture or external damage.
           </p>
-        </div>
+        </motion.div>
       </section>
 
     </div>

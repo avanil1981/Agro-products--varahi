@@ -56,20 +56,41 @@ export default function Infrastructure() {
       <section className="relative bg-gradient-to-br from-primary-green to-dark-green text-white py-20 px-4 md:px-8 border-b-4 border-gold-accent text-center overflow-hidden">
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[radial-gradient(#F8F6F1_1px,transparent_1px)] [background-size:20px_20px]"></div>
         <div className="max-w-4xl mx-auto space-y-4 relative z-10">
-          <span className="text-[10px] uppercase tracking-[0.25em] text-gold-accent font-bold block">CAPABILITY REPORT</span>
-          <h1 className="font-serif text-3xl md:text-5xl font-extrabold tracking-tight">
+          <motion.span 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="text-[10px] uppercase tracking-[0.25em] text-gold-accent font-bold block"
+          >
+            CAPABILITY REPORT
+          </motion.span>
+          <motion.h1 
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="font-serif text-3xl md:text-5xl font-extrabold tracking-tight"
+          >
             Infrastructure & Supply Capability
-          </h1>
+          </motion.h1>
           <div className="w-20 h-1 bg-gold-accent mx-auto mt-4"></div>
-          <p className="text-xs md:text-sm text-cream-bg/70 max-w-xl mx-auto font-light leading-relaxed">
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="text-xs md:text-sm text-cream-bg/70 max-w-xl mx-auto font-light leading-relaxed"
+          >
             High-capacity cleaning, palletized moisture-free storage, and strong transport integrations connecting farms directly to seaport terminals.
-          </p>
+          </motion.p>
         </div>
       </section>
 
       {/* 2. Facility Cards Grid */}
       <section className="py-20 px-4 md:px-8 max-w-7xl mx-auto space-y-12">
-        <div className="text-center max-w-2xl mx-auto">
+        <motion.div 
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.5 }}
+          className="text-center max-w-2xl mx-auto"
+        >
           <h2 className="font-serif text-2xl md:text-3xl font-extrabold text-dark-green">
             Our Sourcing & Packing Facilities
           </h2>
@@ -77,14 +98,18 @@ export default function Infrastructure() {
           <p className="text-xs text-soft-gray font-light">
             We operate fully mechanized cleaning, storage, and shipping networks ensuring rapid contract execution times.
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {infraItems.map((item, idx) => {
             const IconComp = item.icon;
             return (
-              <div 
+              <motion.div 
                 key={idx} 
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
                 className="bg-white rounded-3xl overflow-hidden border border-cream-bg shadow-sm hover:shadow-md hover:border-gold-accent/25 transition-all group flex flex-col justify-between"
               >
                 <div className="relative h-44 overflow-hidden">
@@ -112,7 +137,7 @@ export default function Infrastructure() {
                     <span>Active Sourcing Station</span>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
         </div>
@@ -122,7 +147,13 @@ export default function Infrastructure() {
       <section className="bg-white py-20 px-4 md:px-8 border-y border-gold-accent/10">
         <div className="max-w-7xl mx-auto">
           
-          <div className="text-center max-w-2xl mx-auto mb-16">
+          <motion.div 
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.5 }}
+            className="text-center max-w-2xl mx-auto mb-16"
+          >
             <span className="text-[10px] font-bold tracking-widest uppercase text-gold-accent">SUPPLY TIMELINE</span>
             <h2 className="font-serif text-2xl md:text-3xl font-extrabold text-dark-green mt-1">
               Material Flow & Port Transit
@@ -130,12 +161,16 @@ export default function Infrastructure() {
             <p className="text-xs text-soft-gray font-light mt-2">
               From fresh harvest to secure port clearance in 4 simple logistics phases.
             </p>
-          </div>
+          </motion.div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {timelineSteps.map((item, idx) => (
-              <div 
+              <motion.div 
                 key={idx} 
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.4, delay: idx * 0.1 }}
                 className="bg-cream-bg/40 p-6 rounded-2xl border border-cream-bg text-center relative group"
               >
                 <div className="w-12 h-12 rounded-full bg-primary-green text-gold-accent font-serif text-sm font-bold flex items-center justify-center mx-auto mb-4 border-2 border-gold-accent/20">
@@ -143,7 +178,7 @@ export default function Infrastructure() {
                 </div>
                 <h4 className="font-serif text-sm font-bold text-dark-green">{item.title}</h4>
                 <p className="text-xs text-soft-gray font-light mt-2 leading-relaxed">{item.desc}</p>
-              </div>
+              </motion.div>
             ))}
           </div>
 

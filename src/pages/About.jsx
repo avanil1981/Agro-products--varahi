@@ -60,7 +60,13 @@ export default function About() {
       <section className="py-20 px-4 md:px-8 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           
-          <div className="space-y-6">
+          <motion.div 
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.6 }}
+            className="space-y-6"
+          >
             <div className="inline-flex items-center space-x-2 text-primary-green uppercase font-bold text-[10px] tracking-widest">
               <Building className="w-4 h-4 text-gold-accent" />
               <span>Our Roots & History</span>
@@ -93,9 +99,15 @@ export default function About() {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="relative">
+          <motion.div 
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="relative"
+          >
             <div className="rounded-3xl overflow-hidden shadow-2xl border-4 border-white aspect-[4/3]">
               <img 
                 src="https://images.unsplash.com/photo-1595275372297-f57bb4824707?auto=format&fit=crop&w=1000&q=80" 
@@ -109,7 +121,7 @@ export default function About() {
               <div className="text-xs font-serif text-dark-green font-bold">Hyderabad, Telangana, India</div>
               <p className="text-[9px] text-soft-gray font-light mt-1">Connecting domestic farm belts to major ports via modern logistics.</p>
             </div>
-          </div>
+          </motion.div>
 
         </div>
       </section>
@@ -119,7 +131,13 @@ export default function About() {
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
           
           {/* Mission Card */}
-          <div className="bg-cream-bg/40 p-8 md:p-12 rounded-3xl border border-gold-accent/15 relative overflow-hidden group hover:shadow-lg transition-all duration-300">
+          <motion.div 
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.6 }}
+            className="bg-cream-bg/40 p-8 md:p-12 rounded-3xl border border-gold-accent/15 relative overflow-hidden group hover:shadow-lg transition-all duration-300"
+          >
             <div className="absolute top-0 right-0 w-32 h-32 bg-primary-green/5 rounded-full blur-3xl pointer-events-none"></div>
             <div className="bg-primary-green text-gold-accent p-3.5 rounded-2xl w-fit mb-6">
               <Compass className="w-7 h-7" />
@@ -128,10 +146,16 @@ export default function About() {
             <p className="text-xs md:text-sm text-soft-gray font-light leading-relaxed mt-4">
               To deliver premium quality Indian agro and food commodities to customers worldwide with deep transparency, reliable consistency, and fair pricing. We want to empower Indian farmers while ensuring global buyers enjoy reliable crop values on every container.
             </p>
-          </div>
+          </motion.div>
 
           {/* Vision Card */}
-          <div className="bg-cream-bg/40 p-8 md:p-12 rounded-3xl border border-gold-accent/15 relative overflow-hidden group hover:shadow-lg transition-all duration-300">
+          <motion.div 
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="bg-cream-bg/40 p-8 md:p-12 rounded-3xl border border-gold-accent/15 relative overflow-hidden group hover:shadow-lg transition-all duration-300"
+          >
             <div className="absolute top-0 right-0 w-32 h-32 bg-gold-accent/5 rounded-full blur-3xl pointer-events-none"></div>
             <div className="bg-gold-accent text-white p-3.5 rounded-2xl w-fit mb-6">
               <Eye className="w-7 h-7" />
@@ -140,7 +164,7 @@ export default function About() {
             <p className="text-xs md:text-sm text-soft-gray font-light leading-relaxed mt-4">
               To become a globally recognized Indian agricultural export organization known for high quality standards, reliable shipping logistics, and strong customer satisfaction. We aim to establish Sri Varahi as the gold standard of trust.
             </p>
-          </div>
+          </motion.div>
 
         </div>
       </section>
@@ -163,8 +187,12 @@ export default function About() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {values.map((val, idx) => (
-            <div 
+            <motion.div 
               key={idx} 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: idx * 0.1 }}
               className="bg-white p-8 rounded-2xl shadow-sm border border-cream-bg hover:border-gold-accent/25 hover:shadow-md transition-all group"
             >
               <h4 className="font-serif text-lg font-bold text-dark-green group-hover:text-primary-green transition-colors gold-line pb-1.5">
@@ -173,7 +201,7 @@ export default function About() {
               <p className="text-xs text-soft-gray mt-3 leading-relaxed font-light">
                 {val.desc}
               </p>
-            </div>
+            </motion.div>
           ))}
         </div>
       </section>
@@ -199,7 +227,14 @@ export default function About() {
             {qualitySteps.map((st, idx) => {
               const IconComp = st.icon;
               return (
-                <div key={idx} className="bg-white p-8 rounded-3xl border border-cream-bg shadow-sm hover:shadow-md hover:border-gold-accent/25 transition-all duration-300 flex flex-col justify-between group">
+                <motion.div 
+                  key={idx} 
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.5, delay: idx * 0.1 }}
+                  className="bg-white p-8 rounded-3xl border border-cream-bg shadow-sm hover:shadow-md hover:border-gold-accent/25 transition-all duration-300 flex flex-col justify-between group"
+                >
                   <div>
                     <div className="flex justify-between items-center mb-6">
                       <span className="font-serif text-2xl font-black text-gold-accent/40 group-hover:text-gold-accent transition-colors">{st.num}</span>
@@ -214,7 +249,7 @@ export default function About() {
                     <CheckCircle className="w-3.5 h-3.5 mr-1.5 shrink-0" />
                     <span>QC Passed Standard</span>
                   </div>
-                </div>
+                </motion.div>
               );
             })}
           </div>
@@ -239,10 +274,17 @@ export default function About() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {certifications.map((cert) => {
+            {certifications.map((cert, idx) => {
               const isActive = !cert.status.toLowerCase().includes('future') && !cert.status.toLowerCase().includes('progress');
               return (
-                <div key={cert.id} className="bg-white p-6 rounded-3xl border border-cream-bg shadow-sm hover:shadow-md hover:border-gold-accent/25 transition-all flex flex-col justify-between">
+                <motion.div 
+                  key={cert.id} 
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.5, delay: idx * 0.1 }}
+                  className="bg-white p-6 rounded-3xl border border-cream-bg shadow-sm hover:shadow-md hover:border-gold-accent/25 transition-all flex flex-col justify-between"
+                >
                   <div>
                     <div className="flex justify-between items-center mb-4">
                       <span className="bg-primary-green/5 text-primary-green font-mono text-[9px] uppercase tracking-wider py-1.5 px-3 rounded-lg border border-primary-green/10">{cert.logoText}</span>
@@ -257,7 +299,7 @@ export default function About() {
                     </span>
                     {isActive && <CheckCircle2 className="w-4 h-4 text-green-600" />}
                   </div>
-                </div>
+                </motion.div>
               );
             })}
           </div>
@@ -271,7 +313,13 @@ export default function About() {
       >
         <div className="absolute inset-0 bg-dark-green/85"></div>
         <div className="absolute inset-0 opacity-[0.05] pointer-events-none bg-[radial-gradient(#F8F6F1_1px,transparent_1px)] [background-size:16px_16px]"></div>
-        <div className="max-w-4xl mx-auto text-center relative z-10 space-y-6">
+        <motion.div 
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.7 }}
+          className="max-w-4xl mx-auto text-center relative z-10 space-y-6"
+        >
           <div className="inline-flex items-center space-x-1.5 text-gold-accent uppercase font-bold text-[10px] tracking-widest">
             <Award className="w-4 h-4" />
             <span>Why Buyers Trust Us</span>
@@ -282,7 +330,7 @@ export default function About() {
           <p className="text-xs md:text-sm text-cream-bg/70 leading-relaxed font-light max-w-2xl mx-auto">
             From the initial email inquiry down to port container stuffing and document release, we maintain absolute transparency. We treat every order as our ticket to a long-term commercial partnership.
           </p>
-        </div>
+        </motion.div>
       </section>
 
     </div>

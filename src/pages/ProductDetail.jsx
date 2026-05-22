@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { ArrowLeft, MessageSquare, Mail, ShieldAlert, Award, FileText, Sparkles, HelpCircle } from 'lucide-react';
 import { products } from '../data/agroData';
 
@@ -55,7 +56,12 @@ export default function ProductDetail() {
       <section className="max-w-7xl mx-auto px-4 md:px-8 pt-8 grid grid-cols-1 lg:grid-cols-12 gap-12">
         
         {/* Left Column: Crop Image */}
-        <div className="lg:col-span-5 space-y-6">
+        <motion.div 
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5 }}
+          className="lg:col-span-5 space-y-6"
+        >
           <div className="bg-white rounded-3xl overflow-hidden shadow-md border border-gold-accent/15 aspect-square relative">
             <img 
               src={product.image} 
@@ -78,10 +84,15 @@ export default function ProductDetail() {
               <span>Hygienically Packed</span>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Right Column: Descriptions, Spec Table, CTAs */}
-        <div className="lg:col-span-7 space-y-6">
+        <motion.div 
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="lg:col-span-7 space-y-6"
+        >
           <div>
             <span className="text-[10px] font-bold tracking-widest uppercase text-gold-accent">PREMIUM COMMODITY</span>
             <h1 className="font-serif text-3xl md:text-4xl font-extrabold text-dark-green mt-1">{product.name}</h1>
@@ -179,7 +190,7 @@ export default function ProductDetail() {
 
           </div>
 
-        </div>
+        </motion.div>
 
       </section>
 
@@ -194,9 +205,13 @@ export default function ProductDetail() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {relatedProducts.map((prod) => (
-              <div 
+            {relatedProducts.map((prod, idx) => (
+              <motion.div 
                 key={prod.id} 
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.4, delay: idx * 0.1 }}
                 className="bg-white rounded-2xl overflow-hidden border border-cream-bg shadow-sm flex flex-col group hover:shadow-lg transition-all duration-300"
               >
                 <div className="relative h-40 overflow-hidden bg-cream-bg">
@@ -229,7 +244,7 @@ export default function ProductDetail() {
                     </Link>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </section>

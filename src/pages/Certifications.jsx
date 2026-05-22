@@ -11,21 +11,42 @@ export default function Certifications() {
       <section className="relative bg-gradient-to-br from-primary-green to-dark-green text-white py-20 px-4 md:px-8 border-b-4 border-gold-accent text-center overflow-hidden">
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[radial-gradient(#F8F6F1_1px,transparent_1px)] [background-size:20px_20px]"></div>
         <div className="max-w-4xl mx-auto space-y-4 relative z-10">
-          <span className="text-[10px] uppercase tracking-[0.25em] text-gold-accent font-bold block">COMPLIANCE HUB</span>
-          <h1 className="font-serif text-3xl md:text-5xl font-extrabold tracking-tight">
+          <motion.span 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="text-[10px] uppercase tracking-[0.25em] text-gold-accent font-bold block"
+          >
+            COMPLIANCE HUB
+          </motion.span>
+          <motion.h1 
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="font-serif text-3xl md:text-5xl font-extrabold tracking-tight"
+          >
             Certifications & Compliance
-          </h1>
+          </motion.h1>
           <div className="w-20 h-1 bg-gold-accent mx-auto mt-4"></div>
-          <p className="text-xs md:text-sm text-cream-bg/70 max-w-xl mx-auto font-light leading-relaxed">
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="text-xs md:text-sm text-cream-bg/70 max-w-xl mx-auto font-light leading-relaxed"
+          >
             Registered and compliant with major Indian food regulatory organizations and global customs clearances to ensure seamless global exports.
-          </p>
+          </motion.p>
         </div>
       </section>
 
       {/* 2. Certifications Cards Grid */}
       <section className="py-20 px-4 md:px-8 max-w-7xl mx-auto space-y-12">
         
-        <div className="text-center max-w-2xl mx-auto">
+        <motion.div 
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.5 }}
+          className="text-center max-w-2xl mx-auto"
+        >
           <h2 className="font-serif text-2xl md:text-3xl font-extrabold text-dark-green">
             Our Official Registrations
           </h2>
@@ -33,14 +54,18 @@ export default function Certifications() {
           <p className="text-xs text-soft-gray font-light">
             We hold full clearance and official licenses issued by standard export bodies and ministerial committees in India.
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {certifications.map((cert) => {
+          {certifications.map((cert, idx) => {
             const isActive = !cert.status.toLowerCase().includes('future') && !cert.status.toLowerCase().includes('progress');
             return (
-              <div 
+              <motion.div 
                 key={cert.id} 
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
                 className="bg-white p-6 rounded-3xl border border-cream-bg shadow-sm hover:shadow-md hover:border-gold-accent/25 transition-all flex flex-col justify-between"
               >
                 <div>
@@ -65,7 +90,7 @@ export default function Certifications() {
                   </span>
                   {isActive && <CheckCircle2 className="w-4 h-4 text-green-600" />}
                 </div>
-              </div>
+              </motion.div>
             );
           })}
         </div>
@@ -74,12 +99,18 @@ export default function Certifications() {
 
       {/* 3. Advisory Note Section */}
       <section className="max-w-4xl mx-auto px-4">
-        <div className="bg-yellow-50/50 p-6 rounded-2xl border border-yellow-200/60 flex items-start space-x-3.5 shadow-sm">
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.4 }}
+          className="bg-yellow-50/50 p-6 rounded-2xl border border-yellow-200/60 flex items-start space-x-3.5 shadow-sm"
+        >
           <AlertCircle className="w-5 h-5 text-gold-accent shrink-0 mt-0.5" />
           <p className="text-xs text-yellow-900 leading-relaxed font-light">
             <b>Note on Documentation:</b> Certification and registration details can be updated as per company registration documents or trade policies. For copies of our active APEDA, FSSAI, or IEC sheets, please email <a href="mailto:info@srivarahiagrofoods.in" className="font-bold underline text-primary-green">info@srivarahiagrofoods.in</a>.
           </p>
-        </div>
+        </motion.div>
       </section>
 
     </div>
