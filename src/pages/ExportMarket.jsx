@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Globe2, FileCheck, PackageCheck, Ship, ShieldCheck, CheckCircle2, ArrowRight } from 'lucide-react';
 import { exportMarkets, products } from '../data/agroData';
+import SEO from '../components/SEO';
 
 export default function ExportMarket() {
   const exportServices = [
@@ -43,6 +44,11 @@ export default function ExportMarket() {
 
   return (
     <div className="bg-cream-bg/40 min-h-screen pb-20">
+      <SEO 
+        title="Global Export Markets | FCL & LCL Sea & Air Freight"
+        description="Sri Varahi Agro Foods LLP exports premium Indian agricultural products to UAE, Saudi Arabia, Qatar, Singapore, Malaysia, UK, and Europe. Efficient cold chain & global freight solutions."
+        keywords="agricultural export markets, sea freight export India, air cargo vegetables, UAE food imports, Europe spice importer"
+      />
       
       {/* 1. Page Hero Header */}
       <section className="relative bg-gradient-to-br from-primary-green to-dark-green text-white py-20 px-4 md:px-8 border-b-4 border-gold-accent text-center overflow-hidden">

@@ -2,10 +2,16 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ShieldCheck, Award, FileText, CheckCircle2, AlertCircle } from 'lucide-react';
 import { certifications } from '../data/agroData';
+import SEO from '../components/SEO';
 
 export default function Certifications() {
   return (
     <div className="bg-cream-bg/40 min-h-screen pb-20">
+      <SEO 
+        title="Global Accreditations & APEDA, FSSAI Certifications"
+        description="Sri Varahi Agro Foods LLP is registered and compliant with major food regulatory bodies. We hold APEDA, FSSAI, Spices Board, IEC, and other international certificates."
+        keywords="APEDA registration, FSSAI food license, Spices Board exporter, Indian crop export certificate, global customs compliance, IEC number India"
+      />
       
       {/* 1. Page Hero Header */}
       <section className="relative bg-gradient-to-br from-primary-green to-dark-green text-white py-20 px-4 md:px-8 border-b-4 border-gold-accent text-center overflow-hidden">

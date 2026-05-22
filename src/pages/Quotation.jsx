@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { 
   Send, 
@@ -17,13 +17,9 @@ import {
 } from 'lucide-react';
 import { products } from '../data/agroData';
 import emailjs from '@emailjs/browser';
+import SEO from '../components/SEO';
 
 export default function Quotation() {
-  // Set Dynamic Page Title for premium SEO
-  useEffect(() => {
-    document.title = "Request a Bulk Quotation | Sri Varahi Agro Foods LLP";
-  }, []);
-
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -154,6 +150,12 @@ export default function Quotation() {
 
   return (
     <div className="bg-cream-bg/40 min-h-screen pb-24">
+      <SEO 
+        title="Request Commercial Export Quote | Custom Sourcing"
+        description="Request a custom bulk export quotation from Sri Varahi Agro Foods LLP. Submit your commodity parameters, volume requirements, and payment preferences for a formalized commercial offer sheet."
+        keywords="bulk quotation agro, import export price sheet, agricultural products quote, FCL container price, wholesale agro pricing India, private label pricing"
+      />
+      
       {/* Page Hero Header */}
       <section className="relative bg-gradient-to-br from-primary-green to-dark-green text-white py-20 px-4 md:px-8 border-b-4 border-gold-accent text-center overflow-hidden">
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[radial-gradient(#F8F6F1_1px,transparent_1px)] [background-size:20px_20px]"></div>

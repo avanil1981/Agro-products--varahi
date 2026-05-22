@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Eye, X, ZoomIn, Image, Sparkles } from 'lucide-react';
 import { gallery } from '../data/agroData';
+import SEO from '../components/SEO';
 
 export default function Gallery() {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -15,6 +16,11 @@ export default function Gallery() {
 
   return (
     <div className="bg-cream-bg/40 min-h-screen pb-20">
+      <SEO 
+        title="Procurement & Export Cargo Gallery"
+        description="Browse our crop procurement, custom packaging, climate-controlled warehousing, and secure container shipping photos in Sri Varahi Agro Foods LLP's operations gallery."
+        keywords="crop sourcing gallery, agro packaging photos, shipping logistics images, Indian agriculture export warehouse, wholesale food supply terminal"
+      />
       
       {/* 1. Page Hero Header */}
       <section className="relative bg-gradient-to-br from-primary-green to-dark-green text-white py-20 px-4 md:px-8 border-b-4 border-gold-accent text-center overflow-hidden">

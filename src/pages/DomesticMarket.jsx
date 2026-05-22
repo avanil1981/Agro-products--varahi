@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Truck, Store, Milestone, CheckSquare, Award, Sparkles, ShieldCheck } from 'lucide-react';
+import SEO from '../components/SEO';
 
 export default function DomesticMarket() {
   const domesticChannels = [
@@ -38,6 +39,11 @@ export default function DomesticMarket() {
 
   return (
     <div className="bg-cream-bg/40 min-h-screen pb-20">
+      <SEO 
+        title="Domestic Agro Wholesale Market | Indian Food Supply"
+        description="Sri Varahi Agro Foods LLP is a premium domestic supplier of quality agricultural commodities in India. We supply supermarkets, HoReCa bulk buyers, and local wholesale distributors."
+        keywords="domestic agro supplier, Indian food supply, grain wholesale India, HoReCa food supply, bulk crop distribution, private label packaging India"
+      />
       
       {/* 1. Page Hero Header */}
       <section className="relative bg-gradient-to-br from-primary-green to-dark-green text-white py-20 px-4 md:px-8 border-b-4 border-gold-accent text-center overflow-hidden">

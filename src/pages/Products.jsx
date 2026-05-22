@@ -3,6 +3,7 @@ import { Link, useSearchParams } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Filter, Star, Globe, ArrowRight, CornerDownRight, Search } from 'lucide-react';
 import { products, categories } from '../data/agroData';
+import SEO from '../components/SEO';
 
 export default function Products() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -81,6 +82,11 @@ export default function Products() {
 
   return (
     <div className="bg-cream-bg/40 min-h-screen">
+      <SEO 
+        title="Our Products Catalog | High-Quality Crops"
+        description="Browse Sri Varahi Agro's premium agricultural export catalog including long-grain Basmati Rice, whole spices, certified organic powders, fresh fruits, vegetables, and AAA Arabica coffee beans."
+        keywords="agro products catalog, buy Indian rice wholesale, spices export list, fresh vegetables wholesale, export coffee beans India"
+      />
       
       {/* 1. Page Hero Header */}
       <section className="relative bg-gradient-to-br from-primary-green to-dark-green text-white py-20 px-4 md:px-8 border-b-4 border-gold-accent text-center overflow-hidden">

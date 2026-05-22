@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Shield, Search, Eye, Database, Package, Truck, Award, CheckCircle } from 'lucide-react';
+import SEO from '../components/SEO';
 
 export default function Quality() {
   const steps = [
@@ -44,6 +45,11 @@ export default function Quality() {
 
   return (
     <div className="bg-cream-bg/40 min-h-screen pb-20">
+      <SEO 
+        title="Quality Assurance & SGS Auditing Protocols"
+        description="Sri Varahi Agro Foods LLP maintains rigorous agricultural quality control. Our products undergo strict testing, moisture-level parameter checks, and SGS auditing protocols before dispatch."
+        keywords="agricultural quality assurance, SGS food testing, agro products moisture check, pesticide residues analysis, ISO certified crop processing, pure food standards India"
+      />
       
       {/* 1. Page Hero Header */}
       <section className="relative bg-gradient-to-br from-primary-green to-dark-green text-white py-20 px-4 md:px-8 border-b-4 border-gold-accent text-center overflow-hidden">

@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Star, Globe2, Truck, Award, Package2, HeartHandshake, Leaf, FileText, ShieldCheck, ChevronLeft, ChevronRight, Anchor, Plane, Ship, CheckCircle2, MapPin, Sparkles, BookOpen, Quote, ArrowUpRight, Shield, Cog, FlaskConical, Store } from 'lucide-react';
 import { categories, products } from '../data/agroData';
 import Counter from '../components/Counter';
+import SEO from '../components/SEO';
 
 // Fade-up animation options
 const fadeUp = {
@@ -395,6 +396,11 @@ export default function Home() {
 
   return (
     <div className="bg-cream-bg/40 min-h-screen">
+      <SEO 
+        title="Premium Indian Agro Products Exporter – Rice, Spices, Vegetables"
+        description="Sri Varahi Agro Foods LLP is a leading Indian agro products exporter specializing in Basmati Rice, Turmeric, Chilli, Spices, Fresh Fruits & Vegetables. Direct farmer sourcing. Export to UAE, Singapore, Saudi Arabia & Europe."
+        keywords="Indian agro products exporter, Basmati rice exporter India, turmeric export Hyderabad, chilli powder exporter, spices exporter India, fresh vegetables export, agro export Telangana, rice export India, APEDA certified exporter"
+      />
       
       {/* 1. Hero Section with Sliding Images & Left Aligned Clear Content */}
       <section className="relative overflow-hidden aspect-[16/9] lg:aspect-auto lg:h-[75vh] lg:min-h-[600px] flex items-center border-b border-gold-accent/15 bg-dark-green lg:bg-transparent">

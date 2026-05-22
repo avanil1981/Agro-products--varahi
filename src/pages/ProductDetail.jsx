@@ -3,6 +3,7 @@ import { useParams, Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft, MessageSquare, Mail, ShieldAlert, Award, FileText, Sparkles, HelpCircle } from 'lucide-react';
 import { products } from '../data/agroData';
+import SEO from '../components/SEO';
 
 export default function ProductDetail() {
   const { slug } = useParams();
@@ -39,8 +40,45 @@ export default function ProductDetail() {
   // Prefilled WhatsApp query
   const whatsappUrl = `https://wa.me/918688669407?text=Hello%20Sri%20Varahi%20Agro%20Foods%20LLP,%20I%20am%20interested%20in%20an%20export/wholesale%20quote%20for%20"${encodeURIComponent(product.name)}".%20Please%20provide%20pricing%20and%20packing%20configurations.`;
 
+  const additionalProperties = product ? Object.entries(product.specTable).map(([key, val]) => ({
+    "@type": "PropertyValue",
+    "name": key,
+    "value": val
+  })) : [];
+
+  const productSchema = product ? {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": product.name,
+    "image": product.image.startsWith('http') ? product.image : `https://srivarahiagrofoods.in${product.image}`,
+    "description": product.shortDescription,
+    "brand": {
+      "@type": "Brand",
+      "name": "Sri Varahi Agro Foods LLP"
+    },
+    "category": product.category,
+    "offers": {
+      "@type": "Offer",
+      "url": `https://srivarahiagrofoods.in/products/${product.slug}`,
+      "priceCurrency": "USD",
+      "price": "0.00",
+      "priceValidUntil": "2027-12-31",
+      "valueAddedTaxIncluded": "false",
+      "availability": "https://schema.org/InStock",
+      "description": "Contact Sri Varahi Agro Foods LLP for premium wholesale B2B pricing and export shipping quotes."
+    },
+    "additionalProperty": additionalProperties
+  } : null;
+
   return (
     <div className="bg-cream-bg/40 min-h-screen pb-20">
+      <SEO 
+        title={`${product.name} Exporter & Wholesale Supplier`}
+        description={product.shortDescription}
+        keywords={`${product.name}, Indian ${product.name} exporter, ${product.name} supplier, bulk ${product.name} wholesale, ${product.categorySlug.replace('-', ' ')} India`}
+        ogImage={product.image}
+        schemaMarkup={productSchema}
+      />
       
       {/* Back button strip */}
       <div className="max-w-7xl mx-auto px-4 md:px-8 pt-8">

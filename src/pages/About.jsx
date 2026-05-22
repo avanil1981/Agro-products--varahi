@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ShieldCheck, HeartHandshake, Award, Compass, Eye, Sparkles, Building, CheckCircle, Shield, Search, Database, Package, Truck, FileText, CheckCircle2, AlertCircle } from 'lucide-react';
 import { certifications } from '../data/agroData';
+import SEO from '../components/SEO';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -33,6 +34,11 @@ export default function About() {
 
   return (
     <div className="bg-cream-bg/40">
+      <SEO 
+        title="About Us | Premium Indian Agro Exporter"
+        description="Learn about Sri Varahi Agro Foods LLP, a premier Indian agricultural commodity exporter. Discover our direct-from-farm sourcing, processing standards, and global shipping capabilities."
+        keywords="about Sri Varahi Agro, Indian agricultural exporter, agro products sourcing, crop procurement India, farm direct export"
+      />
       
       {/* 1. Page Hero Header */}
       <section className="relative bg-gradient-to-br from-primary-green to-dark-green text-white py-20 px-4 md:px-8 border-b-4 border-gold-accent text-center overflow-hidden">

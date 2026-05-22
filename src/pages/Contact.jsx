@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { 
   Mail, 
@@ -15,13 +15,9 @@ import {
   Loader2
 } from 'lucide-react';
 import emailjs from '@emailjs/browser';
+import SEO from '../components/SEO';
 
 export default function Contact() {
-  // Set Dynamic Page Title for premium SEO
-  useEffect(() => {
-    document.title = "Contact Us | Sri Varahi Agro Foods LLP";
-  }, []);
-
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -111,8 +107,74 @@ export default function Contact() {
     }
   };
 
+  const contactSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "LocalBusiness",
+        "@id": "https://srivarahiagrofoods.in/#localbusiness",
+        "name": "Sri Varahi Agro Foods LLP",
+        "image": "https://srivarahiagrofoods.in/logo.png",
+        "telephone": "+91-8688669407",
+        "email": "info@srivarahiagrofoods.in",
+        "url": "https://srivarahiagrofoods.in",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Hyderabad",
+          "addressLocality": "Hyderabad",
+          "addressRegion": "Telangana",
+          "addressCountry": "IN"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "17.3850",
+          "longitude": "78.4867"
+        },
+        "sameAs": [
+          "https://wa.me/918688669407"
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://srivarahiagrofoods.in/contact/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is your primary export range?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "We supply a premium range of agricultural commodities including long grain Basmati & Non-Basmati (IR 64) Rice, other southern varieties like Jaya, Surekha, Sona Masoori, Ponni, and Iddly Rice, pure whole spices, ground spice powders, fresh fruits, vegetables, and shade-grown Southern Indian coffee beans."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do you support private labeling (OEM) and custom packaging?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes! We specialize in private labeling. We can pack products in custom-printed BOPP bags, vacuum packs, kraft boxes, or mesh bags with your branding, logo, customized weights (1kg, 5kg, 10kg, 25kg, 50kg), and local language declarations."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is your Minimum Order Quantity (MOQ)?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "For standard sea containers (FCL), our MOQ generally ranges from 5 to 20 Metric Tons depending on the product (e.g. 5 MT for spices, 12 MT for rice). For perishable items shipped via air freight, we accept lower MOQs around 500kg - 1000kg."
+            }
+          }
+        ]
+      }
+    ]
+  };
+
   return (
     <div className="bg-cream-bg/40 min-h-screen pb-20">
+      <SEO 
+        title="Contact General Trade Desk & Corporate Office"
+        description="Contact Sri Varahi Agro Foods LLP's general trade desk in Hyderabad, India. Reach our export trade coordinators via phone, email, or WhatsApp for custom sourcing support."
+        keywords="contact Sri Varahi Agro, agro export Hyderabad, agricultural products wholesale contact, food export coordinators India, WhatsApp trade desk"
+        schemaMarkup={contactSchema}
+      />
       
       {/* 1. Page Hero Header */}
       <section className="relative bg-gradient-to-br from-primary-green to-dark-green text-white py-20 px-4 md:px-8 border-b-4 border-gold-accent text-center overflow-hidden">

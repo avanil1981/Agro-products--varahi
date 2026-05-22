@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { LandPlot, Warehouse, Factory, Navigation, Container, FileSignature, CheckCircle } from 'lucide-react';
+import SEO from '../components/SEO';
 
 export default function Infrastructure() {
   const infraItems = [
@@ -51,6 +52,11 @@ export default function Infrastructure() {
 
   return (
     <div className="bg-cream-bg/40 min-h-screen pb-20">
+      <SEO 
+        title="Processing Infrastructure & Cold Storage Warehouses"
+        description="Explore Sri Varahi Agro Foods LLP's advanced food processing infrastructure. Our palletized cold storage, modern gravity-sort tables, and supervised port loading guarantee premium agricultural exports."
+        keywords="agro processing plant, cold storage warehouse India, vacuum bag packing machine, export container stuffing, seaport customs clearing, dry storage agriculture"
+      />
       
       {/* 1. Page Hero Header */}
       <section className="relative bg-gradient-to-br from-primary-green to-dark-green text-white py-20 px-4 md:px-8 border-b-4 border-gold-accent text-center overflow-hidden">

@@ -2,12 +2,58 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { BookOpen, Calendar, Clock, X, ArrowRight, Sparkles } from 'lucide-react';
 import { blogs } from '../data/agroData';
+import SEO from '../components/SEO';
 
 export default function Blog() {
   const [selectedArticle, setSelectedArticle] = useState(null);
 
+  const baseDomain = 'https://srivarahiagrofoods.in';
+  const blogSchema = selectedArticle 
+    ? {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": selectedArticle.title,
+        "description": selectedArticle.excerpt,
+        "image": selectedArticle.image.startsWith('http') ? selectedArticle.image : `${baseDomain}${selectedArticle.image}`,
+        "datePublished": "2026-05-22",
+        "author": {
+          "@type": "Organization",
+          "name": "Sri Varahi Agro Foods LLP",
+          "url": baseDomain
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Sri Varahi Agro Foods LLP",
+          "logo": {
+            "@type": "ImageObject",
+            "url": `${baseDomain}/logo.png`
+          }
+        },
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": `${baseDomain}/blog`
+        }
+      }
+    : {
+        "@context": "https://schema.org",
+        "@type": "Blog",
+        "name": "Agro Export Insights & Global Food Trade Papers",
+        "description": "Read technical agro-export analysis papers, spices curcumin indexes, grains export logistics, and agriculture crop reports from Sri Varahi Agro Foods LLP.",
+        "url": `${baseDomain}/blog`,
+        "publisher": {
+          "@type": "Organization",
+          "name": "Sri Varahi Agro Foods LLP"
+        }
+      };
+
   return (
     <div className="bg-cream-bg/40 min-h-screen pb-20">
+      <SEO 
+        title={selectedArticle ? selectedArticle.title : "Agro Export Insights & Global Food Trade Papers"}
+        description={selectedArticle ? selectedArticle.excerpt : "Read high-quality insights on Indian agricultural commodity exports, global shipping regulations, spices standard indices, and wholesale food distributions."}
+        keywords={selectedArticle ? selectedArticle.title.toLowerCase().replace(/ /g, ', ') : "agro export blog, Indian agriculture trade, spices standards index, crop harvest reports, crop export transit, food grade packaging index"}
+        schemaMarkup={blogSchema}
+      />
       
       {/* 1. Page Hero Header */}
       <section className="relative bg-gradient-to-br from-primary-green to-dark-green text-white py-20 px-4 md:px-8 border-b-4 border-gold-accent text-center overflow-hidden">
