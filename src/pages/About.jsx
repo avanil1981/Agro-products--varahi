@@ -160,7 +160,7 @@ export default function About() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center"
+          className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center"
         >
           {/* Left Column: Infographic Frame */}
           <motion.div variants={fadeUp} className="lg:col-span-6 relative">
@@ -248,7 +248,7 @@ export default function About() {
 
       {/* 3. The Story & Sourcing Operations */}
       <section className="bg-white py-12 md:py-24 px-4 md:px-8 border-y border-gold-accent/10">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           
           <motion.div 
             initial={{ opacity: 0, x: -50 }}
@@ -273,7 +273,7 @@ export default function About() {
               Our specialists directly inspect crop zones for pesticide safety limits and optimal moisture levels before procurement. By consolidating our shipments through major coastal ports (including Krishnapatnam, Nhava Sheva, and Chennai), we maintain temperature-controlled workflows for standard shipping containers and seasonal priority air cargo.
             </p>
             
-            <div className="grid grid-cols-2 gap-6 pt-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6 pt-4">
               <div className="flex items-start space-x-3.5">
                 <div className="bg-primary-green/10 p-2.5 rounded-xl text-primary-green shrink-0 mt-0.5">
                   <CheckCircle className="w-5 h-5" />
@@ -328,7 +328,7 @@ export default function About() {
 
       {/* 4. Mission & Vision */}
       <section className="bg-cream-bg/25 py-12 md:py-24 px-4 md:px-8 border-b border-gold-accent/10">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12">
           
           {/* Mission Card */}
           <motion.div 
@@ -385,7 +385,7 @@ export default function About() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {values.map((val, idx) => (
             <motion.div 
               key={idx} 
@@ -425,7 +425,7 @@ export default function About() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {qualitySteps.map((st, idx) => {
               const IconComp = st.icon;
               return (
@@ -482,7 +482,7 @@ export default function About() {
               <h3 className="text-xs font-bold text-dark-green uppercase tracking-widest">Verified Export Licenses & Registrations</h3>
             </div>
             
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
               {certifications.filter(c => c.image).map((cert, idx) => (
                 <motion.div 
                   key={cert.id} 
