@@ -169,7 +169,7 @@ export default function Footer() {
           </div>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <Link to="/about" className="hover:text-gold-light transition-colors">About Us</Link>
-            <Link to="/contact" className="hover:text-gold-light transition-colors">Inquire Now</Link>
+            <Link to="/quote" className="hover:text-gold-light transition-colors">Inquire Now</Link>
           </div>
         </div>
 

@@ -1,20 +1,36 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, MessageSquare, Send, CheckCircle2, User, Building, Compass, AlertCircle } from 'lucide-react';
-import { products } from '../data/agroData';
+import { 
+  Mail, 
+  Phone, 
+  MapPin, 
+  MessageSquare, 
+  Send, 
+  CheckCircle2, 
+  User, 
+  Building, 
+  Compass, 
+  AlertCircle,
+  FileText,
+  Loader2
+} from 'lucide-react';
+import emailjs from '@emailjs/browser';
 
 export default function Contact() {
+  // Set Dynamic Page Title for premium SEO
+  useEffect(() => {
+    document.title = "Contact Us | Sri Varahi Agro Foods LLP";
+  }, []);
+
   const [formData, setFormData] = useState({
     name: "",
-    companyName: "",
     email: "",
     phone: "",
-    country: "",
-    productInterested: "",
-    quantity: "",
+    subject: "",
     message: ""
   });
   
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
 
@@ -25,31 +41,74 @@ export default function Contact() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setErrorMsg("");
+    setIsSubmitting(true);
 
     // Simple validation
-    if (!formData.name || !formData.email || !formData.phone || !formData.productInterested || !formData.quantity) {
-      setErrorMsg("Please fill in all mandatory fields (Name, Email, Phone, Product, and Quantity).");
+    if (!formData.name || !formData.email || !formData.phone || !formData.subject || !formData.message) {
+      setErrorMsg("Please fill in all mandatory fields (Name, Email, Phone, Subject, and Message).");
+      setIsSubmitting(false);
       return;
     }
 
-    setIsSubmitted(true);
-    setFormData({
-      name: "",
-      companyName: "",
-      email: "",
-      phone: "",
-      country: "",
-      productInterested: "",
-      quantity: "",
-      message: ""
-    });
+    // Retrieve EmailJS configuration from environment variables
+    const serviceId = process.env.REACT_APP_EMAILJS_SERVICE_ID;
+    const templateId = process.env.REACT_APP_EMAILJS_TEMPLATE_ID_CONTACT;
+    const publicKey = process.env.REACT_APP_EMAILJS_PUBLIC_KEY;
 
-    setTimeout(() => {
-      setIsSubmitted(false);
-    }, 6000);
+    if (serviceId && templateId && publicKey) {
+      // Live EmailJS send
+      try {
+        const templateParams = {
+          from_name: formData.name,
+          reply_to: formData.email,
+          to_email: "info@srivarahiagrofoods.in",
+          phone: formData.phone,
+          subject: formData.subject,
+          message: formData.message
+        };
+
+        await emailjs.send(serviceId, templateId, templateParams, publicKey);
+        setIsSubmitted(true);
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          subject: "",
+          message: ""
+        });
+      } catch (error) {
+        console.error("EmailJS Error:", error);
+        setErrorMsg("Failed to send contact inquiry. Please check your internet connection or email configuration.");
+      } finally {
+        setIsSubmitting(false);
+      }
+    } else {
+      // Graceful local simulation fallback
+      console.log(
+        `%c🌾 Sri Varahi Agro Foods LLP — Contact Us Submission Received! %c\n` +
+        `To enable live email delivery to info@srivarahiagrofoods.in, please configure your .env file with real EmailJS keys.\n\n` +
+        `Data submitted:\n`,
+        'color: #0B4A25; font-weight: bold; font-size: 14px;',
+        'color: inherit;',
+        formData
+      );
+
+      // Simulate network delay
+      setTimeout(() => {
+        setIsSubmitting(false);
+        setIsSubmitted(true);
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          subject: "",
+          message: ""
+        });
+      }, 1000);
+    }
   };
 
   return (
@@ -80,7 +139,7 @@ export default function Contact() {
             transition={{ delay: 0.2 }}
             className="text-xs md:text-sm text-cream-bg/70 max-w-xl mx-auto font-light leading-relaxed"
           >
-            Get in touch with our export trade coordinators to obtain bulk rates, samples, shipping configurations, or distributor application packs.
+            Get in touch with our export trade coordinators to obtain general details, distributor applications, feedback, or custom corporate support.
           </motion.p>
         </div>
       </section>
@@ -160,7 +219,7 @@ export default function Contact() {
                 Need an immediate reply on pricing or stock availability? Connect directly with our WhatsApp trade coordinator for instant replies.
               </p>
               <a
-                href="https://wa.me/918688669407?text=Hello%20Sri%20Varahi%20Agro%20Foods%20LLP,%20I%20have%20a%20wholesale%20agro%20inquiry."
+                href="https://wa.me/918688669407?text=Hello%20Sri%20Varahi%20Agro%20Foods%20LLP,%20I%20have%20a%20general%20inquiry."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center text-xs font-bold text-green-700 hover:text-green-800"
@@ -181,9 +240,9 @@ export default function Contact() {
           className="lg:col-span-7 bg-white p-8 md:p-10 rounded-3xl border border-gold-accent/10 shadow-sm space-y-6"
         >
           <div className="space-y-1">
-            <span className="text-[10px] uppercase tracking-wider text-gold-accent font-bold">WHOLESALE REQUEST</span>
+            <span className="text-[10px] uppercase tracking-wider text-gold-accent font-bold">GET IN TOUCH</span>
             <h3 className="font-serif text-2xl font-extrabold text-dark-green">
-              Request a Bulk Quotation
+              Send a Message
             </h3>
             <p className="text-xs text-soft-gray font-light">
               Required fields are marked with an asterisk (*).
@@ -195,9 +254,9 @@ export default function Contact() {
             <div className="bg-green-50 border border-green-300 p-4 rounded-xl flex items-start space-x-3 text-green-800">
               <CheckCircle2 className="w-5 h-5 text-green-600 shrink-0 mt-0.5" />
               <div>
-                <h4 className="text-xs font-bold">Inquiry Sent Successfully!</h4>
+                <h4 className="text-xs font-bold">Message Sent Successfully!</h4>
                 <p className="text-[11px] font-light mt-0.5 leading-relaxed">
-                  Thank you for contacting Sri Varahi Agro Foods LLP. Our export desk will review your specifications and email a competitive commercial quote within 24 business hours.
+                  Thank you for contacting Sri Varahi Agro Foods LLP. Our team will review your message and reach back to you shortly.
                 </p>
               </div>
             </div>
@@ -222,18 +281,7 @@ export default function Contact() {
                 onChange={handleChange}
                 placeholder="e.g. John Doe"
                 className="border border-cream-bg bg-cream-bg/25 rounded-xl py-3 px-4 text-xs font-light focus:outline-none focus:border-gold-accent/40"
-              />
-            </div>
-
-            <div className="flex flex-col space-y-1.5 col-span-2 sm:col-span-1">
-              <label className="text-[10px] uppercase font-bold text-dark-green">Company Name</label>
-              <input 
-                type="text" 
-                name="companyName" 
-                value={formData.companyName} 
-                onChange={handleChange}
-                placeholder="e.g. Global Foods Import Ltd"
-                className="border border-cream-bg bg-cream-bg/25 rounded-xl py-3 px-4 text-xs font-light focus:outline-none focus:border-gold-accent/40"
+                required
               />
             </div>
 
@@ -244,82 +292,68 @@ export default function Contact() {
                 name="email" 
                 value={formData.email} 
                 onChange={handleChange}
-                placeholder="e.g. buyer@globalfoods.com"
+                placeholder="e.g. contact@yourdomain.com"
                 className="border border-cream-bg bg-cream-bg/25 rounded-xl py-3 px-4 text-xs font-light focus:outline-none focus:border-gold-accent/40"
+                required
               />
             </div>
 
-            <div className="flex flex-col space-y-1.5 col-span-2 sm:col-span-1">
-              <label className="text-[10px] uppercase font-bold text-dark-green">Phone / Mobile (with country code) *</label>
+            <div className="flex flex-col space-y-1.5 col-span-2">
+              <label className="text-[10px] uppercase font-bold text-dark-green">Phone Number (with Country Code) *</label>
               <input 
                 type="text" 
                 name="phone" 
                 value={formData.phone} 
                 onChange={handleChange}
-                placeholder="e.g. +971 50 123 4567"
+                placeholder="e.g. +91 98765 43210"
                 className="border border-cream-bg bg-cream-bg/25 rounded-xl py-3 px-4 text-xs font-light focus:outline-none focus:border-gold-accent/40"
-              />
-            </div>
-
-            <div className="flex flex-col space-y-1.5 col-span-2 sm:col-span-1">
-              <label className="text-[10px] uppercase font-bold text-dark-green">Country</label>
-              <input 
-                type="text" 
-                name="country" 
-                value={formData.country} 
-                onChange={handleChange}
-                placeholder="e.g. United Arab Emirates"
-                className="border border-cream-bg bg-cream-bg/25 rounded-xl py-3 px-4 text-xs font-light focus:outline-none focus:border-gold-accent/40"
-              />
-            </div>
-
-            <div className="flex flex-col space-y-1.5 col-span-2 sm:col-span-1">
-              <label className="text-[10px] uppercase font-bold text-dark-green">Product Interested *</label>
-              <select 
-                name="productInterested" 
-                value={formData.productInterested} 
-                onChange={handleChange}
-                className="border border-cream-bg bg-cream-bg/25 rounded-xl py-3 px-4 text-xs font-light focus:outline-none focus:border-gold-accent/40 text-soft-gray"
-              >
-                <option value="">Select a Product</option>
-                {products.map(p => (
-                  <option key={p.id} value={p.name}>{p.name}</option>
-                ))}
-                <option value="Other / Multiple">Other / Multiple Commodities</option>
-              </select>
-            </div>
-
-            <div className="flex flex-col space-y-1.5 col-span-2">
-              <label className="text-[10px] uppercase font-bold text-dark-green">Estimated Quantity Required (MT / Container) *</label>
-              <input 
-                type="text" 
-                name="quantity" 
-                value={formData.quantity} 
-                onChange={handleChange}
-                placeholder="e.g. 15 Metric Tons / 1x20' FCL"
-                className="border border-cream-bg bg-cream-bg/25 rounded-xl py-3 px-4 text-xs font-light focus:outline-none focus:border-gold-accent/40"
+                required
               />
             </div>
 
             <div className="flex flex-col space-y-1.5 col-span-2">
-              <label className="text-[10px] uppercase font-bold text-dark-green">Message / Special Packaging Specs</label>
+              <label className="text-[10px] uppercase font-bold text-dark-green">Subject *</label>
+              <input 
+                type="text" 
+                name="subject" 
+                value={formData.subject} 
+                onChange={handleChange}
+                placeholder="e.g. Partnership Request / General Sourcing Feedback"
+                className="border border-cream-bg bg-cream-bg/25 rounded-xl py-3 px-4 text-xs font-light focus:outline-none focus:border-gold-accent/40"
+                required
+              />
+            </div>
+
+            <div className="flex flex-col space-y-1.5 col-span-2">
+              <label className="text-[10px] uppercase font-bold text-dark-green">Your Message *</label>
               <textarea 
                 name="message" 
                 value={formData.message} 
                 onChange={handleChange}
-                rows="4"
-                placeholder="Detail packaging requirements (BOPP/Jute bags), payment specifications, or certificate inspection constraints here."
+                rows="5"
+                placeholder="Type your message or inquiry details here..."
                 className="border border-cream-bg bg-cream-bg/25 rounded-xl py-3 px-4 text-xs font-light focus:outline-none focus:border-gold-accent/40"
+                required
               />
             </div>
 
             <div className="col-span-2 pt-2">
               <button 
                 type="submit" 
-                className="w-full bg-primary-green hover:bg-dark-green text-white font-bold text-xs py-4 px-6 rounded-xl flex items-center justify-center space-x-2 shadow-md transition-all border border-gold-accent/20"
+                disabled={isSubmitting}
+                className="w-full bg-primary-green hover:bg-dark-green text-white font-bold text-xs py-4 px-6 rounded-xl flex items-center justify-center space-x-2 shadow-md transition-all border border-gold-accent/20 disabled:bg-primary-green/60"
               >
-                <Send className="w-4 h-4 text-gold-accent" />
-                <span>Submit Inquiry Form</span>
+                {isSubmitting ? (
+                  <>
+                    <Loader2 className="w-4 h-4 animate-spin text-gold-accent" />
+                    <span>Sending Message...</span>
+                  </>
+                ) : (
+                  <>
+                    <Send className="w-4 h-4 text-gold-accent" />
+                    <span>Send Message</span>
+                  </>
+                )}
               </button>
             </div>
 
@@ -329,7 +363,7 @@ export default function Contact() {
 
       </section>
 
-      {/* 3. Google Map Placeholder (Highly Styled Vector Grid Frame) */}
+      {/* 3. Google Map Sourcing Frame */}
       <section className="max-w-7xl mx-auto px-4 md:px-8 mt-12">
         <motion.div 
           initial={{ opacity: 0, y: 50 }}

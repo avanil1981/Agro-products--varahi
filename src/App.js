@@ -18,6 +18,7 @@ import Infrastructure from './pages/Infrastructure';
 import Gallery from './pages/Gallery';
 import Blog from './pages/Blog';
 import Contact from './pages/Contact';
+import Quotation from './pages/Quotation';
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/quote" element={<Quotation />} />
           </Routes>
         </main>
 

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- 1. Home Page -->
+  <url>
+    <loc>https://srivarahiagrofoods.in/</loc>
+    <lastmod>2026-05-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.00</priority>
+  </url>
+
+  <!-- 2. About Us -->
+  <url>
+    <loc>https://srivarahiagrofoods.in/about</loc>
+    <lastmod>2026-05-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- 3. Sourcing & Export Products -->
+  <url>
+    <loc>https://srivarahiagrofoods.in/products</loc>
+    <lastmod>2026-05-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+
+  <!-- 4. Export Markets -->
+  <url>
+    <loc>https://srivarahiagrofoods.in/export</loc>
+    <lastmod>2026-05-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- 5. Domestic Markets -->
+  <url>
+    <loc>https://srivarahiagrofoods.in/domestic</loc>
+    <lastmod>2026-05-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- 6. Quality & Grading Protocols -->
+  <url>
+    <loc>https://srivarahiagrofoods.in/quality</loc>
+    <lastmod>2026-05-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- 7. Global Certifications -->
+  <url>
+    <loc>https://srivarahiagrofoods.in/certifications</loc>
+    <lastmod>2026-05-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- 8. Processing & Infrastructure -->
+  <url>
+    <loc>https://srivarahiagrofoods.in/infrastructure</loc>
+    <lastmod>2026-05-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- 9. Procurement & Export Gallery -->
+  <url>
+    <loc>https://srivarahiagrofoods.in/gallery</loc>
+    <lastmod>2026-05-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.70</priority>
+  </url>
+
+  <!-- 10. Industry Insights / Blog -->
+  <url>
+    <loc>https://srivarahiagrofoods.in/blog</loc>
+    <lastmod>2026-05-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.70</priority>
+  </url>
+
+  <!-- 11. General Trade Desk / Contact -->
+  <url>
+    <loc>https://srivarahiagrofoods.in/contact</loc>
+    <lastmod>2026-05-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- 12. Commercial Sourcing Request / Quotation -->
+  <url>
+    <loc>https://srivarahiagrofoods.in/quote</loc>
+    <lastmod>2026-05-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.90</priority>
+  </url>
+</urlset>

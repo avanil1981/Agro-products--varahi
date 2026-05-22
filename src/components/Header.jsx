@@ -160,7 +160,7 @@ export default function Header() {
                 </button>
               </form>
               <Link 
-                to="/contact" 
+                to="/quote" 
                 className="bg-primary-green text-white font-semibold text-xs py-2 px-5 rounded-lg flex items-center hover:bg-dark-green transition-all shadow-sm group border border-gold-accent/20 whitespace-nowrap"
               >
                 <span>Enquire Now</span>
@@ -268,7 +268,7 @@ export default function Header() {
                 <span>+91 8688669407</span>
               </a>
               <Link 
-                to="/contact" 
+                to="/quote" 
                 onClick={() => setIsOpen(false)}
                 className="w-full bg-primary-green text-white text-center font-semibold text-xs py-3 rounded-xl block hover:bg-dark-green transition-all"
               >
