@@ -300,7 +300,12 @@ export const products = [
     category: "Rice & Flours",
     categorySlug: "rice-flours",
     shortDescription: "A premium short-grain domestic rice variety from Kurnool, Andhra Pradesh, favored for its soft texture and excellent cooking consistency.",
-    image: "https://images.unsplash.com/photo-1626132647523-66f5bf380027?auto=format&fit=crop&w=800&q=80",
+    image: "/products/rice-flours/knm-rice/image-1.webp",
+    images: [
+      "/products/rice-flours/knm-rice/image-1.webp",
+      "/products/rice-flours/knm-rice/image-2.webp",
+      "/products/rice-flours/knm-rice/image-3.webp"
+    ],
     keyPoints: ["Soft & Fluffy Texture", "High Cooking Yield", "Steam & Boiled Available", "Premium Domestic Grade"],
     specTable: {
       "Origin": "Kurnool, Andhra Pradesh, India",
