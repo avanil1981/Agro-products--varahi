@@ -328,7 +328,12 @@ export const products = [
     category: "Rice & Flours",
     categorySlug: "rice-flours",
     shortDescription: "Short-grain, thick parboiled rice optimized for grinding soft, fluffy, and perfectly fermented South Indian idli batter.",
-    image: "https://images.unsplash.com/photo-1626132647523-66f5bf380027?auto=format&fit=crop&w=800&q=80",
+    image: "/products/rice-flours/iddly-rice/image-1.webp",
+    images: [
+      "/products/rice-flours/iddly-rice/image-1.webp",
+      "/products/rice-flours/iddly-rice/image-2.webp",
+      "/products/rice-flours/iddly-rice/image-3.webp"
+    ],
     keyPoints: ["High Fermentation Ability", "Yields Spongy Idlis", "optical-sorted Cleanliness", "Starch-Rich Grains"],
     specTable: {
       "Origin": "Tamil Nadu & Karnataka, India",
