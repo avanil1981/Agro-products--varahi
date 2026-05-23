@@ -69,7 +69,12 @@ export const products = [
     category: "Rice & Flours",
     categorySlug: "rice-flours",
     shortDescription: "A highly demanded long-grain non-basmati rice variety widely exported to African, Gulf, and Southeast Asian countries.",
-    image: "https://images.unsplash.com/photo-1626132647523-66f5bf380027?auto=format&fit=crop&w=800&q=80",
+    image: "/products/rice-flours/ir64-non-basmati-rice/image-1.webp",
+    images: [
+      "/products/rice-flours/ir64-non-basmati-rice/image-1.webp",
+      "/products/rice-flours/ir64-non-basmati-rice/image-2.webp",
+      "/products/rice-flours/ir64-non-basmati-rice/image-3.webp"
+    ],
     keyPoints: ["Highly Affordable", "Sturdy Long Grains", "Hygienically Cleaned", "Available in Boiled & Raw"],
     specTable: {
       "Origin": "India",
