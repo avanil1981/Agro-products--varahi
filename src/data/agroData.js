@@ -272,7 +272,12 @@ export const products = [
     category: "Rice & Flours",
     categorySlug: "rice-flours",
     shortDescription: "A fine-grain, lightweight domestic rice variety from Telangana, known for its non-sticky texture and excellent taste in daily cooking.",
-    image: "https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=800&q=80",
+    image: "/products/rice-flours/rnr-rice/image-1.webp",
+    images: [
+      "/products/rice-flours/rnr-rice/image-1.webp",
+      "/products/rice-flours/rnr-rice/image-2.webp",
+      "/products/rice-flours/rnr-rice/image-3.webp"
+    ],
     keyPoints: ["Non-Sticky Texture", "Lightweight Grain", "Steam & Raw Available", "Everyday Domestic Choice"],
     specTable: {
       "Origin": "Telangana, India",
