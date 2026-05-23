@@ -358,7 +358,12 @@ export const products = [
     category: "Rice & Flours",
     categorySlug: "rice-flours",
     shortDescription: "Highly aromatic, short slender grains resembling cumin seeds, prized for making rich traditional Malabar Biryani.",
-    image: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=800&q=80",
+    image: "/products/rice-flours/khaima-jeera-rice/image-1.webp",
+    images: [
+      "/products/rice-flours/khaima-jeera-rice/image-1.webp",
+      "/products/rice-flours/khaima-jeera-rice/image-2.webp",
+      "/products/rice-flours/khaima-jeera-rice/image-3.webp"
+    ],
     keyPoints: ["Jeerakasala Variety", "Intense Nutty Aroma", "Delicate Micro Grains", "Gourmet Selection"],
     specTable: {
       "Origin": "Wayanad / Southern India",
