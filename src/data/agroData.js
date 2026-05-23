@@ -158,7 +158,12 @@ export const products = [
     category: "Rice & Flours",
     categorySlug: "rice-flours",
     shortDescription: "Premium lightweight, aromatic medium-grain rice cultivated in Southern India, aged for perfect cooking fluffiness.",
-    image: "https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=800&q=80",
+    image: "/products/rice-flours/sona-masoori-rice/image-1.webp",
+    images: [
+      "/products/rice-flours/sona-masoori-rice/image-1.webp",
+      "/products/rice-flours/sona-masoori-rice/image-2.webp",
+      "/products/rice-flours/sona-masoori-rice/image-3.webp"
+    ],
     keyPoints: ["Aged 12-18 Months", "Low Starch & Easy Digestibility", "Non-Sticky Grain Separation", "Healthy Rice Selection"],
     specTable: {
       "Origin": "Andhra Pradesh & Karnataka, India",
