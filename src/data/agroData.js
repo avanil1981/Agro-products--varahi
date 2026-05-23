@@ -188,7 +188,12 @@ export const products = [
     category: "Rice & Flours",
     categorySlug: "rice-flours",
     shortDescription: "A premium medium-slender domestic rice variety known for its fine texture, distinct taste, and aromatic cooking qualities.",
-    image: "https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=800&q=80",
+    image: "/products/rice-flours/hmt-rice/image-1.webp",
+    images: [
+      "/products/rice-flours/hmt-rice/image-1.webp",
+      "/products/rice-flours/hmt-rice/image-2.webp",
+      "/products/rice-flours/hmt-rice/image-3.webp"
+    ],
     keyPoints: ["Premium Domestic Choice", "Fine Texture", "Easily Digestible", "Everyday Meals"],
     specTable: {
       "Origin": "Telangana / AP, India",
