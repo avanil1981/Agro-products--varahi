@@ -476,7 +476,12 @@ export const products = [
     category: "Rice & Flours",
     categorySlug: "rice-flours",
     shortDescription: "Coarsely ground, premium parboiled rice semolina used to prepare authentic South Indian Idli batter.",
-    image: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=800&q=80",
+    image: "/products/rice-flours/idli-ravva/image-1.webp",
+    images: [
+      "/products/rice-flours/idli-ravva/image-1.webp",
+      "/products/rice-flours/idli-ravva/image-2.webp",
+      "/products/rice-flours/idli-ravva/image-3.webp"
+    ],
     keyPoints: ["Uniform Coarse Texture", "Chemical-Free Processing", "Easy Grinding & Mixing", "Yields Spongy Texture"],
     specTable: {
       "Origin": "India",
@@ -500,7 +505,12 @@ export const products = [
     category: "Rice & Flours",
     categorySlug: "rice-flours",
     shortDescription: "100% whole wheat flour, stone-ground (chakki) to preserve natural dietary fibers and rich nutrients.",
-    image: "https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?auto=format&fit=crop&w=800&q=80",
+    image: "/products/rice-flours/wheat-flour/image-1.webp",
+    images: [
+      "/products/rice-flours/wheat-flour/image-1.webp",
+      "/products/rice-flours/wheat-flour/image-2.webp",
+      "/products/rice-flours/wheat-flour/image-3.webp"
+    ],
     keyPoints: ["Traditional Chakki Milled", "High Dietary Fiber", "Zero Bleaching Agents", "Retains Natural Bran & Germ"],
     specTable: {
       "Origin": "India",
@@ -524,7 +534,12 @@ export const products = [
     category: "Rice & Flours",
     categorySlug: "rice-flours",
     shortDescription: "Finely milled, high-gluten refined wheat flour ideal for bakeries, noodles, and premium confectionery.",
-    image: "https://images.unsplash.com/photo-1508747703725-719ae2c98295?auto=format&fit=crop&w=800&q=80",
+    image: "/products/rice-flours/maida/image-1.webp",
+    images: [
+      "/products/rice-flours/maida/image-1.webp",
+      "/products/rice-flours/maida/image-2.webp",
+      "/products/rice-flours/maida/image-3.webp"
+    ],
     keyPoints: ["Super-Fine Sifted", "Excellent Elasticity", "Unbleached Premium Grade", "Ideal for Bakers"],
     specTable: {
       "Origin": "India",
