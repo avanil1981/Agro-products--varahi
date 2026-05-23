@@ -99,7 +99,12 @@ export const products = [
     category: "Rice & Flours",
     categorySlug: "rice-flours",
     shortDescription: "Premium medium-grain rice with exceptional taste and fluffy cooking characteristics, popular in domestic and export markets.",
-    image: "https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=800&q=80",
+    image: "/products/rice-flours/jaya-rice/image-1.webp",
+    images: [
+      "/products/rice-flours/jaya-rice/image-1.webp",
+      "/products/rice-flours/jaya-rice/image-2.webp",
+      "/products/rice-flours/jaya-rice/image-3.webp"
+    ],
     keyPoints: ["Quick Cooking", "Fluffy Texture", "Double Polished", "Excellent Nutritional Retention"],
     specTable: {
       "Origin": "Southern India",
