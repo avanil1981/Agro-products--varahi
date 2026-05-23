@@ -360,7 +360,7 @@ export default function ProductDetail() {
                 transition={{ duration: 0.4, delay: idx * 0.1 }}
                 className="bg-white rounded-2xl overflow-hidden border border-cream-bg shadow-sm flex flex-col group hover:shadow-lg transition-all duration-300"
               >
-                <div className="relative h-40 overflow-hidden bg-cream-bg">
+                <div className="relative w-full aspect-square overflow-hidden bg-white border-b border-cream-bg">
                   <img 
                     src={prod.image} 
                     alt={prod.name} 

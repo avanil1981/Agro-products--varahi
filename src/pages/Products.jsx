@@ -230,22 +230,23 @@ export default function Products() {
                 className="bg-white rounded-2xl overflow-hidden shadow-sm border border-cream-bg flex flex-col justify-between group hover:shadow-lg transition-all duration-300"
               >
                 <div>
-                  <div className="relative h-44 overflow-hidden bg-cream-bg">
+                  <div className="relative w-full aspect-square overflow-hidden bg-white border-b border-cream-bg">
                     <img
                       src={prod.image}
                       alt={prod.name}
+                      loading="lazy"
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
-                    <span className="absolute top-3 left-3 bg-primary-green text-gold-accent font-bold text-[8px] uppercase tracking-wider px-2 py-1 rounded border border-gold-accent/20">
-                      {prod.category}
-                    </span>
                   </div>
 
                   <div className="p-5">
                     <h3 className="font-serif text-base font-bold text-dark-green leading-snug group-hover:text-primary-green transition-colors pb-1 line-clamp-1">
                       {prod.name}
                     </h3>
-                    <p className="text-[11px] text-soft-gray mt-2 font-light line-clamp-2 leading-relaxed">
+                    <span className="inline-block bg-primary-green text-gold-accent font-bold text-[8px] uppercase tracking-wider px-2 py-1 rounded border border-gold-accent/20 mb-2">
+                      {prod.category}
+                    </span>
+                    <p className="text-[11px] text-soft-gray mt-1 font-light line-clamp-2 leading-relaxed">
                       {prod.shortDescription}
                     </p>
 
