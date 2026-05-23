@@ -129,7 +129,12 @@ export const products = [
     category: "Rice & Flours",
     categorySlug: "rice-flours",
     shortDescription: "Nutritious, high-yield parboiled medium-grain rice with low starch content, highly favored in bulk export orders.",
-    image: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=800&q=80",
+    image: "/products/rice-flours/surekha-rice/image-1.webp",
+    images: [
+      "/products/rice-flours/surekha-rice/image-1.webp",
+      "/products/rice-flours/surekha-rice/image-2.webp",
+      "/products/rice-flours/surekha-rice/image-3.webp"
+    ],
     keyPoints: ["Nutrient-Dense Core", "Low Glycemic Index", "Resists Overcooking", "Perfect for Bulk Supplies"],
     specTable: {
       "Origin": "Andhra Pradesh & Telangana, India",

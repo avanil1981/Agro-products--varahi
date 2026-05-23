@@ -50,8 +50,8 @@ function getAllImageFiles(dir) {
       results.push(...getAllImageFiles(fullPath));
     } else {
       const ext = path.extname(item.name).toLowerCase();
-      // Only pick up raw input images (not already-compressed webp output unless re-processing)
-      if (INPUT_EXTENSIONS.includes(ext) && !item.name.startsWith('_compressed_')) {
+      // Skip backup files and already-processed webp files
+      if (INPUT_EXTENSIONS.includes(ext) && !item.name.startsWith('_original_') && !item.name.startsWith('_compressed_')) {
         results.push(fullPath);
       }
     }
