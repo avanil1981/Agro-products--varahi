@@ -216,7 +216,12 @@ export const products = [
     category: "Rice & Flours",
     categorySlug: "rice-flours",
     shortDescription: "Highly popular fine-grain rice in South India with excellent elongation and lightweight fluffy texture after cooking.",
-    image: "https://images.unsplash.com/photo-1626132647523-66f5bf380027?auto=format&fit=crop&w=800&q=80",
+    image: "/products/rice-flours/bpt-rice-samba-masuri/image-1.webp",
+    images: [
+      "/products/rice-flours/bpt-rice-samba-masuri/image-1.webp",
+      "/products/rice-flours/bpt-rice-samba-masuri/image-2.webp",
+      "/products/rice-flours/bpt-rice-samba-masuri/image-3.webp"
+    ],
     keyPoints: ["Fine Grain", "Non-Sticky", "Aged for Better Taste", "High Yield on Cooking"],
     specTable: {
       "Origin": "Telangana / AP, India",
