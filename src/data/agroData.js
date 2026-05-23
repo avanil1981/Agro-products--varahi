@@ -446,7 +446,12 @@ export const products = [
     category: "Rice & Flours",
     categorySlug: "rice-flours",
     shortDescription: "The king of aromatic long-grain rice, featuring unprecedented kernel elongation and rich fragrance.",
-    image: "https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=800&q=80",
+    image: "/products/rice-flours/basmati-rice-1121-1509/image-1.webp",
+    images: [
+      "/products/rice-flours/basmati-rice-1121-1509/image-1.webp",
+      "/products/rice-flours/basmati-rice-1121-1509/image-2.webp",
+      "/products/rice-flours/basmati-rice-1121-1509/image-3.webp"
+    ],
     keyPoints: ["Average Length 8.3mm+", "Stunning Floral Aroma", "Double Elongation on Cooking", "Aged up to 2 Years"],
     specTable: {
       "Origin": "North India (Indo-Gangetic Plains)",
