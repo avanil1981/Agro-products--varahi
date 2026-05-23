@@ -1691,6 +1691,100 @@ export const blogs = [
     excerpt: "An overview of Indian agricultural products witnessing explosive international demand.",
     content: `<p>Indian farming enjoys diverse agro-climatic zones, letting the country yield organic millets, high-curcumin turmeric, aromatic long-grain basmati, bold coffee varieties, fresh vegetables, and nutrient-dense animal feed crops like maize and rice bran.</p>
               <p>Sri Varahi Agro Foods LLP remains at the forefront of this agricultural renaissance, bridging the gap between small holding Indian farmers and international wholesale importers with state-of-the-art grading infrastructure.</p>`
+  },
+  {
+    id: 7,
+    title: "Indian Spice Export Standards & Quality Grades",
+    slug: "indian-spice-export-standards-quality-grades",
+    image: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=800&q=80",
+    date: "May 5, 2026",
+    readTime: "6 min read",
+    excerpt: "Understanding AGMARK, Spices Board of India grading, and global buyer expectations for premium spice shipments.",
+    content: `<p>India supplies over 75% of the world's spice requirements, making it the undisputed global spice hub. However, exporting spices internationally demands strict adherence to quality grades set by the <b>Spices Board of India</b> and importing country regulations like EU MRL (Maximum Residue Limits) and US FDA compliance.</p>
+              <h4 class="font-serif text-lg text-primary-green my-2 font-bold">Key Quality Parameters for Whole Spices</h4>
+              <p><b>Cumin Seeds (Jeera):</b> Purity of 99.5% minimum (Singapore Machine Cleaned), volatile oil content 2.5%–3.0%, moisture below 8%. <b>Coriander Seeds:</b> Grades include Badami, Green, and Double Parrot, all evaluated for split seed ratio (≤5%), moisture, and foreign matter. <b>Black Pepper:</b> Density graded in grams per liter (G/L) — premium Malabar Garbled typically requires 550 G/L minimum.</p>
+              <h4 class="font-serif text-lg text-primary-green my-2 font-bold">Phytosanitary & Fumigation Compliance</h4>
+              <p>All spice consignments require a valid Phytosanitary Certificate issued by the Plant Quarantine Authority, confirming the shipment is free from live insects, fungal spores, and regulated pests. Methyl Bromide or heat treatment fumigation is mandated for several Middle Eastern and European destinations.</p>
+              <h4 class="font-serif text-lg text-primary-green my-2 font-bold">EU MRL Compliance for Ground Powders</h4>
+              <p>Ground spice powders exported to Europe undergo pesticide residue testing at NABL-accredited labs. Aflatoxin levels in chilli and turmeric powders must comply with EU Regulation 1881/2006 limits — zero tolerance for Aflatoxin B1 exceeding 5 ppb. Sri Varahi Agro Foods LLP ensures all powder exports pass third-party testing before FCL stuffing.</p>`
+  },
+  {
+    id: 8,
+    title: "Understanding Basmati Rice Grades: 1121 vs 1509 vs Pusa",
+    slug: "understanding-basmati-rice-grades-1121-vs-1509-vs-pusa",
+    image: "https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=800&q=80",
+    date: "April 22, 2026",
+    readTime: "7 min read",
+    excerpt: "A technical breakdown of India's most famous Basmati varieties — what buyers in UAE, Saudi Arabia and Europe must know.",
+    content: `<p>Basmati Rice is India's flagship export commodity, carrying a coveted Geographical Indication (GI) tag and protected trade designation under global trade treaties. Within the Basmati family, three commercially dominant varieties — <b>1121 Basmati, 1509 Basmati, and Pusa Basmati</b> — each command different price points and applications in international markets.</p>
+              <h4 class="font-serif text-lg text-primary-green my-2 font-bold">1121 Basmati — The King of Long Grain</h4>
+              <p>Released by IARI (Indian Agricultural Research Institute) in 2003, the 1121 variety set world records with grain lengths of 8.3 mm (raw) elongating to 20+ mm on cooking — the longest of any commercial rice variety globally. Available in Sella (parboiled golden), Steam, and Raw forms, it is the most exported Basmati variety to Gulf, European, and North American markets.</p>
+              <h4 class="font-serif text-lg text-primary-green my-2 font-bold">1509 Basmati — Economical High-Volume Choice</h4>
+              <p>The 1509 is a newer, faster-maturing (115 days vs 145 days for 1121) variety with grain length 7.9 mm raw and competitive pricing. Its shorter crop cycle means two harvest windows annually, ensuring more stable supply. Buyers looking for a budget-friendly Basmati alternative for institutional catering and ethnic retail chains prefer 1509.</p>
+              <h4 class="font-serif text-lg text-primary-green my-2 font-bold">Pusa Basmati 1 — The Classic Original</h4>
+              <p>With its traditional floral aroma and soft texture, Pusa Basmati 1 remains popular in premium gourmet segments. Grown primarily in Haryana and Punjab river basins, it retains the highest aroma compound (2-Acetyl-1-Pyrroline) concentration among all Basmati varieties. Our verified Basmati shipments include DNA testing reports from NABL labs to confirm variety purity.</p>`
+  },
+  {
+    id: 9,
+    title: "Indian Onion Export: Seasons, Grades & Market Dynamics",
+    slug: "indian-onion-export-seasons-grades-market-dynamics",
+    image: "https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=800&q=80",
+    date: "April 8, 2026",
+    readTime: "5 min read",
+    excerpt: "India's onion export cycle is highly seasonal. Learn when to buy, what grades matter, and how to avoid quality rejections.",
+    content: `<p>Indian onions — especially the vibrant red varieties from Nashik (Maharashtra) and Bellary (Karnataka) — are among the most traded agricultural commodities globally. The country supplies onions to over 60 nations including Malaysia, Singapore, Sri Lanka, UAE, and UK. However, their export is notoriously seasonal and influenced by domestic demand, rainfall cycles, and government policy.</p>
+              <h4 class="font-serif text-lg text-primary-green my-2 font-bold">Indian Onion Harvest Seasons</h4>
+              <p><b>Kharif (October–November):</b> Early harvest, smaller bulbs, less storage life. <b>Late Kharif (December–January):</b> Medium crop, medium keeping quality. <b>Rabi (March–May):</b> The largest harvest with the highest quality — well-cured double-skinned onions with 3–4 month shelf life. Rabi onions are the premium export grade most international buyers target for container shipments.</p>
+              <h4 class="font-serif text-lg text-primary-green my-2 font-bold">Grade Sizes & Buyer Specifications</h4>
+              <p>Export onions are size-graded in mm: <b>35mm+</b> (small retail packs), <b>45mm+</b> (wholesale), <b>55mm+</b> (premium Middle East & Southeast Asia). Specifications typically demand ≤5% doubles or misshapen bulbs, ≤3% damage, and a minimum of 3 dry outer skins for sea freight protection. Our Nashik procurement teams conduct daily grading and manual curing audits throughout the season.</p>
+              <h4 class="font-serif text-lg text-primary-green my-2 font-bold">Export Packaging Standards</h4>
+              <p>Onions are packed in 5kg, 10kg, 25kg, and 50kg red mesh bags or ventilated jute sacks. Palletized container loading with ventilation ducting is critical for non-reefer (ambient) shipments. For reefer containers to long-haul destinations, a temperature of 1°C–3°C is maintained throughout the voyage.</p>`
+  },
+  {
+    id: 10,
+    title: "APEDA Certification: Your Gateway to Legal Agro Export from India",
+    slug: "apeda-certification-gateway-agro-export-india",
+    image: "https://images.unsplash.com/photo-1579154204601-01588f351167?auto=format&fit=crop&w=800&q=80",
+    date: "March 20, 2026",
+    readTime: "5 min read",
+    excerpt: "Before you export any agricultural product from India, APEDA registration is mandatory. Here's what it covers and why it matters.",
+    content: `<p>The <b>Agricultural and Processed Food Products Export Development Authority (APEDA)</b> is an apex body under the Ministry of Commerce & Industry, Government of India. All exporters of scheduled products — including rice, fruits, vegetables, spices, meat, and dairy — are legally required to be registered with APEDA before initiating any overseas shipment.</p>
+              <h4 class="font-serif text-lg text-primary-green my-2 font-bold">What APEDA Registration Covers</h4>
+              <p>APEDA registration grants exporters the legal authority to ship scheduled products internationally. It also provides access to: <b>(1)</b> Financial assistance under export promotion schemes. <b>(2)</b> Quality development grants for infrastructure upgrades. <b>(3)</b> Market development support including trade fair participation and buyer-seller meet facilitation. Sri Varahi Agro Foods LLP holds active APEDA registration, ensuring all our export consignments are fully compliant.</p>
+              <h4 class="font-serif text-lg text-primary-green my-2 font-bold">Documentation Required for Export</h4>
+              <p>A complete agro export documentation set includes: <b>Phytosanitary Certificate</b> (issued by Plant Quarantine), <b>Certificate of Origin</b> (Chamber of Commerce), <b>Commercial Invoice + Packing List</b>, <b>Bill of Lading / Airway Bill</b>, <b>FSSAI Export NOC</b> (for processed food), and country-specific <b>Fumigation Certificate</b>. We provide complete documentation support to our international buyers, eliminating customs clearance delays at destination ports.</p>`
+  },
+  {
+    id: 11,
+    title: "Moringa: India's Superfood Export Rising Globally",
+    slug: "moringa-superfood-export-rising-globally",
+    image: "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=800&q=80",
+    date: "March 5, 2026",
+    readTime: "6 min read",
+    excerpt: "Moringa powder, leaf, and drumstick exports from India have tripled in 5 years. Discover what makes this crop a global sensation.",
+    content: `<p>Moringa oleifera — called the "Miracle Tree" — is indigenous to North India but commercially cultivated across Andhra Pradesh, Tamil Nadu, and Karnataka. It is one of the fastest-growing global superfoods, with demand for Moringa powder, capsules, teas, and oils surging across the US, Europe, and Japan health markets.</p>
+              <h4 class="font-serif text-lg text-primary-green my-2 font-bold">Nutritional Power Profile</h4>
+              <p>Per gram of dry Moringa leaf, the nutritional punch is staggering: <b>25× more iron than spinach</b>, <b>17× more calcium than milk</b>, <b>15× more potassium than bananas</b>, and a complete amino acid profile making it one of very few plant-based complete proteins. This makes it highly sought by nutraceutical manufacturers and wellness brands.</p>
+              <h4 class="font-serif text-lg text-primary-green my-2 font-bold">Export Standards for Moringa Powder</h4>
+              <p>Quality Moringa leaf powder for export must comply with: <b>moisture ≤ 7%</b>, <b>total ash ≤ 9%</b>, <b>mesh size 100–120 (super fine)</b>, zero detectable pesticide residue, negative Salmonella and E. coli tests, and no heavy metals. All our Moringa powder consignments are shade-dried (never sun-dried) to preserve chlorophyll and enzymatic activity, and are batch-tested at NABL certified third-party laboratories before shipment.</p>
+              <h4 class="font-serif text-lg text-primary-green my-2 font-bold">Market Applications</h4>
+              <p>International buyers of Moringa powder include nutraceutical capsule manufacturers, organic smoothie brands, cosmetic face mask formulations, animal feed supplement producers, and institutional food fortification programs in Africa and Southeast Asia. Sri Varahi Agro Foods LLP can supply between 500kg and 20MT per month with full organic certification support.</p>`
+  },
+  {
+    id: 12,
+    title: "Container Shipping 101: FCL vs LCL for Agro Exports",
+    slug: "container-shipping-fcl-vs-lcl-agro-exports",
+    image: "https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?auto=format&fit=crop&w=800&q=80",
+    date: "February 10, 2026",
+    readTime: "7 min read",
+    excerpt: "First-time importers often confuse FCL and LCL shipping. This guide explains costs, lead times, and when to use each for Indian agro cargo.",
+    content: `<p>When importing agricultural commodities from India, the fundamental shipping decision is between <b>FCL (Full Container Load)</b> and <b>LCL (Less than Container Load)</b>. Each has distinct cost implications, transit timelines, and risk profiles that buyers must understand before placing orders.</p>
+              <h4 class="font-serif text-lg text-primary-green my-2 font-bold">FCL — Full Container Load</h4>
+              <p>An FCL shipment means you occupy the entire container — either a 20-foot (approximately 24 Metric Tons for rice) or 40-foot container (approximately 26–28 MT for rice). FCL is economical when your order volume fills or nearly fills a container. Benefits include: faster transit (no consolidation delays), lower per-unit shipping cost at scale, dedicated container security, and simpler documentation. Most of our rice, onion, and spice orders ship FCL through JNPT (Nhava Sheva) or Chennai port.</p>
+              <h4 class="font-serif text-lg text-primary-green my-2 font-bold">LCL — Less than Container Load</h4>
+              <p>For smaller trial orders (typically below 3 MT), LCL shipping consolidates your cargo with other shippers' goods into a shared container. While per-unit freight cost is higher and transit time is longer (due to consolidation and de-stuffing at destination CFS), LCL is ideal for first-time buyers testing product quality before committing to full container orders. Sri Varahi Agro Foods LLP offers LCL shipment support for sample orders and new market trials.</p>
+              <h4 class="font-serif text-lg text-primary-green my-2 font-bold">Air Freight for Perishables</h4>
+              <p>Fresh vegetables (green chillies, okra, curry leaves, drumsticks), fresh herbs, and premium fruits (Alphonso mangoes, guavas) cannot withstand 25–35 day sea transit and require air freight. While significantly more expensive, air cargo from Hyderabad/Chennai/Mumbai airports ensures delivery within 18–72 hours to UAE, Singapore, or UK. We coordinate with IATA-certified air freight forwarders for temperature-controlled fresh produce exports.</p>`
   }
 ];
 

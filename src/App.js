@@ -19,6 +19,7 @@ import Gallery from './pages/Gallery';
 import Blog from './pages/Blog';
 import Contact from './pages/Contact';
 import Quotation from './pages/Quotation';
+import NotFound from './pages/NotFound';
 
 function App() {
   return (
@@ -46,6 +47,7 @@ function App() {
             <Route path="/blog" element={<Blog />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/quote" element={<Quotation />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
 
