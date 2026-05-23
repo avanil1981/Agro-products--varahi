@@ -387,7 +387,12 @@ export const products = [
     category: "Rice & Flours",
     categorySlug: "rice-flours",
     shortDescription: "Traditional Southern Indian medium-grain rice with high fiber, delicate aroma, and great starch characteristics.",
-    image: "https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=800&q=80",
+    image: "/products/rice-flours/ponni-rice/image-1.webp",
+    images: [
+      "/products/rice-flours/ponni-rice/image-1.webp",
+      "/products/rice-flours/ponni-rice/image-2.webp",
+      "/products/rice-flours/ponni-rice/image-3.webp"
+    ],
     keyPoints: ["High Fiber Content", "Kaveri Basin Grown", "Staple South Indian Food", "Non-Sticky Cooking"],
     specTable: {
       "Origin": "Tamil Nadu, India",
@@ -412,7 +417,12 @@ export const products = [
     category: "Rice & Flours",
     categorySlug: "rice-flours",
     shortDescription: "Hygienically sorted and cleaned broken grains of premium rice varieties, ideal for flour mills, brewing, and animal feeds.",
-    image: "https://images.unsplash.com/photo-1626132647523-66f5bf380027?auto=format&fit=crop&w=800&q=80",
+    image: "/products/rice-flours/broken-rice/image-1.webp",
+    images: [
+      "/products/rice-flours/broken-rice/image-1.webp",
+      "/products/rice-flours/broken-rice/image-2.webp",
+      "/products/rice-flours/broken-rice/image-3.webp"
+    ],
     keyPoints: ["optical-sorted Grains", "Completely Destoned", "Gluten-Free Flour Source", "Highly Economical"],
     specTable: {
       "Origin": "India",
