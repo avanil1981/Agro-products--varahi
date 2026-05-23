@@ -231,6 +231,52 @@ export const products = [
     domesticAvailability: true
   },
   {
+    id: "p4_4",
+    name: "RNR Rice (Rajendra Nandini)",
+    slug: "rnr-rice",
+    category: "Rice & Flours",
+    categorySlug: "rice-flours",
+    shortDescription: "A fine-grain, lightweight domestic rice variety from Telangana, known for its non-sticky texture and excellent taste in daily cooking.",
+    image: "https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=800&q=80",
+    keyPoints: ["Non-Sticky Texture", "Lightweight Grain", "Steam & Raw Available", "Everyday Domestic Choice"],
+    specTable: {
+      "Origin": "Telangana, India",
+      "Types Available": "Steam / Raw",
+      "Grain Size": "Fine Slender",
+      "Moisture": "12% max",
+      "Broken Ratio": "3% max"
+    },
+    packingOptions: ["10kg, 25kg BOPP Bags"],
+    moq: "10 Metric Tons (MT)",
+    shelfLife: "24 Months",
+    applications: "Daily domestic consumption, South Indian meals, family packs.",
+    exportAvailability: false,
+    domesticAvailability: true
+  },
+  {
+    id: "p4_5",
+    name: "KNM Rice (Kurnool Special)",
+    slug: "knm-rice",
+    category: "Rice & Flours",
+    categorySlug: "rice-flours",
+    shortDescription: "A premium short-grain domestic rice variety from Kurnool, Andhra Pradesh, favored for its soft texture and excellent cooking consistency.",
+    image: "https://images.unsplash.com/photo-1626132647523-66f5bf380027?auto=format&fit=crop&w=800&q=80",
+    keyPoints: ["Soft & Fluffy Texture", "High Cooking Yield", "Steam & Boiled Available", "Premium Domestic Grade"],
+    specTable: {
+      "Origin": "Kurnool, Andhra Pradesh, India",
+      "Types Available": "Steam / Boiled",
+      "Grain Size": "Short Grain",
+      "Moisture": "13% max",
+      "Broken Ratio": "3% max"
+    },
+    packingOptions: ["10kg, 25kg BOPP Bags"],
+    moq: "10 Metric Tons (MT)",
+    shelfLife: "24 Months",
+    applications: "Traditional South Indian meals, daily domestic consumption, retail shops.",
+    exportAvailability: false,
+    domesticAvailability: true
+  },
+  {
     id: "p5",
     name: "Iddly Rice",
     slug: "iddly-rice",
@@ -450,7 +496,7 @@ export const products = [
     shelfLife: "24 Months",
     applications: "Spice grinding, curry powders, oleoresin extraction, herbal medicines.",
     exportAvailability: true,
-    domesticAvailability: true
+    domesticAvailability: false
   },
   {
     id: "p14",
@@ -474,7 +520,7 @@ export const products = [
     shelfLife: "18 Months",
     applications: "Garam masala production, essential oil distillation, culinary seasoning.",
     exportAvailability: true,
-    domesticAvailability: true
+    domesticAvailability: false
   },
   {
     id: "p15",
@@ -498,7 +544,7 @@ export const products = [
     shelfLife: "24 Months",
     applications: "Mouth freshener, herbal tea, pickling spice, seasoning dry meat rubs.",
     exportAvailability: true,
-    domesticAvailability: true
+    domesticAvailability: false
   },
   {
     id: "p16",
@@ -522,7 +568,7 @@ export const products = [
     shelfLife: "24 Months",
     applications: "Flavoring desserts, luxury teas, rice dishes, extract production, chewing spices.",
     exportAvailability: true,
-    domesticAvailability: true
+    domesticAvailability: false
   },
   {
     id: "p17",
@@ -546,7 +592,7 @@ export const products = [
     shelfLife: "24 Months",
     applications: "Meat seasoning, table condiments, pepper oil extraction, sausage flavoring.",
     exportAvailability: true,
-    domesticAvailability: true
+    domesticAvailability: false
   },
   {
     id: "p18",
@@ -570,7 +616,7 @@ export const products = [
     shelfLife: "24 Months",
     applications: "Medicinal syrups, dental formulations, chai blends, savory spice mixes.",
     exportAvailability: true,
-    domesticAvailability: true
+    domesticAvailability: false
   },
   {
     id: "p19",
@@ -594,7 +640,7 @@ export const products = [
     shelfLife: "24 Months",
     applications: "Flavoring bakery items, sweet curries, mulled wines, pharmaceutical oil extraction.",
     exportAvailability: true,
-    domesticAvailability: true
+    domesticAvailability: false
   },
   {
     id: "p20",
@@ -618,7 +664,7 @@ export const products = [
     shelfLife: "24 Months",
     applications: "Gourmet white gravies, cream soups, salad dressing, Asian hot pots.",
     exportAvailability: true,
-    domesticAvailability: true
+    domesticAvailability: false
   },
   {
     id: "p21",
@@ -642,7 +688,7 @@ export const products = [
     shelfLife: "24 Months",
     applications: "Chinese five-spice powders, mulled wine, biryani aroma bases, cosmetic flavorings.",
     exportAvailability: true,
-    domesticAvailability: true
+    domesticAvailability: false
   },
   {
     id: "p22",
@@ -666,7 +712,7 @@ export const products = [
     shelfLife: "24 Months",
     applications: "Gourmet mustard pastes, Indian tempering (tadka), pickle manufacturing, seed oil mills.",
     exportAvailability: true,
-    domesticAvailability: true
+    domesticAvailability: false
   },
 
   // --- Category: Powders (11 items) ---
@@ -692,7 +738,7 @@ export const products = [
     shelfLife: "18 Months",
     applications: "Taco spices, curry powder blending, instant seasoning packets, savory baking.",
     exportAvailability: true,
-    domesticAvailability: true
+    domesticAvailability: false
   },
   {
     id: "p24",
@@ -716,7 +762,7 @@ export const products = [
     shelfLife: "18 Months",
     applications: "Core gravy thickener, meat marinades, commercial curry mixes, retail spice sales.",
     exportAvailability: true,
-    domesticAvailability: true
+    domesticAvailability: false
   },
   {
     id: "p25",
@@ -740,7 +786,7 @@ export const products = [
     shelfLife: "18 Months",
     applications: "Bakery biscuits, herbal digestive syrups, sweet beverage pre-mixes.",
     exportAvailability: true,
-    domesticAvailability: true
+    domesticAvailability: false
   },
   {
     id: "p26",
@@ -764,7 +810,7 @@ export const products = [
     shelfLife: "18 Months",
     applications: "Gingerbread baking, wellness capsules, tea bags blending, industrial food sauces.",
     exportAvailability: true,
-    domesticAvailability: true
+    domesticAvailability: false
   },
   {
     id: "p27",
@@ -788,7 +834,7 @@ export const products = [
     shelfLife: "18 Months",
     applications: "Culinary hot spice, snack seasoning dusts, spicy pickles, canned hot sauces.",
     exportAvailability: true,
-    domesticAvailability: true
+    domesticAvailability: false
   },
   {
     id: "p28",
@@ -812,7 +858,7 @@ export const products = [
     shelfLife: "24 Months",
     applications: "Traditional cooking, golden milk blends, cosmetic skin masks, natural yellow coloring.",
     exportAvailability: true,
-    domesticAvailability: true
+    domesticAvailability: false
   },
   {
     id: "p29",
@@ -836,7 +882,7 @@ export const products = [
     shelfLife: "18 Months",
     applications: "Health shake blenders, green tea formulations, vitamin capsule manufacturing.",
     exportAvailability: true,
-    domesticAvailability: true
+    domesticAvailability: false
   },
   {
     id: "p30",
@@ -860,7 +906,7 @@ export const products = [
     shelfLife: "12 Months",
     applications: "Instant soup mixes, Indian savory snacks flavor, herbal hair powders.",
     exportAvailability: true,
-    domesticAvailability: true
+    domesticAvailability: false
   },
   {
     id: "p31",
@@ -884,7 +930,7 @@ export const products = [
     shelfLife: "18 Months",
     applications: "Ayurvedic wellness teas, cough drop syrups, cosmetic facial washes, herbal tablets.",
     exportAvailability: true,
-    domesticAvailability: true
+    domesticAvailability: false
   },
   {
     id: "p32",
@@ -908,7 +954,7 @@ export const products = [
     shelfLife: "18 Months",
     applications: "Cinnamon rolls, coffee topping, functional tea dusts, dessert flavoring.",
     exportAvailability: true,
-    domesticAvailability: true
+    domesticAvailability: false
   },
   {
     id: "p33",
@@ -932,7 +978,7 @@ export const products = [
     shelfLife: "18 Months",
     applications: "Seasoning potato chips, salad dressings, institutional kitchen packs, dry spice rubs.",
     exportAvailability: true,
-    domesticAvailability: true
+    domesticAvailability: false
   },
 
   // --- Category: Fresh Vegetables (10 items) ---
@@ -957,7 +1003,7 @@ export const products = [
     shelfLife: "40 - 50 Days in well-ventilated dry space",
     applications: "Wholesale food markets, supermarket retail shelves, culinary base gravies.",
     exportAvailability: true,
-    domesticAvailability: true
+    domesticAvailability: false
   },
   {
     id: "p35",
@@ -980,7 +1026,7 @@ export const products = [
     shelfLife: "30 Days under ambient ventilation / Months in cold storage",
     applications: "French fry processing, crisp manufacturing, wholesale markets, retail shops.",
     exportAvailability: true,
-    domesticAvailability: true
+    domesticAvailability: false
   },
   {
     id: "p36",
@@ -1003,7 +1049,7 @@ export const products = [
     shelfLife: "15 Days from harvest under cool chain",
     applications: "Fresh retailing, restaurant food bases, purees and pastes.",
     exportAvailability: true,
-    domesticAvailability: true
+    domesticAvailability: false
   },
   {
     id: "p37",
@@ -1026,7 +1072,7 @@ export const products = [
     shelfLife: "14 Days under refrigerated 8°C - 10°C transit",
     applications: "Pickle brands, spice ingredients, restaurant fresh food, fresh supermarket exports.",
     exportAvailability: true,
-    domesticAvailability: true
+    domesticAvailability: false
   },
   {
     id: "p38",
@@ -1049,7 +1095,7 @@ export const products = [
     shelfLife: "7 Days under refrigeration (5°C - 7°C)",
     applications: "Staple vegetable retail, frozen food packing, premium exports.",
     exportAvailability: true,
-    domesticAvailability: true
+    domesticAvailability: false
   },
   {
     id: "p39",
@@ -1072,7 +1118,7 @@ export const products = [
     shelfLife: "10 Days under refrigerated transit",
     applications: "Traditional sambar preparations, extraction of moringa seeds, fresh exports.",
     exportAvailability: true,
-    domesticAvailability: true
+    domesticAvailability: false
   },
   {
     id: "p40",
@@ -1095,7 +1141,7 @@ export const products = [
     shelfLife: "45 Days in cool, ventilated dry conditions",
     applications: "Fresh juice shops, commercial spice minces, ginger oil extracts.",
     exportAvailability: true,
-    domesticAvailability: true
+    domesticAvailability: false
   },
   {
     id: "p41",
@@ -1118,7 +1164,7 @@ export const products = [
     shelfLife: "3 - 4 Months",
     applications: "Spice preparations, garlic pastes, retail grocery, medicinal extracts.",
     exportAvailability: true,
-    domesticAvailability: true
+    domesticAvailability: false
   },
   {
     id: "p42",
@@ -1140,7 +1186,7 @@ export const products = [
     shelfLife: "7 - 10 Days under refrigeration",
     applications: "Tempering in Indian cooking, spice mixes, herbal cosmetics.",
     exportAvailability: true,
-    domesticAvailability: true
+    domesticAvailability: false
   },
   {
     id: "p43",
@@ -1163,7 +1209,7 @@ export const products = [
     shelfLife: "5 - 7 Days under strict cold chain (2°C - 4°C)",
     applications: "Fresh juice mocktails, commercial sauce blending, cosmetic facial extraction.",
     exportAvailability: true,
-    domesticAvailability: true
+    domesticAvailability: false
   },
 
   // --- Category: Fresh Fruits (5 items) ---
@@ -1188,7 +1234,7 @@ export const products = [
     shelfLife: "15 Days from harvest under controlled ripening",
     applications: "Direct luxury fresh retail, premium desert pulps, ice cream toppings.",
     exportAvailability: true,
-    domesticAvailability: true
+    domesticAvailability: false
   },
   {
     id: "p45",
@@ -1211,7 +1257,7 @@ export const products = [
     shelfLife: "35 Days under refrigerated 13.5°C transit",
     applications: "Fresh fruit retail distribution, dried banana chips, commercial bakery.",
     exportAvailability: true,
-    domesticAvailability: true
+    domesticAvailability: false
   },
   {
     id: "p46",
@@ -1234,7 +1280,7 @@ export const products = [
     shelfLife: "10 Days under refrigerated transit (8°C - 10°C)",
     applications: "Fresh fruit snack grids, tropical fruit juice shops, gourmet salads.",
     exportAvailability: true,
-    domesticAvailability: true
+    domesticAvailability: false
   },
   {
     id: "p47",
@@ -1257,7 +1303,7 @@ export const products = [
     shelfLife: "20 - 25 Days under refrigeration (6°C - 8°C)",
     applications: "Fresh juice operations, commercial retail grids, natural ascorbic extracts.",
     exportAvailability: true,
-    domesticAvailability: true
+    domesticAvailability: false
   },
   {
     id: "p48",
@@ -1280,7 +1326,7 @@ export const products = [
     shelfLife: "20 Days in well-ventilated dry logistics",
     applications: "Fresh slice wholesale markets, tropical catering, retail supermarket displays.",
     exportAvailability: true,
-    domesticAvailability: true
+    domesticAvailability: false
   },
   {
     id: "p49",
@@ -1304,7 +1350,7 @@ export const products = [
     shelfLife: "12 Months",
     applications: "Spice extraction, hot sauce manufacturing, direct culinary dry seasoning.",
     exportAvailability: true,
-    domesticAvailability: true
+    domesticAvailability: false
   },
   {
     id: "p50",
@@ -1328,7 +1374,7 @@ export const products = [
     shelfLife: "24 Months",
     applications: "Gourmet coffee roasting, premium espresso blends, cold brew extractors.",
     exportAvailability: true,
-    domesticAvailability: true
+    domesticAvailability: false
   },
   {
     id: "p51",
@@ -1352,7 +1398,7 @@ export const products = [
     shelfLife: "24 Months",
     applications: "Commercial instant coffee blending, espresso crema enhancer, dark roast coffee formulations.",
     exportAvailability: true,
-    domesticAvailability: true
+    domesticAvailability: false
   }
 ];
 
@@ -1670,3 +1716,4 @@ export const faqs = [
     answer: "Our standard export payment terms are: 1) 30% advance T/T and 70% against clean scanned copy of Bill of Lading (B/L) and documents, or 2) 100% Irrevocable Confirmed Letter of Credit (L/C) at sight from prime AAA rated banks."
   }
 ];
+

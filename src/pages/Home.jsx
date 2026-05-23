@@ -409,7 +409,7 @@ export default function Home() {
     const activeCategories = Object.keys(grouped);
     let i = 0;
     
-    while (diverseProducts.length < 8 && activeCategories.length > 0) {
+    while (diverseProducts.length < 7 && activeCategories.length > 0) {
       const catIndex = i % activeCategories.length;
       const cat = activeCategories[catIndex];
       
@@ -837,89 +837,168 @@ export default function Home() {
       </section>
 
       {/* 7. Unified Product Showcase Section */}
-      <section className="py-12 md:py-24 px-4 md:px-8 max-w-[95%] mx-auto relative group/prodslider overflow-hidden">
-        <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.1 }} transition={{ duration: 0.6 }} className="max-w-3xl mx-auto text-center space-y-4 mb-16">
-          <div className="text-gold-accent uppercase font-bold text-[10px] tracking-widest bg-gold-accent/5 inline-block px-3 py-1.5 rounded-full border border-gold-accent/10">Premium Crop Selection</div>
-          <h2 className="font-serif text-3xl md:text-5xl font-extrabold text-dark-green tracking-tight leading-tight">OUR PRODUCT CATALOG</h2>
-          <div className="w-20 h-1 bg-gold-accent mx-auto my-2"></div>
-          <p className="text-xs text-soft-gray font-light max-w-xl mx-auto mb-6">Sourced ethically from Indian cultivators, graded, and prepared with compliant configurations for global and domestic markets.</p>
-          
-          {/* Market Filter Toggle */}
-          <div className="flex bg-cream-bg p-1 rounded-xl border border-gold-accent/15 shrink-0 max-w-fit mx-auto mt-8">
-            {[
-              { id: 'export', label: 'EXPORT' },
-              { id: 'domestic', label: 'DOMESTIC' }
-            ].map(market => (
-              <button
-                key={market.id}
-                onClick={() => setHomeMarket(market.id)}
-                className={`text-[12px] font-bold uppercase tracking-wider px-6 py-2 rounded-lg transition-all ${
-                  homeMarket === market.id
-                    ? "bg-primary-green text-white shadow-sm"
-                    : "text-soft-gray hover:text-dark-text hover:bg-white/50"
-                }`}
+      <section className="relative bg-[#F9F6F0] py-20 md:py-28 px-4 md:px-8 overflow-hidden">
+
+        {/* Decorative top-left leaf watermark */}
+        <div className="absolute -top-16 -left-16 w-80 h-80 rounded-full bg-[#0a2e18]/4 blur-3xl pointer-events-none"></div>
+        <div className="absolute -bottom-16 -right-16 w-80 h-80 rounded-full bg-[#ECC043]/8 blur-3xl pointer-events-none"></div>
+
+        <div className="max-w-7xl mx-auto">
+
+          {/* ── Section Header ── */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.1 }}
+            transition={{ duration: 0.7 }}
+            className="text-center mb-14 space-y-5"
+          >
+            {/* Eyebrow */}
+            <div className="inline-flex items-center gap-2 bg-[#0a2e18]/8 border border-[#0a2e18]/15 text-[#0a2e18] text-[10px] font-bold uppercase tracking-[0.25em] px-4 py-2 rounded-full">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#ECC043] animate-pulse inline-block"></span>
+              Premium Crop Selection
+            </div>
+
+            <h2 className="font-serif text-4xl md:text-5xl font-extrabold text-[#0a2e18] tracking-tight leading-tight">
+              Our Product <span className="text-[#ECC043] relative">
+                Catalog
+                <svg className="absolute -bottom-1 left-0 w-full" viewBox="0 0 200 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M0 6 Q50 1 100 5 Q150 9 200 4" stroke="#ECC043" strokeWidth="2.5" strokeLinecap="round" fill="none"/>
+                </svg>
+              </span>
+            </h2>
+
+            <p className="text-sm text-[#666] font-light max-w-xl mx-auto leading-relaxed">
+              Sourced ethically from Indian cultivators, graded, and prepared with compliant configurations for global and domestic markets.
+            </p>
+
+            {/* ── Market Filter Toggle ── */}
+            <div className="flex items-center justify-center mt-6">
+              <div className="inline-flex items-center bg-white border border-[#e0d8c8] rounded-2xl p-1.5 shadow-sm gap-1">
+                {[
+                  { id: 'export',   label: 'Export Markets',   icon: '🌐' },
+                  { id: 'domestic', label: 'Domestic Markets', icon: '🇮🇳' }
+                ].map(market => (
+                  <button
+                    key={market.id}
+                    onClick={() => setHomeMarket(market.id)}
+                    className={`flex items-center gap-2 text-[12px] font-bold uppercase tracking-wider px-6 py-2.5 rounded-xl transition-all duration-300 ${
+                      homeMarket === market.id
+                        ? 'bg-[#0a2e18] text-white shadow-md'
+                        : 'text-[#888] hover:text-[#0a2e18] hover:bg-[#0a2e18]/5'
+                    }`}
+                  >
+                    <span>{market.icon}</span>
+                    <span>{market.label}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+
+          {/* ── Product Grid ── */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {filteredHomeProducts.map((prod, idx) => (
+              <motion.div
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.08 }}
+                transition={{ duration: 0.5, delay: idx * 0.07 }}
+                key={prod.id}
+                className={`group flex flex-col ${idx === 0 ? 'sm:col-span-2' : ''}`}
               >
-                {market.label}
-              </button>
+                <div className="relative flex flex-col h-full bg-white rounded-3xl overflow-hidden border border-[#ede5d4] shadow-sm hover:shadow-xl hover:-translate-y-1 hover:border-[#ECC043]/60 transition-all duration-350">
+
+                  {/* Image */}
+                  <div className={`relative overflow-hidden ${idx === 0 ? 'aspect-[16/7]' : 'aspect-[4/3]'}`}>
+                    <img
+                      src={prod.image}
+                      alt={prod.name}
+                      className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.07]"
+                    />
+                    {/* Dark scrim on hover */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0a2e18]/75 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400"></div>
+
+                    {/* Category badge */}
+                    <span className="absolute top-3 left-3 bg-[#0a2e18] text-[#ECC043] text-[9px] font-extrabold uppercase tracking-widest px-3 py-1.5 rounded-full">
+                      {prod.category}
+                    </span>
+
+                    {/* Market badge */}
+                    <span className={`absolute top-3 right-3 text-[9px] font-bold uppercase tracking-wider px-2.5 py-1.5 rounded-full border ${
+                      homeMarket === 'export'
+                        ? 'bg-[#0f3460]/85 text-sky-200 border-sky-400/20 backdrop-blur-sm'
+                        : 'bg-[#7c3a00]/85 text-amber-200 border-amber-400/20 backdrop-blur-sm'
+                    }`}>
+                      {homeMarket === 'export' ? '🌐 Export' : '🇮🇳 Domestic'}
+                    </span>
+
+                    {/* Hover CTA on image */}
+                    <div className="absolute inset-0 flex items-end justify-center pb-5 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
+                      <Link
+                        to={`/products/${prod.slug}`}
+                        className="inline-flex items-center gap-2 bg-[#ECC043] text-[#0a2e18] text-[10px] font-extrabold uppercase tracking-wider px-5 py-2.5 rounded-full shadow-lg hover:scale-105 transition-transform"
+                      >
+                        View Details <ArrowRight className="w-3.5 h-3.5" />
+                      </Link>
+                    </div>
+                  </div>
+
+                  {/* Card body */}
+                  <div className="p-5 flex-1 flex flex-col justify-between">
+                    <div>
+                      <h3 className={`font-serif font-extrabold text-[#0a2e18] group-hover:text-[#128243] transition-colors leading-snug mb-1.5 ${idx === 0 ? 'text-lg' : 'text-[15px]'}`}>
+                        {prod.name}
+                      </h3>
+                      <p className="text-[11px] text-[#888] font-light line-clamp-2 leading-relaxed">
+                        {prod.shortDescription}
+                      </p>
+                    </div>
+
+                    <div className="flex items-center justify-between pt-4 mt-4 border-t border-[#f0e8d8]">
+                      <div className="flex items-center gap-1.5">
+                        <span className="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_6px_rgba(16,185,129,0.6)]"></span>
+                        <span className="text-[10px] text-emerald-700 font-bold uppercase tracking-wider">In Stock</span>
+                      </div>
+                      <Link
+                        to={`/products/${prod.slug}`}
+                        className="flex items-center gap-1.5 bg-[#0a2e18]/6 hover:bg-[#ECC043] text-[#0a2e18] text-[10px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-full transition-all duration-300 hover:shadow-md"
+                      >
+                        Details <ArrowRight className="w-3 h-3" />
+                      </Link>
+                    </div>
+                  </div>
+
+                </div>
+              </motion.div>
             ))}
           </div>
-        </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {filteredHomeProducts.map((prod, idx) => (
-            <motion.div 
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.1 }}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
-              key={prod.id} 
-              className="bg-white rounded-2xl overflow-hidden border border-gold-accent/15 shadow-sm flex flex-col group hover:shadow-2xl hover:-translate-y-2 hover:border-gold-accent/40 transition-all duration-300"
+          {/* ── CTA Row ── */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="mt-14 flex flex-col sm:flex-row items-center justify-center gap-4"
+          >
+            <Link
+              to="/products"
+              className="inline-flex items-center gap-3 bg-[#0a2e18] text-white px-10 py-4 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-[#128243] hover:shadow-xl transition-all duration-300 group shadow-md"
             >
-              <div className="relative aspect-[4/3] sm:aspect-[4/5] overflow-hidden bg-cream-bg">
-                <img 
-                  src={prod.image} 
-                  alt={prod.name} 
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
-                />
-                
-                <div className="absolute top-3 left-3 flex flex-col gap-1.5">
-                  <span className="bg-white/90 backdrop-blur-md text-primary-green font-sans font-extrabold text-[9px] uppercase tracking-wider px-2.5 py-1 rounded-lg shadow-sm">
-                    {prod.category}
-                  </span>
-                </div>
-              </div>
+              <span>Browse Full Catalog</span>
+              <span className="w-7 h-7 rounded-full bg-[#ECC043] flex items-center justify-center group-hover:scale-110 transition-transform flex-shrink-0">
+                <ArrowRight className="w-3.5 h-3.5 text-[#0a2e18]" />
+              </span>
+            </Link>
+            <Link
+              to="/contact"
+              className="inline-flex items-center gap-2 border-2 border-[#0a2e18]/25 text-[#0a2e18] px-8 py-4 rounded-full text-xs font-bold uppercase tracking-widest hover:border-[#0a2e18] hover:bg-[#0a2e18]/5 transition-all duration-300"
+            >
+              Request a Quote
+            </Link>
+          </motion.div>
 
-              <div className="p-5 flex-1 flex flex-col justify-between">
-                <div>
-                  <h3 className="font-serif text-[15px] font-extrabold text-dark-green group-hover:text-primary-green transition-colors leading-tight mb-2">
-                    {prod.name}
-                  </h3>
-                  <p className="text-[11px] text-soft-gray font-light line-clamp-2 leading-relaxed">
-                    {prod.shortDescription}
-                  </p>
-                </div>
-
-                <div className="pt-4 mt-4 border-t border-cream-bg flex items-center justify-between">
-                  <span className="text-[10px] font-bold text-dark-green uppercase tracking-wider bg-cream-bg px-2 py-1 rounded">
-                    {homeMarket === 'export' ? 'EXPORT' : 'DOMESTIC'}
-                  </span>
-                  <Link 
-                    to={`/products/${prod.slug}`} 
-                    className="w-8 h-8 rounded-full bg-primary-green/10 text-primary-green flex items-center justify-center group-hover/link:bg-primary-green group-hover/link:text-white transition-all duration-300"
-                  >
-                    <ArrowRight className="w-4 h-4" />
-                  </Link>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
-        <div className="mt-12 text-center">
-          <Link to="/products" className="inline-flex items-center space-x-2 bg-dark-green text-white px-8 py-4 rounded-full text-xs font-bold uppercase tracking-wider hover:bg-primary-green hover:shadow-lg transition-all duration-300 group">
-            <span>View Full Catalog</span>
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </Link>
         </div>
       </section>
 
