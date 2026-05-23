@@ -244,7 +244,12 @@ export const products = [
     category: "Rice & Flours",
     categorySlug: "rice-flours",
     shortDescription: "An elite ultra-fine domestic rice variety favored for its superior taste, slender shape, and premium cooking quality.",
-    image: "https://images.unsplash.com/photo-1536304929831-ee1ca9d44906?auto=format&fit=crop&w=800&q=80",
+    image: "/products/rice-flours/jai-sriram-rice/image-1.webp",
+    images: [
+      "/products/rice-flours/jai-sriram-rice/image-1.webp",
+      "/products/rice-flours/jai-sriram-rice/image-2.webp",
+      "/products/rice-flours/jai-sriram-rice/image-3.webp"
+    ],
     keyPoints: ["Ultra-Fine Quality", "Soft & Fluffy", "High Grade Polish", "Exceptional Taste"],
     specTable: {
       "Origin": "Telangana / AP, India",
