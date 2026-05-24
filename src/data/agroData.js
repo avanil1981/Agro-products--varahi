@@ -848,7 +848,11 @@ export const products = [
     category: "Powders",
     categorySlug: "powders",
     shortDescription: "Hygienically milled cumin powder with warm, nutty aroma and zero artificial colorings.",
-    image: "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=800&q=80",
+    image: "/products/powders/cumin-powder/image-1.webp",
+    images: [
+      "/products/powders/cumin-powder/image-1.webp",
+      "/products/powders/cumin-powder/image-2.webp"
+    ],
     keyPoints: ["Cool-Milled to Lock Aroma", "Zero Added Starch", "Warm Nutty Taste", "Ultra-Fine Sieved"],
     specTable: {
       "Origin": "India",
@@ -872,7 +876,11 @@ export const products = [
     category: "Powders",
     categorySlug: "powders",
     shortDescription: "Cool-milled coriander powder with fresh citrus notes and premium gold-brown color.",
-    image: "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=800&q=80",
+    image: "/products/powders/coriander-powder/image-1.webp",
+    images: [
+      "/products/powders/coriander-powder/image-1.webp",
+      "/products/powders/coriander-powder/image-2.webp"
+    ],
     keyPoints: ["Fresh Citrus Aroma", "Ground from Double Parrot Seeds", "100% Unadulterated", "Safe Moisture Levels"],
     specTable: {
       "Origin": "India",
@@ -896,7 +904,11 @@ export const products = [
     category: "Powders",
     categorySlug: "powders",
     shortDescription: "Finely ground fennel powder carrying a sweet licorice-like aroma, perfect for culinary and herbal uses.",
-    image: "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=800&q=80",
+    image: "/products/powders/fennel-powder/image-1.webp",
+    images: [
+      "/products/powders/fennel-powder/image-1.webp",
+      "/products/powders/fennel-powder/image-2.webp"
+    ],
     keyPoints: ["Cooling Digestive Properties", "Sweet Anethole Rich", "Deep Greenish Hue", "Fiber-Free Grinding"],
     specTable: {
       "Origin": "India",
@@ -920,7 +932,11 @@ export const products = [
     category: "Powders",
     categorySlug: "powders",
     shortDescription: "Sharp, spicy, sun-dried ginger powder sourced from premium cleaned ginger crops.",
-    image: "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=800&q=80",
+    image: "/products/powders/ginger-powder/image-1.webp",
+    images: [
+      "/products/powders/ginger-powder/image-1.webp",
+      "/products/powders/ginger-powder/image-2.webp"
+    ],
     keyPoints: ["Fiery Gingerol Heat", "Sanitized Root Peeling", "Salmonella Negative", "Baking Essential"],
     specTable: {
       "Origin": "India",
@@ -944,7 +960,11 @@ export const products = [
     category: "Chilli",
     categorySlug: "chilli",
     shortDescription: "Intensely hot, pure red chilli powder milled from premium Guntur Teja dried red chillies.",
-    image: "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=800&q=80",
+    image: "/products/powders/red-chilli-powder/image-1.webp",
+    images: [
+      "/products/powders/red-chilli-powder/image-1.webp",
+      "/products/powders/red-chilli-powder/image-2.webp"
+    ],
     keyPoints: ["Up to 50,000 SHU", "Natural ASTA Redness", "De-Stemmed Grinding", "Zero Added Synthetic Dye"],
     specTable: {
       "Origin": "Andhra Pradesh (Guntur), India",
@@ -968,7 +988,11 @@ export const products = [
     category: "Powders",
     categorySlug: "powders",
     shortDescription: "Pure golden turmeric powder milled from premium Nizamabad and Salem finger crops, high in curcumin.",
-    image: "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=800&q=80",
+    image: "/products/powders/turmeric-powder/image-1.webp",
+    images: [
+      "/products/powders/turmeric-powder/image-1.webp",
+      "/products/powders/turmeric-powder/image-2.webp"
+    ],
     keyPoints: ["3.5% - 5.0% Curcumin", "Vivid Golden Color", "No Lead Chromate Adulteration", "Steam Sterilized Safety"],
     specTable: {
       "Origin": "Salem / Nizamabad, India",
@@ -992,7 +1016,11 @@ export const products = [
     category: "Powders",
     categorySlug: "powders",
     shortDescription: "Nutritious, organic moringa leaf powder packed with antioxidants, vitamins, and vital amino acids.",
-    image: "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=800&q=80",
+    image: "/products/powders/moringa-powder/image-1.webp",
+    images: [
+      "/products/powders/moringa-powder/image-1.webp",
+      "/products/powders/moringa-powder/image-2.webp"
+    ],
     keyPoints: ["Vivid Natural Green", "Shade-Dried Nutrient lock", "Rich in Antioxidants & Iron", "100% Organic Compliant"],
     specTable: {
       "Origin": "India",
@@ -1016,7 +1044,11 @@ export const products = [
     category: "Powders",
     categorySlug: "powders",
     shortDescription: "Hygienically dried and ground green curry leaves, carrying an intense herbal, citrusy spice aroma.",
-    image: "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=800&q=80",
+    image: "/products/powders/curry-leaves-powder/image-1.webp",
+    images: [
+      "/products/powders/curry-leaves-powder/image-1.webp",
+      "/products/powders/curry-leaves-powder/image-2.webp"
+    ],
     keyPoints: ["Citrus-Herbal Aroma", "Low-Temp Dried to Save Oils", "Rich Olive Green Color", "No Additives"],
     specTable: {
       "Origin": "India",
@@ -1040,7 +1072,11 @@ export const products = [
     category: "Powders",
     categorySlug: "powders",
     shortDescription: "Fine powder of dried Holy Basil (Tulsi) leaves, rich in therapeutic and adaptogenic values.",
-    image: "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=800&q=80",
+    image: "/products/powders/tulsi-powder/image-1.webp",
+    images: [
+      "/products/powders/tulsi-powder/image-1.webp",
+      "/products/powders/tulsi-powder/image-2.webp"
+    ],
     keyPoints: ["Ocimum Sanctum Source", "Adaptogenic Herb", "Pure & Sterilized", "No Heavy Metals"],
     specTable: {
       "Origin": "India",
@@ -1064,7 +1100,11 @@ export const products = [
     category: "Powders",
     categorySlug: "powders",
     shortDescription: "Sweet, woody ground cinnamon powder carrying deep aromatic oils, ideal for confectionery.",
-    image: "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=800&q=80",
+    image: "/products/powders/cinnamon-powder/image-1.webp",
+    images: [
+      "/products/powders/cinnamon-powder/image-1.webp",
+      "/products/powders/cinnamon-powder/image-2.webp"
+    ],
     keyPoints: ["Woody-Sweet Flavor", "Ground from Natural sticks", "Low Temp Milled", "Perfect for Baking"],
     specTable: {
       "Origin": "India",
