@@ -594,7 +594,11 @@ export const products = [
     category: "Whole Spices",
     categorySlug: "whole-spices",
     shortDescription: "Premium whole coriander seeds with citrusy, sweet undertones, thoroughly cleaned and sorted.",
-    image: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=800&q=80",
+    image: "/products/whole-spices/coriander-seeds/image-1.webp",
+    images: [
+      "/products/whole-spices/coriander-seeds/image-1.webp",
+      "/products/whole-spices/coriander-seeds/image-2.webp"
+    ],
     keyPoints: ["Citrus-Sweet Undertones", "No Sulfur Treatment", "Double Parrot Green/Badami", "Clean Gravity Sorted"],
     specTable: {
       "Origin": "Madhya Pradesh / Rajasthan, India",
@@ -618,7 +622,11 @@ export const products = [
     category: "Whole Spices",
     categorySlug: "whole-spices",
     shortDescription: "Sweet, highly aromatic fennel seeds with a brilliant green color and powerful anise-like fragrance.",
-    image: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=800&q=80",
+    image: "/products/whole-spices/fennel-seeds/image-1.webp",
+    images: [
+      "/products/whole-spices/fennel-seeds/image-1.webp",
+      "/products/whole-spices/fennel-seeds/image-2.webp"
+    ],
     keyPoints: ["Vivid Green Tone", "High Anethole Content", "Sweet Anise Aroma", "Premium Mouth Freshener"],
     specTable: {
       "Origin": "Gujarat / Rajasthan, India",
@@ -642,7 +650,11 @@ export const products = [
     category: "Whole Spices",
     categorySlug: "whole-spices",
     shortDescription: "The queen of spices, featuring bold green pods (7mm - 8mm+) with high intense essential oils.",
-    image: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=800&q=80",
+    image: "/products/whole-spices/green-cardamom/image-1.webp",
+    images: [
+      "/products/whole-spices/green-cardamom/image-1.webp",
+      "/products/whole-spices/green-cardamom/image-2.webp"
+    ],
     keyPoints: ["Extra Bold (7.5mm - 8mm+)", "Chlorophyll Preservation", "Harvested from Munnar Estates", "Intense Floral Aroma"],
     specTable: {
       "Origin": "Kerala (Munnar / Idukki), India",
@@ -666,7 +678,11 @@ export const products = [
     category: "Whole Spices",
     categorySlug: "whole-spices",
     shortDescription: "Rich, pungent whole black peppercorns sourced from the Malabar Coast, high in active piperine.",
-    image: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=800&q=80",
+    image: "/products/whole-spices/black-pepper/image-1.webp",
+    images: [
+      "/products/whole-spices/black-pepper/image-1.webp",
+      "/products/whole-spices/black-pepper/image-2.webp"
+    ],
     keyPoints: ["High Piperine (4.5%+)", "Malabar Origin 'Black Gold'", "Calibrated Density (550 G/L)", "Sun-Dried Naturally"],
     specTable: {
       "Origin": "Kerala, India",
@@ -690,7 +706,11 @@ export const products = [
     category: "Whole Spices",
     categorySlug: "whole-spices",
     shortDescription: "Handpicked, red-brown whole flower buds with strong warm aroma and rich eugenol oil content.",
-    image: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=800&q=80",
+    image: "/products/whole-spices/cloves/image-1.webp",
+    images: [
+      "/products/whole-spices/cloves/image-1.webp",
+      "/products/whole-spices/cloves/image-2.webp"
+    ],
     keyPoints: ["95% Full Head Ratio", "High Eugenol (15%+)", "Hand-Harvested in Southern India", "No Extracted Buds"],
     specTable: {
       "Origin": "Southern India",
@@ -714,7 +734,11 @@ export const products = [
     category: "Whole Spices",
     categorySlug: "whole-spices",
     shortDescription: "Sweet, warm, and highly aromatic rolled barks of natural cinnamon, dried to perfection.",
-    image: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=800&q=80",
+    image: "/products/whole-spices/cinnamon-stick/image-1.webp",
+    images: [
+      "/products/whole-spices/cinnamon-stick/image-1.webp",
+      "/products/whole-spices/cinnamon-stick/image-2.webp"
+    ],
     keyPoints: ["Multi-Layered Quills", "Warm & Woody Flavor", "100% Unbleached", "Natural Curing Process"],
     specTable: {
       "Origin": "Southern India",
@@ -738,7 +762,11 @@ export const products = [
     category: "Whole Spices",
     categorySlug: "whole-spices",
     shortDescription: "Fully ripe peppercorns with the outer skin removed, presenting a clean, sharp, heat-focused spice profile.",
-    image: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=800&q=80",
+    image: "/products/whole-spices/white-pepper/image-1.webp",
+    images: [
+      "/products/whole-spices/white-pepper/image-1.webp",
+      "/products/whole-spices/white-pepper/image-2.webp"
+    ],
     keyPoints: ["No Dark Skins", "Sharp Incisive Heat", "Slow Water Cured", "Perfect for Fine White Sauces"],
     specTable: {
       "Origin": "Kerala, India",
@@ -762,7 +790,11 @@ export const products = [
     category: "Whole Spices",
     categorySlug: "whole-spices",
     shortDescription: "Beautiful star-shaped spice pods with intense sweet, licorice-like flavor and rich anethole oils.",
-    image: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=800&q=80",
+    image: "/products/whole-spices/star-anise/image-1.webp",
+    images: [
+      "/products/whole-spices/star-anise/image-1.webp",
+      "/products/whole-spices/star-anise/image-2.webp"
+    ],
     keyPoints: ["Intense Sweet Licorice Flavor", "Beautiful 8-Point Stars", "Rich in Anethole Oil", "Carefully Slow-Dried"],
     specTable: {
       "Origin": "India",
@@ -786,7 +818,11 @@ export const products = [
     category: "Whole Spices",
     categorySlug: "whole-spices",
     shortDescription: "Bold yellow and black mustard seeds with high oil concentration and sharp, pungent flavor.",
-    image: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=800&q=80",
+    image: "/products/whole-spices/mustard-seeds/image-1.webp",
+    images: [
+      "/products/whole-spices/mustard-seeds/image-1.webp",
+      "/products/whole-spices/mustard-seeds/image-2.webp"
+    ],
     keyPoints: ["35%+ Oil Yield", "Gravity Separated Purity", "Sharp Pungent Flavor", "Available in Yellow & Black"],
     specTable: {
       "Origin": "Rajasthan, India",
