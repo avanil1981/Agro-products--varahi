@@ -565,7 +565,11 @@ export const products = [
     category: "Whole Spices",
     categorySlug: "whole-spices",
     shortDescription: "Sun-dried whole cumin seeds with high volatile oil content and warm, earthy spice aroma.",
-    image: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=800&q=80",
+    image: "/products/whole-spices/cumin-seeds/image-1.webp",
+    images: [
+      "/products/whole-spices/cumin-seeds/image-1.webp",
+      "/products/whole-spices/cumin-seeds/image-2.webp"
+    ],
     keyPoints: ["Min 2.5% Volatile Oil", "Singapore Machine Cleaned", "Sun-Dried Naturally", "99.5% Purity Guaranteed"],
     specTable: {
       "Origin": "Gujarat / Rajasthan, India",
