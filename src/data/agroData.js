@@ -1524,7 +1524,12 @@ export const products = [
     category: "Coffee Beans",
     categorySlug: "coffee-beans",
     shortDescription: "High-altitude, shade-grown Arabica coffee beans featuring a complex spiced flavor profile and elegant acidity, processed under strict quality controls.",
-    image: "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=800&q=80",
+    image: "/products/coffee-beans/arabica-aaa/image-1.webp",
+    images: [
+      "/products/coffee-beans/arabica-aaa/image-1.webp",
+      "/products/coffee-beans/arabica-aaa/image-2.webp",
+      "/products/coffee-beans/arabica-aaa/image-3.webp"
+    ],
     keyPoints: ["Shade-Grown in Western Ghats", "Sieving Grade AAA/AA", "Intense Floral Aroma", "Zero Black/Sour Bean Defects"],
     specTable: {
       "Origin": "Chikmagalur / Coorg, Karnataka, India",
@@ -1548,7 +1553,12 @@ export const products = [
     category: "Coffee Beans",
     categorySlug: "coffee-beans",
     shortDescription: "Robust, high-caffeine Robusta coffee beans sourced from pristine Indian highlands, offering a rich crema and bold chocolatey finish.",
-    image: "https://images.unsplash.com/photo-1497515114629-f71d768fd07c?auto=format&fit=crop&w=800&q=80",
+    image: "/products/coffee-beans/robusta-aaa/image-1.webp",
+    images: [
+      "/products/coffee-beans/robusta-aaa/image-1.webp",
+      "/products/coffee-beans/robusta-aaa/image-2.webp",
+      "/products/coffee-beans/robusta-aaa/image-3.webp"
+    ],
     keyPoints: ["Shade-Grown Highlands", "Bold Crema Yield", "Chocolaty & Nutty Undertones", "Clean Parchment Processed"],
     specTable: {
       "Origin": "Wayanad, Kerala / Coorg, Karnataka, India",
