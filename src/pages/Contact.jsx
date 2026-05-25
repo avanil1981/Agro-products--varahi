@@ -189,12 +189,19 @@ export default function Contact() {
       <div className="absolute bottom-1/4 right-[-10%] w-[600px] h-[600px] rounded-full bg-gold-accent/5 blur-[150px] pointer-events-none z-0"></div>
 
       {/* 1. Page Hero Header */}
-      <section className="relative bg-gradient-to-br from-dark-green via-[#032411] to-[#011409] text-white py-24 px-4 md:px-8 border-b border-gold-accent/20 text-center overflow-hidden">
+      <section 
+        className="relative text-white py-24 px-4 md:px-8 border-b border-gold-accent/20 text-center overflow-hidden bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url('/images/heroes/contact-hero.png')` }}
+      >
+        {/* Dark overlay for text readability */}
+        <div className="absolute inset-0 bg-dark-green/75 mix-blend-multiply z-0"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-transparent z-0"></div>
+        
         {/* Fine background mesh pattern */}
-        <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[radial-gradient(#F8F6F1_1px,transparent_1px)] [background-size:20px_20px]"></div>
+        <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[radial-gradient(#F8F6F1_1px,transparent_1px)] [background-size:20px_20px] z-0"></div>
         
         {/* Ambient top gold light leak */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[200px] bg-gold-accent/10 rounded-full blur-[100px] pointer-events-none"></div>
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[200px] bg-gold-accent/10 rounded-full blur-[100px] pointer-events-none z-0"></div>
 
         <div className="max-w-4xl mx-auto space-y-6 relative z-10">
           <motion.div

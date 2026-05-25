@@ -89,8 +89,15 @@ export default function Products() {
       />
       
       {/* 1. Page Hero Header */}
-      <section className="relative bg-gradient-to-br from-primary-green to-dark-green text-white py-20 px-4 md:px-8 border-b-4 border-gold-accent text-center overflow-hidden">
-        <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[radial-gradient(#F8F6F1_1px,transparent_1px)] [background-size:20px_20px]"></div>
+      <section 
+        className="relative text-white py-24 px-4 md:px-8 border-b-4 border-gold-accent text-center overflow-hidden bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url('/images/heroes/products-hero.png')` }}
+      >
+        {/* Dark overlay for readability */}
+        <div className="absolute inset-0 bg-dark-green/70 mix-blend-multiply z-0"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-transparent z-0"></div>
+        <div className="absolute inset-0 opacity-[0.05] pointer-events-none bg-[radial-gradient(#F8F6F1_1px,transparent_1px)] [background-size:20px_20px] z-0"></div>
+        
         <div className="max-w-4xl mx-auto space-y-4 relative z-10">
           <motion.span 
             initial={{ opacity: 0 }}
