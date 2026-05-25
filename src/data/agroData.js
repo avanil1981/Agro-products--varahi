@@ -1400,7 +1400,12 @@ export const products = [
     category: "Fresh Fruits",
     categorySlug: "fresh-fruits",
     shortDescription: "The king of fruits, featuring sweet, saffron-colored flesh, rich aroma, and high export grade.",
-    image: "https://images.unsplash.com/photo-1553279768-865429fa0078?auto=format&fit=crop&w=800&q=80",
+    image: "/products/fresh-fruits/mango/image-1.webp",
+    images: [
+      "/products/fresh-fruits/mango/image-1.webp",
+      "/products/fresh-fruits/mango/image-2.webp",
+      "/products/fresh-fruits/mango/image-3.webp"
+    ],
     keyPoints: ["GI-Tagged Ratnagiri Alphonso", "Fiber-Free Creamy Pulp", "Sweet Saffron Interior", "Hot-Water Sterilized Safety"],
     specTable: {
       "Origin": "Ratnagiri / Devgad (Maharashtra), India",
@@ -1423,7 +1428,12 @@ export const products = [
     category: "Fresh Fruits",
     categorySlug: "fresh-fruits",
     shortDescription: "Rich, firm, premium Cavendish green bananas harvested at pre-ripened export stage.",
-    image: "https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?auto=format&fit=crop&w=800&q=80",
+    image: "/products/fresh-fruits/banana/image-1.webp",
+    images: [
+      "/products/fresh-fruits/banana/image-1.webp",
+      "/products/fresh-fruits/banana/image-2.webp",
+      "/products/fresh-fruits/banana/image-3.webp"
+    ],
     keyPoints: ["Grand Naine (G9) Cavendish", "Spotless Golden Yellow on Ripening", "Strict Crown Treatments", "Controlled Reefer Transport"],
     specTable: {
       "Origin": "Gujarat / Maharashtra, India",
@@ -1446,7 +1456,12 @@ export const products = [
     category: "Fresh Fruits",
     categorySlug: "fresh-fruits",
     shortDescription: "Crisp, sweet fresh guavas with thick flesh, high vitamin C, and rich tropical taste.",
-    image: "https://images.unsplash.com/photo-1537640538966-79f369143f8f?auto=format&fit=crop&w=800&q=80",
+    image: "/products/fresh-fruits/guava/image-1.webp",
+    images: [
+      "/products/fresh-fruits/guava/image-1.webp",
+      "/products/fresh-fruits/guava/image-2.webp",
+      "/products/fresh-fruits/guava/image-3.webp"
+    ],
     keyPoints: ["VNR Bihi Bold Variety", "Crisp Thick Sweet Flesh", "泡沫套 Foam Sleeved Protection", "Loaded with Vitamin C"],
     specTable: {
       "Origin": "India",
@@ -1469,7 +1484,12 @@ export const products = [
     category: "Fresh Fruits",
     categorySlug: "fresh-fruits",
     shortDescription: "Juicy sweet limes (Mosambi) loaded with Vitamin C, featuring clean skin and high juice yield.",
-    image: "https://images.unsplash.com/photo-1537640538966-79f369143f8f?auto=format&fit=crop&w=800&q=80",
+    image: "/products/fresh-fruits/sweet-lime/image-1.webp",
+    images: [
+      "/products/fresh-fruits/sweet-lime/image-1.webp",
+      "/products/fresh-fruits/sweet-lime/image-2.webp",
+      "/products/fresh-fruits/sweet-lime/image-3.webp"
+    ],
     keyPoints: ["MOSAMBI Citrus Selection", "Thin Rind & High Juice", "Low Acidity Sweet Taste", "Polished and sorted Bulks"],
     specTable: {
       "Origin": "Maharashtra / Andhra Pradesh, India",
@@ -1492,7 +1512,12 @@ export const products = [
     category: "Fresh Fruits",
     categorySlug: "fresh-fruits",
     shortDescription: "Large, sweet, deep red watermelons harvested fresh with high water content and crisp texture.",
-    image: "https://images.unsplash.com/photo-1587049352846-4a222e784d38?auto=format&fit=crop&w=800&q=80",
+    image: "/products/fresh-fruits/watermelon/image-1.webp",
+    images: [
+      "/products/fresh-fruits/watermelon/image-1.webp",
+      "/products/fresh-fruits/watermelon/image-2.webp",
+      "/products/fresh-fruits/watermelon/image-3.webp"
+    ],
     keyPoints: ["Sugar Queen Kiran Crop", "11°-13° Brix Sweetness", "Thick Shock-Proof Rind", "Hand-Acoustic Maturity Checked"],
     specTable: {
       "Origin": "Karnataka / Tamil Nadu, India",
