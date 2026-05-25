@@ -1159,7 +1159,11 @@ export const products = [
     category: "Fresh Vegetables",
     categorySlug: "fresh-vegetables",
     shortDescription: "Vibrant, thick-skinned red and pink onions harvested from Nashik, featuring long storage stability.",
-    image: "https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=800&q=80",
+    image: "/products/fresh-vegetables/onion/image-1.webp",
+    images: [
+      "/products/fresh-vegetables/onion/image-1.webp",
+      "/products/fresh-vegetables/onion/image-2.webp"
+    ],
     keyPoints: ["Nashik Red Crop", "Double Skin protection", "Highly Pungent & Juicy", "Well Cured for Sea Voyaging"],
     specTable: {
       "Origin": "Nashik (Maharashtra), India",
@@ -1182,7 +1186,11 @@ export const products = [
     category: "Fresh Vegetables",
     categorySlug: "fresh-vegetables",
     shortDescription: "Premium fresh potatoes with clean skin, low sugar, and robust starch content, perfect for wholesale.",
-    image: "https://images.unsplash.com/photo-1518977676601-b53f82aba655?auto=format&fit=crop&w=800&q=80",
+    image: "/products/fresh-vegetables/potato/image-1.webp",
+    images: [
+      "/products/fresh-vegetables/potato/image-1.webp",
+      "/products/fresh-vegetables/potato/image-2.webp"
+    ],
     keyPoints: ["Jyoti & Pukhraj Varieties", "Firm Skin & Solid Flesh", "Low Sugar (No Browning)", "Soil Washed Cleanness"],
     specTable: {
       "Origin": "Gujarat / Uttar Pradesh, India",
@@ -1205,7 +1213,11 @@ export const products = [
     category: "Fresh Vegetables",
     categorySlug: "fresh-vegetables",
     shortDescription: "Vibrant red, firm fresh tomatoes harvested at early ripening stage for safe export shipping.",
-    image: "https://images.unsplash.com/photo-1595855759920-86582396756a?auto=format&fit=crop&w=800&q=80",
+    image: "/products/fresh-vegetables/tomato/image-1.webp",
+    images: [
+      "/products/fresh-vegetables/tomato/image-1.webp",
+      "/products/fresh-vegetables/tomato/image-2.webp"
+    ],
     keyPoints: ["Firm Hybrid Grades", "Turning-Green/Light Pink Stage", "Cold Chain Managed", "No Rotting Defects"],
     specTable: {
       "Origin": "Maharashtra / Karnataka, India",
@@ -1228,11 +1240,10 @@ export const products = [
     category: "Chilli",
     categorySlug: "chilli",
     shortDescription: "Fresh, hot green chillies (G4 and Teja), sorted for length and deep green color.",
-    image: "/products/chilli/dry-red-chilli-guntur-teja/image-1.webp",
+    image: "/products/fresh-vegetables/green-chilli/image-1.webp",
     images: [
-      "/products/chilli/dry-red-chilli-guntur-teja/image-1.webp",
-      "/products/chilli/dry-red-chilli-guntur-teja/image-2.webp",
-      "/products/chilli/dry-red-chilli-guntur-teja/image-3.webp"
+      "/products/fresh-vegetables/green-chilli/image-1.webp",
+      "/products/fresh-vegetables/green-chilli/image-2.webp"
     ],
     keyPoints: ["G4 & Teja Selections", "Intense Fiery Heat", "Stalk Cleaned & Dry Packed", "Rapid Air Freight Delivery"],
     specTable: {
@@ -1256,7 +1267,11 @@ export const products = [
     category: "Fresh Vegetables",
     categorySlug: "fresh-vegetables",
     shortDescription: "Tender, slender green okra pods harvested daily and pre-cooled for premium freshness.",
-    image: "https://images.unsplash.com/photo-1425913397330-cf8af2ff40a1?auto=format&fit=crop&w=800&q=80",
+    image: "/products/fresh-vegetables/okra/image-1.webp",
+    images: [
+      "/products/fresh-vegetables/okra/image-1.webp",
+      "/products/fresh-vegetables/okra/image-2.webp"
+    ],
     keyPoints: ["Tender & Fiber-Free", "Vivid Green Chlorophyll", "Pre-Cooled Immediately", "No Skin Bruises"],
     specTable: {
       "Origin": "India",
@@ -1279,7 +1294,11 @@ export const products = [
     category: "Fresh Vegetables",
     categorySlug: "fresh-vegetables",
     shortDescription: "Thick, fleshy green drumsticks loaded with nutrients, packed fresh for daily air cargo.",
-    image: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=800&q=80",
+    image: "/products/fresh-vegetables/drumstick/image-1.webp",
+    images: [
+      "/products/fresh-vegetables/drumstick/image-1.webp",
+      "/products/fresh-vegetables/drumstick/image-2.webp"
+    ],
     keyPoints: ["Fleshy Tender Core", "Uniformly Sized Cuts", "Packed with Moringa Nutrients", "No Woodiness"],
     specTable: {
       "Origin": "India",
@@ -1302,7 +1321,11 @@ export const products = [
     category: "Fresh Vegetables",
     categorySlug: "fresh-vegetables",
     shortDescription: "Bold, fleshy fresh ginger roots with clean skin and high spicy juice concentration.",
-    image: "https://images.unsplash.com/photo-1508747703725-719ae2c98295?auto=format&fit=crop&w=800&q=80",
+    image: "/products/fresh-vegetables/ginger/image-1.webp",
+    images: [
+      "/products/fresh-vegetables/ginger/image-1.webp",
+      "/products/fresh-vegetables/ginger/image-2.webp"
+    ],
     keyPoints: ["Fleshy Bold Knobs", "Pressure Dirt Washed", "High Gingerol Oil juice", "Cured Outer Skin"],
     specTable: {
       "Origin": "Karnataka / Assam, India",
@@ -1325,7 +1348,11 @@ export const products = [
     category: "Fresh Vegetables",
     categorySlug: "fresh-vegetables",
     shortDescription: "Whole premium Indian white garlic, fully cured with bold cloves and rich taste.",
-    image: "https://images.unsplash.com/photo-1540148426945-6cf22a6b2383?auto=format&fit=crop&w=800&q=80",
+    image: "/products/fresh-vegetables/garlic/image-1.webp",
+    images: [
+      "/products/fresh-vegetables/garlic/image-1.webp",
+      "/products/fresh-vegetables/garlic/image-2.webp"
+    ],
     keyPoints: ["Bold Clove Size", "Intense Garlic Aroma", "Well Dried & Cleaned", "Free from soil/mold"],
     specTable: {
       "Origin": "Madhya Pradesh / Rajasthan, India",
@@ -1348,7 +1375,11 @@ export const products = [
     category: "Fresh Vegetables",
     categorySlug: "fresh-vegetables",
     shortDescription: "Aromatic fresh green curry leaves, cleaned and packed with absolute care.",
-    image: "https://images.unsplash.com/photo-1626132647523-66f5bf380027?auto=format&fit=crop&w=800&q=80",
+    image: "/products/fresh-vegetables/curry-leaves/image-1.webp",
+    images: [
+      "/products/fresh-vegetables/curry-leaves/image-1.webp",
+      "/products/fresh-vegetables/curry-leaves/image-2.webp"
+    ],
     keyPoints: ["Intense Herbal Aroma", "Freshly Picked", "Washed and Sorted", "Ideal for Tempering"],
     specTable: {
       "Origin": "India",
