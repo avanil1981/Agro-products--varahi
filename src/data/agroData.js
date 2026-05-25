@@ -1128,7 +1128,12 @@ export const products = [
     category: "Powders",
     categorySlug: "powders",
     shortDescription: "Intensely pungent, sieved black pepper powder ground from premium Malabar peppercorns.",
-    image: "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=800&q=80",
+    image: "/products/chilli/black-pepper-powder/image-1.webp",
+    images: [
+      "/products/chilli/black-pepper-powder/image-1.webp",
+      "/products/chilli/black-pepper-powder/image-2.webp",
+      "/products/chilli/black-pepper-powder/image-3.webp"
+    ],
     keyPoints: ["Sharp Piperine Heat", "Ground from Malabar Peppercorns", "Uniform Particle Sizing", "Robust Seasoning Dust"],
     specTable: {
       "Origin": "Kerala, India",
@@ -1223,7 +1228,12 @@ export const products = [
     category: "Chilli",
     categorySlug: "chilli",
     shortDescription: "Fresh, hot green chillies (G4 and Teja), sorted for length and deep green color.",
-    image: "https://images.unsplash.com/photo-1588166524941-3bf61a9c41db?auto=format&fit=crop&w=800&q=80",
+    image: "/products/chilli/dry-red-chilli-guntur-teja/image-1.webp",
+    images: [
+      "/products/chilli/dry-red-chilli-guntur-teja/image-1.webp",
+      "/products/chilli/dry-red-chilli-guntur-teja/image-2.webp",
+      "/products/chilli/dry-red-chilli-guntur-teja/image-3.webp"
+    ],
     keyPoints: ["G4 & Teja Selections", "Intense Fiery Heat", "Stalk Cleaned & Dry Packed", "Rapid Air Freight Delivery"],
     specTable: {
       "Origin": "India",
@@ -1360,7 +1370,12 @@ export const products = [
     category: "Fresh Vegetables",
     categorySlug: "fresh-vegetables",
     shortDescription: "Crisp, refreshingly fragrant fresh mint leaves harvested daily and packed under cold chains.",
-    image: "https://images.unsplash.com/photo-1626132647523-66f5bf380027?auto=format&fit=crop&w=800&q=80",
+    image: "/products/chilli/mint-leaves/image-1.webp",
+    images: [
+      "/products/chilli/mint-leaves/image-1.webp",
+      "/products/chilli/mint-leaves/image-2.webp",
+      "/products/chilli/mint-leaves/image-3.webp"
+    ],
     keyPoints: ["High Menthol Concentration", "Vibrant Green Leaf stems", "Mud-Free Triple Washed", "Reefer Air Cargo Shipped"],
     specTable: {
       "Origin": "India",
@@ -1500,7 +1515,12 @@ export const products = [
     category: "Chilli",
     categorySlug: "chilli",
     shortDescription: "Premium whole sun-dried red chillies with rich red color and highly pungent flavor, sourced directly from Guntur farms.",
-    image: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=800&q=80",
+    image: "/products/chilli/dry-red-chilli-guntur-teja/image-1.webp",
+    images: [
+      "/products/chilli/dry-red-chilli-guntur-teja/image-1.webp",
+      "/products/chilli/dry-red-chilli-guntur-teja/image-2.webp",
+      "/products/chilli/dry-red-chilli-guntur-teja/image-3.webp"
+    ],
     keyPoints: ["Sourced from Guntur AP", "Vibrant ASTA Color", "Available in Stem / Stemless", "Sun-Dried Hygienically"],
     specTable: {
       "Origin": "Guntur, Andhra Pradesh, India",
