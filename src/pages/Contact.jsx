@@ -312,14 +312,14 @@ export default function Contact() {
                 {/* Tile 4 */}
                 <motion.div 
                   whileHover={{ x: 5 }}
-                  className="flex items-start space-x-4 bg-white/5 border border-white/10 hover:border-gold-accent/30 p-4 rounded-2xl transition-all duration-300 backdrop-blur-sm"
+                  className="flex items-start space-x-3 sm:space-x-4 bg-white/5 border border-white/10 hover:border-gold-accent/30 p-3 sm:p-4 rounded-2xl transition-all duration-300 backdrop-blur-sm"
                 >
-                  <div className="bg-gold-accent/10 p-3 rounded-xl shrink-0 mt-0.5 border border-gold-accent/20">
-                    <Mail className="w-5 h-5 text-gold-accent" />
+                  <div className="bg-gold-accent/10 p-2.5 sm:p-3 rounded-xl shrink-0 mt-0.5 border border-gold-accent/20">
+                    <Mail className="w-4 h-4 sm:w-5 sm:h-5 text-gold-accent" />
                   </div>
                   <div>
                     <h4 className="text-[10px] uppercase tracking-wider text-gold-light/70 font-semibold">Corporate Email</h4>
-                    <a href="mailto:info@srivarahiagrofoods.in" className="text-sm font-bold text-white hover:text-gold-light mt-1 transition-colors block">
+                    <a href="mailto:info@srivarahiagrofoods.in" className="text-xs sm:text-sm font-bold text-white hover:text-gold-light mt-1 transition-colors block break-all sm:break-normal">
                       info@srivarahiagrofoods.in
                     </a>
                     <p className="text-xs text-cream-bg/60 font-light mt-0.5">Corporate business, sourcing, & vendor inquiries</p>
