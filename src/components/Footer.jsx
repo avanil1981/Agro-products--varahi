@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Leaf, Mail, Phone, MapPin, MessageSquare, ArrowRight, ArrowUpRight } from 'lucide-react';
+import { Leaf, Mail, Phone, MapPin, MessageSquare, ArrowRight, ArrowUpRight, Facebook, Instagram, Youtube, Linkedin } from 'lucide-react';
 import { categories, exportMarkets } from '../data/agroData';
 
 export default function Footer() {
@@ -43,6 +43,22 @@ export default function Footer() {
               <a href="https://wa.me/918688669407" target="_blank" rel="noopener noreferrer" className="flex items-center text-xs text-cream-bg/85 hover:text-gold-light transition-colors font-light">
                 <Phone className="w-4 h-4 mr-3 text-gold-accent shrink-0" />
                 <span>+91 8688669407 (WhatsApp)</span>
+              </a>
+            </div>
+
+            {/* Social Media Links */}
+            <div className="flex space-x-3 pt-3">
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="bg-white/5 border border-white/10 hover:border-gold-accent hover:bg-gold-accent hover:text-dark-green text-cream-bg p-2 rounded-full transition-all shadow-sm group/social">
+                <Facebook className="w-4 h-4 group-hover/social:scale-110 transition-transform" />
+              </a>
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="bg-white/5 border border-white/10 hover:border-gold-accent hover:bg-gold-accent hover:text-dark-green text-cream-bg p-2 rounded-full transition-all shadow-sm group/social">
+                <Instagram className="w-4 h-4 group-hover/social:scale-110 transition-transform" />
+              </a>
+              <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="bg-white/5 border border-white/10 hover:border-gold-accent hover:bg-gold-accent hover:text-dark-green text-cream-bg p-2 rounded-full transition-all shadow-sm group/social">
+                <Youtube className="w-4 h-4 group-hover/social:scale-110 transition-transform" />
+              </a>
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="bg-white/5 border border-white/10 hover:border-gold-accent hover:bg-gold-accent hover:text-dark-green text-cream-bg p-2 rounded-full transition-all shadow-sm group/social">
+                <Linkedin className="w-4 h-4 group-hover/social:scale-110 transition-transform" />
               </a>
             </div>
           </div>
