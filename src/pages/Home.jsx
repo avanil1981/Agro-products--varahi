@@ -905,17 +905,17 @@ export default function Home() {
                 viewport={{ once: true, amount: 0.08 }}
                 transition={{ duration: 0.5, delay: idx * 0.07 }}
                 key={prod.id}
-                className="group flex flex-col"
+                className={`group flex flex-col ${idx === 0 ? 'sm:col-span-2' : ''}`}
               >
                 <div className="relative flex flex-col h-full bg-white rounded-3xl overflow-hidden border border-[#ede5d4] shadow-sm hover:shadow-xl hover:-translate-y-1 hover:border-[#ECC043]/60 transition-all duration-350">
 
                   {/* Image */}
-                  <div className="relative overflow-hidden aspect-square">
+                  <div className={`relative overflow-hidden flex items-center justify-center bg-[#fdfcfa] ${idx === 0 ? 'aspect-[16/7]' : 'aspect-[4/3]'}`}>
                     <img
                       src={prod.image}
                       alt={prod.name}
                       loading="lazy"
-                      className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.07]"
+                      className="w-full h-full object-contain p-4 transition-transform duration-700 ease-out group-hover:scale-[1.05]"
                     />
                     {/* Dark scrim on hover */}
                     <div className="absolute inset-0 bg-gradient-to-t from-[#0a2e18]/75 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400"></div>
