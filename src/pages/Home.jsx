@@ -736,9 +736,9 @@ export default function Home() {
       {/* 3. Trust Bar with Light Cream Background and Gold Circle Outlines */}
       <motion.section initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true, amount: 0.1 }} transition={{ duration: 0.8 }} className="bg-[#FAF8F5] py-6 px-4 md:px-8 border-y border-gold-accent/15 relative z-20">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 lg:gap-4 items-center">
+          <div className="flex overflow-x-auto lg:grid lg:grid-cols-5 gap-6 lg:gap-4 items-center no-scrollbar snap-x snap-mandatory pb-2 lg:pb-0">
             {trustItems.map((item, idx) => (
-              <div key={idx} className="flex items-center space-x-3.5 group text-left justify-start sm:justify-center lg:justify-start">
+              <div key={idx} className="flex-shrink-0 w-[260px] lg:w-auto flex items-center space-x-3.5 group text-left justify-start snap-start">
                 {/* Gold Circle Outline Icon wrapper */}
                 <div className="flex-shrink-0 w-12 h-12 rounded-full border border-gold-accent/60 flex items-center justify-center text-primary-green bg-white shadow-sm group-hover:scale-105 group-hover:border-gold-accent transition-all duration-300">
                   <item.icon className="w-5 h-5 text-primary-green" />
