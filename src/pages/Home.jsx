@@ -114,8 +114,38 @@ function ZigZagTimeline() {
         .zz-side-cell {
           display: flex;
           align-items: center;
+          width: 100%;
         }
-        .zz-empty { /* empty grid cell */ }
+        
+        /* Mobile Layout Adjustments */
+        @media (max-width: 768px) {
+          .zz-step-row {
+            grid-template-columns: 56px 1fr;
+            grid-template-areas: "timeline content";
+            gap: 16px;
+            min-height: auto;
+            margin-bottom: 24px !important;
+          }
+          .zz-step-row > div:nth-child(2) {
+             grid-area: timeline;
+          }
+          .zz-step-row > div:nth-child(1), 
+          .zz-step-row > div:nth-child(3) {
+             grid-area: content;
+             padding: 0 !important;
+             justify-content: flex-start !important;
+          }
+          .zz-empty-wrapper {
+             display: none !important;
+          }
+          .zz-card-left, 
+          .zz-card-right {
+             max-width: 100% !important;
+          }
+          .zz-card-inner {
+             padding: 1.2rem 1.4rem;
+          }
+        }
       `}</style>
 
       {/* Radial glow background */}
@@ -153,7 +183,7 @@ function ZigZagTimeline() {
                 style={{ transitionDelay:`${delay}s`, marginBottom: idx < ZZ_STEPS.length - 1 ? '0' : '0' }}
               >
                 {/* Left cell */}
-                <div className="zz-side-cell" style={{ justifyContent:'flex-end', paddingRight:'32px' }}>
+                <div className={`zz-side-cell ${!isLeft ? 'zz-empty-wrapper' : ''}`} style={{ justifyContent:'flex-end', paddingRight:'32px' }}>
                   {isLeft ? (
                     <div className="zz-card-left" style={{ width:'100%', maxWidth:'340px' }}>
                       <div className="zz-card-inner" style={{ padding:0 }}>
@@ -210,7 +240,7 @@ function ZigZagTimeline() {
                 </div>
 
                 {/* Right cell */}
-                <div className="zz-side-cell" style={{ justifyContent:'flex-start', paddingLeft:'32px' }}>
+                <div className={`zz-side-cell ${isLeft ? 'zz-empty-wrapper' : ''}`} style={{ justifyContent:'flex-start', paddingLeft:'32px' }}>
                   {!isLeft ? (
                     <div className="zz-card-right" style={{ width:'100%', maxWidth:'340px' }}>
                       <div className="zz-card-inner" style={{ padding:0 }}>
