@@ -905,12 +905,12 @@ export default function Home() {
                 viewport={{ once: true, amount: 0.08 }}
                 transition={{ duration: 0.5, delay: idx * 0.07 }}
                 key={prod.id}
-                className={`group flex flex-col ${idx === 0 ? 'sm:col-span-2' : ''}`}
+                className="group flex flex-col"
               >
                 <div className="relative flex flex-col h-full bg-white rounded-3xl overflow-hidden border border-[#ede5d4] shadow-sm hover:shadow-xl hover:-translate-y-1 hover:border-[#ECC043]/60 transition-all duration-350">
 
                   {/* Image */}
-                  <div className={`relative overflow-hidden ${idx === 0 ? 'aspect-[16/7]' : 'aspect-[4/3]'}`}>
+                  <div className="relative overflow-hidden aspect-square">
                     <img
                       src={prod.image}
                       alt={prod.name}
