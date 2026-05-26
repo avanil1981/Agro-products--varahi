@@ -910,7 +910,7 @@ export default function Home() {
                 <div className="relative flex flex-col h-full bg-white rounded-3xl overflow-hidden border border-[#ede5d4] shadow-sm hover:shadow-xl hover:-translate-y-1 hover:border-[#ECC043]/60 transition-all duration-350">
 
                   {/* Image */}
-                  <div className={`relative overflow-hidden ${idx === 0 ? 'aspect-[16/7]' : 'aspect-square'}`}>
+                  <div className={`relative overflow-hidden ${idx === 0 ? 'aspect-video' : 'aspect-square'}`}>
                     <img
                       src={prod.homeImage || prod.image}
                       alt={prod.name}
