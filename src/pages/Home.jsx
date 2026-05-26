@@ -758,7 +758,7 @@ export default function Home() {
       </motion.section>
 
       {/* 2. About Export Business Section */}
-      <section className="pt-12 pb-6 md:py-24 px-4 md:px-8 max-w-7xl mx-auto overflow-hidden">
+      <section className="pt-12 pb-6 md:pt-24 md:pb-12 px-4 md:px-8 max-w-7xl mx-auto overflow-hidden">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           {/* Left Side: Premium Layered Visual Cards */}
           <motion.div initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: 0.1 }} transition={{ duration: 0.6 }} className="lg:col-span-6 relative">
@@ -867,7 +867,7 @@ export default function Home() {
       </section>
 
       {/* 7. Unified Product Showcase Section */}
-      <section className="relative bg-[#F9F6F0] pt-10 pb-20 md:py-28 px-4 md:px-8 overflow-hidden">
+      <section className="relative bg-[#F9F6F0] pt-10 pb-20 md:pt-12 md:pb-28 px-4 md:px-8 overflow-hidden">
 
         {/* Decorative top-left leaf watermark */}
         <div className="absolute -top-16 -left-16 w-80 h-80 rounded-full bg-[#0a2e18]/4 blur-3xl pointer-events-none"></div>
