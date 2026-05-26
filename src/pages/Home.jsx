@@ -907,26 +907,26 @@ export default function Home() {
                 key={prod.id}
                 className={`group flex flex-col ${idx === 0 ? 'sm:col-span-2' : ''}`}
               >
-                <div className="relative flex flex-col h-full bg-white rounded-3xl overflow-hidden border border-[#ede5d4] shadow-sm hover:shadow-xl hover:-translate-y-1 hover:border-[#ECC043]/60 transition-all duration-350">
+                <div className={`relative flex h-full bg-white rounded-3xl overflow-hidden border border-[#ede5d4] shadow-sm hover:shadow-xl hover:-translate-y-1 hover:border-[#ECC043]/60 transition-all duration-350 ${idx === 0 ? 'flex-col sm:flex-row' : 'flex-col'}`}>
 
                   {/* Image */}
-                  <div className={`relative overflow-hidden flex items-center justify-center bg-[#fdfcfa] ${idx === 0 ? 'aspect-[16/7]' : 'aspect-[4/3]'}`}>
+                  <div className={`relative overflow-hidden ${idx === 0 ? 'sm:w-1/2 aspect-square' : 'aspect-square'}`}>
                     <img
                       src={prod.image}
                       alt={prod.name}
                       loading="lazy"
-                      className="w-full h-full object-contain p-4 transition-transform duration-700 ease-out group-hover:scale-[1.05]"
+                      className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]"
                     />
                     {/* Dark scrim on hover */}
                     <div className="absolute inset-0 bg-gradient-to-t from-[#0a2e18]/75 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400"></div>
 
                     {/* Category badge */}
-                    <span className="absolute top-3 left-3 bg-[#0a2e18] text-[#ECC043] text-[9px] font-extrabold uppercase tracking-widest px-3 py-1.5 rounded-full">
+                    <span className="absolute top-3 left-3 bg-[#0a2e18] text-[#ECC043] text-[9px] font-extrabold uppercase tracking-widest px-3 py-1.5 rounded-full z-10">
                       {prod.category}
                     </span>
 
                     {/* Market badge */}
-                    <span className={`absolute top-3 right-3 text-[9px] font-bold uppercase tracking-wider px-2.5 py-1.5 rounded-full border ${
+                    <span className={`absolute top-3 right-3 text-[9px] font-bold uppercase tracking-wider px-2.5 py-1.5 rounded-full border z-10 ${
                       homeMarket === 'export'
                         ? 'bg-[#0f3460]/85 text-sky-200 border-sky-400/20 backdrop-blur-sm'
                         : 'bg-[#7c3a00]/85 text-amber-200 border-amber-400/20 backdrop-blur-sm'
@@ -935,10 +935,10 @@ export default function Home() {
                     </span>
 
                     {/* Hover CTA on image */}
-                    <div className="absolute inset-0 flex items-end justify-center pb-5 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
+                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 z-10">
                       <Link
                         to={`/products/${prod.slug}`}
-                        className="inline-flex items-center gap-2 bg-[#ECC043] text-[#0a2e18] text-[10px] font-extrabold uppercase tracking-wider px-5 py-2.5 rounded-full shadow-lg hover:scale-105 transition-transform"
+                        className="inline-flex items-center gap-2 bg-[#ECC043] text-[#0a2e18] text-[10px] font-extrabold uppercase tracking-wider px-5 py-2.5 rounded-full shadow-lg hover:scale-105 transition-transform translate-y-2 group-hover:translate-y-0"
                       >
                         View Details <ArrowRight className="w-3.5 h-3.5" />
                       </Link>
@@ -946,9 +946,9 @@ export default function Home() {
                   </div>
 
                   {/* Card body */}
-                  <div className="p-5 flex-1 flex flex-col justify-between">
+                  <div className={`p-5 flex-1 flex flex-col justify-center ${idx === 0 ? 'sm:p-8 sm:w-1/2' : 'justify-between'}`}>
                     <div>
-                      <h3 className={`font-serif font-extrabold text-[#0a2e18] group-hover:text-[#128243] transition-colors leading-snug mb-1.5 ${idx === 0 ? 'text-lg' : 'text-[15px]'}`}>
+                      <h3 className={`font-serif font-extrabold text-[#0a2e18] group-hover:text-[#128243] transition-colors leading-snug mb-1.5 ${idx === 0 ? 'text-2xl mb-3' : 'text-[15px]'}`}>
                         {prod.name}
                       </h3>
                       <p className="text-[11px] text-[#888] font-light line-clamp-2 leading-relaxed">
