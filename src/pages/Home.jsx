@@ -1252,15 +1252,15 @@ export default function Home() {
         </motion.div>
 
         {/* Bento Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[220px]">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[280px] md:auto-rows-[250px]">
           {/* Card 1: Direct Farmer Sourcing (Double Width) */}
-          <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.1 }} transition={{ duration: 0.6 }} className="md:col-span-2 rounded-3xl border border-gold-accent/20 text-white text-left relative overflow-hidden flex flex-col justify-end hover:shadow-xl hover:border-gold-accent/40 transition-all duration-500 group min-h-[220px]">
+          <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.1 }} transition={{ duration: 0.6 }} className="md:col-span-2 rounded-3xl border border-gold-accent/20 text-white text-left relative overflow-hidden flex flex-col justify-end hover:shadow-xl hover:border-gold-accent/40 transition-all duration-500 group h-full">
             <div className="absolute inset-0 z-0">
               <img src="https://images.unsplash.com/photo-1599940824399-b87987ceb72a?auto=format&fit=crop&w=800&q=80" alt="Indian Spices" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out" />
-              <div className="absolute inset-0 bg-dark-green/85 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out"></div>
+              <div className="absolute inset-0 bg-dark-green/85 opacity-90 md:opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out"></div>
             </div>
             
-            <div className="relative z-10 flex flex-col h-full justify-between p-8 opacity-0 translate-y-8 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 ease-out delay-75 pointer-events-none group-hover:pointer-events-auto">
+            <div className="relative z-10 flex flex-col h-full justify-between p-6 md:p-8 opacity-100 md:opacity-0 translate-y-0 md:translate-y-8 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 ease-out delay-75 pointer-events-auto md:pointer-events-none group-hover:pointer-events-auto">
               <div className="bg-gold-accent/20 backdrop-blur-md p-3.5 rounded-2xl text-gold-accent inline-block self-start border border-gold-accent/30">
                 <Leaf className="w-6 h-6 animate-pulse" />
               </div>
@@ -1272,13 +1272,13 @@ export default function Home() {
           </motion.div>
 
           {/* Card 2: NGO Agricultural Support */}
-          <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.1 }} transition={{ duration: 0.6 }} className="rounded-3xl border border-gold-accent/15 text-left flex flex-col justify-end hover:shadow-lg hover:border-gold-accent/35 transition-all duration-500 group relative overflow-hidden min-h-[220px]">
+          <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.1 }} transition={{ duration: 0.6 }} className="rounded-3xl border border-gold-accent/15 text-left flex flex-col justify-end hover:shadow-lg hover:border-gold-accent/35 transition-all duration-500 group relative overflow-hidden h-full">
             <div className="absolute inset-0 z-0">
               <img src="https://images.unsplash.com/photo-1605000797499-95a51c5269ae?auto=format&fit=crop&w=800&q=80" alt="Indian Farming" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out" />
-              <div className="absolute inset-0 bg-dark-green/85 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out"></div>
+              <div className="absolute inset-0 bg-dark-green/85 opacity-90 md:opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out"></div>
             </div>
             
-            <div className="relative z-10 flex flex-col h-full justify-between p-8 opacity-0 translate-y-8 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 ease-out delay-75 pointer-events-none group-hover:pointer-events-auto">
+            <div className="relative z-10 flex flex-col h-full justify-between p-6 md:p-8 opacity-100 md:opacity-0 translate-y-0 md:translate-y-8 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 ease-out delay-75 pointer-events-auto md:pointer-events-none group-hover:pointer-events-auto">
               <div className="bg-primary-green/20 backdrop-blur-md p-3.5 rounded-2xl text-white inline-block self-start border border-white/20">
                 <HeartHandshake className="w-6 h-6" />
               </div>
@@ -1290,13 +1290,13 @@ export default function Home() {
           </motion.div>
 
           {/* Card 3: Premium Quality */}
-          <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.1 }} transition={{ duration: 0.6 }} className="rounded-3xl border border-gold-accent/15 text-left flex flex-col justify-end hover:shadow-lg hover:border-gold-accent/35 transition-all duration-500 group relative overflow-hidden min-h-[220px]">
+          <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.1 }} transition={{ duration: 0.6 }} className="rounded-3xl border border-gold-accent/15 text-left flex flex-col justify-end hover:shadow-lg hover:border-gold-accent/35 transition-all duration-500 group relative overflow-hidden h-full">
             <div className="absolute inset-0 z-0">
               <img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=800&q=80" alt="Premium Rice" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out" />
-              <div className="absolute inset-0 bg-dark-green/85 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out"></div>
+              <div className="absolute inset-0 bg-dark-green/85 opacity-90 md:opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out"></div>
             </div>
 
-            <div className="relative z-10 flex flex-col h-full justify-between p-8 opacity-0 translate-y-8 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 ease-out delay-75 pointer-events-none group-hover:pointer-events-auto">
+            <div className="relative z-10 flex flex-col h-full justify-between p-6 md:p-8 opacity-100 md:opacity-0 translate-y-0 md:translate-y-8 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 ease-out delay-75 pointer-events-auto md:pointer-events-none group-hover:pointer-events-auto">
               <div className="bg-primary-green/20 backdrop-blur-md p-3.5 rounded-2xl text-white inline-block self-start border border-white/20">
                 <Award className="w-6 h-6" />
               </div>
@@ -1308,13 +1308,13 @@ export default function Home() {
           </motion.div>
 
           {/* Card 4: Global Export (Double Width) */}
-          <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.1 }} transition={{ duration: 0.6 }} className="md:col-span-2 rounded-3xl border border-gold-accent/15 text-left flex flex-col justify-end hover:shadow-lg hover:border-gold-accent/35 transition-all duration-500 group relative overflow-hidden min-h-[220px]">
+          <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.1 }} transition={{ duration: 0.6 }} className="md:col-span-2 rounded-3xl border border-gold-accent/15 text-left flex flex-col justify-end hover:shadow-lg hover:border-gold-accent/35 transition-all duration-500 group relative overflow-hidden h-full">
             <div className="absolute inset-0 z-0">
               <img src="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?auto=format&fit=crop&w=800&q=80" alt="Global Logistics" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out" />
-              <div className="absolute inset-0 bg-dark-green/85 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out"></div>
+              <div className="absolute inset-0 bg-dark-green/85 opacity-90 md:opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out"></div>
             </div>
 
-            <div className="relative z-10 flex flex-col h-full justify-between p-8 opacity-0 translate-y-8 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 ease-out delay-75 pointer-events-none group-hover:pointer-events-auto">
+            <div className="relative z-10 flex flex-col h-full justify-between p-6 md:p-8 opacity-100 md:opacity-0 translate-y-0 md:translate-y-8 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 ease-out delay-75 pointer-events-auto md:pointer-events-none group-hover:pointer-events-auto">
               <div className="bg-primary-green/20 backdrop-blur-md p-3.5 rounded-2xl text-white inline-block self-start group-hover:bg-primary-green transition-all border border-white/20">
                 <Globe2 className="w-6 h-6" />
               </div>
