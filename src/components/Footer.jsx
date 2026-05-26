@@ -152,7 +152,7 @@ export default function Footer() {
                   key={idx}
                   className="bg-primary-green hover:bg-gold-accent hover:text-dark-green cursor-default text-[10px] py-1 px-2.5 rounded-full border border-gold-accent/20 transition-all font-medium"
                 >
-                  {market.code || market.name.split(' ')[0]}
+                  {market.name.replace(/\s*\(.*?\)\s*/g, '')}
                 </span>
               ))}
               <Link 
