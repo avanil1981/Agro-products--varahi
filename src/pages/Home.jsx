@@ -907,12 +907,12 @@ export default function Home() {
                 key={prod.id}
                 className={`group flex flex-col ${idx === 0 ? 'sm:col-span-2' : ''}`}
               >
-                <div className={`relative flex h-full bg-white rounded-3xl overflow-hidden border border-[#ede5d4] shadow-sm hover:shadow-xl hover:-translate-y-1 hover:border-[#ECC043]/60 transition-all duration-350 ${idx === 0 ? 'flex-col sm:flex-row' : 'flex-col'}`}>
+                <div className="relative flex flex-col h-full bg-white rounded-3xl overflow-hidden border border-[#ede5d4] shadow-sm hover:shadow-xl hover:-translate-y-1 hover:border-[#ECC043]/60 transition-all duration-350">
 
                   {/* Image */}
-                  <div className={`relative overflow-hidden ${idx === 0 ? 'sm:w-1/2 aspect-square' : 'aspect-square'}`}>
+                  <div className={`relative overflow-hidden ${idx === 0 ? 'aspect-[16/7]' : 'aspect-square'}`}>
                     <img
-                      src={prod.image}
+                      src={prod.homeImage || prod.image}
                       alt={prod.name}
                       loading="lazy"
                       className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]"
@@ -946,9 +946,9 @@ export default function Home() {
                   </div>
 
                   {/* Card body */}
-                  <div className={`p-5 flex-1 flex flex-col justify-center ${idx === 0 ? 'sm:p-8 sm:w-1/2' : 'justify-between'}`}>
+                  <div className="p-5 flex-1 flex flex-col justify-between">
                     <div>
-                      <h3 className={`font-serif font-extrabold text-[#0a2e18] group-hover:text-[#128243] transition-colors leading-snug mb-1.5 ${idx === 0 ? 'text-2xl mb-3' : 'text-[15px]'}`}>
+                      <h3 className={`font-serif font-extrabold text-[#0a2e18] group-hover:text-[#128243] transition-colors leading-snug mb-1.5 ${idx === 0 ? 'text-lg' : 'text-[15px]'}`}>
                         {prod.name}
                       </h3>
                       <p className="text-[11px] text-[#888] font-light line-clamp-2 leading-relaxed">

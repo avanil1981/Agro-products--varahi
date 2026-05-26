@@ -70,6 +70,7 @@ export const products = [
     categorySlug: "rice-flours",
     shortDescription: "A highly demanded long-grain non-basmati rice variety widely exported to African, Gulf, and Southeast Asian countries.",
     image: "/products/rice-flours/ir64-non-basmati-rice/image-1.webp",
+    homeImage: "/products/rice-flours/ir64-non-basmati-rice/home-wide.webp",
     images: [
       "/products/rice-flours/ir64-non-basmati-rice/image-1.webp",
       "/products/rice-flours/ir64-non-basmati-rice/image-2.webp",
