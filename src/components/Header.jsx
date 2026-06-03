@@ -58,7 +58,7 @@ export default function Header() {
             <img 
               src="/logo.png" 
               alt="Sri Varahi Agro Foods LLP" 
-              className="h-12 md:h-16 w-auto object-contain group-hover:scale-105 transition-transform duration-300"
+              className="h-16 md:h-20 w-auto object-contain group-hover:scale-105 transition-transform duration-300"
             />
           </Link>
 
@@ -196,7 +196,7 @@ export default function Header() {
                 <img 
                   src="/logo.png" 
                   alt="Sri Varahi Agro Foods LLP" 
-                  className="h-9 w-auto object-contain"
+                  className="h-12 w-auto object-contain"
                 />
               </Link>
               <button 
