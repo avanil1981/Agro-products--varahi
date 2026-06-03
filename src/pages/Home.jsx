@@ -31,7 +31,7 @@ const ZZ_STEPS = [
   { step:'01', title:'Farmer Sourcing',  desc:'Procured directly from NGO-supported agricultural farm clusters across India.',  icon:'🌾', nodeIcon: Leaf,        color:'#059669', img:'/flow/farmer_sourcing.png' },
   { step:'02', title:'Quality Check',   desc:'Rigorous lab testing — moisture, chemical residue & purity on every batch.',     icon:'🔬', nodeIcon: FlaskConical, color:'#0d9488', img:'/flow/quality_check.png' },
   { step:'03', title:'Processing',      desc:'Milled, polished, de-stoned & dry-cleaned under strict hygiene protocols.',       icon:'⚙️',  nodeIcon: Cog,         color:'#15803d', img:'/flow/processing.png' },
-  { step:'04', title:'Packaging',       desc:'Custom moisture-barrier BOPP bags, HDPE liners & vacuum retail packs.',          icon:'📦', nodeIcon: Package2,     color:'#b45309', img:'/flow/packaging.png' },
+  { step:'04', title:'Packaging',       desc:'Custom moisture-barrier BOPP bags, HDPE liners & vacuum retail packs.',          icon:'📦', nodeIcon: Package2,     color:'#b45309', img:'/flow/packaging_custom.jpg' },
   { step:'05', title:'Cargo Handling',  desc:'Insulated container stuffing at certified seaports and air cargo hubs.',          icon:'🚢', nodeIcon: Ship,        color:'#1d4ed8', img:'/flow/cargo_handling.png' },
   { step:'06', title:'Export Delivery', desc:'Real-time tracked logistics to UAE, Singapore, Saudi Arabia, Europe & beyond.',   icon:'✈️',  nodeIcon: Plane,        color:'#4f46e5', img:'/flow/export_delivery.png' },
   { step:'07', title:'Domestic Supply', desc:'Efficient cold-chain dispatch to retailers, hotels & supermarkets across India.', icon:'🏪', nodeIcon: Truck,        color:'#16a34a', img:'/flow/domestic_supply.png' },
