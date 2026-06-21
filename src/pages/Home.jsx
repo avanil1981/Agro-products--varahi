@@ -486,9 +486,9 @@ export default function Home() {
   return (
     <div className="bg-cream-bg/40 min-h-screen">
       <SEO 
-        title="Premium Indian Agro Products Exporter – Rice, Spices, Vegetables"
-        description="Sri Varahi Agro Foods LLP is a leading Indian agro products exporter specializing in Basmati Rice, Turmeric, Chilli, Spices, Fresh Fruits & Vegetables. Direct farmer sourcing. Export to UAE, Singapore, Saudi Arabia & Europe."
-        keywords="Indian agro products exporter, Basmati rice exporter India, turmeric export Hyderabad, chilli powder exporter, spices exporter India, fresh vegetables export, agro export Telangana, rice export India, APEDA certified exporter"
+        title="Sri Varahi LLP | Premium Varahi Agro Food Products"
+        description="Sri Varahi Agro Foods LLP is a leading Indian agro products exporter specializing in Basmati Rice, Turmeric, Chilli, Spices, Fresh Fruits & Vegetables. Varahi Agro Food brings direct farmer sourcing to the global market."
+        keywords="sri varahi, sri varahi llp, varahi agro food, sri varahi agro, Indian agro products exporter, Basmati rice exporter India, turmeric export Hyderabad, chilli powder exporter, spices exporter India, fresh vegetables export"
       />
       
       {/* 1. Hero Section with Sliding Images & Left Aligned Clear Content */}

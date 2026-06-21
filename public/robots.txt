@@ -1,11 +1,4 @@
-# 🌾 Sri Varahi Agro Foods LLP — Search Crawler Directives
-# Enables search engine crawlers (Googlebot, Bingbot, DuckDuckBot, etc.) to successfully index this site.
-
 User-agent: *
 Allow: /
 
-# Exclude potential local packages or static JSON structures if needed (e.g. build logs)
-Disallow: /build/
-
-# Declare the absolute link to the dynamic sitemap XML
-Sitemap: https://srivarahiagrofoods.in/sitemap.xml
+Sitemap: https://www.srivarahiagrofoods.in/sitemap.xml
