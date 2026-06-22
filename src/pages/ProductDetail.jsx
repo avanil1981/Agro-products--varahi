@@ -54,7 +54,7 @@ export default function ProductDetail() {
     .slice(0, 4);
 
   // Prefilled WhatsApp query
-  const whatsappUrl = `https://wa.me/918688669407?text=Hello%20Sri%20Varahi%20Agro%20Foods%20LLP,%20I%20am%20interested%20in%20an%20export/wholesale%20quote%20for%20"${encodeURIComponent(product.name)}".%20Please%20provide%20pricing%20and%20packing%20configurations.`;
+  const whatsappUrl = `https://wa.me/918143234488?text=Hello%20Sri%20Varahi%20Agro%20Foods%20LLP,%20I%20am%20interested%20in%20an%20export/wholesale%20quote%20for%20"${encodeURIComponent(product.name)}".%20Please%20provide%20pricing%20and%20packing%20configurations.`;
 
   const additionalProperties = product ? Object.entries(product.specTable).map(([key, val]) => ({
     "@type": "PropertyValue",

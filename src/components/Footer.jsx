@@ -40,9 +40,9 @@ export default function Footer() {
                 <Mail className="w-4 h-4 mr-3 text-gold-accent shrink-0" />
                 <span>info@srivarahiagrofoods.in</span>
               </a>
-              <a href="https://wa.me/918688669407" target="_blank" rel="noopener noreferrer" className="flex items-center text-xs text-cream-bg/85 hover:text-gold-light transition-colors font-light">
+              <a href="https://wa.me/918143234488" target="_blank" rel="noopener noreferrer" className="flex items-center text-xs text-cream-bg/85 hover:text-gold-light transition-colors font-light">
                 <Phone className="w-4 h-4 mr-3 text-gold-accent shrink-0" />
-                <span>+91 8688669407 (WhatsApp)</span>
+                <span>+91 8143234488 (WhatsApp)</span>
               </a>
             </div>
 
@@ -165,7 +165,7 @@ export default function Footer() {
             
             <div className="pt-2">
               <a
-                href="https://wa.me/918688669407?text=Hello%20Sri%20Varahi%20Agro%20Foods%20LLP,%20I%20am%20interested%20in%20an%20export%20inquiry."
+                href="https://wa.me/918143234488?text=Hello%20Sri%20Varahi%20Agro%20Foods%20LLP,%20I%20am%20interested%20in%20an%20export%20inquiry."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-green-600 text-white font-medium text-xs py-2.5 px-4 rounded-lg flex items-center justify-center hover:bg-green-700 transition-all shadow-md gap-2"

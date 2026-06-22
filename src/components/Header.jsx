@@ -139,9 +139,9 @@ export default function Header() {
                 <Mail className="w-4 h-4 mr-2 text-primary-green group-hover/item:scale-110 transition-transform" />
                 <span>info@srivarahiagrofoods.in</span>
               </a>
-              <a href="https://wa.me/918688669407" target="_blank" rel="noopener noreferrer" className="flex items-center hover:text-primary-green transition-colors group/item">
+              <a href="https://wa.me/918143234488" target="_blank" rel="noopener noreferrer" className="flex items-center hover:text-primary-green transition-colors group/item">
                 <Phone className="w-4 h-4 mr-2 text-primary-green group-hover/item:scale-110 transition-transform" />
-                <span>+91 8688669407</span>
+                <span>+91 8143234488</span>
               </a>
             </div>
 
@@ -263,9 +263,9 @@ export default function Header() {
                 <Mail className="w-4 h-4 mr-3 text-gold-accent" />
                 <span>info@srivarahiagrofoods.in</span>
               </a>
-              <a href="tel:+918688669407" className="flex items-center text-xs text-soft-gray hover:text-primary-green">
+              <a href="tel:+918143234488" className="flex items-center text-xs text-soft-gray hover:text-primary-green">
                 <Phone className="w-4 h-4 mr-3 text-gold-accent" />
-                <span>+91 8688669407</span>
+                <span>+91 8143234488</span>
               </a>
               <Link 
                 to="/quote" 

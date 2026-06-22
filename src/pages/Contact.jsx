@@ -123,7 +123,7 @@ export default function Contact() {
         "@id": "https://srivarahiagrofoods.in/#localbusiness",
         "name": "Sri Varahi Agro Foods LLP",
         "image": "https://srivarahiagrofoods.in/logo.png",
-        "telephone": "+91-8688669407",
+        "telephone": "+91-8143234488",
         "email": "info@srivarahiagrofoods.in",
         "url": "https://srivarahiagrofoods.in",
         "address": {
@@ -139,7 +139,7 @@ export default function Contact() {
           "longitude": "78.4867"
         },
         "sameAs": [
-          "https://wa.me/918688669407"
+          "https://wa.me/918143234488"
         ]
       },
       {
@@ -302,8 +302,8 @@ export default function Contact() {
                   </div>
                   <div>
                     <h4 className="text-[10px] uppercase tracking-wider text-gold-light/70 font-semibold">Global Hotline</h4>
-                    <a href="tel:+918688669407" className="text-sm font-bold text-white hover:text-gold-light mt-1 transition-colors block">
-                      +91 8688669407
+                    <a href="tel:+918143234488" className="text-sm font-bold text-white hover:text-gold-light mt-1 transition-colors block">
+                      +91 8143234488
                     </a>
                     <p className="text-xs text-cream-bg/60 font-light mt-0.5">Direct phone connection with export coordinators</p>
                   </div>
@@ -350,7 +350,7 @@ export default function Contact() {
               </div>
 
               <a
-                href="https://wa.me/918688669407?text=Hello%20Sri%20Varahi%20Agro%20Foods%20LLP,%20I%20have%20an%20export%20bulk%20sourcing%20inquiry."
+                href="https://wa.me/918143234488?text=Hello%20Sri%20Varahi%20Agro%20Foods%20LLP,%20I%20have%20an%20export%20bulk%20sourcing%20inquiry."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-4 w-full bg-green-600 hover:bg-green-700 text-white font-bold text-xs py-3 px-4 rounded-xl flex items-center justify-center space-x-2 transition-all shadow-md group"

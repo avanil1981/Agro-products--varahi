@@ -187,7 +187,7 @@ export default function Quotation() {
               <div className="border-t border-white/10 pt-3 flex items-center justify-between text-[11px] font-semibold">
                 <span>Immediate WhatsApp Connect</span>
                 <a 
-                  href="https://wa.me/918688669407"
+                  href="https://wa.me/918143234488"
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="text-gold-accent hover:underline flex items-center gap-1"

@@ -1635,7 +1635,7 @@ export default function Home() {
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform" />
             </Link>
             <a
-              href="https://wa.me/918688669407?text=Hello%20Sri%20Varahi%20Agro%20Foods%20LLP,%20I%20would%20like%20to%20get%20a%20trade%20quotation."
+              href="https://wa.me/918143234488?text=Hello%20Sri%20Varahi%20Agro%20Foods%20LLP,%20I%20would%20like%20to%20get%20a%20trade%20quotation."
               target="_blank"
               rel="noopener noreferrer"
               className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 bg-green-600 hover:bg-green-700 text-white font-bold text-xs py-4 px-10 rounded-xl transition-all shadow-lg hover:shadow-xl uppercase tracking-wider"
