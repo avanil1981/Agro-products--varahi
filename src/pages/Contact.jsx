@@ -128,7 +128,7 @@ export default function Contact() {
         "url": "https://srivarahiagrofoods.in",
         "address": {
           "@type": "PostalAddress",
-          "streetAddress": "Hyderabad",
+          "streetAddress": "Flat No 111, Sita Pride, Lakshmi Nagar, Kapra",
           "addressLocality": "Hyderabad",
           "addressRegion": "Telangana",
           "addressCountry": "IN"
@@ -287,7 +287,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h4 className="text-[10px] uppercase tracking-wider text-gold-light/70 font-semibold">Office Address</h4>
-                    <p className="text-sm font-medium text-white mt-1">Hyderabad, Telangana, India</p>
+                    <p className="text-sm font-medium text-white mt-1">Flat No 111, Sita Pride, Lakshmi Nagar, Kapra, Hyderabad, 500062, Telangana</p>
                     <p className="text-xs text-cream-bg/60 font-light mt-0.5">Sourcing hub connects with Nhava Sheva & Chennai cargo networks</p>
                   </div>
                 </motion.div>
@@ -665,7 +665,7 @@ export default function Contact() {
 
               <div className="pt-2">
                 <a
-                  href="https://maps.google.com/?q=Hyderabad,+Telangana,+India"
+                  href="https://maps.google.com/?q=Flat+No+111,+Sita+Pride,+Lakshmi+Nagar,+Kapra,+Hyderabad,+500062,+Telangana"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-white hover:bg-cream-bg text-dark-green font-bold text-[10px] py-2.5 px-6 rounded-xl border border-gold-accent/40 shadow-sm hover:shadow transition-all inline-flex items-center space-x-2"

@@ -34,7 +34,7 @@ export default function Footer() {
             <div className="space-y-3.5 pt-2">
               <div className="flex items-start text-xs text-cream-bg/85 font-light">
                 <MapPin className="w-4 h-4 mr-3 text-gold-accent shrink-0 mt-0.5" />
-                <span>Hyderabad, Telangana, India</span>
+                <span>Flat No 111, Sita Pride, Lakshmi Nagar, Kapra, Hyderabad, 500062, Telangana</span>
               </div>
               <a href="mailto:info@srivarahiagrofoods.in" className="flex items-center text-xs text-cream-bg/85 hover:text-gold-light transition-colors font-light">
                 <Mail className="w-4 h-4 mr-3 text-gold-accent shrink-0" />
