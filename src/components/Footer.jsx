@@ -48,7 +48,7 @@ export default function Footer() {
 
             {/* Social Media Links */}
             <div className="flex space-x-3 pt-3">
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="bg-white/5 border border-white/10 hover:border-gold-accent hover:bg-gold-accent hover:text-dark-green text-cream-bg p-2 rounded-full transition-all shadow-sm group/social">
+              <a href="https://www.facebook.com/profile.php?id=61560916154503" target="_blank" rel="noopener noreferrer" className="bg-white/5 border border-white/10 hover:border-gold-accent hover:bg-gold-accent hover:text-dark-green text-cream-bg p-2 rounded-full transition-all shadow-sm group/social">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 group-hover/social:scale-110 transition-transform"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
               </a>
               <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="bg-white/5 border border-white/10 hover:border-gold-accent hover:bg-gold-accent hover:text-dark-green text-cream-bg p-2 rounded-full transition-all shadow-sm group/social">
