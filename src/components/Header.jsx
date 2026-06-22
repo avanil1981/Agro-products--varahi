@@ -133,8 +133,19 @@ export default function Header() {
           {/* Right Area */}
           <div className="hidden xl:flex flex-col space-y-3.5 items-end shrink-0">
             
-            {/* Top Row: Email and Phone */}
+            {/* Top Row: Socials, Email and Phone */}
             <div className="flex items-center space-x-6 text-[13px] font-semibold text-dark-text">
+              <div className="flex items-center space-x-3 border-r border-cream-bg pr-6">
+                <a href="https://www.facebook.com/profile.php?id=61560916154503" target="_blank" rel="noopener noreferrer" className="text-soft-gray hover:text-primary-green transition-colors">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                </a>
+                <a href="https://www.instagram.com/srivarahiagrofoodsllp/" target="_blank" rel="noopener noreferrer" className="text-soft-gray hover:text-primary-green transition-colors">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg>
+                </a>
+                <a href="https://www.linkedin.com/in/sri-varahi-agro-foods-llp-726820418" target="_blank" rel="noopener noreferrer" className="text-soft-gray hover:text-primary-green transition-colors">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect width="4" height="12" x="2" y="9"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                </a>
+              </div>
               <a href="mailto:info@srivarahiagrofoods.in" className="flex items-center hover:text-primary-green transition-colors group/item">
                 <Mail className="w-4 h-4 mr-2 text-primary-green group-hover/item:scale-110 transition-transform" />
                 <span>info@srivarahiagrofoods.in</span>
@@ -267,6 +278,17 @@ export default function Header() {
                 <Phone className="w-4 h-4 mr-3 text-gold-accent" />
                 <span>+91 8143234488</span>
               </a>
+              <div className="flex items-center space-x-4 pt-2 pb-1">
+                <a href="https://www.facebook.com/profile.php?id=61560916154503" target="_blank" rel="noopener noreferrer" className="bg-cream-bg p-2 rounded-full text-primary-green hover:bg-primary-green hover:text-white transition-colors">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                </a>
+                <a href="https://www.instagram.com/srivarahiagrofoodsllp/" target="_blank" rel="noopener noreferrer" className="bg-cream-bg p-2 rounded-full text-primary-green hover:bg-primary-green hover:text-white transition-colors">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg>
+                </a>
+                <a href="https://www.linkedin.com/in/sri-varahi-agro-foods-llp-726820418" target="_blank" rel="noopener noreferrer" className="bg-cream-bg p-2 rounded-full text-primary-green hover:bg-primary-green hover:text-white transition-colors">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect width="4" height="12" x="2" y="9"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                </a>
+              </div>
               <Link 
                 to="/quote" 
                 onClick={() => setIsOpen(false)}
