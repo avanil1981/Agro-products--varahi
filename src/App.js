@@ -4,6 +4,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 import ScrollToTopButton from './components/ScrollToTopButton';
+import FloatingSocials from './components/FloatingSocials';
 
 // Page Imports
 import Home from './pages/Home';
@@ -56,6 +57,9 @@ function App() {
 
         {/* Floating Scroll-To-Top Button with progress ring */}
         <ScrollToTopButton />
+
+        {/* Floating Social Media Bar on the left */}
+        <FloatingSocials />
       </div>
     </Router>
   );
