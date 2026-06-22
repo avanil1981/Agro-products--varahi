@@ -1,11 +1,49 @@
-import React, { useState } from 'react';
-import { ChevronRight, ChevronLeft } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { ChevronRight, ChevronLeft, GripVertical } from 'lucide-react';
 
 export default function FloatingSocials() {
   const [isOpen, setIsOpen] = useState(true);
+  const [topPos, setTopPos] = useState(null);
+  const [isDragging, setIsDragging] = useState(false);
+
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      if (!isDragging) return;
+      // Prevent dragging completely off screen vertically
+      const newY = Math.max(80, Math.min(window.innerHeight - 80, e.clientY || e.touches?.[0]?.clientY));
+      setTopPos(newY);
+    };
+
+    const handleMouseUp = () => {
+      setIsDragging(false);
+    };
+
+    if (isDragging) {
+      document.addEventListener('mousemove', handleMouseMove);
+      document.addEventListener('mouseup', handleMouseUp);
+      document.addEventListener('touchmove', handleMouseMove, { passive: false });
+      document.addEventListener('touchend', handleMouseUp);
+    }
+
+    return () => {
+      document.removeEventListener('mousemove', handleMouseMove);
+      document.removeEventListener('mouseup', handleMouseUp);
+      document.removeEventListener('touchmove', handleMouseMove);
+      document.removeEventListener('touchend', handleMouseUp);
+    };
+  }, [isDragging]);
+
+  const handleDragStart = (e) => {
+    // Prevent default to avoid text selection while dragging
+    e.preventDefault();
+    setIsDragging(true);
+  };
 
   return (
-    <div className={`fixed right-0 top-1/2 -translate-y-1/2 z-[60] flex items-center transition-transform duration-500 hidden md:flex ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+    <div 
+      className={`fixed right-0 -translate-y-1/2 z-[60] flex items-center transition-transform duration-500 hidden md:flex ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}
+      style={{ top: topPos ? `${topPos}px` : '50%', cursor: isDragging ? 'grabbing' : 'auto' }}
+    >
       
       {/* Toggle Button */}
       <button 
@@ -17,7 +55,18 @@ export default function FloatingSocials() {
       </button>
 
       {/* Social Links Container */}
-      <div className="flex flex-col gap-3 py-4 px-2.5 bg-white/95 backdrop-blur-sm shadow-[-4px_0_20px_rgba(0,0,0,0.08)] rounded-l-xl border border-r-0 border-gold-accent/30">
+      <div className="flex flex-col gap-3 py-3 px-2.5 bg-white/95 backdrop-blur-sm shadow-[-4px_0_20px_rgba(0,0,0,0.08)] rounded-l-xl border border-r-0 border-gold-accent/30 pointer-events-auto">
+        
+        {/* Drag Handle */}
+        <div 
+          className="flex justify-center cursor-grab active:cursor-grabbing pb-2 mb-1 border-b border-gold-accent/20 text-gray-400 hover:text-gold-accent transition-colors"
+          onMouseDown={handleDragStart}
+          onTouchStart={handleDragStart}
+          title="Drag to move vertically"
+        >
+          <GripVertical className="w-5 h-5" />
+        </div>
+
         {/* Facebook */}
         <a 
           href="https://www.facebook.com/profile.php?id=61590916154503" 
